@@ -1,0 +1,34 @@
+<h1>Datos del Tutor</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="div">
+  <label for="nombre">Nombre</label>
+  <input type="text" formControlName="nombre" id="nombre">
+  <p *ngIf="loginForm.get('nombre')?.errors?.['required']">El nombre es obligatorio</p>
+</div>
+<div  class="div">
+  <label for="telefono">Telefono</label>
+  <input type="text"  formControlName="telefono" id="telefono">
+  <p *ngIf="loginForm.get('telefono')?.errors?.['required']">El telefono es obligatorio</p>
+  <p *ngIf="loginForm.get('telefono')?.errors?.['pattern']">El telefono debe tener numeros</p>
+</div>
+<div class="div">
+  <label for="correo">Correo</label>
+  <input type="text" formControlName="correo" id="correo">
+  <p *ngIf="loginForm.get('correo')?.errors?.['required']">El correo es obligatorio</p>
+  <p *ngIf="loginForm.get('correo')?.errors?.['email']">El email debe ser correcto</p>
+</div>
+<div  class="div">
+  <label for="direccion">Direccion</label>
+  <input type="text"  formControlName="direccion" id="direccion">
+  <p *ngIf="loginForm.get('direccion')?.errors?.['required']">La Direccion es obligatorio</p>
+</div>
+<div class="divsintomas">
+  <label for="sintomas">Sintomas</label>
+  <input type="text"  formControlName="sintomas" id="sintomas">
+  <p *ngIf="loginForm.get('sintomas')?.errors?.['required']">Los Sintomas es obligatorio</p>
+</div>
+<div class="btnsubmit">
+  <button type="submit" [disabled]="loginForm.invalid">Agendar</button>
+  <button router-Link="">Historial de Citas</button>
+</div>
+</form>

@@ -35,7 +35,12 @@ import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto
 
   exports:[
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    LogoComponent,
+    TituloComponent,
+    HeaderComponent,
+    PerfilComponent
   ]
 })
 export class SharedModule { }
