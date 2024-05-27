@@ -21,7 +21,11 @@ import { PerfilComponent } from './components/molecules/perfil/perfil.component'
   ],
 
   exports:[
-    HeaderComponent
+    HomeComponent,
+    LogoComponent,
+    TituloComponent,
+    HeaderComponent,
+    PerfilComponent
   ]
 })
 export class SharedModule { }

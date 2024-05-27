@@ -1,0 +1,81 @@
+
+h1{
+    font-size: 35px;
+    display: flex;
+    justify-content:center ;
+}
+form{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.div{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    padding: 40px;
+    flex-direction: column;
+}
+
+input{
+    width: 90%;
+    height: 40px;   
+    background-color: #E0DBFF;
+    border: none;
+    border-radius: 10px;
+}
+
+label{
+    font-size: 20px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.divsintomas{
+    width: 80%;
+    padding: 30px;
+
+}
+
+#sintomas{
+    width: 96%;
+    height: 300px;
+    background-color: #BEF3FF;
+    background-image: url('../../../../../assets/images/fondosintomas.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 10px;
+}
+    
+.btnsubmit{
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    justify-content: right;
+}
+
+button{
+    background-color: #E0DBFF;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+p{
+    color: red;
+}
+
+button:disabled{
+    background-color: #eae7fd;
+    color: rgb(85, 85, 85);
+    cursor: none ;
+}
+
+  
+  
