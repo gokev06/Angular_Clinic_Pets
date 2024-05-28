@@ -11,7 +11,8 @@ import { InconphoneComponent } from './components/atoms/inconphone/inconphone.co
 import { InconmessageComponent } from './components/atoms/inconmessage/inconmessage.component';
 import { FooterComponent } from './components/organisms/footer/footer.component';
 import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto-info.component';
-
+import { RouterModule } from "@angular/router";
+import { CitasComponent } from '../features/citas/citas.component'; 
 
 
 @NgModule({
@@ -30,7 +31,10 @@ import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto
   
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot([
+      { path: 'citas', component: CitasComponent },
+  ]),
   ],
 
   exports:[
