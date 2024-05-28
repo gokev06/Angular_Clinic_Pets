@@ -5,21 +5,25 @@ import { CitasRoutingModule } from './citas-routing.module';
 import { CitasComponent } from './citas.component';
 import { ScopedTituloComponent } from './components/scoped-titulo/scoped-titulo.component';
 import { ScopedFormularioComponent } from './components/scoped-formulario/scoped-formulario.component';
+import { SharedModule } from '../../shared/shared.module';
+import { FooterComponent } from '../../shared/components/organisms/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     CitasComponent,
     ScopedTituloComponent,
-    ScopedFormularioComponent
+    ScopedFormularioComponent,
   ],
   imports: [
     CommonModule,
     CitasRoutingModule,
-    ReactiveFormsModule // Importa ReactiveFormsModule aquí
+    ReactiveFormsModule,
+    SharedModule // Importa ReactiveFormsModule aquí
   ],
   exports:[
-    CitasComponent
+    CitasComponent,
+    FooterComponent
   ]
 })
 export class CitasModule { }
