@@ -9,6 +9,7 @@ form{
     justify-content: center;
     flex-wrap: wrap;
     display: flex;
+    padding:  10px;
 }
 
 .div{
@@ -25,6 +26,7 @@ input{
     background-color: #E0DBFF;
     border: none;
     border-radius: 10px;
+    padding-left: 10px;
 }
 
 label{
@@ -77,5 +79,76 @@ button:disabled{
     cursor: none ;
 }
 
-  
-  
+
+.NativeDatePicker{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+.date{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+#fecha{
+    background-color: #BEF3FF;
+    height: 40px; 
+    padding: 5px 10px;
+}
+
+#bday{
+    width: 40%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.horac{
+    color: black;
+}
+
+.modal{
+    width: 700px;
+    height: 440px;
+    background-color: #BEF3FF;
+    border-radius: 40px;
+}
+
+.modal p{
+    padding: 20px;
+}
+.horarios h1{
+    font-size: 20px;
+    padding: 20px;
+}
+.tabla{
+    display: flex;
+    align-items: center;
+   justify-content: space-around;
+}
+
+.horas-disponibles{
+    width: 280px;
+    height: 300px;
+    background-color: white;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.horas-disponibles button{
+    width: 150px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    margin-top:15px;
+    padding: 5px 5px;
+    margin-right: 0
+    
+}
+
+.horas-disponibles h2{
+    margin-top: 10px;
+}
+

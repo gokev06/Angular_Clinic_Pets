@@ -24,11 +24,46 @@
 </div>
 <div class="divsintomas">
   <label for="sintomas">Sintomas</label>
-  <input type="text"  formControlName="sintomas" id="sintomas">
+  <textarea type="text"  formControlName="sintomas" id="sintomas"></textarea>
   <p *ngIf="loginForm.get('sintomas')?.errors?.['required']">Los Sintomas es obligatorio</p>
 </div>
+<div class="NativeDatePicker">
+  <label for="bday">Seleccionar fecha</label>
+  <div class="date">
+  <input type="date" id="bday" name="bday" formControlName="fecha" />
+  <span class="validity"></span>
+  <p *ngIf="loginForm.get('fecha')?.errors?.['required']">La fecha es obligatoria</p>
+</div>
+
+</div>
+
+        <div class="modal">
+            <div class="horarios">
+              <h1>Horarios Disponibles</h1>
+            </div>
+            <div class="tabla">
+            <div class="horas-disponibles">
+                <!-- Aquí puedes agregar dinámicamente las horas disponibles -->
+               <h2>Horas Mañana</h2>
+               <button type="button" (click)="seleccionarHora('8:00 am')">8:00 AM</button>
+               <button type="button" (click)="seleccionarHora('9:00 am')">9:00 AM</button>
+               <button type="button" (click)="seleccionarHora('10:00 am')">10:00 AM</button>
+               <button type="button" (click)="seleccionarHora('11:00 am')">11:00 AM</button>
+                <!-- Añade más horas según sea necesario -->
+            </div>
+            <div class="horas-disponibles">
+               <h2>Horas Tarde</h2> 
+               <button type="button" (click)="seleccionarHora('2:00 pm')">2:00 PM</button>
+        <button type="button" (click)="seleccionarHora('3:00 pm')">3:00 PM</button>
+        <button type="button" (click)="seleccionarHora('4:00 pm')">4:00 PM</button>
+        <button type="button" (click)="seleccionarHora('5:00 pm')">5:00 PM</button>
+            </div>
+        </div>
+        <p *ngIf="loginForm.get('hora')?.errors?.['required']">No haz seleccionado una hora</p>
+        <p *ngIf="loginForm.get('hora')?.valid" class="horac">Hora seleccionada correctamente</p>
+    </div>
 <div class="btnsubmit">
   <button type="submit" [disabled]="loginForm.invalid">Agendar</button>
-  <button router-Link="">Historial de Citas</button>
+  <button router-Link="/Historial">Historial de Citas</button>
 </div>
 </form>

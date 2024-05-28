@@ -11,6 +11,7 @@ export class ScopedFormularioComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({}); // Inicialización para evitar el error TS2564
+   
   }
 
   ngOnInit(): void {
@@ -20,15 +21,24 @@ export class ScopedFormularioComponent implements OnInit {
       correo: ['', [Validators.required, Validators.email]], // Validador de correo electrónico
       direccion: ['', Validators.required],
       sintomas: ['', Validators.required],
+      fecha: ['', Validators.required ],
+      hora: ['', Validators.required ]
     });
   }
+
+  seleccionarHora(hora: string): void {
+    // Asignar la hora seleccionada al control de formulario correspondiente
+    this.loginForm?.get('hora')?.setValue(hora);
+  }
+
+
   onSubmit() {
     if (this.loginForm.valid) {
       // Lógica para autenticar al usuario
       console.log(this.loginForm.value);
     } else {
       // Manejar errores de validación
-    }
+    }    
   }
-  
+
 }
