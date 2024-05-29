@@ -6,7 +6,7 @@ import { CitasComponent } from './citas.component';
 import { ScopedTituloComponent } from './components/scoped-titulo/scoped-titulo.component';
 import { ScopedFormularioComponent } from './components/scoped-formulario/scoped-formulario.component';
 import { SharedModule } from '../../shared/shared.module';
-import { FooterComponent } from '../../shared/components/organisms/footer/footer.component';
+import { ScopedFooterComponent } from './components/scoped-footer/scoped-footer.component';
 
 
 @NgModule({
@@ -14,16 +14,16 @@ import { FooterComponent } from '../../shared/components/organisms/footer/footer
     CitasComponent,
     ScopedTituloComponent,
     ScopedFormularioComponent,
+    ScopedFooterComponent,
   ],
   imports: [
     CommonModule,
     CitasRoutingModule,
     ReactiveFormsModule,
-    SharedModule // Importa ReactiveFormsModule aquí
+    SharedModule, 
   ],
   exports:[
     CitasComponent,
-    FooterComponent
   ]
 })
 export class CitasModule { }

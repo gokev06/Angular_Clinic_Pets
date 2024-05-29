@@ -2,12 +2,13 @@
 .header{
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 172px;
+  height: 130px;
   background-image:url(../../../../../assets/images/fondo.png);
   background-repeat: no-repeat;
-  background-size: 100% 172px;
+  background-size: 100% 130px;
+  padding: 0 30px
 };
 
 .titles{

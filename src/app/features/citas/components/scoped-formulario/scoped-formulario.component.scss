@@ -1,22 +1,24 @@
 
 h1{
-    font-size: 35px;
+    font-size: 40px;
     display: flex;
     justify-content:center ;
+    padding: 30px;
 }
-form{
+form {
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     display: flex;
-    padding:  10px;
+    padding:  40px;
+    justify-content: space-around;
 }
 
 .div{
     display: flex;
     width: 40%;
     justify-content: center;
-    padding: 40px;
+    padding: 20px;
     flex-direction: column;
 }
 
@@ -27,6 +29,7 @@ input{
     border: none;
     border-radius: 10px;
     padding-left: 10px;
+
 }
 
 label{
@@ -35,10 +38,39 @@ label{
     border: none;
 }
 
+.mascota{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.MascotaForm{
+    margin-top: 40px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding:  10px;
+    justify-content: space-around;
+}
+
 .divsintomas{
     width: 80%;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
 
+
+option, select{
+    width: 90%;
+    height: 40px;   
+    background-color: #E0DBFF;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
 }
 
 #sintomas{
@@ -49,6 +81,8 @@ label{
     background-repeat: no-repeat;
     background-position: center;
     margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
 }
     
 .btnsubmit{
@@ -56,7 +90,6 @@ label{
     padding: 30px;
     display: flex;
     justify-content: right;
-    margin-bottom: 150px;
 }
 
 button{
@@ -73,6 +106,7 @@ button{
 
 p{
     color: red;
+    visibility: hidden;
 }
 
 button:disabled{

@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CitasComponent } from './citas/citas.component';
 import { ScopedTituloComponent } from './citas/components/scoped-titulo/scoped-titulo.component';
 import { ScopedFormularioComponent } from './citas/components/scoped-formulario/scoped-formulario.component';
+import { SharedModule } from '../shared/shared.module';
+import { ScopedFooterComponent } from './citas/components/scoped-footer/scoped-footer.component';
 
 
 
@@ -11,10 +13,12 @@ import { ScopedFormularioComponent } from './citas/components/scoped-formulario/
   declarations: [
     CitasComponent,
     ScopedTituloComponent,
-    ScopedFormularioComponent
+    ScopedFormularioComponent,
+    ScopedFooterComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ReactiveFormsModule // Importa ReactiveFormsModule aquí
   ],
   exports:[
