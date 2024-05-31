@@ -103,7 +103,7 @@
         <p *ngIf="loginForm.get('hora')?.valid" class="hora" #myDiv>Hora seleccionada correctamente</p>
     </div>
 <div class="btnsubmit">
-  <p *ngIf="loginForm.valid"> Cita Creada correctamente</p>
+  <p *ngIf="loginForm.valid" id="correcto"> Cita Creada correctamente</p>
   <button type="submit">Agendar</button>
   <button router-Link="/historial" disabled>Historial de Citas</button>
 </div>

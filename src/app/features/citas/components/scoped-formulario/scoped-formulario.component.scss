@@ -8,28 +8,26 @@ h1{
 form {
     width: 100%;
     justify-content: center;
+    justify-content:space-around;
     flex-wrap: wrap;
     display: flex;
-    padding:  40px;
-    justify-content: space-around;
 }
 
 .div{
     display: flex;
-    width: 40%;
+    width: 45%;
     justify-content: center;
-    padding: 20px;
+    padding: 0  75px;
     flex-direction: column;
 }
 
 input{
-    width: 90%;
+    width: 100%;
     height: 40px;   
     background-color: #E0DBFF;
     border: none;
     border-radius: 10px;
     padding-left: 10px;
-
 }
 
 label{
@@ -56,25 +54,29 @@ label{
 }
 
 .divsintomas{
-    width: 80%;
+    width: 100%;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    padding-left: 15px;
+    padding-left: 110px;
 }
 
 
 option, select{
-    width: 90%;
+    width: 100%;
     height: 40px;   
     background-color: #E0DBFF;
     border: none;
     border-radius: 10px;
     padding-left: 10px;
 }
+#correcto{
+    visibility: visible;
+    color: black;
+}
 
 #sintomas{
-    width: 96%;
+    width: 93%;
     height: 300px;
     background-color: #BEF3FF;
     background-image: url('../../../../../assets/images/fondosintomas.svg');
@@ -141,6 +143,8 @@ button:disabled{
 
 .horac{
     color: black;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .modal{
@@ -148,6 +152,7 @@ button:disabled{
     height: 440px;
     background-color: #BEF3FF;
     border-radius: 40px;
+    margin-top: 40px;
 }
 
 .modal p{
@@ -166,7 +171,6 @@ button:disabled{
 .horas-disponibles{
     width: 280px;
     height: 300px;
-    background-color: white;
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -176,11 +180,12 @@ button:disabled{
 .horas-disponibles button{
     width: 150px;
     height: 40px;
-    border-radius: 40px;
+    border-radius: 10px;
     border: none;
     margin-top:15px;
     padding: 5px 5px;
-    margin-right: 0
+    margin-right: 0;
+    background-color: white;
     
 }
 

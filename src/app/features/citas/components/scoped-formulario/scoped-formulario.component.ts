@@ -1,5 +1,5 @@
 
-import { Component, OnInit ,  ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import { Component, OnInit ,  ViewChildren, ElementRef,QueryList, AfterViewInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './scoped-formulario.component.html',
   styleUrl: './scoped-formulario.component.scss'
 })
-export class ScopedFormularioComponent implements OnInit {
+export class ScopedFormularioComponent implements OnInit , AfterViewInit {
   loginForm: FormGroup
 
   constructor(private formBuilder: FormBuilder) {
@@ -37,18 +37,27 @@ export class ScopedFormularioComponent implements OnInit {
     this.loginForm?.get('hora')?.setValue(hora);
   }
 
-  @ViewChild('myDiv') myDiv: ElementRef = null!;
+  @ViewChildren('myDiv') myDivs!: QueryList<ElementRef>;
 
 
+  ngAfterViewInit() {
+    // Inicialización adicional si es necesaria
+  }
 
   onSubmit() {
-      this.myDiv.nativeElement.style.visibility = 'visible';
+
     if (this.loginForm.valid) {
       // Lógica para autenticar al usuario
       console.log(this.loginForm.value);
     } else {
+      this.myDivs.forEach(div => {
+        if (div && div.nativeElement) {
+          div.nativeElement.style.visibility = 'visible';
+        }
+      }); 
       // Manejar errores de validación
     }    
-  }
 
+  }
 }
+  
