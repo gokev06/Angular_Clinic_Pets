@@ -1,0 +1,42 @@
+.botcitas{
+    font-size: 40px;
+    padding-right: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+
+.fondodogs{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    background-image: url(../../../assets/images/fondo\ perritos.png);
+    background-repeat: no-repeat;
+    background-position: center
+
+    
+};
+
+.imggato{
+  width: 50%;
+  height:300px;
+};
+
+.imggato img {
+    margin-left: 50px;
+}
+
+.imgperro{
+    width: 50%;
+    height: 300px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.imgperro img{
+    margin-right: 50px;
+}

@@ -1,0 +1,190 @@
+
+h1{
+    font-size: 40px;
+    display: flex;
+    justify-content:center ;
+    padding: 30px;
+}
+form {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding:  40px;
+    justify-content: space-around;
+}
+
+.div{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+input{
+    width: 90%;
+    height: 40px;   
+    background-color: #E0DBFF;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+
+}
+
+label{
+    font-size: 20px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.mascota{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.MascotaForm{
+    margin-top: 40px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding:  10px;
+    justify-content: space-around;
+}
+
+.divsintomas{
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+
+option, select{
+    width: 90%;
+    height: 40px;   
+    background-color: #E0DBFF;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+#sintomas{
+    width: 96%;
+    height: 300px;
+    background-color: #BEF3FF;
+    background-image: url('../../../../../assets/images/fondosintomas.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+    
+.btnsubmit{
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    justify-content: right;
+}
+
+button{
+    background-color: #E0DBFF;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-right: 50px;
+    cursor: pointer;
+    
+}
+
+p{
+    color: red;
+    visibility: hidden;
+}
+
+button:disabled{
+    background-color: #eae7fd;
+    color: rgb(85, 85, 85);
+    cursor: none ;
+}
+
+
+.NativeDatePicker{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+.date{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+#fecha{
+    background-color: #BEF3FF;
+    height: 40px; 
+    padding: 5px 10px;
+}
+
+#bday{
+    width: 40%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.horac{
+    color: black;
+}
+
+.modal{
+    width: 700px;
+    height: 440px;
+    background-color: #BEF3FF;
+    border-radius: 40px;
+}
+
+.modal p{
+    padding: 20px;
+}
+.horarios h1{
+    font-size: 20px;
+    padding: 20px;
+}
+.tabla{
+    display: flex;
+    align-items: center;
+   justify-content: space-around;
+}
+
+.horas-disponibles{
+    width: 280px;
+    height: 300px;
+    background-color: white;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.horas-disponibles button{
+    width: 150px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    margin-top:15px;
+    padding: 5px 5px;
+    margin-right: 0
+    
+}
+
+.horas-disponibles h2{
+    margin-top: 10px;
+}
+
