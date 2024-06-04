@@ -15,6 +15,9 @@ export class PerfilComponent {
   editProfile() {
     console.log('Editar perfil');
   }
+  viewHistory() {
+    console.log('Ver historial');
+  }
 
   closeModal() {
     this.isModalOpen = false;

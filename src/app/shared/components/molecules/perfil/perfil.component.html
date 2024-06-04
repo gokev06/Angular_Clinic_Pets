@@ -6,6 +6,7 @@
   <div class="modal" *ngIf="isModalOpen" (click)="closeModalOnOutsideClick($event)">
     <div class="modal-content" (click)="stopPropagation($event)">
       <button (click)="editProfile()">Editar Perfil</button>
+      <button (click)="viewHistory()">Ver historial</button>
       <button (click)="closeModal()">Cerrar Sesión</button>
     </div>
   </div>

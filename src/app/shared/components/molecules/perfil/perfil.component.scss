@@ -29,7 +29,6 @@
   .titulo {
     font-size: 25px;
     margin-top: 15px;
-    font-family: 'Courier New';
     cursor: pointer;
   }
   
@@ -60,14 +59,16 @@
     border: none; 
     border-top: 1px solid rgba(0, 0, 0, 0.2); 
     color: white;
-    border-radius: 0 0 10px 10px;
   }
   
   button:first-child {
     border-top: none; 
     border-radius: 10px 10px 0 0 ;
   }
-  
+  button:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+
   button:hover {
     background-color: #BEF3FF; 
     color: black;
