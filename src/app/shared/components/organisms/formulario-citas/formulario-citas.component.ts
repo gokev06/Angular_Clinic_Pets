@@ -1,15 +1,19 @@
-
 import { Component, OnInit ,  ViewChildren, ElementRef,QueryList, AfterViewInit} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 
 @Component({
-  selector: 'app-scoped-formulario',
-  templateUrl: './scoped-formulario.component.html',
-  styleUrl: './scoped-formulario.component.scss'
+  selector: 'app-formulario-citas',
+  templateUrl: './formulario-citas.component.html',
+  styleUrl: './formulario-citas.component.scss'
 })
-export class ScopedFormularioComponent implements OnInit , AfterViewInit {
-  loginForm: FormGroup
 
+export class FormularioCitasComponent implements OnInit , AfterViewInit {
+  loginForm: FormGroup
+  isButtonActive: boolean = false;
+
+  estilos :string= "width: 450px; height: 40px;   background-color: #E0DBFF; border: none;border-radius: 10px; padding-left: 10px;"
+  
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({}); // Inicialización para evitar el error TS2564
   }
@@ -35,6 +39,8 @@ export class ScopedFormularioComponent implements OnInit , AfterViewInit {
   seleccionarHora(hora: string): void {
     // Asignar la hora seleccionada al control de formulario correspondiente
     this.loginForm?.get('hora')?.setValue(hora);
+    this.isButtonActive = !this.isButtonActive;
+
   }
 
   @ViewChildren('myDiv') myDivs!: QueryList<ElementRef>;

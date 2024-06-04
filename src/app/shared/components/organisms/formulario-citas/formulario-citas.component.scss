@@ -5,52 +5,78 @@ h1{
     justify-content:center ;
     padding: 30px;
 }
-form {
-    width: 100%;
-    justify-content: center;
-    justify-content:space-around;
-    flex-wrap: wrap;
-    display: flex;
-}
 
+
+/*
 .div{
     display: flex;
     width: 45%;
     justify-content: center;
-    padding: 0  75px;
+    padding: 20px  75px;
     flex-direction: column;
 }
 
-input{
-    width: 100%;
-    height: 40px;   
-    background-color: #E0DBFF;
-    border: none;
-    border-radius: 10px;
-    padding-left: 10px;
+*/
+.date_usuario{
+    display: flex;
+    justify-content: space-between;
+    height: 260px;
+    margin: 0px 150px;
 }
 
-label{
+
+
+.label__nombre,
+.label__telefono,
+.label__correo,
+.label__direccion
+{
+height: 100px;
+
+}
+
+
+.label_mascota,
+.label__edad,
+.label__vacunacion,
+.label__vacunas,
+.label__raza {
+    height: 100px;
+}
+
+.columm__nombre,
+.columm__correo,
+.columm__telefono,
+.columm__direccion{
+    display: flex;
+    flex-direction: column;
+}
+
+app-label{
     font-size: 20px;
+    margin-top: 30px;
     margin-bottom: 5px;
     border: none;
 }
 
 .mascota{
-    margin-top: 60px;
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    justify-content: space-between;
+    margin: 0px 150px;
+    height: 340px;
 }
 
-.MascotaForm{
-    margin-top: 40px;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    display: flex;
-    padding:  10px;
-    justify-content: space-around;
+.columm__mascota,
+.columm__edad,
+.columm__vacunacion,
+.columm__vacunas,
+.columm__raza {
+display: flex;
+flex-direction: column;
+}
+
+.sintomas__consulta{
+    height: 450px;
 }
 
 .divsintomas{
@@ -61,6 +87,9 @@ label{
     padding-left: 110px;
 }
 
+.section__fecha{
+    margin: 0px 110px;
+}
 
 option, select{
     width: 100%;
@@ -78,6 +107,7 @@ option, select{
 #sintomas{
     width: 93%;
     height: 300px;
+    font-size: 40;
     background-color: #BEF3FF;
     background-image: url('../../../../../assets/images/fondosintomas.svg');
     background-repeat: no-repeat;
@@ -88,8 +118,8 @@ option, select{
 }
     
 .btnsubmit{
-    width: 80%;
-    padding: 30px;
+    padding: 50px 120px 50px 0px;
+    margin: 0px 130px;
     display: flex;
     justify-content: right;
 }
@@ -127,7 +157,7 @@ button:disabled{
 .date{
     display: flex;
     width: 50%;
-    justify-content: space-between;
+    flex-direction: column;
 }
 #fecha{
     background-color: #BEF3FF;
@@ -136,14 +166,21 @@ button:disabled{
 }
 
 #bday{
-    width: 40%;
+    width: 450px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.section__horarios{
+    display: flex;
+    justify-content: center;
+    margin: 0px 30px;
 }
 
 .horac{
     color: black;
     background-color: white;
+    
     border-radius: 10px;
 }
 
@@ -151,8 +188,13 @@ button:disabled{
     width: 700px;
     height: 440px;
     background-color: #BEF3FF;
+    border: solid 5px black;
     border-radius: 40px;
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .modal p{
@@ -165,7 +207,12 @@ button:disabled{
 .tabla{
     display: flex;
     align-items: center;
-   justify-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h2{
+    font-size: 40px;
 }
 
 .horas-disponibles{
@@ -193,3 +240,10 @@ button:disabled{
     margin-top: 10px;
 }
 
+.btn__historial{
+    width: 340px;
+}
+
+.btn__agendar{
+    width: 160px;
+}
