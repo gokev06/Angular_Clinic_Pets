@@ -1,65 +1,11 @@
-.modal{
-    width: 700px;
-    height: 440px;
-    background-color: #BEF3FF;
-    border-radius: 40px;
-    margin-top: 40px;
-    border: 5px solid black;
-    border-radius: 20px;
+h1{
+    font-size: 39px;
+    padding: 80px 150px;
 }
 
-.modal p{
-    padding: 20px;
-}
-.horarios h1{
-    font-size: 20px;
-    padding: 20px;
-}
-.tabla{
+div{
     display: flex;
-    align-items: center;
-   justify-content: space-around;
-   
+    width: 100%;
+    justify-content: space-between;
+    padding: 30px  150px;
 }
-
-.horas-disponibles{
-    width: 280px;
-    height: 300px;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
-}
-
-.horas-disponibles button{
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-top:15px;
-    padding: 5px 5px;
-    margin-right: 0;
-    background-color: white;
-    margin-bottom: 20px;
-}
-
-.horas-disponibles button:hover {
-    background-color: #A5D9FF; 
-    transform: scale(1.05); 
-}
-.horas-disponibles button:active {
-    background-color: #A5D9FF; 
-    transform: scale(1); 
-}
-
-
-.horas-disponibles button.selected {
-    background-color: #A5D9FF; 
-    color: white;
-}
-
-.horas-disponibles h2{
-    margin-top: 10px;
-}
-
