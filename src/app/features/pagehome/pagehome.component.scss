@@ -8,14 +8,14 @@
 
 
 .fondodogs{
-    width: 100%;
+    width: 1506px;
     height: 300px;
+    margin-top: 100px;
     display: flex;
     align-items: center;
-    background-image: url(../../../assets/images/fondo\ perritos.png);
+    background-image: url(../../../assets/images/imghome/fondo\ perritos.png);
     background-repeat: no-repeat;
-    background-position: center
-
+    background-position: center;
     
 };
 
@@ -40,3 +40,5 @@
 .imgperro img{
     margin-right: 50px;
 }
+
+

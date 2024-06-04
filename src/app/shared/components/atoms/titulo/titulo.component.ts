@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 
 @Component({
   selector: 'app-titulo',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './titulo.component.scss'
 })
 export class TituloComponent {
+  textoEnlace: string = "Texto del enlace";
+
+  constructor() {}
 
 }

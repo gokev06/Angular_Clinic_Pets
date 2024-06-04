@@ -13,7 +13,18 @@ import { FooterComponent } from './components/organisms/footer/footer.component'
 import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto-info.component';
 import { RouterModule } from "@angular/router";
 import { CitasComponent } from '../features/citas/citas.component';
-import { HomeHeaderComponent } from './components/organisms/home-header/home-header.component'; 
+import { HomeHeaderComponent } from './components/organisms/home-header/home-header.component';
+import { TAdopcionComponent } from './components/atoms/t-adopcion/t-adopcion.component';
+import { TTiendaComponent } from './components/atoms/t-tienda/t-tienda.component';
+import { ContenedoresComponent } from './components/organisms/contenedores/contenedores.component';
+import { IconStoreComponent } from './components/atoms/icon-store/icon-store.component';
+import { IconAdopcionComponent } from './components/atoms/icon-adopcion/icon-adopcion.component';
+import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.component';
+import { ImgAndtextComponent } from './components/molecules/img-andtext/img-andtext.component';
+import { ImgAndtextbigComponent } from './components/molecules/img-andtextbig/img-andtextbig.component';
+import { BoxbigComponent } from './components/organisms/boxbig/boxbig.component';
+
+
 
 
 @NgModule({
@@ -29,7 +40,17 @@ import { HomeHeaderComponent } from './components/organisms/home-header/home-hea
     InconphoneComponent,
     InconmessageComponent,
     FooterComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    TAdopcionComponent,
+    TTiendaComponent,
+    ContenedoresComponent,
+    IconStoreComponent,
+    IconAdopcionComponent,
+    IconCitasComponent,
+    ImgAndtextComponent,
+    ImgAndtextbigComponent,
+    BoxbigComponent
+  
   
   ],
   imports: [
@@ -47,7 +68,11 @@ import { HomeHeaderComponent } from './components/organisms/home-header/home-hea
     TituloComponent,
     HeaderComponent,
     PerfilComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    ContenedoresComponent,
+    TTiendaComponent,
+    TituloComponent,
+    BoxbigComponent
   ]
 })
 export class SharedModule { }

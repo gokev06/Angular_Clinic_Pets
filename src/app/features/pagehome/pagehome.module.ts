@@ -8,11 +8,13 @@ import { RouterModule } from "@angular/router";
 import { HomeHeaderComponent } from '../../shared/components/organisms/home-header/home-header.component';
 
 
+
 @NgModule({
   declarations: [
     PagehomeComponent,
     CitasComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    
   ],
   imports: [
     CommonModule,
