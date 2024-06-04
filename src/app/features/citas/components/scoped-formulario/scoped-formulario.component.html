@@ -1,0 +1,177 @@
+<h1>Datos del Tutor</h1>
+<div class="form__date">
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <!-- formulario datos del tutor   -->
+    <section class="date_usuario">
+
+      <div class="columm__1">
+        <div class="div label__nombre">
+
+          <div class="columm__nombre ">
+
+            <label for="nombre">Nombre</label>
+            <input type="text" placeholder="Ingrese su nombre" formControlName="nombre" id="nombre">
+
+          </div>
+          <p *ngIf="loginForm.get('nombre')?.errors?.['required']" #myDiv>El nombre es obligatorio</p>
+        </div>
+        
+        <div class="div label__correo">
+          <div class="columm__correo">
+            <label for="correo">Correo</label>
+            <input type="text" placeholder="Ingrese su correo" formControlName="correo" id="correo">
+          </div>
+          <p *ngIf="loginForm.get('correo')?.errors?.['required']" #myDiv>El correo es obligatorio</p>
+          <p *ngIf="loginForm.get('correo')?.errors?.['email']" #myDiv>El email debe ser correcto</p>
+        </div>
+
+      </div>
+     
+      <div class=" columm__2">
+
+        <div  class="div label__telefono">
+          <div class="columm__telefono">
+            <label for="telefono">Telefono</label>
+            <input type="text" placeholder="Ingrese su telefono" formControlName="telefono" id="telefono">
+          </div>
+          <p *ngIf="loginForm.get('telefono')?.errors?.['required']" #myDiv>El telefono es obligatorio</p>
+          <p *ngIf="loginForm.get('telefono')?.errors?.['pattern']" #myDiv>El telefono debe tener numeros</p>
+        </div>
+
+        <div  class="div label__direccion">
+          <div class="columm__direccion">
+            <label for="direccion">Direccion</label>
+            <input type="text" placeholder="Ingrese su direccion" formControlName="direccion" id="direccion">
+          </div>
+          <p *ngIf="loginForm.get('direccion')?.errors?.['required']" #myDiv>La Direccion es obligatorio</p>
+        </div>
+
+      </div>
+      
+     
+
+    </section>
+      
+    <h1>Datos de la Mascota</h1>
+  <section class="mascota">
+
+      <div class="columm__3">
+
+        <div class="div label_mascota">
+          <div class="columm__mascota" > 
+            <label for="nombreMascota">Nombre de Mascota</label>
+            <input type="text" placeholder="Nombre de la Mascota" formControlName="nombreMascota" id="nombreMascota">
+          </div>
+          <p *ngIf="loginForm.get('nombreMascota')?.errors?.['required']"#myDiv>El nombre es obligatorio</p>
+        </div>
+
+        <div class="div label__edad">
+          <div class="columm__edad">
+            <label for="edad">Edad</label>
+            <input type="text" placeholder="Edad" formControlName="edad" id="edad">
+          </div>
+          <p *ngIf="loginForm.get('edad')?.errors?.['required']"#myDiv>La Edad es obligatorio</p>
+        </div>
+
+        <div class="div label__vacunacion">
+
+          <div class="columm__vacunacion">
+                
+            <label for="estadovacunacion">Estado Vacunación</label>
+          <select id="estadovacunacion"  formControlName="estadovacunacion" name="estadovacunacion">
+            <option value=""></option>
+            <option value="En orden">En orden</option>
+            <option value="Incompletas">Incompletas</option>
+          </select>
+                
+          </div>
+          
+          <p *ngIf="loginForm.get('estadovacunacion')?.errors?.['required']" #myDiv>El Estado de Vacunacion es obligatorio</p>
+        </div>
+
+      </div>
+
+
+      <div class="columm__4">
+          
+        <div  class="div label__vacunas">
+          <div class="columm__vacunas">
+            <label for="CantidadVacunas">Cantidad de Vacunas</label>
+            <input type="text" placeholder="Cantidad de vacunas"  formControlName="CantidadVacunas" id="CantidadVacunas">
+          </div>
+          
+          <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['required']"#myDiv>La Cantidad de Vacunas es obligatorio</p>
+          <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['pattern']" #myDiv>La Cantidad de Vacunas debe tener numeros</p>
+        </div>
+
+        <div  class="div label__raza">
+          <div class="columm__raza">
+            <label for="raza">Raza</label>
+            <input type="text" placeholder="Raza" formControlName="raza" id="raza">
+          </div>
+          <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
+        </div>
+
+
+      </div>
+
+  </section>
+
+
+  <section class="sintomas__consulta">
+    <div class="divsintomas label__motivo consulta">
+      <label for="sintomas">Motivo consulta</label>
+      <textarea type="text"  formControlName="sintomas" id="sintomas"></textarea>
+      <p *ngIf="loginForm.get('sintomas')?.errors?.['required']" #myDiv>Los Sintomas es obligatorio</p>
+    </div>
+  </section>
+
+  <section class="section__fecha">
+    <div class="NativeDatePicker">
+      <label for="bday">Seleccionar fecha</label>
+      <div class="date">
+      <input type="date" id="bday" name="bday" formControlName="fecha" />
+      <span class="validity"></span>
+      <p *ngIf="loginForm.get('fecha')?.errors?.['required']"#myDiv>La fecha es obligatoria</p>
+    </div>
+    
+    </div>
+  </section>
+  
+          <h1>Seleccionar Horario</h1>
+  <section class="section__horarios">
+    <div class="modal">
+      <div class="tabla">
+      <div class="horas-disponibles">
+          <!-- Aquí puedes agregar dinámicamente las horas disponibles -->
+         <h2>Mañana</h2>
+         <button type="button" (click)="seleccionarHora('8:00 am')">8:00 AM</button>
+         <button type="button" (click)="seleccionarHora('9:00 am')">9:00 AM</button>
+         <button type="button" (click)="seleccionarHora('10:00 am')">10:00 AM</button>
+         <button type="button" (click)="seleccionarHora('11:00 am')">11:00 AM</button>
+          <!-- Añade más horas según sea necesario -->
+      </div>
+      <div class="horas-disponibles">
+         <h2>Tarde</h2> 
+         <button type="button" (click)="seleccionarHora('2:00 pm')">2:00 PM</button>
+  <button type="button" (click)="seleccionarHora('3:00 pm')">3:00 PM</button>
+  <button type="button" (click)="seleccionarHora('4:00 pm')">4:00 PM</button>
+  <button type="button" (click)="seleccionarHora('5:00 pm')">5:00 PM</button>
+      </div>
+  </div>
+  <p *ngIf="loginForm.get('hora')?.errors?.['required']" #myDiv>No haz seleccionado una hora</p>
+  <p *ngIf="loginForm.get('hora')?.valid" class="hora" #myDiv>Hora seleccionada correctamente</p>
+</div>
+  </section>
+          
+  <div class="btnsubmit">
+    <p *ngIf="loginForm.valid" id="correcto"> Cita Creada correctamente</p>
+    <button class="btn__agendar" type="submit">Agendar</button>
+    <button class="btn__historial" router-Link="/historial" disabled>Historial de Citas</button>
+  </div>
+  </form>
+
+
+</div>

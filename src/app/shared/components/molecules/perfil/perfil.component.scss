@@ -1,0 +1,75 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+    background-image: url(../../../../../assets/images/fondo.png);
+    background-repeat: no-repeat;
+    background-size: 100% 130px;
+    padding: 0 30px;
+    position: relative; 
+  }
+  
+  .profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative; 
+  }
+  
+  .perfil {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+  
+  .titulo {
+    font-size: 25px;
+    margin-top: 8px;
+    font-family: 'Allerta';
+    cursor: pointer;
+  }
+  
+  .modal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 130px; 
+    right: 30px; 
+    background-color: transparent; 
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border: none;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #A5D9FF;
+    border: none; 
+    border-top: 1px solid rgba(0, 0, 0, 0.2); 
+    color: white;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  button:first-child {
+    border-top: none; 
+    border-radius: 10px 10px 0 0 ;
+  }
+  
+  button:hover {
+    background-color: #BEF3FF; 
+    color: black;
+  }
+  

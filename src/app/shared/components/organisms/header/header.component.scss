@@ -1,0 +1,23 @@
+
+.header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  background-image:url(../../../../../assets/images/fondo.png);
+  background-repeat: no-repeat;
+  background-size: 100% 130px;
+  padding: 20px 30px 20px 30px;
+};
+
+.titles{
+    width: 300px;
+    height: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+
