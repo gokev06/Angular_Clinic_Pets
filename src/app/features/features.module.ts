@@ -5,6 +5,8 @@ import { CitasComponent } from './citas/citas.component';
 import { ScopedTituloComponent } from './citas/components/scoped-titulo/scoped-titulo.component';
 import { SharedModule } from '../shared/shared.module';
 import { ScopedFooterComponent } from './citas/components/scoped-footer/scoped-footer.component';
+import { PagehomeComponent } from './pagehome/pagehome.component';
+
 
 
 
@@ -12,17 +14,20 @@ import { ScopedFooterComponent } from './citas/components/scoped-footer/scoped-f
   declarations: [
     CitasComponent,
     ScopedTituloComponent,
-    ScopedFooterComponent
+    ScopedFooterComponent,
+    PagehomeComponent,
+
   ],
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule // Importa ReactiveFormsModule aquí
+    ReactiveFormsModule ,// Importa ReactiveFormsModule aquí
   ],
   exports:[
     CitasComponent,
     ScopedTituloComponent,
-
+    ScopedFooterComponent,
+    PagehomeComponent,
   ]
 })
 export class FeaturesModule { }

@@ -1,14 +1,15 @@
 
 .header{
-  width: 100%;
+  width: 1536px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 130px;
-  background-image:url(../../../../../assets/images/fondo.png);
+  background-image:url(../../../../../assets/images/imgcitas/fondo2.png);
   background-repeat: no-repeat;
   background-size: 100% 130px;
-  padding: 0 30px
+  padding: 0 30px;
+  margin: 0;
 };
 
 .titles{
@@ -20,4 +21,18 @@
     
 }
 
+.hola{
+  border-right: 3px solid black ;
+}
 
+
+.a{
+  font-size: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.a:hover{
+  color :#3a364e;
+}

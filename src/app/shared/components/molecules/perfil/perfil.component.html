@@ -1,9 +1,4 @@
-<div class="profil" (click)="toggleModal()">
-    <img class="perfil" src="../../../../../assets/images/perfil.jpg" alt="">
-    <h1 class="titulo">Perfil</h1>
-  </div>
-  
-  <div class="modal" *ngIf="isModalOpen" (click)="closeModalOnOutsideClick($event)">
+<div class="modal" *ngIf="isModalOpen" (click)="closeModalOnOutsideClick($event)">
     <div class="modal-content" (click)="stopPropagation($event)">
       <button (click)="editProfile()">Editar Perfil</button>
       <button (click)="closeModal()">Cerrar Sesión</button>

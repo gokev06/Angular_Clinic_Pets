@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PagesCitasComponent } from './pages-citas.component';
+import { ImgAndtextbigComponent } from './img-andtextbig.component';
 
-describe('PagesCitasComponent', () => {
-  let component: PagesCitasComponent;
-  let fixture: ComponentFixture<PagesCitasComponent>;
+describe('ImgAndtextbigComponent', () => {
+  let component: ImgAndtextbigComponent;
+  let fixture: ComponentFixture<ImgAndtextbigComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PagesCitasComponent]
+      declarations: [ImgAndtextbigComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PagesCitasComponent);
+    fixture = TestBed.createComponent(ImgAndtextbigComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

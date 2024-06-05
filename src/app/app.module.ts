@@ -14,8 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FeaturesModule,
-    SharedModule,
     AppRoutingModule
   ],
   providers: [],
