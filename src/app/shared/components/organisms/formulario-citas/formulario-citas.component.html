@@ -106,6 +106,14 @@
           <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['pattern']" #myDiv>La Cantidad de Vacunas debe tener numeros</p>
         </div>
 
+        <div  class="div label__especie">
+          <div class="columm__especie">
+            <app-label [for]="'Especie'"></app-label>
+            <app-input [text]="'text'" [holder]="'especie'" [estilos]="estilos" formControlName="especie" [id]="'Especie'"></app-input>
+          </div>
+          <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
+        </div>
+
         <div  class="div label__raza">
           <div class="columm__raza">
             <app-label [for]="'Raza'"></app-label>
@@ -136,13 +144,15 @@
       <span class="validity"></span>
       <p *ngIf="loginForm.get('fecha')?.errors?.['required']"#myDiv>La fecha es obligatoria</p>
     </div>
-    
     </div>
+    <button (click)="openModal()" class="openmodalbtn">Horas Disponibles</button>
   </section>
   
-          <h1>Seleccionar Horario</h1>
-  <section class="section__horarios">
+
+  <section class="section__horarios" *ngIf="showModal">
     <div class="modal">
+      <h1>Seleccionar Horario</h1>
+      <span class="close" (click)="closeModal()">&times;</span>
       <div class="tabla">
       <div class="horas-disponibles">
           <!-- Aquí puedes agregar dinámicamente las horas disponibles -->
@@ -161,13 +171,10 @@
   <button type="button" (click)="seleccionarHora('5:00 pm')">5:00 PM</button>
       </div>
   </div>
-  <p *ngIf="loginForm.get('hora')?.errors?.['required']" #myDiv>No haz seleccionado una hora</p>
-  <p *ngIf="loginForm.get('hora')?.valid" class="hora" #myDiv>Hora seleccionada correctamente</p>
 </div>
   </section>
           
   <div class="btnsubmit">
-    <p *ngIf="loginForm.valid" id="correcto"> Cita Creada correctamente</p>
     <button class="btn__agendar" type="submit">Agendar</button>
     <button class="btn__historial" router-Link="/historial" disabled>Historial de Citas</button>
   </div>

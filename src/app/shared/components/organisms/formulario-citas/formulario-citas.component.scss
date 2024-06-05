@@ -35,7 +35,7 @@ height: 100px;
 
 }
 
-
+.label__especie,
 .label_mascota,
 .label__edad,
 .label__vacunacion,
@@ -44,6 +44,7 @@ height: 100px;
     height: 100px;
 }
 
+.columm__especie,
 .columm__nombre,
 .columm__correo,
 .columm__telefono,
@@ -89,7 +90,10 @@ flex-direction: column;
 
 .section__fecha{
     margin: 0px 110px;
+    display: flex;
 }
+
+
 
 option, select{
     width: 100%;
@@ -174,7 +178,12 @@ button:disabled{
 .section__horarios{
     display: flex;
     justify-content: center;
-    margin: 0px 30px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000049;
 }
 
 .horac{
@@ -188,7 +197,6 @@ button:disabled{
     width: 700px;
     height: 440px;
     background-color: #BEF3FF;
-    border: solid 5px black;
     border-radius: 40px;
     margin-top: 40px;
     display: flex;
@@ -196,14 +204,14 @@ button:disabled{
     flex-direction: column;
     align-items: center;
 }
+.modal h1{
+    font-size: 28;
+}
 
-.modal p{
-    padding: 20px;
-}
-.horarios h1{
+.modal h2{
     font-size: 20px;
-    padding: 20px;
 }
+
 .tabla{
     display: flex;
     align-items: center;

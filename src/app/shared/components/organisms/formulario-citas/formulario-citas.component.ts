@@ -65,5 +65,15 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
     }    
 
   }
+  showModal: boolean = false; 
+
+  openModal() {
+    this.showModal = true;
+  }
+
+ 
+  closeModal() {
+    this.showModal = false;
+  }
 }
   
