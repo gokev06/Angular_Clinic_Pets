@@ -22,6 +22,7 @@ import { ScopedFooterComponent } from './citas/components/scoped-footer/scoped-f
   exports:[
     CitasComponent,
     ScopedTituloComponent,
+
   ]
 })
 export class FeaturesModule { }

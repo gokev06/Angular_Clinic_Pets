@@ -1,5 +1,6 @@
 import { Component, OnInit ,  ViewChildren, ElementRef,QueryList, AfterViewInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,6 +18,9 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({}); // Inicialización para evitar el error TS2564
   }
+
+
+
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -53,9 +57,42 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
   onSubmit() {
 
     if (this.loginForm.valid) {
-      // Lógica para autenticar al usuario
-      console.log(this.loginForm.value);
+      Swal.fire({
+        title: '¿Confirmar cita?',
+        text: '¿Estás seguro de que quieres confirmar esta cita?',
+        showCancelButton: true,
+        confirmButtonColor: '#7DFF82',
+        cancelButtonColor: '#F57171',
+        confirmButtonText: 'Sí,confirmar',
+        imageUrl: '../../../../../assets/images/gato.png', // URL de la imagen que deseas mostrar
+        imageWidth: 200, // Ancho de la imagen
+        imageHeight: 200
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Aquí puedes agregar la lógica para confirmar la cita
+          Swal.fire({
+            title:'¡Cita confirmada!',
+            text:'La cita ha sido confirmada exitosamente.',
+            imageUrl: '../../../../../assets/images/perroalert.png', // URL de la imagen que deseas mostrar
+            imageWidth: 200, // Ancho de la imagen
+            imageHeight: 200,
+            confirmButtonColor: '#7DFF82',
+  
+            }
+          );
+        }
+      });
     } else {
+      Swal.fire({
+        title:'¡Hubo un problema!',
+        text:'pararece que no llenaste correctamente el formulario',
+        imageUrl: '../../../../../assets/images/file 1.png', // URL de la imagen que deseas mostrar
+        imageWidth: 200, // Ancho de la imagen
+        imageHeight: 200,
+        confirmButtonColor: '#F57171'
+      }
+    )
+
       this.myDivs.forEach(div => {
         if (div && div.nativeElement) {
           div.nativeElement.style.visibility = 'visible';

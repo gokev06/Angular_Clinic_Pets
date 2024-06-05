@@ -193,6 +193,16 @@ button:disabled{
     border-radius: 10px;
 }
 
+.openmodalbtn{
+    background-color: #E0DBFF;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-right: 50px;
+    cursor: pointer;
+}
 .modal{
     width: 700px;
     height: 440px;
