@@ -6,7 +6,7 @@
     background-image: url(../../../../../assets/images/imgcitas/fondo2.png);
     background-repeat: no-repeat;
     background-size: 100% 130px;
-    padding: 0 30px;
+    padding: 0 32px;
     position: relative; 
   }
   
@@ -23,53 +23,12 @@
     height: 60px;
     border-radius: 100px;
     margin-left: 40px;
-    margin-right: 20px;
+    margin-right: 24px;
   }
   
   .titulo {
     font-size: 25px;
-    margin-top: 15px;
-    font-family: 'Courier New';
+    margin-top: 16px;
     cursor: pointer;
-  }
-  
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: absolute;
-    top: 130px; 
-    right: 30px; 
-    background-color: transparent; 
-  }
-  
-  .modal-content {
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border: none;
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #A5D9FF;
-    border: none; 
-    border-top: 1px solid rgba(0, 0, 0, 0.2); 
-    color: white;
-    border-radius: 0 0 10px 10px;
-  }
-  
-  button:first-child {
-    border-top: none; 
-    border-radius: 10px 10px 0 0 ;
-  }
-  
-  button:hover {
-    background-color: #BEF3FF; 
-    color: black;
   }
   

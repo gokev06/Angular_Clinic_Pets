@@ -1,27 +1,16 @@
 
-h1{
+.datos{
     font-size: 40px;
     display: flex;
     justify-content:center ;
-    padding: 30px;
+    padding: 32px;
 }
 
-
-/*
-.div{
-    display: flex;
-    width: 45%;
-    justify-content: center;
-    padding: 20px  75px;
-    flex-direction: column;
-}
-
-*/
 .date_usuario{
     display: flex;
     justify-content: space-between;
     height: 260px;
-    margin: 0px 150px;
+    margin: 0px 72px;
 }
 
 
@@ -55,15 +44,15 @@ height: 100px;
 
 app-label{
     font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 5px;
+    margin-top: 32px;
+    margin-bottom: 8px;
     border: none;
 }
 
 .mascota{
     display: flex;
     justify-content: space-between;
-    margin: 0px 150px;
+    margin: 0px 72px;
     height: 340px;
 }
 
@@ -82,15 +71,16 @@ flex-direction: column;
 
 .divsintomas{
     width: 100%;
-    padding: 30px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
-    padding-left: 110px;
+    padding-left: 72px;
 }
 
 .section__fecha{
-    margin: 0px 110px;
+    margin: 0px 72px;
     display: flex;
+    align-items: center;
 }
 
 
@@ -101,7 +91,7 @@ option, select{
     background-color: #E0DBFF;
     border: none;
     border-radius: 10px;
-    padding-left: 10px;
+    padding-left: 8px;
 }
 #correcto{
     visibility: visible;
@@ -116,13 +106,13 @@ option, select{
     background-image: url('../../../../../assets/images/fondosintomas.svg');
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
+    margin-top: 8px;
+    padding-left: 8px;
+    padding-top: 8px;
 }
     
 .btnsubmit{
-    padding: 50px 120px 50px 0px;
+    padding: 48px 72px 48px 0px;
     margin: 0px 130px;
     display: flex;
     justify-content: right;
@@ -131,11 +121,11 @@ option, select{
 button{
     background-color: #E0DBFF;
     color: black;
-    padding: 15px 20px;
+    padding: 16px 24px;
     border: none;
     font-size: 20px;
     border-radius: 10px;
-    margin-right: 50px;
+    margin-right: 48px;
     cursor: pointer;
     
 }
@@ -156,7 +146,7 @@ button:disabled{
     width: 80%;
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    padding: 32px;
 }
 .date{
     display: flex;
@@ -166,13 +156,13 @@ button:disabled{
 #fecha{
     background-color: #BEF3FF;
     height: 40px; 
-    padding: 5px 10px;
+    padding: 8px 8px;
 }
 
 #bday{
     width: 450px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .section__horarios{
@@ -194,13 +184,18 @@ button:disabled{
 }
 
 .openmodalbtn{
+    width: 240px;
+    height: 6   0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     background-color: #E0DBFF;
     color: black;
-    padding: 15px 20px;
+    padding: 16px 24px;
     border: none;
     font-size: 20px;
     border-radius: 10px;
-    margin-right: 50px;
+    margin-right: 48px;
     cursor: pointer;
 }
 .modal{
@@ -215,7 +210,21 @@ button:disabled{
     align-items: center;
 }
 .modal h1{
-    font-size: 28;
+    font-size: 28px;
+    padding-bottom: 16px;
+}
+
+
+.close h3{
+    cursor: pointer;
+    font-size: 30px;
+
+}
+.close{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 32px;
 }
 
 .modal h2{
@@ -236,10 +245,10 @@ h2{
 .horas-disponibles{
     width: 280px;
     height: 300px;
-    border-radius: 40px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
 }
 
 .horas-disponibles button{
@@ -247,15 +256,19 @@ h2{
     height: 40px;
     border-radius: 10px;
     border: none;
-    margin-top:15px;
-    padding: 5px 5px;
-    margin-right: 0;
+    margin-top:16px;
+    padding: 8px 8px;
     background-color: white;
-    
+    margin-right: 0;
+}
+
+.horas-disponibles button:hover{
+    background-color: #E0DBFF;
+       
 }
 
 .horas-disponibles h2{
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .btn__historial{

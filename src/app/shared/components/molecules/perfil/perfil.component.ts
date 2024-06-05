@@ -6,25 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent {
+  username: string = "Pacho Lopez"
   isModalOpen = false;
 
   toggleModal() {
     this.isModalOpen = !this.isModalOpen;
   }
-
-  editProfile() {
-    console.log('Editar perfil');
-  }
-
   closeModal() {
     this.isModalOpen = false;
-  }
-
-  closeModalOnOutsideClick(event: Event) {
-    this.isModalOpen = false;
-  }
-
-  stopPropagation(event: Event) {
-    event.stopPropagation();
   }
 }

@@ -27,6 +27,7 @@ import { IconStoreComponent } from './components/atoms/icon-store/icon-store.com
 import { TAdopcionComponent } from './components/atoms/t-adopcion/t-adopcion.component';
 import { IconAdopcionComponent } from './components/atoms/icon-adopcion/icon-adopcion.component';
 import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.component';
+import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-perfil.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.com
     IconStoreComponent,
     TAdopcionComponent,
     IconAdopcionComponent,
-    IconCitasComponent
+    IconCitasComponent,
+    ModalPerfilComponent
   ],
   imports: [
     CommonModule,

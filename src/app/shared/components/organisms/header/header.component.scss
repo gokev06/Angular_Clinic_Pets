@@ -1,6 +1,6 @@
 
 .header{
-  width: 1536px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,8 +8,7 @@
   background-image:url(../../../../../assets/images/imgcitas/fondo2.png);
   background-repeat: no-repeat;
   background-size: 100% 130px;
-  padding: 0 30px;
-  margin: 0;
+  padding: 0 40px;
 };
 
 .titles{

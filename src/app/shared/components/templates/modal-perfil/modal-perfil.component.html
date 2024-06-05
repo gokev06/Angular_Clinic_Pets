@@ -1,0 +1,6 @@
+<div class="modal"  (click)="closeModalOnOutsideClick($event)">
+    <div class="modal-content" (click)="stopPropagation($event)">
+      <button (click)="editProfile()">Editar Perfil</button>
+      <button (click)="closeModal()">Cerrar Sesión</button>
+    </div>
+  </div>

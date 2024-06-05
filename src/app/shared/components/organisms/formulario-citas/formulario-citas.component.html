@@ -1,4 +1,4 @@
-<h1>Datos del Tutor</h1>
+<h1 class="datos">Datos del Tutor</h1>
 <div class="form__date">
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -148,11 +148,11 @@
     <div (click)="openModal()" class="openmodalbtn">Horas Disponibles</div>
   </section>
   
-
+  
   <section class="section__horarios" *ngIf="showModal">
     <div class="modal">
+        <span class="close" (click)="closeModal()"><h3>&times;</h3></span>
       <h1>Seleccionar Horario</h1>
-      <span class="close" (click)="closeModal()">&times;</span>
       <div class="tabla">
       <div class="horas-disponibles">
           <!-- Aquí puedes agregar dinámicamente las horas disponibles -->

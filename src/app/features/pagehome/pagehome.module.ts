@@ -13,7 +13,6 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [
     PagehomeComponent,
     CitasComponent,
-    
   ],
   imports: [
     CommonModule,

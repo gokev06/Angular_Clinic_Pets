@@ -1,0 +1,41 @@
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 80px; 
+    right: 72px; 
+    background-color: transparent; 
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border: none;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #A5D9FF;
+    border: none; 
+    border-top: 1px solid rgba(0, 0, 0, 0.2); 
+    color: white;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  button:first-child {
+    border-top: none; 
+    border-radius: 10px 10px 0 0 ;
+  }
+  
+  button:hover {
+    background-color: #BEF3FF; 
+    color: black;
+  }
+  
