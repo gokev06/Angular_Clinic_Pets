@@ -1,6 +1,7 @@
 import { Component, OnInit ,  ViewChildren, ElementRef,QueryList, AfterViewInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
 
   estilos :string= "width: 450px; height: 40px;   background-color: #E0DBFF; border: none;border-radius: 10px; padding-left: 10px;"
   
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder  , private router: Router) {
     this.loginForm = this.formBuilder.group({}); // Inicialización para evitar el error TS2564
   }
 
@@ -44,7 +45,7 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
     // Asignar la hora seleccionada al control de formulario correspondiente
     this.loginForm?.get('hora')?.setValue(hora);
     this.isButtonActive = !this.isButtonActive;
-
+    this.closeModal()
   }
 
   @ViewChildren('myDiv') myDivs!: QueryList<ElementRef>;
@@ -80,8 +81,10 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
   
             }
           );
+          this.router.navigate(['']);
         }
       });
+      console.log(this.loginForm.value);
     } else {
       Swal.fire({
         title:'¡Hubo un problema!',
@@ -92,6 +95,7 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
         confirmButtonColor: '#F57171'
       }
     )
+
 
       this.myDivs.forEach(div => {
         if (div && div.nativeElement) {
