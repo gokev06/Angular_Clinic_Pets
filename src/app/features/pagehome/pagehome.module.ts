@@ -5,7 +5,7 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { PagehomeComponent } from './pagehome.component';
 import { CitasComponent } from '../citas/citas.component';
 import { RouterModule } from "@angular/router";
-import { HomeHeaderComponent } from '../../shared/components/organisms/home-header/home-header.component';
+
 
 
 
@@ -13,8 +13,7 @@ import { HomeHeaderComponent } from '../../shared/components/organisms/home-head
   declarations: [
     PagehomeComponent,
     CitasComponent,
-    HomeHeaderComponent,
-    
+   
   ],
   imports: [
     CommonModule,
@@ -25,7 +24,7 @@ import { HomeHeaderComponent } from '../../shared/components/organisms/home-head
   ],
   exports:[
     PagehomeComponent,
-    HomeHeaderComponent
+   
   ]
 })
 export class PagehomeModule { }
