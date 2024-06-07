@@ -4,34 +4,33 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 130px;
-  background-image:url(../../../../../assets/images/imgcitas/fondo2.png);
-  background-repeat: no-repeat;
-  background-size: 100% 130px;
-  padding: 0 40px;
+  height: 80px;
+  background-color: #CCC4FF;
+  padding: 0 40px
 };
 
+app-perfil,
+app-logo{
+  width: 200px;
+}
+
+app-logo{
+  display: flex;
+  justify-content: left;
+}
+
 .titles{
-    width: 300px;
+    width: 200px;
     height: 10px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    
+    justify-content: center;
 }
 
-.hola{
-  border-right: 3px solid black ;
+.hola { 
+  border-right: 1.5px solid black ;
 }
-
 
 .a{
-  font-size: 40px;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-}
-
-.a:hover{
-  color :#3a364e;
+  border-left: 1.5px solid black;
 }

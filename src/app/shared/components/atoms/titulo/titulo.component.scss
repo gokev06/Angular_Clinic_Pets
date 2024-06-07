@@ -1,4 +1,14 @@
 a{
+    width:100px ;
+    font-size: 28px;
+    cursor: pointer;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
     color: black;
-}
+  }
+  
+  a:hover{
+      color :#3a364e;
+  }
+

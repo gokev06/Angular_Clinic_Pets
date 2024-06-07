@@ -14,8 +14,8 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
   loginForm: FormGroup
   isButtonActive: boolean = false;
 
-  estilos :string= "width: 450px; height: 40px;   background-color: #E0DBFF; border: none;border-radius: 10px; padding-left: 10px;"
-  
+  estilos :string= "border:none ; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px"
+  style: string = "border:none ; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px"
   constructor(private formBuilder: FormBuilder  , private router: Router) {
     this.loginForm = this.formBuilder.group({}); // Inicialización para evitar el error TS2564
   }

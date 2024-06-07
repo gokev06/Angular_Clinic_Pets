@@ -1,131 +1,102 @@
-<h1 class="datos">Datos del Tutor</h1>
-<div class="form__date">
-
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
-    <!-- formulario datos del tutor   -->
-    <section class="date_usuario">
-
-      <div class="columm__1">
-        <div class="div label__nombre">
-
-          <div class="columm__nombre ">
-
-            <app-label [for]="'Nombre'"></app-label>
-            <app-input [text]="'text'" [holder]="'Ingrese su nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
-
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> 
+   <div class="form__date">
+    <div class="datoscontenedor">
+      <h1 class="datos">Agendar cita</h1>
+      <h1 class="datost">Datos del Tutor</h1>
+      <div class="datostutor">
+        <div class="columm__1">
+          <div class="div label__nombre">
+            <div class="columm__nombre ">
+              <!--<app-label [for]="'Nombre'"></app-label>-->
+              <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+            </div>
+            <p *ngIf="loginForm.get('nombre')?.errors?.['required']" #myDiv>El nombre es obligatorio</p> 
           </div>
-          <p *ngIf="loginForm.get('nombre')?.errors?.['required']" #myDiv>El nombre es obligatorio</p>
-        </div>
-        
-        <div class="div label__correo">
-          <div class="columm__correo">
-            <app-label [for]="'Correo'"></app-label>
-            <app-input [text]="'email'" [holder]="'Ingrese su correo'" [estilos]="estilos" formControlName="correo" [id]="'Correo'"></app-input>
+          <div class="div label__correo">
+            <div class="columm__correo">
+              <!--<app-label [for]="'Correo'"></app-label>--> 
+              <app-input [text]="'email'" [holder]="'Correo'" [estilos]="estilos" formControlName="correo" [id]="'Correo'"></app-input>
+            </div>
+            <p *ngIf="loginForm.get('correo')?.errors?.['required']" #myDiv>El correo es obligatorio</p>
+            <p *ngIf="loginForm.get('correo')?.errors?.['email']" #myDiv>El email debe ser correcto</p>
           </div>
-          <p *ngIf="loginForm.get('correo')?.errors?.['required']" #myDiv>El correo es obligatorio</p>
-          <p *ngIf="loginForm.get('correo')?.errors?.['email']" #myDiv>El email debe ser correcto</p>
         </div>
-
+        <div class="columm__2">
+          <div  class="div label__telefono">
+            <div class="columm__telefono">
+              <!-- <app-label [for]="'Telefono'"></app-label>-->
+              <app-input [text]="'text'" [holder]="'Telefono'" [estilos]="estilos" formControlName="telefono" [id]="'Telefono'"></app-input>
+            </div>
+            <p *ngIf="loginForm.get('telefono')?.errors?.['required']" #myDiv>El telefono es obligatorio</p>
+            <p *ngIf="loginForm.get('telefono')?.errors?.['pattern']" #myDiv>El telefono debe tener numeros</p>
+          </div>
+          <div  class="div label__direccion">
+            <div class="columm__direccion">
+              <!-- <app-label [for]="'Direccion'"></app-label>-->
+              <app-input [text]="'text'" [holder]="'Direccion'" [estilos]="estilos" formControlName="direccion" [id]="'Direccion'"></app-input>
+            </div>
+            <p *ngIf="loginForm.get('direccion')?.errors?.['required']" #myDiv>La Direccion es obligatorio</p>
+          </div>
+        </div>
       </div>
-     
-      <div class=" columm__2">
-
-        <div  class="div label__telefono">
-          <div class="columm__telefono">
-            <app-label [for]="'Telefono'"></app-label>
-            <app-input [text]="'text'" [holder]="'Ingrese su telefono'" [estilos]="estilos" formControlName="telefono" [id]="'Telefono'"></app-input>
+      <h1 class="datost">Datos de la Mascota</h1>
+      <div class="datosmascota">
+        <div class="columm__3">
+          <div class="div label_mascota">
+            <div class="columm__mascota" > 
+              <!--<app-label [for]="'Nombre Mascota'"></app-label>-->
+              <app-input [text]="'text'"  [holder]="'Nombre Mascota'" [estilos]="style" formControlName="nombreMascota" [id]="'Nombre Mascota'"></app-input>
+            </div> 
+            <p *ngIf="loginForm.get('nombreMascota')?.errors?.['required']"#myDiv>El nombre es obligatorio</p>
           </div>
-          <p *ngIf="loginForm.get('telefono')?.errors?.['required']" #myDiv>El telefono es obligatorio</p>
-          <p *ngIf="loginForm.get('telefono')?.errors?.['pattern']" #myDiv>El telefono debe tener numeros</p>
-        </div>
-
-        <div  class="div label__direccion">
-          <div class="columm__direccion">
-            <app-label [for]="'Direccion'"></app-label>
-            <app-input [text]="'text'" [holder]="'Ingrese su direccion'" [estilos]="estilos" formControlName="direccion" [id]="'Direccion'"></app-input>
+          <div class="div label__edad">
+            <div class="columm__edad">
+              <!--<app-label [for]="'Edad'"></app-label>-->
+              <app-input [text]="'text'"  [holder]="'Edad'" [estilos]="style" formControlName="edad" [id]="'Edad'"></app-input>
+            </div> 
+            <p *ngIf="loginForm.get('edad')?.errors?.['required']"#myDiv>La Edad es obligatorio</p>
           </div>
-          <p *ngIf="loginForm.get('direccion')?.errors?.['required']" #myDiv>La Direccion es obligatorio</p>
+          <div class="div label__vacunacion">
+            <div class="columm__vacunacion">
+              <!--<app-label [for]="'Estado Vacunacion'"></app-label>-->
+              <select id="Estado Vacunacion"  formControlName="estadovacunacion" name="estadovacunacion">
+                <option value="">Estado de Vacunacion</option>
+                <option value="En orden">En orden</option>
+                <option value="Incompletas">Incompletas</option>
+              </select>
+            </div>
+            <p *ngIf="loginForm.get('estadovacunacion')?.errors?.['required']" #myDiv>El Estado de Vacunacion es obligatorio</p>
+          </div>
         </div>
-
+        <div class="columm__4">
+          <div  class="div label__vacunas">
+            <div class="columm__vacunas">
+              <!--<app-label [for]="'Cantidad de Vacunas'"></app-label>-->
+              <app-input [text]="'number'" [holder]="'Cantidad de vacunas'" [estilos]="style" formControlName="CantidadVacunas" [id]="'Cantidad de Vacunas'"></app-input>
+            </div>
+            <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['required']"#myDiv>La Cantidad de Vacunas es obligatorio</p>
+            <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['pattern']" #myDiv>La Cantidad de Vacunas debe tener numeros</p>
+          </div>
+          <div  class="div label__especie">
+            <div class="columm__especie">
+              <!--<app-label [for]="'Especie'"></app-label>-->
+              <app-input [text]="'text'" [holder]="'Especie'" [estilos]="style" formControlName="especie" [id]="'Especie'"></app-input>
+            </div>  
+            <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
+          </div>
+          <div  class="div label__raza">
+            <div class="columm__raza">
+              <!--<app-label [for]="'Raza'"></app-label>-->  
+              <app-input [text]="'text'" [holder]="'Raza'" [estilos]="style" formControlName="raza" [id]="'Raza'"></app-input>
+            </div>
+            <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
+          </div>
+        </div>
       </div>
-      
-     
+    </div>
+    <img src="../../../../../assets/images/imgcitas/imagenCitas.png" alt="">
+  </div>
 
-    </section>
-      
-    <h1 class="datos">Datos de la Mascota</h1>
-  <section class="mascota">
-
-      <div class="columm__3">
-
-        <div class="div label_mascota">
-          <div class="columm__mascota" >
-            <app-label [for]="'Nombre Mascota'"></app-label>
-            <app-input [text]="'text'"  [holder]="'Nombre de la Mascota'" [estilos]="estilos" formControlName="nombreMascota" [id]="'Nombre Mascota'"></app-input> 
-          </div>
-          <p *ngIf="loginForm.get('nombreMascota')?.errors?.['required']"#myDiv>El nombre es obligatorio</p>
-        </div>
-
-        <div class="div label__edad">
-          <div class="columm__edad">
-            <app-label [for]="'Edad'"></app-label>
-            <app-input [text]="'text'"  [holder]="'Edad'" [estilos]="estilos" formControlName="edad" [id]="'Edad'"></app-input>
-          </div>
-          <p *ngIf="loginForm.get('edad')?.errors?.['required']"#myDiv>La Edad es obligatorio</p>
-        </div>
-
-        <div class="div label__vacunacion">
-
-          <div class="columm__vacunacion">
-                
-            <app-label [for]="'Estado Vacunacion'"></app-label>
-            <select id="Estado Vacunacion"  formControlName="estadovacunacion" name="estadovacunacion">
-              <option value=""></option>
-              <option value="En orden">En orden</option>
-              <option value="Incompletas">Incompletas</option>
-            </select>
-                
-          </div>
-          
-          <p *ngIf="loginForm.get('estadovacunacion')?.errors?.['required']" #myDiv>El Estado de Vacunacion es obligatorio</p>
-        </div>
-
-      </div>
-
-
-      <div class="columm__4">
-          
-        <div  class="div label__vacunas">
-          <div class="columm__vacunas">
-            <app-label [for]="'Cantidad de Vacunas'"></app-label>
-            <app-input [text]="'number'" [holder]="'Cantidad de vacunas'" [estilos]="estilos" formControlName="CantidadVacunas" [id]="'Cantidad de Vacunas'"></app-input>
-          </div>
-          
-          <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['required']"#myDiv>La Cantidad de Vacunas es obligatorio</p>
-          <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['pattern']" #myDiv>La Cantidad de Vacunas debe tener numeros</p>
-        </div>
-
-        <div  class="div label__especie">
-          <div class="columm__especie">
-            <app-label [for]="'Especie'"></app-label>
-            <app-input [text]="'text'" [holder]="'especie'" [estilos]="estilos" formControlName="especie" [id]="'Especie'"></app-input>
-          </div>
-          <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
-        </div>
-
-        <div  class="div label__raza">
-          <div class="columm__raza">
-            <app-label [for]="'Raza'"></app-label>
-            <app-input [text]="'text'" [holder]="'Raza'" [estilos]="estilos" formControlName="raza" [id]="'Raza'"></app-input>
-          </div>
-          <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
-        </div>
-
-
-      </div>
-
-  </section>
 
 
   <section class="sintomas__consulta">
@@ -178,10 +149,11 @@
     <button class="btn__agendar" type="submit">Agendar</button>
     <button class="btn__historial" router-Link="/historial" disabled>Historial de Citas</button>
   </div>
+
   </form>
 
 
-</div>
+
 
 
 

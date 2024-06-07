@@ -1,69 +1,75 @@
-
-.datos{
-    font-size: 40px;
+form{
     display: flex;
-    justify-content:center ;
-    padding: 32px;
+    flex-direction: column;
+    padding: 40px 36px;
 }
-
-.date_usuario{
+.form__date{
+    width: 100%;
+    height: 80vh;
     display: flex;
-    justify-content: space-between;
-    height: 260px;
-    margin: 0px 72px;
+    flex-direction: row;
+    border: 2px solid #CCC4FF;
+    border-radius: 30px;
+}
+img{
+    width: 50%;
+    height: 80vh;
+    border-radius: 30px;
 }
 
-
-
-.label__nombre,
-.label__telefono,
-.label__correo,
-.label__direccion
-{
-height: 100px;
-
-}
-
-.label__especie,
-.label_mascota,
-.label__edad,
-.label__vacunacion,
-.label__vacunas,
-.label__raza {
-    height: 100px;
-}
-
-.columm__especie,
-.columm__nombre,
-.columm__correo,
-.columm__telefono,
-.columm__direccion{
+.datoscontenedor{
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
 
-app-label{
-    font-size: 20px;
-    margin-top: 32px;
-    margin-bottom: 8px;
-    border: none;
-}
-
-.mascota{
+.datostutor{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin: 0px 72px;
-    height: 340px;
+    justify-content: space-evenly;    
 }
 
-.columm__mascota,
-.columm__edad,
-.columm__vacunacion,
-.columm__vacunas,
-.columm__raza {
-display: flex;
-flex-direction: column;
+.datosmascota{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
+
+.datos{
+    font-size: 24px;
+    padding: 8px;
+    justify-content: center;
+    display: flex;
+}
+
+.datost{
+    font-size: 16px;
+    display: flex;
+    padding: 8px 80px;
+}
+
+.label__nombre,
+.label__telefono,
+.label__correo,
+.label__direccion,
+.label_mascota,
+.label__edad,
+.label__vacunacion,
+.label__vacunas,
+.label__raza,
+.label__especie
+{
+height: 70px;
+width: 200px;
+
+}
+
+/*
+app-label{
+    font-size: 12px;
+    border: none;
+}*/
+
 
 .sintomas__consulta{
     height: 450px;
@@ -74,7 +80,6 @@ flex-direction: column;
     padding: 32px;
     display: flex;
     flex-direction: column;
-    padding-left: 72px;
 }
 
 .section__fecha{
@@ -86,29 +91,21 @@ flex-direction: column;
 
 
 option, select{
-    width: 100%;
-    height: 40px;   
-    background-color: #E0DBFF;
-    border: none;
-    border-radius: 10px;
-    padding-left: 8px;
-}
-#correcto{
-    visibility: visible;
-    color: black;
+    border:none ; 
+    border-bottom:2px solid #CCC4FF; 
+    margin-top: 16px; 
+    height: 30px;
+    width: 200px;
 }
 
 #sintomas{
-    width: 93%;
-    height: 300px;
+    width: 100%;
+    height: 100px;
     font-size: 40;
-    background-color: #BEF3FF;
-    background-image: url('../../../../../assets/images/fondosintomas.svg');
-    background-repeat: no-repeat;
-    background-position: center;
     margin-top: 8px;
     padding-left: 8px;
-    padding-top: 8px;
+    border: 2px solid #CCC4FF;
+    border-radius: 20px;
 }
     
 .btnsubmit{
@@ -133,6 +130,8 @@ button{
 p{
     color: red;
     visibility: hidden;
+    font-size: 12px;
+    margin-top: 8px;
 }
 
 button:disabled{

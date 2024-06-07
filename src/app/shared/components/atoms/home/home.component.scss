@@ -1,9 +1,11 @@
 .home{
-  font-size: 40px;
-  padding-right: 32px;
-  cursor: pointer;
+  width:100px ;
+  font-size: 28px;
+    cursor: pointer;
   text-decoration: none;
   color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .home:hover{
