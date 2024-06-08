@@ -17,7 +17,7 @@ import { PagehomeComponent } from './pagehome/pagehome.component';
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule ,// Importa ReactiveFormsModule aquí
+    ReactiveFormsModule ,
   ],
   exports:[
     CitasComponent,

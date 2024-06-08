@@ -1,0 +1,50 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px; 
+  width: 310px;
+
+  .day {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    cursor: pointer;
+
+    &.disabled {
+      background-color: grey;
+      pointer-events: none;
+    }
+
+    &.selected {
+      background-color: purple;
+      color: white;
+    }
+  }
+
+  .day-name {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .day.outside-month {
+    background-color: #fff; 
+    color: #ccc; 
+    cursor: default; 
+  }
+
+  
+  .selected-dot {
+    background-color: purple;
+  }
+  
+}

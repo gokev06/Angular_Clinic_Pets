@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 import { CitasRoutingModule } from './citas-routing.module';
 import { CitasComponent } from './citas.component';
-import { SharedModule } from '../../shared/shared.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -14,9 +15,10 @@ import { SharedModule } from '../../shared/shared.module';
     CommonModule,
     CitasRoutingModule,
     ReactiveFormsModule,
-    SharedModule, 
+    MatDialogModule,
+    MatButtonModule
   ],
-  exports:[
+  exports: [
     CitasComponent,
   ]
 })

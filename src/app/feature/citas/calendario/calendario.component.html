@@ -1,0 +1,16 @@
+<div class="calendar">
+  <div class="day-name" *ngFor="let dayName of dayNames">{{ dayName }}</div>
+  <div 
+    *ngFor="let day of daysInMonth" 
+    class="day" 
+    [ngClass]="{
+      'disabled': isSunday(day), 
+      'selected': day === selectedDay,
+      'outside-month': isOutsideMonth(day)
+    }"
+    (click)="selectDay(day)"
+  >
+    {{ isOutsideMonth(day) ? '' : day.getDate() }}
+  </div>
+  
+</div>

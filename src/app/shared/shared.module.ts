@@ -28,6 +28,8 @@ import { TAdopcionComponent } from './components/atoms/t-adopcion/t-adopcion.com
 import { IconAdopcionComponent } from './components/atoms/icon-adopcion/icon-adopcion.component';
 import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.component';
 import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-perfil.component';
+import { CalendarioComponent } from '../feature/citas/calendario/calendario.component';
+import { HorariosComponent } from '../feature/citas/horarios/horarios.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-
     InputComponent,
     LabelComponent,
     FormularioCitasComponent,
+    CalendarioComponent,
+    HorariosComponent,
     HomeHeaderComponent,
     ContenedoresComponent,
     BoxbigComponent,
@@ -76,6 +80,8 @@ import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-
     InputComponent,
     LabelComponent,
     FormularioCitasComponent,
+    CalendarioComponent,
+    HorariosComponent,
     HomeHeaderComponent,
     ContenedoresComponent,
     BoxbigComponent,
