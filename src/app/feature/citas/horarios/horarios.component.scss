@@ -1,16 +1,29 @@
+:host {
+  display: block;
+  width: 400px;
+  justify-content: center;
+  text-align: center;
+}
+
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  
+  cursor: pointer;
+  padding: 5px;
+  border-color: #ACA5D6;
+  border-radius: 4px;
+
+  &.selected {
+    background-color: purple;
+    color: white;
   }
-  
-  li {
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 4px;
-  
-    &.selected {
-      background-color: purple;
-      color: white;
-    }
-  }
-  
+}
+
+li:hover{
+  background-color: rgb(212, 87, 234);
+  color: white;
+}

@@ -43,7 +43,7 @@ export class CalendarioComponent implements OnInit {
   
     const dialogRef = this.dialog.open(HorariosComponent, {
       data: { date: this.selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) },
-      position: { top: '0', left: '400px' }
+      position: { top: '0', left: '420px' } // Ajusta esta posición según sea necesario
     });
   
     dialogRef.afterClosed().subscribe(() => {
@@ -68,5 +68,8 @@ export class CalendarioComponent implements OnInit {
   isOutsideMonth(day: Date): boolean {
     return day.getMonth() !== this.viewData.getMonth();
   }
-  
+
+  isBeforeFirstDay(day: Date): boolean {
+    return day.getFullYear() === 1970;
+  }
 }

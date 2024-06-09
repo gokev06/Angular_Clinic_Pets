@@ -1,7 +1,15 @@
+
+
 .calendar-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.calendar-container {
+  display: flex;
+  width: 350px;
+
 }
 
 .calendar {
@@ -20,8 +28,17 @@
     background-color: #f0f0f0;
     cursor: pointer;
 
+    
+
     &.disabled {
       background-color: grey;
+      color: white;
+      pointer-events: none;
+    }
+
+    &.before-first-day {
+      background-color: transparent;
+      color: transparent;
       pointer-events: none;
     }
 
@@ -30,21 +47,23 @@
       color: white;
     }
   }
+  .day:hover{
+    background-color: rgb(212, 87, 234);
+    color: white;
+  }
 
   .day-name {
     text-align: center;
     font-weight: bold;
   }
 
-  .day.outside-month {
+  .day.outside-month, .day.disabled {
     background-color: #fff; 
     color: #ccc; 
     cursor: default; 
   }
+}
 
-  
-  .selected-dot {
-    background-color: purple;
-  }
-  
+::ng-deep .mat-mdc-dialog-surface {
+  width: 440px !important;
 }
