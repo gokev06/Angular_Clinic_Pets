@@ -43,11 +43,10 @@ export class CalendarioComponent implements OnInit {
   
     const dialogRef = this.dialog.open(HorariosComponent, {
       data: { date: this.selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) },
-      position: { top: '0', left: '420px' } // Ajusta esta posición según sea necesario
+      position: { top: '0', left: '420px' } 
     });
   
     dialogRef.afterClosed().subscribe(() => {
-      // No necesitas hacer nada aquí si no deseas realizar alguna acción específica al cerrar el diálogo
     });
   }
 
