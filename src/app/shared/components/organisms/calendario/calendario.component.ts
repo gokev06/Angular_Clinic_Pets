@@ -39,15 +39,6 @@ export class CalendarioComponent implements OnInit {
   
   selectDay(day: Date): void {
     this.selectedDay = day;
-    this.dialog.closeAll();
-  
-    const dialogRef = this.dialog.open(HorariosComponent, {
-      data: { date: this.selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) },
-      position: { top: '0', left: '420px' } 
-    });
-  
-    dialogRef.afterClosed().subscribe(() => {
-    });
   }
 
   isSunday(day: Date): boolean {

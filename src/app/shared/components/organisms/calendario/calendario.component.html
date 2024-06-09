@@ -21,4 +21,8 @@
       {{ isOutsideMonth(day) ? '' : day.getDate() }}
     </div>
   </div>
+  <div class="horarios-modal" *ngIf="selectedDay">
+    <app-horarios [data]="{ date: selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) }"></app-horarios>
+  </div>
+  
 </div>

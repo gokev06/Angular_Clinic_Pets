@@ -13,7 +13,6 @@ import { InconmessageComponent } from './components/atoms/inconmessage/inconmess
 import { FooterComponent } from './components/organisms/footer/footer.component';
 import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto-info.component';
 import { RouterModule } from "@angular/router";
-import { CitasComponent } from '../features/citas/citas.component'; 
 import { InputComponent } from './components/atoms/input/input.component';
 import { LabelComponent } from './components/atoms/label/label.component';
 import { FormularioCitasComponent } from './components/organisms/formulario-citas/formulario-citas.component';
@@ -28,9 +27,9 @@ import { TAdopcionComponent } from './components/atoms/t-adopcion/t-adopcion.com
 import { IconAdopcionComponent } from './components/atoms/icon-adopcion/icon-adopcion.component';
 import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.component';
 import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-perfil.component';
-import { CalendarioComponent } from '../feature/citas/calendario/calendario.component';
-import { HorariosComponent } from '../feature/citas/horarios/horarios.component';
-
+import { HorariosComponent } from './components/organisms/horarios/horarios.component';
+import { CalendarioComponent } from './components/organisms/calendario/calendario.component';
+import { CitasComponent } from '../features/citas/citas.component';
 
 @NgModule({
   declarations: [

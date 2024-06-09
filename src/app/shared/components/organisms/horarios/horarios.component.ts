@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -7,10 +7,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./horarios.component.scss']
 })
 export class HorariosComponent implements OnInit {
+  @Input() data: any;  // Asegúrate de que la propiedad tenga el decorador @Input()
+
   horarios: string[] = [];
   selectedHorario: string | null = null;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any) {}
 
   ngOnInit(): void {
     this.generateHorarios();

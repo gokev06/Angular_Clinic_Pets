@@ -6,7 +6,8 @@
 
 .calendar-container {
   display: flex;
-  width: 500px; 
+  justify-content: space-between;
+  width: 100%;
 }
 
 .calendar {
@@ -22,7 +23,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: #f0f0f0;
+    background-color: white;
+    border: 1px solid grey;
     cursor: pointer;
 
     &.disabled {
@@ -60,9 +62,12 @@
   }
 }
 
+.horarios-modal {
+  margin-left: 20px; 
+}
+
 ::ng-deep .mat-mdc-dialog-surface {
-  width: 100px !important;
-  position: absolute;
-  top: 0;
-  left: 340px; 
+  width: 400px !important;
+  position: static !important;
+  transform: none !important;
 }
