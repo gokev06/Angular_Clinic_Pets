@@ -2,6 +2,7 @@ import { Component, OnInit ,  ViewChildren, ElementRef,QueryList, AfterViewInit}
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -14,8 +15,8 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
   loginForm: FormGroup
   isButtonActive: boolean = false;
 
-  estilos :string= "width: 450px; height: 40px;   background-color: #E0DBFF; border: none;border-radius: 10px; padding-left: 10px;"
-  
+  estilos :string= "border:none ; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px"
+  style: string = "border:none ; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px"
   constructor(private formBuilder: FormBuilder  , private router: Router) {
     this.loginForm = this.formBuilder.group({}); // Inicialización para evitar el error TS2564
   }
@@ -65,7 +66,7 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
         confirmButtonColor: '#7DFF82',
         cancelButtonColor: '#F57171',
         confirmButtonText: 'Sí,confirmar',
-        imageUrl: '../../../../../assets/images/gato.png', // URL de la imagen que deseas mostrar
+        imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // URL de la imagen que deseas mostrar
         imageWidth: 200, // Ancho de la imagen
         imageHeight: 200
       }).then((result) => {
@@ -74,7 +75,7 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
           Swal.fire({
             title:'¡Cita confirmada!',
             text:'La cita ha sido confirmada exitosamente.',
-            imageUrl: '../../../../../assets/images/perroalert.png', // URL de la imagen que deseas mostrar
+            imageUrl: '../../../../../assets/images/imgcitas/confirmar.png', // URL de la imagen que deseas mostrar
             imageWidth: 200, // Ancho de la imagen
             imageHeight: 200,
             confirmButtonColor: '#7DFF82',
@@ -89,10 +90,14 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
       Swal.fire({
         title:'¡Hubo un problema!',
         text:'pararece que no llenaste correctamente el formulario',
-        imageUrl: '../../../../../assets/images/file 1.png', // URL de la imagen que deseas mostrar
+        imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // URL de la imagen que deseas mostrar
         imageWidth: 200, // Ancho de la imagen
         imageHeight: 200,
-        confirmButtonColor: '#F57171'
+        confirmButtonColor: 'rgba(209, 0, 0, 0.47)',
+        customClass: {
+          title:'mi-titulo',
+          confirmButton: 'botonC',
+        }
       }
     )
 

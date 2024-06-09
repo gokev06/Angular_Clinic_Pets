@@ -10,7 +10,6 @@ import { InfoFooterComponent } from './components/atoms/info-footer/info-footer.
 import { InconmapComponent } from './components/atoms/inconmap/inconmap.component';
 import { InconphoneComponent } from './components/atoms/inconphone/inconphone.component';
 import { InconmessageComponent } from './components/atoms/inconmessage/inconmessage.component';
-import { FooterComponent } from './components/organisms/footer/footer.component';
 import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto-info.component';
 import { RouterModule } from "@angular/router";
 import { CitasComponent } from '../features/citas/citas.component'; 
@@ -31,6 +30,7 @@ import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-
 import { CarruselComponent } from './components/organisms/carrusel/carrusel.component';
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -43,7 +43,6 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
     InconmapComponent,
     InconphoneComponent,
     InconmessageComponent,
-    FooterComponent,
     InputComponent,
     LabelComponent,
     FormularioCitasComponent,
@@ -81,7 +80,6 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
     HomeHeaderComponent,
     ContenedoresComponent,
     BoxbigComponent,
-    FooterComponent,
     ImgAndtextComponent,
     ImgAndtextbigComponent,
     TTiendaComponent,
@@ -89,7 +87,8 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
     TAdopcionComponent,
     IconAdopcionComponent,
     IconCitasComponent,
-    CarruselComponent
+    CarruselComponent,
+    
   ]
 })
 export class SharedModule { }

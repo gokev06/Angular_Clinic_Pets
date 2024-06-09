@@ -1,34 +1,21 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 130px;
-    background-image: url(../../../../../assets/images/imgcitas/fondo2.png);
-    background-repeat: no-repeat;
-    background-size: 100% 130px;
-    padding: 0 32px;
-    position: relative; 
-  }
-  
-  .profil {
+.profil {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     position: relative; 
+    text-align: center;
   }
   
   .perfil {
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-    margin-left: 40px;
-    margin-right: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius:30px;
   }
   
   .titulo {
-    font-size: 25px;
-    margin-top: 16px;
+    padding: 0 10px;
+    font-size: 20px;
     cursor: pointer;
   }
   
