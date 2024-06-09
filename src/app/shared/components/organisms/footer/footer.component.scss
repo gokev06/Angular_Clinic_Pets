@@ -1,22 +1,32 @@
 footer{
     width: 100%;
-    height: 130px;
+    height: 150px;
     display: flex;
-    background-image: url(../../../../../assets/images/imgcitas/footer.png);
-    background-size: 100% 200px;
+    background-color: #CCC4FF;
+    
+    
+    
 }
 
 .info{
-    width: 768px;
+    width:50% ;
     height: 80px;
     display: flex;
     justify-content:flex-start ;
+    padding-left: 24px;
     flex-direction: column;
-    padding: 0px 24px ;
+}
+
+.flex{
+    width:50%;
+    display: flex;
+    justify-content:flex-start ;
+    align-items: center;
+    padding-left: 4px;
 }
 
 .correo{
-    width: 768px;
+    width: 50%;
     height: 80px;
     display: flex;
     align-items: flex-end;

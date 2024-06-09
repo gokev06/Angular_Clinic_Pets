@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './contenedores.component.scss'
 })
 export class ContenedoresComponent {
-
+  textoEnlace: string = "Texto del enlace";
+  
+  constructor() {}
 }

@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+/citas
 
 # Node
 /node_modules

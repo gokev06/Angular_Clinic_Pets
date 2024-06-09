@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent {
-  username: string = "Pacho Lopez"
+  username: string = ""
   isModalOpen = false;
 
   toggleModal() {

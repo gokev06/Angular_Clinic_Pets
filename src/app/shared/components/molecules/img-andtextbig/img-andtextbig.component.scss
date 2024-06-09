@@ -1,6 +1,6 @@
 .tamaño{
     width: 100%;
-    height: 500px;
+    height: 300px;
     display: flex;
     padding-left: 16px;
    }
@@ -8,7 +8,7 @@
 .tamaño img{
     margin-right: 24px;
     width: 174px;
-    height: 300px;
+    height: 249px;
 }
 
 
@@ -30,16 +30,19 @@
 
 .pricipalbox img{
     width: 30%;
-    height: 157px;
+    height: 144px;
     padding-top: 8px;
+    display: block;
 }
 
 
 
 .text_adoptame{
     width: 45%;
-    height: 157px;
+    height: 100px;
     display: block;
+    padding-top: 4px;
+  
 }
 
 
@@ -55,7 +58,9 @@
 
 .img-text img{
     width: 37.6vw;
-    height: 15vh;
+    height: 11vh;
     padding-top: 16px;
+    display: block;
+    margin-top: 8px;
 
 }

@@ -28,6 +28,7 @@ import { TAdopcionComponent } from './components/atoms/t-adopcion/t-adopcion.com
 import { IconAdopcionComponent } from './components/atoms/icon-adopcion/icon-adopcion.component';
 import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.component';
 import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-perfil.component';
+import { CarruselComponent } from './components/organisms/carrusel/carrusel.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-
     TAdopcionComponent,
     IconAdopcionComponent,
     IconCitasComponent,
-    ModalPerfilComponent
+    ModalPerfilComponent,
+    CarruselComponent
   ],
   imports: [
     CommonModule,
@@ -86,7 +88,8 @@ import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-
     IconStoreComponent,
     TAdopcionComponent,
     IconAdopcionComponent,
-    IconCitasComponent
+    IconCitasComponent,
+    CarruselComponent
   ]
 })
 export class SharedModule { }
