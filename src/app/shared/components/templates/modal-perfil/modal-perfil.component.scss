@@ -22,7 +22,7 @@
     padding: 8px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #A5D9FF;
+    background-color:#BFA3FF;/* Nuevo color de fondo para los botones */
     border: none; 
     border-top: 1px solid rgba(0, 0, 0, 0.2); 
     color: white;
@@ -35,7 +35,7 @@
   }
   
   button:hover {
-    background-color: #BEF3FF; 
+    background-color: #dfddff; /* Nuevo color de fondo al pasar el cursor sobre los botones */
     color: black;
   }
   

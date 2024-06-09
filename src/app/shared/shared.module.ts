@@ -7,9 +7,9 @@ import { TituloComponent } from './components/atoms/titulo/titulo.component';
 import { HeaderComponent } from './components/organisms/header/header.component';
 import { PerfilComponent } from './components/molecules/perfil/perfil.component';
 import { InfoFooterComponent } from './components/atoms/info-footer/info-footer.component';
-import { InconmapComponent } from './components/atoms/inconmap/inconmap.component';
-import { InconphoneComponent } from './components/atoms/inconphone/inconphone.component';
-import { InconmessageComponent } from './components/atoms/inconmessage/inconmessage.component';
+import { InconmapComponent } from './components/atoms/inconlike/inconmap.component';
+import { InconphoneComponent } from './components/atoms/inconfacebook/inconphone.component';
+import { InconmessageComponent } from './components/atoms/inconyt/inconmessage.component';
 import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto-info.component';
 import { RouterModule } from "@angular/router";
 import { CitasComponent } from '../features/citas/citas.component'; 
@@ -28,6 +28,7 @@ import { IconAdopcionComponent } from './components/atoms/icon-adopcion/icon-ado
 import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.component';
 import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-perfil.component';
 import { CarruselComponent } from './components/organisms/carrusel/carrusel.component';
+import { FooterComponent } from './components/organisms/footer/footer.component';
 
 
 
@@ -57,7 +58,8 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
     IconAdopcionComponent,
     IconCitasComponent,
     ModalPerfilComponent,
-    CarruselComponent
+    CarruselComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -88,6 +90,7 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
     IconAdopcionComponent,
     IconCitasComponent,
     CarruselComponent,
+    FooterComponent
     
   ]
 })
