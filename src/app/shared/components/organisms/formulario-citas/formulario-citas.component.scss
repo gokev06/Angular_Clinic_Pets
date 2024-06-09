@@ -88,7 +88,16 @@ app-label{
     align-items: center;
 }
 
+.swal2-title.mi-titulo{
+    color:rgba(122, 32, 34, 0.9) ;
+}
 
+.swal2-confirmButton.botonC{
+    width: 80px;
+    border-radius: 30px;
+    border: none;
+    color: black;
+}
 
 option, select{
     border:none ; 
