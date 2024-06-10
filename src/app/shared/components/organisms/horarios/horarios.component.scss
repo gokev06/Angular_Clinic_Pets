@@ -3,11 +3,17 @@
   width: 300px;
 }
 .container{
-  justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start ;
   align-items: center;
+  padding-right: 36px;
+ 
 }
 h2 {
   text-align: center;
+  display: flex;
 }
 
 ul {
@@ -15,23 +21,23 @@ ul {
   padding: 0;
   justify-content: center;
   text-align: center;
-  width: 100px;
+  width: 300px;
 }
 
 li {
   cursor: pointer;
-  padding: 5px;
-  border: 1px solid #ACA5D6;
-  border-radius: 4px;
-  margin-bottom: 5px;
+  padding: 8px;
+  border: 4px solid #ACA5D6;
+  border-radius: 12px;
+  margin-bottom: 12px;
 
   &.selected {
-    background-color: purple;
+    background-color:#CCC4FF;
     color: white;
   }
 }
 
 li:hover {
-  background-color: rgb(212, 87, 234);
+  background-color:  #9588e4;
   color: white;
 }

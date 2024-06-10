@@ -1,7 +1,7 @@
 form{
     display: flex;
     flex-direction: column;
-    padding: 40px 36px;
+    padding: 58px 48px;
 }
 .form__date{
     width: 100%;
@@ -72,14 +72,17 @@ app-label{
 
 
 .sintomas__consulta{
-    height: 450px;
+    height: 280px;
+    padding-top: 12px;
+
 }
 
 .divsintomas{
     width: 100%;
-    padding: 32px;
+    padding: 36px;
     display: flex;
     flex-direction: column;
+   
 }
 
 .section__fecha{
@@ -281,8 +284,22 @@ h2{
 
 .btn__historial{
     width: 340px;
+    background-color: #BEF3FF;
 }
 
 .btn__agendar{
     width: 160px;
+    background-color: rgb( 87, 250, 60,0.47);
 }
+
+.btn__cancelar{
+    width: 160px;
+    background-color: rgb(250, 60, 60,0.47);
+}
+
+.custom-select {
+    /* Estilos personalizados para el select */
+    width: 100%;
+    border-radius: 4px;
+  }
+  

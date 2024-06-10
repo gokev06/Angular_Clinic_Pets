@@ -31,8 +31,6 @@ export class FormularioCitasComponent implements OnInit , AfterViewInit {
       correo: ['', [Validators.required, Validators.email]], // Validador de correo electrónico
       direccion: ['', Validators.required],
       sintomas: ['', Validators.required],
-      fecha: ['', Validators.required ],
-      hora: ['', Validators.required ],
       nombreMascota: ['', Validators.required ],
       CantidadVacunas: ['', [Validators.required, Validators.pattern('^[0-9]*$')] ],
       edad: ['', Validators.required ],

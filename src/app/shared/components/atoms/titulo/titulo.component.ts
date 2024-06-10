@@ -6,8 +6,8 @@ import { Component, Input} from '@angular/core';
   styleUrl: './titulo.component.scss'
 })
 export class TituloComponent {
- @Input() title: string = "";
- @Input() ruta: string=""
+ @Input() title: string = "Agendar citas";
+ @Input() ruta: string="/citas"
  @Input() estilo: string=""
 
   constructor() {}

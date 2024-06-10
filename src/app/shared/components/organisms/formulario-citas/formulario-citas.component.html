@@ -80,8 +80,13 @@
           <div  class="div label__especie">
             <div class="columm__especie">
               <!--<app-label [for]="'Especie'"></app-label>-->
-              <app-input [text]="'text'" [holder]="'Especie'" [estilos]="style" formControlName="especie" [id]="'Especie'"></app-input>
-            </div>  
+              <select [formControlName]="'especie'" class="custom-select">
+                <option value="">Especie</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
             <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
           </div>
           <div  class="div label__raza">
@@ -91,13 +96,12 @@
             </div>
             <p *ngIf="loginForm.get('raza')?.errors?.['required']" #myDiv>La Raza es obligatoria</p>
           </div>
+          
         </div>
       </div>
     </div>
     <img src="../../../../../assets/images/imgcitas/imagenCitas.png" alt="">
   </div>
-
-
 
   <section class="sintomas__consulta">
     <div class="divsintomas label__motivo consulta">
@@ -106,46 +110,11 @@
       <p *ngIf="loginForm.get('sintomas')?.errors?.['required']" #myDiv>Los Sintomas es obligatorio</p>
     </div>
   </section>
-
-  <section class="section__fecha">
-    <div class="NativeDatePicker">
-      <app-label [for]="'Seleccionar Fecha'"></app-label>
-      <div class="date">
-        <app-input [text]="'date'" [holder]="'Seleccionar Fecha'" [estilos]="estilos" formControlName="fecha" [id]="'Seleccionar Fecha'"></app-input>
-      <span class="validity"></span>
-      <p *ngIf="loginForm.get('fecha')?.errors?.['required']"#myDiv>La fecha es obligatoria</p>
-    </div>
-    </div>
-    <div (click)="openModal()" class="openmodalbtn">Horas Disponibles</div>
-  </section>
-  
-  
-  <section class="section__horarios" *ngIf="showModal">
-    <div class="modal">
-        <span class="close" (click)="closeModal()"><h3>&times;</h3></span>
-      <h1>Seleccionar Horario</h1>
-      <div class="tabla">
-      <div class="horas-disponibles">
-          <!-- Aquí puedes agregar dinámicamente las horas disponibles -->
-         <h2>Mañana</h2>
-         <button type="button" (click)="seleccionarHora('8:00 am')">8:00 AM</button>
-         <button type="button" (click)="seleccionarHora('9:00 am')">9:00 AM</button>
-         <button type="button" (click)="seleccionarHora('10:00 am')">10:00 AM</button>
-         <button type="button" (click)="seleccionarHora('11:00 am')">11:00 AM</button>
-          <!-- Añade más horas según sea necesario -->
-      </div>
-      <div class="horas-disponibles">
-         <h2>Tarde</h2> 
-         <button type="button" (click)="seleccionarHora('2:00 pm')">2:00 PM</button>
-  <button type="button" (click)="seleccionarHora('3:00 pm')">3:00 PM</button>
-  <button type="button" (click)="seleccionarHora('4:00 pm')">4:00 PM</button>
-  <button type="button" (click)="seleccionarHora('5:00 pm')">5:00 PM</button>
-      </div>
-  </div>
-</div>
-  </section>
+  <section class="calendario">
   <app-calendario></app-calendario>
+</section>
   <div class="btnsubmit">
+    <button class="btn__cancelar" type="submit">Cancelar</button>
     <button class="btn__agendar" type="submit">Agendar</button>
     <button class="btn__historial" router-Link="/historial" disabled>Historial de Citas</button>
   </div>

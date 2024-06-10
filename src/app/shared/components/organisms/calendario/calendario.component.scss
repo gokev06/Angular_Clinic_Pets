@@ -1,27 +1,79 @@
+.meses{
+width: 60%;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: flex-end;
+padding-left: 36px;
+padding-bottom: 8px;
+margin-bottom: 8px;
+}
+
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-around ;
   margin-bottom: 10px;
-  width: 300px;
+  width: 50%;
+ 
+}
+
+.calendar-header button {
+  width: 30px;
+  height: 30px;
+  background-color: #CCC4FF;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 30%;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  /* Estilos al pasar el mouse sobre los botones */
+  background-color: #ddd;
+}
+
+
+section{
+  width: 100%;
+  display: flex;
+  height: 650px;
+  justify-content: center;
+  border: 2px solid #CCC4FF;
+  border-radius: 30px;
+}
+
+.principal{
+  width: 60%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 28px;
+  padding-left: 36px;
 }
 
 .calendar-container {
   display: flex;
-  justify-content: space-between;
-  width: 700px; /* Asegúrate de que haya suficiente espacio para el calendario y el modal */
+  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  padding-left: 36px; /* Asegúrate de que haya suficiente espacio para el calendario y el modal */
 }
 
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 4px; 
-  width: 310px;
+  width: 80%;
+
 
   .day {
-    width: 40px;
-    height: 40px;
+    width: 70px;;
+    height: 70px;
     display: flex;
     align-items: center;
+    margin-right: 20px;
+    margin-top: 4px;
     justify-content: center;
     border-radius: 50%;
     background-color: white;
@@ -29,8 +81,8 @@
     cursor: pointer;
 
     &.disabled {
-      background-color: grey;
-      color: white;
+      background-color:rgb(189, 173, 173, 0.32);
+      color: black;
       pointer-events: none;
     }
 
@@ -42,19 +94,20 @@
     }
 
     &.selected {
-      background-color: purple;
+      background-color:#CCC4FF;
       color: white;
     }
   }
 
   .day:hover {
-    background-color: rgb(212, 87, 234);
+    background-color:  #9588e4;
     color: white;
   }
 
   .day-name {
     text-align: center;
     font-weight: bold;
+    margin-right: 20px;
   }
 
   .day.outside-month {
@@ -64,9 +117,20 @@
   }
 }
 
+
+
+.modal{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .horarios-modal {
   margin-left: 20px; 
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 40%;
+  padding-right: 36px;
+  margin-right: 36px;
 }

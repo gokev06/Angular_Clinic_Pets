@@ -24,7 +24,7 @@ export class HorariosComponent implements OnInit, OnChanges {
 
   generateHorarios(): void {
     const isSaturday = this.data.date === 'sábado'; 
-    const allHorarios = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00'];
+    const allHorarios = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM','3:00 PM'];
     this.horarios = isSaturday ? allHorarios.slice(0, 3) : allHorarios;
   }
 

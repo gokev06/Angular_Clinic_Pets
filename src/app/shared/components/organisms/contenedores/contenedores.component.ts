@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'app-contenedores',
@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './contenedores.component.scss'
 })
 export class ContenedoresComponent {
-  textoEnlace: string = "Texto del enlace";
-  
-  constructor() {}
+  @Input() title: string = "Agendar citas";
+  @Input() ruta: string="/citas"
+  @Input() estilo: string=""
+ 
+   constructor() {}
 }

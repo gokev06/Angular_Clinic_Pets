@@ -1,8 +1,16 @@
-<div class="calendar-header">
-  <button (click)="previousMonth()">&lt;</button>
-  <span>{{ viewData | date: 'MMMM yyyy' }}</span>
-  <button (click)="nextMonth()">&gt;</button>
-</div>
+<section>
+ <div  class="principal">
+  
+  <nav class="meses">
+     <h2>selecionar fecha y hora</h2>
+    <div class="calendar-header">
+       <button (click)="previousMonth()">&lt;</button>
+       <span>{{ viewData | date: 'MMMM yyyy' }}</span>
+       <button (click)="nextMonth()">&gt;</button>
+     </div>
+    </nav>
+
+
 
 <div class="calendar-container">
   <div class="calendar">
@@ -21,7 +29,12 @@
       {{ isOutsideMonth(day) ? '' : day.getDate() }}
     </div>
   </div>
+</div>
+</div> 
 
+<div class="modal">
   <!-- Aquí colocamos el componente de horarios -->
   <app-horarios *ngIf="selectedDay" [data]="{ date: selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) }" class="horarios-modal"></app-horarios>
 </div>
+
+</section>
