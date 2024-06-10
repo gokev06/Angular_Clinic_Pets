@@ -1,10 +1,13 @@
-<h2>Horarios para {{ data.date | date:'fullDate' }}</h2>
+
+<div class="container">
+  <h2>Horarios para {{ data.date | titlecase }}</h2>
 <ul>
   <li 
     *ngFor="let horario of horarios" 
-    [ngClass]="{ 'selected': horario === selectedHorario }"
+    [ngClass]="{'selected': horario === selectedHorario}"
     (click)="selectHorario(horario)"
   >
-    {{ horario }}
+    {{horario}}
   </li>
 </ul>
+</div>

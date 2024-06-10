@@ -1,16 +1,37 @@
+:host {
+  display: block;
+  width: 300px;
+}
+.container{
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  text-align: center;
+}
+
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
+  justify-content: center;
+  text-align: center;
+  width: 100px;
+}
+
+li {
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid #ACA5D6;
+  border-radius: 4px;
+  margin-bottom: 5px;
+
+  &.selected {
+    background-color: purple;
+    color: white;
   }
-  
-  li {
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 4px;
-  
-    &.selected {
-      background-color: purple;
-      color: white;
-    }
-  }
-  
+}
+
+li:hover {
+  background-color: rgb(212, 87, 234);
+  color: white;
+}

@@ -1,19 +1,25 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-horarios',
   templateUrl: './horarios.component.html',
   styleUrls: ['./horarios.component.scss']
 })
-export class HorariosComponent implements OnInit {
+export class HorariosComponent implements OnInit, OnChanges {
+  @Input() data!: { date: string };
   horarios: string[] = [];
   selectedHorario: string | null = null;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.generateHorarios();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data']) {
+      this.generateHorarios(); // Regenerate horarios when input data changes
+    }
   }
 
   generateHorarios(): void {

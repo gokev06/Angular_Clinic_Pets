@@ -66,6 +66,7 @@ import { HorariosComponent } from './components/organisms/horarios/horarios.comp
     HorariosComponent
   ],
   imports: [
+    
     CommonModule,
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },
@@ -74,6 +75,7 @@ import { HorariosComponent } from './components/organisms/horarios/horarios.comp
   ],
 
   exports:[
+    HorariosComponent,
     HomeComponent,
     ContactoInfoComponent,
     LogoComponent,
@@ -95,7 +97,6 @@ import { HorariosComponent } from './components/organisms/horarios/horarios.comp
     IconCitasComponent,
     CarruselComponent,
     FooterComponent
-    
   ]
 })
 export class SharedModule { }
