@@ -29,6 +29,8 @@ import { IconCitasComponent } from './components/atoms/icon-citas/icon-citas.com
 import { ModalPerfilComponent } from './components/templates/modal-perfil/modal-perfil.component';
 import { CarruselComponent } from './components/organisms/carrusel/carrusel.component';
 import { FooterComponent } from './components/organisms/footer/footer.component';
+import { CalendarioComponent } from './components/organisms/calendario/calendario.component';
+import { HorariosComponent } from './components/organisms/horarios/horarios.component';
 
 
 
@@ -59,7 +61,9 @@ import { FooterComponent } from './components/organisms/footer/footer.component'
     IconCitasComponent,
     ModalPerfilComponent,
     CarruselComponent,
-    FooterComponent
+    FooterComponent,
+    CalendarioComponent,
+    HorariosComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,67 @@
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-container {
+    display: flex;
+  }
+  
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px; 
+    width: 310px;
+  
+    .day {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      cursor: pointer;
+  
+      &.disabled {
+        background-color: transparent;
+        color: transparent;
+        pointer-events: none;
+      }
+  
+      &.before-first-day {
+        background-color: transparent;
+        color: transparent;
+        pointer-events: none;
+      }
+  
+      &.selected {
+        background-color: purple;
+        color: white;
+      }
+  
+      &.outside-month {
+        background-color: transparent;
+        color: #ccc;
+        cursor: default;
+      }
+    }
+  
+    .day-name {
+      text-align: center;
+      font-weight: bold;
+    }
+  
+    .day.outside-month, .day.disabled {
+      background-color: transparent;
+      color: #ccc;
+      cursor: default;
+    }
+  }
+  
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 400px !important; /* Incrementa el ancho del modal */
+  }
+  
