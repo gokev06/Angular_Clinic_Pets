@@ -4,9 +4,9 @@
   <nav class="meses">
      <h2>selecionar fecha y hora</h2>
     <div class="calendar-header">
-       <button (click)="previousMonth()">&lt;</button>
+       <a (click)="previousMonth()">&lt;</a>
        <span>{{ viewData | date: 'MMMM yyyy' }}</span>
-       <button (click)="nextMonth()">&gt;</button>
+       <a (click)="nextMonth()">&gt;</a>
      </div>
     </nav>
 

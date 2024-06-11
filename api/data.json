@@ -1,0 +1,64 @@
+{
+  "citas": [
+    {
+      "id": "1",
+      "nombre": "John Doe",
+      "telefono": "123456789",
+      "correo": "johndoe@example.com",
+      "direccion": "123 Main St",
+      "sintomas": "Dolor de cabeza",
+      "nombreMascota": "Rex",
+      "tipo": "cirugia",
+      "edad": 2,
+      "especie": "Perro",
+      "estadovacunacion": "En orden",
+      "raza": "Labrador",
+      "hora": "09:00"
+    },
+    {
+      "id": "2",
+      "nombre": "Jane Smith",
+      "telefono": "987654321",
+      "correo": "janesmith@example.com",
+      "direccion": "456 Elm St",
+      "sintomas": "Fiebre",
+      "nombreMascota": "Whiskers",
+      "tipo": "cirugia",
+      "edad": 3,
+      "especie": "Gato",
+      "estadovacunacion": "Incompletas",
+      "raza": "Siames",
+      "hora": "10:00"
+    },
+    {
+      "id": "31ea",
+      "nombre": "jhfeoihojvur",
+      "telefono": "3104914257",
+      "correo": "j@gmail",
+      "direccion": "mz5 c9",
+      "sintomas": "slejobfvbihsj",
+      "nombreMascota": "zpacho",
+      "tipo": "opiju",
+      "edad": "18",
+      "especie": "Perro",
+      "estadovacunacion": "En orden",
+      "raza": "dalmata",
+      "hora": ""
+    },
+    {
+      "id": "3869",
+      "nombre": "gina",
+      "telefono": "3104914257",
+      "correo": "gina@gmail",
+      "direccion": "mz5 c9",
+      "sintomas": "cirugia ",
+      "nombreMascota": "pacho",
+      "tipo": "cirugia",
+      "edad": "18",
+      "especie": "Gato",
+      "estadovacunacion": "Incompletas",
+      "raza": "dalmata",
+      "hora": ""
+    }
+  ]
+}

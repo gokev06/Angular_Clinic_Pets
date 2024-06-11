@@ -4,27 +4,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 90px;
   background-color: #CCC4FF;
-  padding: 0 40px
+  padding: 0 44px
 };
-
-
-app-logo{
-  width: 200px;
-}
-
-app-perfil{
-  width: 300px;
-  align-items: center;
-  justify-content: center;
-  padding-top: 25px;
-}
-
-app-logo{
-  display: flex;
-  justify-content: left;
-}
 
 .titles{
     width: 200px;
@@ -36,8 +19,17 @@ app-logo{
 
 .hola { 
   border-right: 1.5px solid black ;
+  padding: 0 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .a{
   border-left: 1.5px solid black;
+  padding: 0  12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
+

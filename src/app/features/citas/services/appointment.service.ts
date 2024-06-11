@@ -16,13 +16,14 @@ interface Appointment {
   estadovacunacion: string;
   raza: string;
   hora: string;
+  fecha: String;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  private apiUrl = 'http://localhost:3000/appointments';
+  private apiUrl = 'http://localhost:8000/citas';
 
   constructor(private http: HttpClient) {}
 

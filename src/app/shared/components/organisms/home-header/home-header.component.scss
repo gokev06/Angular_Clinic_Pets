@@ -13,5 +13,11 @@ header{
 
 }
 .hola{
-    border: none;
+    display: flex;
+    align-items: center;
+}
+
+
+.hola,app-perfil{
+padding: 0 24px;
 }

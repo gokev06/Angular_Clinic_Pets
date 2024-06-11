@@ -5,7 +5,7 @@
     padding-left: 16px;
    }
 
-.tamaño img{
+.tamaño .lucas{
     margin-right: 24px;
     width: 174px;
     height: 249px;
@@ -28,6 +28,11 @@
     display: flex;
 }
 
+.content img{
+    padding: 0 8px;
+    width: 100px;
+}
+
 .pricipalbox img{
     width: 30%;
     height: 144px;
@@ -38,10 +43,10 @@
 
 
 .text_adoptame{
-    width: 45%;
+    width: 100%;
     height: 100px;
     display: block;
-    padding-top: 8px;
+    padding: 12px;
   
 }
 

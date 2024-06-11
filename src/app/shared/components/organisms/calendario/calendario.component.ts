@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-calendario',
@@ -10,6 +10,7 @@ export class CalendarioComponent implements OnInit {
   daysInMonth: Date[] = [];
   selectedDay: Date | null = null;
   dayNames: string[] = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']; 
+@Input() value : string =""
 
   constructor() {}
 

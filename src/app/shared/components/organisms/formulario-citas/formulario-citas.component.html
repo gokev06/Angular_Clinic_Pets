@@ -72,10 +72,9 @@
           <div  class="div label__vacunas">
             <div class="columm__vacunas">
               <!--<app-label [for]="'Cantidad de Vacunas'"></app-label>-->
-              <app-input [text]="'number'" [holder]="'Cantidad de vacunas'" [estilos]="style" formControlName="CantidadVacunas" [id]="'Cantidad de Vacunas'"></app-input>
+              <app-input [text]="'text'" [holder]="'Tipo de Cita'" [estilos]="style" formControlName="tipo" [id]="'Cantidad de Vacunas'"></app-input>
             </div>
-            <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['required']"#myDiv>La Cantidad de Vacunas es obligatorio</p>
-            <p *ngIf="loginForm.get('CantidadVacunas')?.errors?.['pattern']" #myDiv>La Cantidad de Vacunas debe tener numeros</p>
+            <p *ngIf="loginForm.get('tipo')?.errors?.['required']"#myDiv>El Tipo de Cita es obligatorio</p>
           </div>
           <div  class="div label__especie">
             <div class="columm__especie">
@@ -111,12 +110,12 @@
     </div>
   </section>
   <section class="calendario">
-  <app-calendario></app-calendario>
+  <app-calendario formControlName="hora"></app-calendario>
 </section>
   <div class="btnsubmit">
-    <button class="btn__cancelar" type="submit">Cancelar</button>
+    <a class="btn__cancelar" type="submit" routerLink="">Cancelar</a>
     <button class="btn__agendar" type="submit">Agendar</button>
-    <button class="btn__historial" router-Link="/historial" disabled>Historial de Citas</button>
+  
   </div>
 
   </form>

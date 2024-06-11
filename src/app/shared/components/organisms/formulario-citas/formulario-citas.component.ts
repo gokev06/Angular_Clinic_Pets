@@ -31,19 +31,13 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
       direccion: ['', Validators.required],
       sintomas: ['', Validators.required],
       nombreMascota: ['', Validators.required],
-      CantidadVacunas: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      tipo: ['', [Validators.required]],
       edad: ['', Validators.required],
       especie: ['', Validators.required],
       estadovacunacion: ['', Validators.required],
       raza: ['', Validators.required],
       hora: [''] // Agrega el campo de hora al formulario
     });
-  }
-
-  seleccionarHora(hora: string): void {
-    this.loginForm?.get('hora')?.setValue(hora);
-    this.isButtonActive = !this.isButtonActive;
-    this.closeModal();
   }
 
   @ViewChildren('myDiv') myDivs!: QueryList<ElementRef>;
@@ -75,6 +69,7 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
               imageHeight: 200,
               confirmButtonColor: '#7DFF82',
             });
+            
             this.router.navigate(['']);
           }, error => {
             Swal.fire({

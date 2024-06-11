@@ -14,7 +14,8 @@ form{
 img{
     width: 50%;
     height: 80vh;
-    border-radius: 30px;
+    border-top-right-radius: 25PX;
+    border-bottom-right-radius: 25PX;
 }
 
 .datoscontenedor{
@@ -79,10 +80,14 @@ app-label{
 
 .divsintomas{
     width: 100%;
-    padding: 36px;
     display: flex;
+    padding: 40px 0;
     flex-direction: column;
    
+}
+
+textarea{
+    padding: 8px;
 }
 
 .section__fecha{
@@ -127,17 +132,20 @@ option, select{
     justify-content: right;
 }
 
-button{
+button , .btn__cancelar {
     background-color: #E0DBFF;
     color: black;
-    padding: 16px 24px;
+    text-align: center;
+    height: 40px;
     border: none;
     font-size: 20px;
     border-radius: 10px;
     margin-right: 48px;
     cursor: pointer;
-    
+    text-decoration: none;
 }
+
+
 
 p{
     color: red;
@@ -145,13 +153,6 @@ p{
     font-size: 12px;
     margin-top: 8px;
 }
-
-button:disabled{
-    background-color: #eae7fd;
-    color: rgb(85, 85, 85);
-    cursor: none ;
-}
-
 
 .NativeDatePicker{
     width: 80%;
@@ -294,6 +295,9 @@ h2{
 
 .btn__cancelar{
     width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(250, 60, 60,0.47);
 }
 

@@ -6,9 +6,7 @@
       </div>
        </div>
           <nav>
-            <app-titulo class="titulos">
-          
-            </app-titulo>
+            <app-titulo class="titulos" [estilo]="''" [ruta]="'/citas'" [title]="'Agendar Cita'"></app-titulo>
             
          </nav> 
   </div>
@@ -16,22 +14,22 @@
 
   <div class="colorC">
     <div class="position">
-      <div class="rounded-container" routerLink="/citas" routerLinkActive="active">
+      <div class="rounded-container" routerLink="/tienda" routerLinkActive="active">
       <img src="../../../../../assets/images/imghome/tienda (1) 1.png" alt="" >
     </div> 
      </div>     
  <nav>  
-  <app-t-tienda class="titulos"></app-t-tienda>
+  <app-titulo class="titulos" [estilo]="''" [ruta]="'/tienda'" [title]="'Tienda'"></app-titulo>
     </nav> 
 </div>
 <div class="colorC">
      <div class="position">
-      <div class="rounded-container">
+      <div class="rounded-container" routerLink="/tienda" routerLinkActive="active">
     <img src="../../../../../assets/images/imghome/adoptado 1.png" alt="">
      </div> 
   </div>      
 <nav>
-  <app-t-adopcion class="titulos"></app-t-adopcion>
+  <app-titulo class="titulos" [estilo]="''" [ruta]="'/adopcion'" [title]="'Adopcion'"></app-titulo>
   </nav> 
 </div>
 </div>
