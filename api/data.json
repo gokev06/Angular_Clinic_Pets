@@ -13,7 +13,10 @@
       "especie": "Perro",
       "estadovacunacion": "En orden",
       "raza": "Labrador",
-      "hora": "09:00"
+      "fecha": "25 de mayo",
+      "hora": "09:00", 
+      "estado": "agendada",
+      "costo": "50.000"
     },
     {
       "id": "2",
@@ -28,37 +31,10 @@
       "especie": "Gato",
       "estadovacunacion": "Incompletas",
       "raza": "Siames",
-      "hora": "10:00"
-    },
-    {
-      "id": "31ea",
-      "nombre": "jhfeoihojvur",
-      "telefono": "3104914257",
-      "correo": "j@gmail",
-      "direccion": "mz5 c9",
-      "sintomas": "slejobfvbihsj",
-      "nombreMascota": "zpacho",
-      "tipo": "opiju",
-      "edad": "18",
-      "especie": "Perro",
-      "estadovacunacion": "En orden",
-      "raza": "dalmata",
-      "hora": ""
-    },
-    {
-      "id": "3869",
-      "nombre": "gina",
-      "telefono": "3104914257",
-      "correo": "gina@gmail",
-      "direccion": "mz5 c9",
-      "sintomas": "cirugia ",
-      "nombreMascota": "pacho",
-      "tipo": "cirugia",
-      "edad": "18",
-      "especie": "Gato",
-      "estadovacunacion": "Incompletas",
-      "raza": "dalmata",
-      "hora": ""
+      "fecha": "25 de mayo",
+      "hora": "10:00",
+      "estado": "agendada",
+      "costo": "50.000"
     }
   ]
 }

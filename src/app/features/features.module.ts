@@ -12,7 +12,6 @@ import { PagehomeComponent } from './pagehome/pagehome.component';
   declarations: [
     CitasComponent,
     PagehomeComponent,
-
   ],
   imports: [
     CommonModule,

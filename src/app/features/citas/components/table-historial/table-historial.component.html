@@ -1,0 +1,14 @@
+<div class="table">
+    <div class="clients-table">
+        <p id="title1">ID</p>
+        <p id="title2">Fecha</p>
+        <p id="title3">Hora</p>
+        <p id="title4">Nombre</p>
+        <p id="title7">Tipo de Cita</p>
+        <p id="title8">estado</p>
+        <p id="title9">costo</p>
+    </div>
+    <div *ngFor="let cita of citas;let i = index" class="clients-container">
+        <app-scoped-table-historial [cita]="cita"></app-scoped-table-historial>
+    </div>
+</div>

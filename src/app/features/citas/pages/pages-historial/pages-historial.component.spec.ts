@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PagesCitasComponent } from './pages-citas.component';
+import { PagesHistorialComponent } from './pages-historial.component';
 
-describe('PagesCitasComponent', () => {
-  let component: PagesCitasComponent;
-  let fixture: ComponentFixture<PagesCitasComponent>;
+describe('PagesHistorialComponent', () => {
+  let component: PagesHistorialComponent;
+  let fixture: ComponentFixture<PagesHistorialComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PagesCitasComponent]
+      declarations: [PagesHistorialComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PagesCitasComponent);
+    fixture = TestBed.createComponent(PagesHistorialComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

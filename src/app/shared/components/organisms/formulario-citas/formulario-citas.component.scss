@@ -132,7 +132,7 @@ option, select{
     justify-content: right;
 }
 
-button , .btn__cancelar {
+button , .btn__cancelar , .btn__historial {
     background-color: #E0DBFF;
     color: black;
     text-align: center;
@@ -143,6 +143,9 @@ button , .btn__cancelar {
     margin-right: 48px;
     cursor: pointer;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
