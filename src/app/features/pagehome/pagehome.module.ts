@@ -11,8 +11,7 @@ import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
-    PagehomeComponent,
-    CitasComponent,
+    PagehomeComponent
   ],
   imports: [
     CommonModule,

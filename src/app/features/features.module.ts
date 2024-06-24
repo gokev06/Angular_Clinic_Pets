@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CitasComponent } from './citas/citas.component';
 import { SharedModule } from '../shared/shared.module';
 import { PagehomeComponent } from './pagehome/pagehome.component';
+import { AdopcionComponent } from './adopcion/adopcion.component';
+import { AdopcionModule } from './adopcion/adopcion.module';
 
 
 
@@ -12,11 +14,12 @@ import { PagehomeComponent } from './pagehome/pagehome.component';
   declarations: [
     CitasComponent,
     PagehomeComponent,
-
+  AdopcionComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
+    AdopcionModule,
     ReactiveFormsModule ,// Importa ReactiveFormsModule aquí
   ],
   exports:[

@@ -31,6 +31,7 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
 import { FooterComponent } from './components/organisms/footer/footer.component';
 import { CalendarioComponent } from './components/organisms/calendario/calendario.component';
 import { HorariosComponent } from './components/organisms/horarios/horarios.component';
+import { AdopcionComponent } from '../features/adopcion/adopcion.component';
 
 
 
@@ -70,6 +71,7 @@ import { HorariosComponent } from './components/organisms/horarios/horarios.comp
     CommonModule,
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },
+      {path: 'adopcion' , component: AdopcionComponent}
   ]),
   ReactiveFormsModule
   ],
