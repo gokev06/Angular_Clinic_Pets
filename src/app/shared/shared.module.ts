@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
 import { HomeComponent } from './components/atoms/home/home.component';
@@ -34,7 +34,10 @@ import { HorariosComponent } from './components/organisms/horarios/horarios.comp
 import { PagesHistorialComponent } from '../features/citas/pages/pages-historial/pages-historial.component';
 import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
 import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs, 'es');
 
 
 @NgModule({
@@ -81,6 +84,11 @@ import { ScopedTableHistorialComponent } from '../features/citas/components/scop
   ReactiveFormsModule
   ],
 
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es' }
+
+  ],
+
   exports:[
     HorariosComponent,
     HomeComponent,
@@ -105,8 +113,7 @@ import { ScopedTableHistorialComponent } from '../features/citas/components/scop
     CarruselComponent,
     FooterComponent,
     PagesHistorialComponent,
-    TableHistorialComponent,
-    ScopedTableHistorialComponent
+      CalendarioComponent
   ]
 })
 export class SharedModule { }
