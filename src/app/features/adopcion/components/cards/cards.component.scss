@@ -1,0 +1,66 @@
+
+.card{
+    background-color: #CCC4FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 40px
+}
+
+h2{
+    margin: 0 0 0 0;
+    padding: 8px;
+}
+
+img{
+    width: 70%;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.informacion{
+    width: 100%;
+    padding: 0px 32px;
+    margin-top: 8px;
+}
+
+strong{
+    font-weight: 600;
+}
+
+.contacto{
+    border-top: 2px solid #E9E1FE;
+    width: 100%;
+    display: flex;
+    height: 36px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.info1 img,
+.info2 img{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.info1{
+    border-right: 1px solid #E9E1FE;
+    height: 100%;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.info2{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    border-left: 1px solid #E9E1FE ;
+    justify-content: center;
+    align-items: center;
+
+}

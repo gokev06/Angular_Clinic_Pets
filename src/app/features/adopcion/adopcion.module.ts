@@ -6,12 +6,14 @@ import { HeaderadopcionComponent } from './components/headeradopcion/headeradopc
 
 import { SharedModule } from '../../shared/shared.module';
 import { CardsadopcionComponent } from './components/cardsadopcion/cardsadopcion.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 
 @NgModule({
   declarations: [  
     HeaderadopcionComponent,
-     CardsadopcionComponent
+     CardsadopcionComponent,
+     CardsComponent
   ],
   imports: [
     CommonModule,

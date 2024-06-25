@@ -16,8 +16,26 @@ export class CardsadopcionComponent  implements OnInit {
     this.SolicitudAdopcionService. getAdopciones()
     .subscribe(res=>{
       this.adopcion = res
-   
 })
+}
+
+FilterNombre: Boolean = false
+
+FiltroNombre(){
+  if (this.FilterNombre) {
+    this.FilterNombre= false
+  }else{
+    this.FilterNombre= true
+  }
+}
+
+
+sortAsc() {
+  this.adopcion.sort((a: any, b: any) => a.nombre.localeCompare(b.nombre));
+}
+
+sortDesc() {
+  this.adopcion.sort((a: any, b: any) => b.nombre.localeCompare(a.nombre));
 }
 
 }

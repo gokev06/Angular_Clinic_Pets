@@ -5,5 +5,28 @@
     COLOCAR ESTADO VACIO-->
 </section>
 <section *ngIf="adopcion.length > 0" class="background">
-    <h1>si</h1>
+    <div class="container-cards">
+    <div *ngFor="let adopcion of adopcion;let i = index" class="cartas">
+        <app-cards [adopcion]="adopcion"></app-cards>
+    </div>
+</div>
+    <div class="filtro">
+        <h1>Filtrar Por</h1>
+        <div class="contenedor-filtro-nombre">
+            <div class="title-nombre">
+                <h3 (click)="FiltroNombre()">Nombre</h3>
+                <img src="../../../../../assets/icons/mas.png" alt="">
+            </div>
+            <div class="filtro_nombre" *ngIf="FilterNombre == true">
+                <div>
+                    <input type="radio" id="az" name="order" (change)="sortAsc()">
+                    <label for="az">A-Z</label>
+                </div>
+                <div>
+                    <input type="radio" id="za" name="order" (change)="sortDesc()">
+                    <label for="za">Z-A</label>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

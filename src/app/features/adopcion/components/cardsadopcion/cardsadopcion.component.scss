@@ -1,3 +1,57 @@
 section{
     margin-top: 60px;
 }
+
+.background{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 40px;
+}
+
+.container-cards{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+
+
+// stylos de filtro
+.filtro{
+    width: 10%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cartas{
+    width: 20%;
+    margin-left: 1%;
+}
+
+h3{
+    margin: 0 0 0 0 ;
+}
+
+.filtro_nombre{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.title-nombre{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.title_nombre img{
+    width: 28px;
+    height: 28px;
+}
+.contenedor-filtro-nombre{
+    width: 90%;
+    border-bottom: 2px solid #B5EBF6;
+    padding: 0px 0 ;
+}

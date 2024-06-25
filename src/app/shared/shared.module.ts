@@ -32,6 +32,7 @@ import { FooterComponent } from './components/organisms/footer/footer.component'
 import { CalendarioComponent } from './components/organisms/calendario/calendario.component';
 import { HorariosComponent } from './components/organisms/horarios/horarios.component';
 import { AdopcionComponent } from '../features/adopcion/adopcion.component';
+import { BuscadorComponent } from './components/molecules/buscador/buscador.component';
 
 
 
@@ -64,7 +65,8 @@ import { AdopcionComponent } from '../features/adopcion/adopcion.component';
     CarruselComponent,
     FooterComponent,
     CalendarioComponent,
-    HorariosComponent
+    HorariosComponent,
+    BuscadorComponent
   ],
   imports: [
     
@@ -98,7 +100,8 @@ import { AdopcionComponent } from '../features/adopcion/adopcion.component';
     IconAdopcionComponent,
     IconCitasComponent,
     CarruselComponent,
-    FooterComponent
+    FooterComponent,
+    BuscadorComponent
   ]
 })
 export class SharedModule { }

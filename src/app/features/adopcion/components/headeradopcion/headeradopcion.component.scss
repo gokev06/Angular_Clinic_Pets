@@ -8,37 +8,6 @@ div{
     align-items: center;
 }
 
-/* Contenedor del buscador */
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    width: 40vw;
-    justify-content: center;
-}
-
-/* Estilos del input de búsqueda */
-.search-input {
-    padding: 10px 40px 10px 40px; /* Dejar espacio para el ícono */
-    font-size: 13px;
-    border: 2px solid #000;
-    border-radius: 20px; /* Bordes redondeados */
-}
-
-/* Estilos del ícono de búsqueda */
-.search-icon {
-    position: absolute;
-    left: 28%; /* Posicionar el ícono a la izquierda */
-    font-size: 20px; /* Tamaño del ícono */
-    pointer-events: none; /* Evitar que el ícono bloquee los clics en el input */
-    color: #000; /* Color del ícono */
-}
-
-img{
-    width: 15px;
-    height: 15px;
-}
 
 button{
     background-color: #E9E1FE;
