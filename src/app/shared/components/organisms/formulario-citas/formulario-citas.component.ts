@@ -37,7 +37,8 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
       estadovacunacion: ['', Validators.required],
       raza: ['', Validators.required],
       fecha: ['', Validators.required],
-      hora: ['', Validators.required]
+      hora: ['', Validators.required],
+      estado: ['Agendada', Validators.required]
     });
   }
 
@@ -118,6 +119,14 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     }
   }
 
+  changeState(state: 'Reagenddada' | 'Cancelada'): void {
+    if (state === 'Reagenddada') {
+      
+    } else if (state === 'Cancelada') {
+      this.loginForm.patchValue({estado: 'Cancelada'});
+      this.onSubmit();
+    }
+  }
   showModal: boolean = false;
 
   openModal() {
@@ -127,4 +136,6 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
   closeModal() {
     this.showModal = false;
   }
+
+  
 }

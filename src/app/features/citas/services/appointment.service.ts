@@ -18,6 +18,7 @@ interface Appointment {
   raza: string;
   hora: string;
   fecha: string;
+  estado: 'Agendada' | 'Reagendada' | 'Cancelada';
 }
 
 @Injectable({
