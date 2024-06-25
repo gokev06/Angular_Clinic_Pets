@@ -20,7 +20,7 @@ import { AdopcionModule } from './adopcion/adopcion.module';
     CommonModule,
     SharedModule,
     AdopcionModule,
-    ReactiveFormsModule ,// Importa ReactiveFormsModule aquí
+    ReactiveFormsModule 
   ],
   exports:[
     CitasComponent,

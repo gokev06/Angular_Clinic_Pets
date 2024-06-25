@@ -1,4 +1,4 @@
-div{
+.header-container {
     background-color: #CCC4FF;
     width: 100%;
     height: 60px;
@@ -8,12 +8,11 @@ div{
     align-items: center;
 }
 
-
-button{
+button {
     background-color: #E9E1FE;
     border: none;
     border-radius: 10px;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px;
     font-size: 14px;
     cursor: pointer;
 }

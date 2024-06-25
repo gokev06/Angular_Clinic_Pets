@@ -1,25 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import {  SolicitudAdopcionService } from '../../services/solicitud-adopcion.service';
+import { SolicitudAdopcionService, adopcion } from '../../services/solicitud-adopcion.service';
 
 @Component({
   selector: 'app-cardsadopcion',
   templateUrl: './cardsadopcion.component.html',
-  styleUrl: './cardsadopcion.component.scss'
+  styleUrls: ['./cardsadopcion.component.scss']
 })
-export class CardsadopcionComponent  implements OnInit {
+export class CardsadopcionComponent implements OnInit {
+  adopciones: adopcion[] = [];
+  filteredAdopciones: adopcion[] = [];
 
-  adopcion: any;
-
-  constructor(private SolicitudAdopcionService:SolicitudAdopcionService){}
+  constructor(private solicitudAdopcionService: SolicitudAdopcionService) {}
 
   ngOnInit() {
-    this.SolicitudAdopcionService. getAdopciones()
-    .subscribe(res=>{
-      this.adopcion = res
-})
-}
+    this.solicitudAdopcionService.getAdopciones().subscribe(data => {
+      this.adopciones = data;
+      this.filteredAdopciones = data;
+    });
+  }
 
-FilterNombre: Boolean = false
+  applyFilter(searchTerm: string) {
+    if (!searchTerm) {
+      this.filteredAdopciones = this.adopciones;
+    } else {
+      searchTerm = searchTerm.toLowerCase();
+      this.filteredAdopciones = this.adopciones.filter(adopcion =>
+        adopcion.nombre.toLowerCase().includes(searchTerm) ||
+        adopcion.raza.toLowerCase().includes(searchTerm) ||
+        adopcion.ciudad.toLowerCase().includes(searchTerm)
+      );
+    }
+  }
+
+  FilterNombre: Boolean = false
 
 FiltroNombre(){
   if (this.FilterNombre) {
@@ -31,11 +44,10 @@ FiltroNombre(){
 
 
 sortAsc() {
-  this.adopcion.sort((a: any, b: any) => a.nombre.localeCompare(b.nombre));
+  this.filteredAdopciones.sort((a: any, b: any) => a.nombre.localeCompare(b.nombre));
 }
 
 sortDesc() {
-  this.adopcion.sort((a: any, b: any) => b.nombre.localeCompare(a.nombre));
+  this.filteredAdopciones.sort((a: any, b: any) => b.nombre.localeCompare(a.nombre));
 }
-
 }

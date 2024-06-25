@@ -33,6 +33,8 @@ import { CalendarioComponent } from './components/organisms/calendario/calendari
 import { HorariosComponent } from './components/organisms/horarios/horarios.component';
 import { AdopcionComponent } from '../features/adopcion/adopcion.component';
 import { BuscadorComponent } from './components/molecules/buscador/buscador.component';
+import { FormsModule } from '@angular/forms'; 
+
 
 
 
@@ -69,7 +71,7 @@ import { BuscadorComponent } from './components/molecules/buscador/buscador.comp
     BuscadorComponent
   ],
   imports: [
-    
+    FormsModule,
     CommonModule,
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },

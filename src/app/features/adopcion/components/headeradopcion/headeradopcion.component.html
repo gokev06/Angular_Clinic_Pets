@@ -1,7 +1,8 @@
-<div>
+<div class="header-container">
     <button>Mis publicaciones</button>
-
-   <app-buscador></app-buscador>
-
+    <div class="search-container">
+      <input [(ngModel)]="searchTerm" (input)="onSearch()" type="text" placeholder="Buscar..." class="search-input">
+    </div>
     <button>Nueva Publicacion</button>
-</div>
+  </div>
+  
