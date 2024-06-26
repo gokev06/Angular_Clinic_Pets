@@ -33,16 +33,16 @@ import { CalendarioComponent } from './components/organisms/calendario/calendari
 import { HorariosComponent } from './components/organisms/horarios/horarios.component';
 
 import { PagesHistorialComponent } from '../features/citas/pages/pages-historial/pages-historial.component';
-import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
-import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
 registerLocaleData(localeEs, 'es');
 
 
 @NgModule({
   declarations: [
+    TableHistorialComponent,
+    PagesHistorialComponent,
     HomeComponent,
     ContactoInfoComponent,
     LogoComponent,

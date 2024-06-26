@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CitasComponent } from './citas/citas.component';
 import { SharedModule } from '../shared/shared.module';
 import { PagehomeComponent } from './pagehome/pagehome.component';
-import { AdopcionModule } from './adopcion/adopcion.module';
-import { CitasModule } from './citas/citas.module';
 import { AdopcionComponent } from './adopcion/adopcion.component';
+import { TableHistorialComponent } from './citas/components/table-historial/table-historial.component';
+import { CardsadopcionComponent } from './adopcion/components/cardsadopcion/cardsadopcion.component';
+import { HeaderadopcionComponent } from './adopcion/components/headeradopcion/headeradopcion.component';
+import { CardsComponent } from './adopcion/components/cards/cards.component';
 
 
 
@@ -15,13 +17,14 @@ import { AdopcionComponent } from './adopcion/adopcion.component';
   declarations: [
     CitasComponent,
     PagehomeComponent,
-    AdopcionComponent
+    AdopcionComponent,
+    CardsadopcionComponent,
+    HeaderadopcionComponent,
+    CardsComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    SharedModule,
-    CitasModule,
-    AdopcionModule,
     SharedModule,
     ReactiveFormsModule ,// Importa ReactiveFormsModule aquí
   ],
