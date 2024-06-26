@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
@@ -7,6 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import { CalendarioComponent } from './shared/components/organisms/calendario/calendario.component';
+
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
@@ -16,12 +21,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
-    FeaturesModule,
-    SharedModule
+    HttpClientModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {provide: LOCALE_ID, useValue: 'es'}
   ],
   bootstrap: [AppComponent]
 

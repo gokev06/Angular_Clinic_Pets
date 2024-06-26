@@ -14,13 +14,13 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
   isButtonActive: boolean = false;
   estilos: string = "border:none ; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px";
   style: string = "border:none ; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px";
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private appointmentService: AppointmentService // Inyecta el servicio
+    private appointmentService: AppointmentService 
   ) {
-    this.loginForm = this.formBuilder.group({}); // Inicialización para evitar el error TS2564
+    this.loginForm = this.formBuilder.group({}); 
   }
 
   ngOnInit(): void {
@@ -36,7 +36,9 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
       especie: ['', Validators.required],
       estadovacunacion: ['', Validators.required],
       raza: ['', Validators.required],
-      hora: [''] // Agrega el campo de hora al formulario
+      fecha: ['', Validators.required],
+      hora: ['', Validators.required],
+      estado: ['Agendada', Validators.required]
     });
   }
 
@@ -46,7 +48,21 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     // Inicialización adicional si es necesaria
   }
 
+  onDateSelected(date: Date): void {
+    const formattedDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())).toISOString().split('T')[0];
+  this.loginForm.get('fecha')?.setValue(formattedDate);
+  console.log('Fecha seleccionada:', formattedDate);
+  }
+
+  onTimeSelected(time: string): void {
+    this.loginForm.get('hora')?.setValue(time);
+    console.log('Hora seleccionada:', time);
+  }
+
   onSubmit() {
+    console.log('Formulario:', this.loginForm.value);
+    console.log('¿Formulario válido?:', this.loginForm.valid);
+
     if (this.loginForm.valid) {
       Swal.fire({
         title: '¿Confirmar cita?',
@@ -69,7 +85,7 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
               imageHeight: 200,
               confirmButtonColor: '#7DFF82',
             });
-            
+
             this.router.navigate(['']);
           }, error => {
             Swal.fire({
@@ -103,6 +119,14 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     }
   }
 
+  changeState(state: 'Reagenddada' | 'Cancelada'): void {
+    if (state === 'Reagenddada') {
+      
+    } else if (state === 'Cancelada') {
+      this.loginForm.patchValue({estado: 'Cancelada'});
+      this.onSubmit();
+    }
+  }
   showModal: boolean = false;
 
   openModal() {
@@ -112,4 +136,6 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
   closeModal() {
     this.showModal = false;
   }
+
+  
 }

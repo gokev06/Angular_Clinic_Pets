@@ -1,66 +1,26 @@
-.table{
-    align-items: center;
+.table-container {
+    display: flex;
     justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
-
-h2{
-    padding: 10px 0px 45px 70px;
-    width: 1000px;
-    height: 45px;
-    border: 1px solid #D9D9D9;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-.clients-table{
-    color: #7b7979c4;
-    background-color: #D9D9D9;
-    border-left: 1px solid #D9D9D9;
-    border-right: 1px solid #D9D9D9;
-    display: flex;
     align-items: center;
-    width: 1000px;
-    height: 92px;
-    padding: 20px 0px 20px 60px;
+    width: 100%;
 }
 
-.clients-table p{
-    margin: 0 20px;
+.clients-table {
+    width: 1000px; 
+    border-collapse: collapse;
 }
 
-#title1{
-    width: 40px;
-    text-align: center;
-}
-#title2{
-    width: 130px;
+.clients-table th, .clients-table td {
+    border: 3px solid #CCC4FF;
+    padding: 20px;
     text-align: center;
 }
 
-#title3{
-    width: 105px;
-    text-align: center;
-}
-#title4{
-    width: 110px;
-    text-align: center;
-}
-#title5{
-    width: 230px;
-    text-align: center;
-}
-#title7{
-    width: 186px;
-    text-align: center;
-}
-#title8{
-    width: 80px;
-    text-align: center;
+.clients-table th {
+    background-color: #CCC4FF;
+    color: #7b7979c4;
 }
 
-#title9{
-    width: 80px;
-    text-align: center;
+.clients-table tbody tr:nth-child(even) {
+    background-color: #ccc4ff6b; 
 }
