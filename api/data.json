@@ -110,7 +110,7 @@
     {
       "id": "1",
       "nombre": "thamara",
-      "edad": "6 años",
+      "edad": "2 años",
       "especie": "Gato",
       "raza": "criolla",
       "sexo": "hembra",
@@ -124,7 +124,7 @@
     {
       "id": "2",
       "nombre": "soyca",
-      "edad": "6 años",
+      "edad": "3 años",
       "especie": "perro",
       "raza": "criolla",
       "sexo": "hembra",
@@ -138,7 +138,7 @@
     {
       "id": "3",
       "nombre": "ana",
-      "edad": "6 años",
+      "edad": "9 años",
       "especie": "perro",
       "raza": "criolla",
       "sexo": "hembra",
@@ -152,10 +152,10 @@
     {
       "id": "4",
       "nombre": "kevin",
-      "edad": "6 años",
+      "edad": "3 años",
       "especie": "perro",
       "raza": "criolla",
-      "sexo": "hembra",
+      "sexo": "Macho",
       "estirilizacion": "si",
       "vacunacion": "si",
       "telefono": "574743",
@@ -180,7 +180,7 @@
     {
       "id": "6",
       "nombre": "peppa",
-      "edad": "6 años",
+      "edad": "8 años",
       "especie": "perro",
       "raza": "criolla",
       "sexo": "hembra",
@@ -194,7 +194,7 @@
     {
       "id": "7",
       "nombre": "juano",
-      "edad": "6 años",
+      "edad": "4 años",
       "especie": "perro",
       "raza": "criolla",
       "sexo": "hembra",
@@ -208,7 +208,7 @@
     {
       "id": "8",
       "nombre": "gina",
-      "edad": "6 años",
+      "edad": "2 años",
       "especie": "perro",
       "raza": "criolla",
       "sexo": "hembra",

@@ -10,19 +10,19 @@ section{
 }
 
 .container-cards{
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-
 }
 
 
 // stylos de filtro
 .filtro{
-    width: 10%;
+    width: 20%;
     flex-direction: column;
     justify-content: center;
+    padding-right: 40px;
 }
 
 .cartas{
@@ -32,26 +32,57 @@ section{
 
 h3{
     margin: 0 0 0 0 ;
+    cursor: pointer;
 }
 
 .filtro_nombre{
     display: flex;
     flex-direction: column;
-
+    padding: 8px 12px;
 }
 
 .title-nombre{
     display: flex;
     justify-content: space-between;
     padding: 0 12px;
+    align-items: center;
 }
 
-.title_nombre img{
-    width: 28px;
-    height: 28px;
+.title-nombre img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
-.contenedor-filtro-nombre{
+.contenedor-filtro{
     width: 90%;
     border-bottom: 2px solid #B5EBF6;
-    padding: 0px 0 ;
+    padding: 8px 0 ;
+    margin-top: 16px;
+}
+
+.contain{
+    margin-top: 8px;
+}
+
+label{
+    margin-left: 8px;
+}
+
+.borrar{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+h2{
+    margin: 0 0 0 0;
+    align-items: center;
+}
+.borrar img{
+    width: 20px;
+    height: 20px;
 }

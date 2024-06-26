@@ -30,4 +30,5 @@ export class SolicitudAdopcionService {
   getAdopciones(): Observable<adopcion[]> {
     return this.http.get<adopcion[]>(this.apiurl);
   }
+
 }
