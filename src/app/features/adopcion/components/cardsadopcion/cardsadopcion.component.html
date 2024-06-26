@@ -1,12 +1,14 @@
-<section class="emptyState" *ngIf="adopcion.length <= 0">
+<app-headeradopcion (filterEvent)="applyFilter($event)"></app-headeradopcion>
+
+<section class="emptyState" *ngIf="adopciones.length <= 0">
     <!--<p id="ono">¡Oh no!</p>
     <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
     <p id="noTienesClientes">Aún no tienes clientes</p> 
     COLOCAR ESTADO VACIO-->
 </section>
-<section *ngIf="adopcion.length > 0" class="background">
+<section *ngIf="filteredAdopciones.length > 0" class="background">
     <div class="container-cards">
-    <div *ngFor="let adopcion of adopcion;let i = index" class="cartas">
+    <div *ngFor="let adopcion of filteredAdopciones" class="cartas">
         <app-cards [adopcion]="adopcion"></app-cards>
     </div>
 </div>
@@ -86,3 +88,6 @@
         </div>
     </div>
 </section>
+<section *ngIf="filteredAdopciones.length === 0" class="emptyState">
+    <p>No se encontraron resultados.</p>
+  </section>

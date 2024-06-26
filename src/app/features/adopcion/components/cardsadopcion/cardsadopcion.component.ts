@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  SolicitudAdopcionService } from '../../services/solicitud-adopcion.service';
+import {  SolicitudAdopcionService, adopcion } from '../../services/solicitud-adopcion.service';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -9,15 +9,29 @@ import { map } from 'rxjs/operators';
 })
 export class CardsadopcionComponent  implements OnInit {
 
-  adopcion: any;
+  adopciones: adopcion[] = [];
+  filteredAdopciones: adopcion[] = [];
 
   constructor(private SolicitudAdopcionService:SolicitudAdopcionService){}
 
   ngOnInit() {
-    this.SolicitudAdopcionService. getAdopciones()
-    .subscribe(res=>{
-      this.adopcion = res
+    this.SolicitudAdopcionService. getAdopciones().subscribe(data => {
+      this.adopciones = data;
+      this.filteredAdopciones = data;
 })
+}
+
+applyFilter(searchTerm: string) {
+  if (!searchTerm) {
+    this.filteredAdopciones = this.adopciones;
+  } else {
+    searchTerm = searchTerm.toLowerCase();
+    this.filteredAdopciones = this.adopciones.filter(adopcion =>
+      adopcion.nombre.toLowerCase().includes(searchTerm) ||
+      adopcion.raza.toLowerCase().includes(searchTerm) ||
+      adopcion.ciudad.toLowerCase().includes(searchTerm)
+    );
+  }
 }
 
 //filtros
@@ -70,7 +84,7 @@ FiltroHembra(){
   this.SolicitudAdopcionService.getAdopciones().pipe(
     map(adopciones => adopciones.filter(adopcion => adopcion.sexo.toLowerCase() === this.sexo.toLowerCase()))
   ).subscribe(filteredAdopciones => {
-    this.adopcion = filteredAdopciones;
+    this.filteredAdopciones= filteredAdopciones;
   });
 }
 
@@ -79,17 +93,17 @@ FiltroMacho(){
   this.SolicitudAdopcionService.getAdopciones().pipe(
     map(adopciones => adopciones.filter(adopcion => adopcion.sexo.toLowerCase() === this.sexo.toLowerCase()))
   ).subscribe(filteredAdopciones => {
-    this.adopcion = filteredAdopciones;
+    this.filteredAdopciones  = filteredAdopciones;
   });
 }
 
 
 sortAsc() {
-  this.adopcion.sort((a: any, b: any) => a.nombre.localeCompare(b.nombre));
+  this.filteredAdopciones.sort((a: any, b: any) => a.nombre.localeCompare(b.nombre));
 }
 
 sortDesc() {
-  this.adopcion.sort((a: any, b: any) => b.nombre.localeCompare(a.nombre));
+  this.filteredAdopciones.sort((a: any, b: any) => b.nombre.localeCompare(a.nombre));
 }
 
 especie : string = ""
@@ -98,7 +112,7 @@ filterGatos() {
   this.SolicitudAdopcionService.getAdopciones().pipe(
     map(adopciones => adopciones.filter(adopcion => adopcion.especie.toLowerCase() === this.especie.toLowerCase()))
   ).subscribe(filteredAdopciones => {
-    this.adopcion = filteredAdopciones;
+    this.filteredAdopciones = filteredAdopciones;
   });
 }
 
@@ -107,7 +121,7 @@ filterPerro(){
   this.SolicitudAdopcionService.getAdopciones().pipe(
     map(adopciones => adopciones.filter(adopcion => adopcion.especie.toLowerCase() === this.especie.toLowerCase()))
   ).subscribe(filteredAdopciones => {
-    this.adopcion = filteredAdopciones;
+    this.filteredAdopciones = filteredAdopciones;
   });
 }
 
@@ -116,7 +130,7 @@ filterPerro(){
   }
 
   sortAdopcionesByAge(order: 'asc' | 'desc'): void {
-    this.adopcion.sort((a : any , b : any) => {
+    this.filteredAdopciones.sort((a : any , b : any) => {
       const ageA = parseInt(a.edad);
       const ageB = parseInt(b.edad);
       if (order === 'asc') {
