@@ -31,9 +31,6 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
 import { FooterComponent } from './components/organisms/footer/footer.component';
 import { CalendarioComponent } from './components/organisms/calendario/calendario.component';
 import { HorariosComponent } from './components/organisms/horarios/horarios.component';
-import { PagesHistorialComponent } from '../features/citas/pages/pages-historial/pages-historial.component';
-import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
-import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
 
 
 
@@ -66,17 +63,13 @@ import { ScopedTableHistorialComponent } from '../features/citas/components/scop
     CarruselComponent,
     FooterComponent,
     CalendarioComponent,
-    HorariosComponent,
-    PagesHistorialComponent,
-    TableHistorialComponent,
-    ScopedTableHistorialComponent
+    HorariosComponent
   ],
   imports: [
     
     CommonModule,
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },
-      {path: 'historial', component: PagesHistorialComponent}
   ]),
   ReactiveFormsModule
   ],
@@ -103,10 +96,7 @@ import { ScopedTableHistorialComponent } from '../features/citas/components/scop
     IconAdopcionComponent,
     IconCitasComponent,
     CarruselComponent,
-    FooterComponent,
-    PagesHistorialComponent,
-    TableHistorialComponent,
-    ScopedTableHistorialComponent
+    FooterComponent
   ]
 })
 export class SharedModule { }

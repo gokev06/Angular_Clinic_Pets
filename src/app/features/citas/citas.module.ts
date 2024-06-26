@@ -11,7 +11,6 @@ import { ScopedTableHistorialComponent } from './components/scoped-table-histori
 
 @NgModule({
   declarations: [
-    CitasComponent,
     PagesHistorialComponent,
     TableHistorialComponent,
     ScopedTableHistorialComponent,
@@ -23,7 +22,6 @@ import { ScopedTableHistorialComponent } from './components/scoped-table-histori
     SharedModule
   ],
   exports:[
-    CitasComponent,
     PagesHistorialComponent,
     TableHistorialComponent
   ]
