@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PagehomeComponent } from './pagehome/pagehome.component';
 import { AdopcionComponent } from './adopcion/adopcion.component';
 import { AdopcionModule } from './adopcion/adopcion.module';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -14,7 +15,8 @@ import { AdopcionModule } from './adopcion/adopcion.module';
   declarations: [
     CitasComponent,
     PagehomeComponent,
-  AdopcionComponent
+  AdopcionComponent,
+  LoginComponent
   ],
   imports: [
     CommonModule,
