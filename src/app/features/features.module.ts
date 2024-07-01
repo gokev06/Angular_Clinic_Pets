@@ -7,6 +7,7 @@ import { PagehomeComponent } from './pagehome/pagehome.component';
 import { AdopcionComponent } from './adopcion/adopcion.component';
 import { AdopcionModule } from './adopcion/adopcion.module';
 import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     CitasComponent,
     PagehomeComponent,
   AdopcionComponent,
-  LoginComponent
+  LoginComponent,
+  RegistroComponent
   ],
   imports: [
     CommonModule,
