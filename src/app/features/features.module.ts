@@ -9,6 +9,8 @@ import { TableHistorialComponent } from './citas/components/table-historial/tabl
 import { CardsadopcionComponent } from './adopcion/components/cardsadopcion/cardsadopcion.component';
 import { HeaderadopcionComponent } from './adopcion/components/headeradopcion/headeradopcion.component';
 import { CardsComponent } from './adopcion/components/cards/cards.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 
@@ -20,7 +22,9 @@ import { CardsComponent } from './adopcion/components/cards/cards.component';
     AdopcionComponent,
     CardsadopcionComponent,
     HeaderadopcionComponent,
-    CardsComponent
+    CardsComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     FormsModule,
