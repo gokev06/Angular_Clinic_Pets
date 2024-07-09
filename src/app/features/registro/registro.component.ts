@@ -79,7 +79,7 @@ export class RegistroComponent implements OnInit{
 
         }
         
-         // Procesa la respuesta exitosa
+         // imprime la respuesta exitosa
 
         const data = await response.json();
         console.log('Success:', data);

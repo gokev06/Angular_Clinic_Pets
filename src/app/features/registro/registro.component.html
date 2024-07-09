@@ -26,24 +26,22 @@
       
             <div *ngIf="registerForm.get('nombre')?.errors && registerForm.get('nombre')?.dirty">
             <p *ngIf="registerForm.get('nombre')?.hasError('required')">Rellene el campo nombre</p>
-            <p *ngIf="registerForm.get('nombre')?.hasError('minLength')">Minimo 1 caracter en su nombre</p>
             </div>
       
             <div *ngIf="registerForm.get('apellido')?.errors && registerForm.get('apellido')?.dirty">
             <p *ngIf="registerForm.get('apellido')?.hasError('required')">Rellene el campo apellido</p>
-            <p *ngIf="registerForm.get('apellido')?.hasError('minLength')">Minimo 1 caracter en su apellido</p>
             </div>
       
             <div *ngIf="registerForm.get('numeroDeDocumento')?.errors && registerForm.get('numeroDeDocumento')?.dirty">
               <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('required')">Rellene el campo Documento</p>
-              <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('minLength')">Minimo 10 caracteres en Documento</p>
-              <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('maxLength')">maximo 10 caracteres en Documento</p>    
+              <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('minlength')">Minimo 10 caracteres en Documento</p>
+              <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('maxlength')">maximo 10 caracteres en Documento</p>    
             </div>
       
             <div *ngIf="registerForm.get('numeroDeTelefono')?.errors && registerForm.get('numeroDeTelefono')?.dirty">
-              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('required')">Rellene el campo Documento</p>
-              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('minLength')">Minimo 10 caracteres en Documento</p>
-              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('maxLength')">maximo 10 caracteres en Documento</p>    
+              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('required')">Rellene el campo telefono</p>
+              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('minlength')">Minimo 10 caracteres en telefono</p>
+              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('maxlength')">maximo 10 caracteres en telefono</p>    
             </div>
       
             <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.dirty">
@@ -52,9 +50,9 @@
             </div>
       
             <div *ngIf="registerForm.get('contrasenia')?.errors && registerForm.get('contrasenia')?.dirty">
-              <p *ngIf="registerForm.get('contrasenia')?.hasError('required')">Rellene el campo contrasenia</p>
-              <p *ngIf="registerForm.get('contrasenia')?.hasError('minLength')">Minimo 5 caracteres en contrasenia</p>
-              <p *ngIf="registerForm.get('contrasenia')?.hasError('maxLength')">maximo 20 caracteres en contrasenia</p>
+              <p *ngIf="registerForm.get('contrasenia')?.hasError('required')">Rellene el campo contraseña</p>
+              <p *ngIf="registerForm.get('contrasenia')?.hasError('minlength')">Minimo 5 caracteres en contraseña</p>
+              <p *ngIf="registerForm.get('contrasenia')?.hasError('maxlength')">maximo 20 caracteres en contraseña</p>
             </div>
             
       
