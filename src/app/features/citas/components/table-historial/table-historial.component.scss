@@ -1,0 +1,26 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.clients-table {
+    width: 1000px; 
+    border-collapse: collapse;
+}
+
+.clients-table th, .clients-table td {
+    border: 3px solid #CCC4FF;
+    padding: 20px;
+    text-align: center;
+}
+
+.clients-table th {
+    background-color: #CCC4FF;
+    color: #7b7979c4;
+}
+
+.clients-table tbody tr:nth-child(even) {
+    background-color: #ccc4ff6b; 
+}

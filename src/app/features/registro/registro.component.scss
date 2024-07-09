@@ -9,7 +9,7 @@ section{
     width: 60%;
     height: 100vh; /* Altura igual a la altura completa de la ventana visible */
     display: flex;
-    background-image: url("../../../assets/images/imghome/descarga.jpg");
+    background-image: url("../../../assets/images/imghome/descarga\ \(1\).jpg");
     background-repeat: no-repeat; /* Evita la repetición de la imagen */
     background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
     background-position: center; /* Centra la imagen en el contenedor */
@@ -91,7 +91,27 @@ section{
     cursor: pointer;
 }
 
+/* Estilo cuando el cursor está sobre el botón */
+.button:hover {
+    background-color: #458ba0; /* azul más oscuro */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra suave */
+    color: #ffffff;
+}
+
+/* Estilo cuando el botón está siendo presionado */
+.button:active {
+    background-color: #454ea0;  /* Verde aún más oscuro */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Sombra más pequeña */
+    transform: translateY(2px); /* Pequeño movimiento hacia abajo */
+}
+
+
+.formulario_2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
 
 
 /* login.component.scss */
-

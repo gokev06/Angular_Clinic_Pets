@@ -1,8 +1,6 @@
-import { Component, Renderer2, OnInit } from '@angular/core';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistroComponent } from './registro.component';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;

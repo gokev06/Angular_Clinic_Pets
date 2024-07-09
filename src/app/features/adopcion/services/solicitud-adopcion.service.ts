@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-interface adopcion{
+ export interface adopcion{
   id?: number;
   nombre: string;
   edad: string;
@@ -14,6 +14,7 @@ interface adopcion{
   telefono: string;
   municipio: string;
   ciudad: string;
+  image:string;
 }
 
 
@@ -30,4 +31,5 @@ export class SolicitudAdopcionService {
   getAdopciones(): Observable<adopcion[]> {
     return this.http.get<adopcion[]>(this.apiurl);
   }
+
 }

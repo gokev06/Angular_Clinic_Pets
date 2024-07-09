@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
 import { HomeComponent } from './components/atoms/home/home.component';
@@ -31,12 +31,19 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
 import { FooterComponent } from './components/organisms/footer/footer.component';
 import { CalendarioComponent } from './components/organisms/calendario/calendario.component';
 import { HorariosComponent } from './components/organisms/horarios/horarios.component';
-import { AdopcionComponent } from '../features/adopcion/adopcion.component';
 
+import { PagesHistorialComponent } from '../features/citas/pages/pages-historial/pages-historial.component';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
+import { ErroresValidacionesComponent } from './components/molecules/errores-validaciones/errores-validaciones/errores-validaciones.component';
+registerLocaleData(localeEs, 'es');
 
 
 @NgModule({
   declarations: [
+    TableHistorialComponent,
+    PagesHistorialComponent,
     HomeComponent,
     ContactoInfoComponent,
     LogoComponent,
@@ -64,16 +71,21 @@ import { AdopcionComponent } from '../features/adopcion/adopcion.component';
     CarruselComponent,
     FooterComponent,
     CalendarioComponent,
-    HorariosComponent
+    HorariosComponent,
+    ErroresValidacionesComponent
   ],
   imports: [
     
     CommonModule,
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },
-      {path: 'adopcion' , component: AdopcionComponent}
   ]),
   ReactiveFormsModule
+  ],
+
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es' }
+
   ],
 
   exports:[
@@ -98,7 +110,9 @@ import { AdopcionComponent } from '../features/adopcion/adopcion.component';
     IconAdopcionComponent,
     IconCitasComponent,
     CarruselComponent,
-    FooterComponent
+    FooterComponent,
+    PagesHistorialComponent,
+    CalendarioComponent
   ]
 })
 export class SharedModule { }

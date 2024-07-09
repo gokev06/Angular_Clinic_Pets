@@ -8,13 +8,24 @@ div{
     align-items: center;
 }
 
+
+button{
+    background-color: #E9E1FE;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px 10px 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
 /* Contenedor del buscador */
 .search-container {
     position: relative;
     display: flex;
     align-items: center;
     padding: 0;
-    width: 40vw;
+    width: 550px;
     justify-content: center;
 }
 
@@ -38,13 +49,4 @@ div{
 img{
     width: 15px;
     height: 15px;
-}
-
-button{
-    background-color: #E9E1FE;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 30px 10px 30px;
-    font-size: 14px;
-    cursor: pointer;
 }
