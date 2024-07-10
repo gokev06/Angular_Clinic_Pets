@@ -14,6 +14,7 @@ import { ScopedTableHistorialComponent } from './components/scoped-table-histori
     PagesHistorialComponent,
     TableHistorialComponent,
     ScopedTableHistorialComponent,
+    CitasComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +24,8 @@ import { ScopedTableHistorialComponent } from './components/scoped-table-histori
   ],
   exports:[
     PagesHistorialComponent,
-    TableHistorialComponent
+    TableHistorialComponent,
+    CitasComponent
   ]
 })
 export class CitasModule { }
