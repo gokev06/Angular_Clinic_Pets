@@ -77,7 +77,7 @@ export class RegistroComponent implements OnInit{
         
           throw new Error(errorMessege);
 
-        }
+       }
         
          // imprime la respuesta exitosa
 
