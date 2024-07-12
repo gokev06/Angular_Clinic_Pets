@@ -5,13 +5,13 @@ import { PagehomeComponent } from './pagehome.component';
 import { CitasComponent } from '../citas/citas.component';
 import { RouterModule } from "@angular/router";
 import { SharedModule } from '../../shared/shared.module';
-
+import { HeaderHomeComponent } from './components/header-home/header-home.component';
 
 
 
 @NgModule({
   declarations: [
-    PagehomeComponent
+    HeaderHomeComponent
   ],
   imports: [
     CommonModule,
@@ -22,8 +22,7 @@ import { SharedModule } from '../../shared/shared.module';
   ]),
   ],
   exports:[
-    PagehomeComponent,
-
+    HeaderHomeComponent
   ]
 })
 export class PagehomeModule { }

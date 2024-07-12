@@ -114,7 +114,8 @@ registerLocaleData(localeEs, 'es');
     CarruselComponent,
     FooterComponent,
     PagesHistorialComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    BtnregistroComponent
   ]
 })
 export class SharedModule { }

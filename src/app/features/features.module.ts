@@ -11,6 +11,8 @@ import { HeaderadopcionComponent } from './adopcion/components/headeradopcion/he
 import { CardsComponent } from './adopcion/components/cards/cards.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { PagesHomeRegisterComponent } from './pagehome/pages/pages-home-register/pages-home-register.component';
+import { PagehomeModule } from './pagehome/pagehome.module';
 
 
 
@@ -24,17 +26,26 @@ import { RegistroComponent } from './registro/registro.component';
     HeaderadopcionComponent,
     CardsComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PagesHomeRegisterComponent
   ],
   imports: [
     FormsModule,
     CommonModule,
     SharedModule,
+    PagehomeModule,
     ReactiveFormsModule ,// Importa ReactiveFormsModule aquí
   ],
   exports:[
     CitasComponent,
     PagehomeComponent,
+    AdopcionComponent,
+    CardsadopcionComponent,
+    HeaderadopcionComponent,
+    CardsComponent,
+    LoginComponent,
+    RegistroComponent,
+    PagesHomeRegisterComponent
   ]
 })
 export class FeaturesModule { }
