@@ -37,6 +37,7 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
 import { ErroresValidacionesComponent } from './components/molecules/errores-validaciones/errores-validaciones/errores-validaciones.component';
+import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -72,7 +73,8 @@ registerLocaleData(localeEs, 'es');
     FooterComponent,
     CalendarioComponent,
     HorariosComponent,
-    ErroresValidacionesComponent
+    ErroresValidacionesComponent,
+    BtnregistroComponent
   ],
   imports: [
     
