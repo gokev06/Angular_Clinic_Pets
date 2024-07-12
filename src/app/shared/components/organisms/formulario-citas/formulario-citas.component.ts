@@ -20,7 +20,7 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     private router: Router,
     private appointmentService: AppointmentService 
   ) {
-    this.loginForm = this.formBuilder.group({}); 
+    this.loginForm = this.formBuilder.group({});
   }
 
   ngOnInit(): void {
@@ -31,27 +31,25 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
       direccion: ['', Validators.required],
       sintomas: ['', Validators.required],
       nombreMascota: ['', Validators.required],
-      tipo: ['', [Validators.required]],
+      tipoDeCita: ['', Validators.required],
       edad: ['', Validators.required],
       especie: ['', Validators.required],
       estadovacunacion: ['', Validators.required],
       raza: ['', Validators.required],
+      sexo: ['', Validators.required],
       fecha: ['', Validators.required],
       hora: ['', Validators.required],
-      estado: ['Agendada', Validators.required]
     });
   }
 
   @ViewChildren('myDiv') myDivs!: QueryList<ElementRef>;
 
-  ngAfterViewInit() {
-    // Inicialización adicional si es necesaria
-  }
+  ngAfterViewInit() {}
 
   onDateSelected(date: Date): void {
     const formattedDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())).toISOString().split('T')[0];
-  this.loginForm.get('fecha')?.setValue(formattedDate);
-  console.log('Fecha seleccionada:', formattedDate);
+    this.loginForm.get('fecha')?.setValue(formattedDate);
+    console.log('Fecha seleccionada:', formattedDate);
   }
 
   onTimeSelected(time: string): void {
@@ -64,39 +62,27 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     console.log('¿Formulario válido?:', this.loginForm.valid);
 
     if (this.loginForm.valid) {
-      Swal.fire({
-        title: '¿Confirmar cita?',
-        text: '¿Estás seguro de que quieres confirmar esta cita?',
-        showCancelButton: true,
-        confirmButtonColor: '#7DFF82',
-        cancelButtonColor: '#F57171',
-        confirmButtonText: 'Sí, confirmar',
-        imageUrl: '../../../../../assets/images/imgcitas/huellas.png',
-        imageWidth: 200,
-        imageHeight: 200
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.appointmentService.createAppointment(this.loginForm.value).subscribe(response => {
-            Swal.fire({
-              title: '¡Cita confirmada!',
-              text: 'La cita ha sido confirmada exitosamente.',
-              imageUrl: '../../../../../assets/images/imgcitas/confirmar.png',
-              imageWidth: 200,
-              imageHeight: 200,
-              confirmButtonColor: '#7DFF82',
-            });
-
-            this.router.navigate(['']);
-          }, error => {
-            Swal.fire({
-              title: '¡Error!',
-              text: 'Ocurrió un error al confirmar la cita.',
-              icon: 'error',
-              confirmButtonColor: '#F57171',
-            });
+      this.appointmentService.createAppointment(this.loginForm.value).subscribe(
+        response => {
+          Swal.fire({
+            title: '¡Cita confirmada!',
+            text: 'La cita ha sido confirmada exitosamente.',
+            imageUrl: '../../../../../assets/images/imgcitas/confirmar.png',
+            imageWidth: 200,
+            imageHeight: 200,
+            confirmButtonColor: '#7DFF82',
+          });
+          this.router.navigate(['']);
+        },
+        error => {
+          Swal.fire({
+            title: '¡Error!',
+            text: 'Ocurrió un error al confirmar la cita.',
+            icon: 'error',
+            confirmButtonColor: '#F57171',
           });
         }
-      });
+      );
     } else {
       Swal.fire({
         title: '¡Hubo un problema!',
@@ -119,14 +105,15 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     }
   }
 
-  changeState(state: 'Reagenddada' | 'Cancelada'): void {
-    if (state === 'Reagenddada') {
-      
+  changeState(state: 'Reagendada' | 'Cancelada'): void {
+    if (state === 'Reagendada') {
+      // Handle reschedule logic
     } else if (state === 'Cancelada') {
       this.loginForm.patchValue({estado: 'Cancelada'});
       this.onSubmit();
     }
   }
+
   showModal: boolean = false;
 
   openModal() {
@@ -136,6 +123,4 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
   closeModal() {
     this.showModal = false;
   }
-
-  
 }
