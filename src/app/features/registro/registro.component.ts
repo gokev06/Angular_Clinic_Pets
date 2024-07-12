@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -14,7 +15,7 @@ export class RegistroComponent implements OnInit{
 
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient){}
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router){}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -84,6 +85,7 @@ export class RegistroComponent implements OnInit{
         const data = await response.json();
         console.log('Success:', data);
         console.log('Registro exitoso: ' + JSON.stringify(data));
+        this.router.navigate(['login'])
         
 
       } catch (error: any) {

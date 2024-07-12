@@ -2,7 +2,7 @@ import { Component, Renderer2, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.srvices'; // Ajusta la ruta del servicio si es necesario
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!:FormGroup;
 
-  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient) {}
+  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient , private router:Router) {}
 
   ngOnInit(): void {
     this.loadGoogleScript();
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         try {
         //detalles de los errores           
         errorDetails = JSON.parse(errorBody);
-        // sin informacion adicional de los errores
+        // sin informacion adicional de los erroresnumeroDeDocumento,
         errorMessege += ` - ${errorDetails.message || 'No additional error message' }`
 
         } catch (e) {
@@ -80,6 +80,7 @@ export class LoginComponent implements OnInit {
        const data = await response.json();
        console.log('Success:', data);
        console.log('Ingreso exitoso: ' + JSON.stringify(data));
+       this.router.navigate([''])
        
       } catch (error: any) {
         console.error('Error object:', error);
