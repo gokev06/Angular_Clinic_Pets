@@ -80,6 +80,17 @@ export class LoginComponent implements OnInit {
        const data = await response.json();
        console.log('Success:', data);
        console.log('Ingreso exitoso: ' + JSON.stringify(data));
+
+      if (data.token) {
+        localStorage.setItem('userToken', data.token);
+        console.log('token guardado en localstorage');
+        
+      }else{
+        console.warn('No se recibio token en la respuesta');
+        
+      }
+
+
        this.router.navigate([''])
        
       } catch (error: any) {
