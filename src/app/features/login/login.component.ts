@@ -1,5 +1,5 @@
 import { Component, Renderer2, OnInit } from '@angular/core';
-import { AuthService } from '../../core/services/auth.srvices'; // Ajusta la ruta del servicio si es necesario
+import { AuthService } from '../../core/services/auth.srvices';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'] // Asegúrate de que sea styleUrls en lugar de styleUrl
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
