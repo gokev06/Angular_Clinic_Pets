@@ -11,10 +11,10 @@ import { PagesHomeRegisterComponent } from './features/pagehome/pages/pages-home
 const routes: Routes = [
   {path :"login",component: LoginComponent},
   {path: "citas", component: CitasComponent},
-  { path: "" , component: PagehomeComponent},
+  { path: "home" , component: PagehomeComponent},
   {path: "adopcion", component: AdopcionComponent},
   {path: "register", component: RegistroComponent},
-  {path: "home", component: PagesHomeRegisterComponent}
+  {path: "", component: PagesHomeRegisterComponent}
 ];
 
 @NgModule({
