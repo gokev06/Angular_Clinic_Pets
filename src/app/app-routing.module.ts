@@ -7,6 +7,7 @@ import { AdopcionComponent } from './features/adopcion/adopcion.component';
 import { LoginComponent } from './features/login/login.component';
 import { RegistroComponent } from './features/registro/registro.component';
 
+//rutas de las ventanas 
 const routes: Routes = [
   {path :"login",component: LoginComponent},
   {path: "citas", component: CitasComponent},

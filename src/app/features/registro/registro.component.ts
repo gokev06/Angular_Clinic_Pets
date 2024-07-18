@@ -85,6 +85,8 @@ export class RegistroComponent implements OnInit{
         const data = await response.json();
         console.log('Success:', data);
         console.log('Registro exitoso: ' + JSON.stringify(data));
+
+        // ruta para ir al login una vez el usuario este registrado
         this.router.navigate(['login'])
         
 

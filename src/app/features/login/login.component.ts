@@ -2,7 +2,7 @@ import { Component, Renderer2, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.srvices'; // Ajusta la ruta del servicio si es necesario
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; //importa el Router
 
 @Component({
   selector: 'app-login',
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!:FormGroup;
 
+  // private router: Router, es necesario para que funcione el hipervinculo al home
   constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient , private router:Router) {}
 
   ngOnInit(): void {
@@ -90,7 +91,7 @@ export class LoginComponent implements OnInit {
         
       }
 
-
+       //ruta para ir al home, cuando el usuario inicia sesion 
        this.router.navigate([''])
        
       } catch (error: any) {
