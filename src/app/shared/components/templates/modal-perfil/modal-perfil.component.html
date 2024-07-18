@@ -4,3 +4,4 @@
       <button (click)="closeModal()">Cerrar Sesión</button>
     </div>
   </div>
+  <app-modal-editar-perfil *ngIf="modaledit" (closeedit)=" closeModaledit()"></app-modal-editar-perfil>

@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit{
 
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router){}
+  constructor(private fb: FormBuilder, private http: HttpClient, private router:Router){}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({

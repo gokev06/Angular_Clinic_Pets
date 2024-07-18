@@ -4,8 +4,8 @@
 
 <section>
     <div class="imagen">
-       <div class="logo">
-      <app-logo></app-logo><h1>Clinic-Pets</h1>
+       <div class="logo"  routerLink="''">
+      <app-logo ></app-logo><h1>Clinic-Pets</h1>
     </div>
     </div>
     
@@ -22,7 +22,7 @@
           <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contraseña'" [estilos]="estilos"></app-input>
          <!--<app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input>--> 
              
-            <a href="#" class="reset-link">Restablecer contraseña</a>
+            <p>¿Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
       
             <div *ngIf="registerForm.get('nombre')?.errors && registerForm.get('nombre')?.dirty">
             <p *ngIf="registerForm.get('nombre')?.hasError('required')">Rellene el campo nombre</p>

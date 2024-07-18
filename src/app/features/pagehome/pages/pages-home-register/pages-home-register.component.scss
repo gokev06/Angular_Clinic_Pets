@@ -1,0 +1,7 @@
+app-home-header {
+    position: relative; /* Asegura que el encabezado esté en una capa superior */
+    z-index: 2; /* Ajusta el índice z para que esté encima del carrusel */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo translúcido */
+    /* Otros estilos para el encabezado según sea necesario */
+  }  
+  
