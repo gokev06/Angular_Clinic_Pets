@@ -9,13 +9,18 @@ export class ModalPerfilComponent {
 
   isModalOpen = false;
   @Output() close = new EventEmitter<void>();
+  modaledit :boolean = false
 
   closeModal(): void {
     this.close.emit();
   }
 
+  closeModaledit(){
+    this.modaledit= false
+  }
+
   editProfile() {
-    
+    this.modaledit= true
     }
   stopPropagation(event: Event) {
     event.stopPropagation();
