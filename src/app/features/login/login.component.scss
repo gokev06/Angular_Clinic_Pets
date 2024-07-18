@@ -26,7 +26,13 @@ section{
     left: 0;
     position: absolute;
 }
-
+p{
+    margin-top: 20px;
+}
+a{
+    text-decoration: none;
+    color: blue($color: #000000);
+}
 .logo h1 {
     font-size: 28px;
     margin-top: 20px;
@@ -82,7 +88,7 @@ section{
 .reset-link {
     color: #007bff; /* Color azul, puedes cambiarlo según el tono deseado */
     text-decoration: none; /* Quitar subrayado del enlace */
-    font-size: 18px; /* Tamaño del texto */
+    font-size: 14px; /* Tamaño del texto */
 }
 
 .reset-link:hover {
@@ -90,7 +96,7 @@ section{
 }
 
 .button{
-    width: 200px;
+    width: 180px;
     height: 50px;
     border-radius: 50px;
     background-color: rgba(172, 165, 214,0.47); 
@@ -98,6 +104,7 @@ section{
     border: none;
     margin-bottom: 20px;
     cursor: pointer;
+    color: black;
 }
 
 
@@ -123,7 +130,7 @@ section{
 
 /* Estilo cuando el cursor está sobre el botón */
 .button:hover {
-    background-color: #458ba0; /* azul más oscuro */
+    background-color: #925683; /* azul más oscuro */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra suave */
     color: #ffffff;
 }

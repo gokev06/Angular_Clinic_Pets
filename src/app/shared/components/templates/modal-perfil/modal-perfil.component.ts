@@ -15,8 +15,8 @@ export class ModalPerfilComponent {
   }
 
   editProfile() {
-    console.log('Editar perfil');
-  }
+    
+    }
   stopPropagation(event: Event) {
     event.stopPropagation();
   }
