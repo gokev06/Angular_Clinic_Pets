@@ -14,13 +14,13 @@
 
         <form class="formulario_2" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
           <h1>REGISTRAR</h1>
+          <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input>
           <app-input [text]="'text'" [holder]="'nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
           <app-input [text]="'text'" [holder]="'apellido'" formControlName="apellido" [id]="'apellido'" [estilos]="estilos"></app-input>
-          <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input>
           <app-input [text]="'text'" [holder]="'numero de telefono'" formControlName="numeroDeTelefono" [id]="'telefono'" [estilos]="estilos"></app-input>
           <app-input [text]="'text'" [holder]="'email'" formControlName="email" [id]="'email'" [estilos]="estilos"></app-input>
           <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contraseña'" [estilos]="estilos"></app-input>
-         <!--<app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input>--> 
+         <app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input> 
              
             <p>¿Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
       
@@ -53,6 +53,12 @@
               <p *ngIf="registerForm.get('contrasenia')?.hasError('required')">Rellene el campo contraseña</p>
               <p *ngIf="registerForm.get('contrasenia')?.hasError('minlength')">Minimo 5 caracteres en contraseña</p>
               <p *ngIf="registerForm.get('contrasenia')?.hasError('maxlength')">maximo 20 caracteres en contraseña</p>
+            </div>
+
+            <div *ngIf="registerForm.get('confirmarContrasenia')?.errors && registerForm.get('confirmarContrasenia')?.dirty">
+              <p *ngIf="registerForm.get('confirmarContrasenia')?.hasError('required')">Rellene el campo contraseña</p>
+              <p *ngIf="registerForm.get('confirmarContrasenia')?.hasError('minlength')">Minimo 5 caracteres en contraseña</p>
+              <p *ngIf="registerForm.get('confirmarContrasenia')?.hasError('maxlength')">maximo 20 caracteres en contraseña</p>
             </div>
             
       

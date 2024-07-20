@@ -84,7 +84,8 @@ export class LoginComponent implements OnInit {
 
       if (data.token) {
         localStorage.setItem('userToken', data.token);
-        console.log('token guardado en localstorage');
+        console.log('Token guardado en localStorage:', data.token);
+
         
       }else{
         console.warn('No se recibio token en la respuesta');
@@ -92,7 +93,7 @@ export class LoginComponent implements OnInit {
       }
 
        //ruta para ir al home, cuando el usuario inicia sesion 
-       this.router.navigate([''])
+       this.router.navigate(['home'])
        
       } catch (error: any) {
         console.error('Error object:', error);

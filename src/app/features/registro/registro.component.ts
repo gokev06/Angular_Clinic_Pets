@@ -19,13 +19,13 @@ export class RegistroComponent implements OnInit{
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
+      numeroDeDocumento: ["", [Validators.required,Validators.minLength(10), Validators.maxLength(10)]],
       nombre: ["", Validators.required],
       apellido: ["", Validators.required],
-      numeroDeDocumento: ["", [Validators.required,Validators.minLength(10), Validators.maxLength(10)]],
       numeroDeTelefono: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       contrasenia: ["", [Validators.required,Validators.minLength(5), Validators.maxLength(20)]],
-      //confirmarContrasenia: ["", Validators.required]
+      confirmarContrasenia: ["", [Validators.required,Validators.minLength(5), Validators.maxLength(20)]]
     });
   }
 
