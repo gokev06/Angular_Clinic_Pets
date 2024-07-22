@@ -110,7 +110,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
 
         console.log('perfil actualizado:', response);
 
-        this.closemodal();
+        this.closemodaledit();
         
       } catch (error) {
         console.error('Error al actualizar el perfil:', error);
