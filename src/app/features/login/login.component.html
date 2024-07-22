@@ -10,17 +10,27 @@
     
     <div class="contenedor-formulario">
        <div class="formulario">
-        <h1>INICIAR SESION</h1>
-        <app-input [text]="'text'" [holder]="'correo'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
-        <app-input [text]="'password'" [holder]="'contraseña'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
-           
-          <a href="#" class="reset-link">Restablecer contraseña</a>
-          <button class="button">iniciar sesion</button>
+        <form class="formulario_login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+          <h1>INICIAR SESION</h1>
+
+          <app-input [text]="'text'" [holder]="'correo'" formControlName="email" [id]="'correo'" [estilos]="estilos"></app-input>
+          <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contrasenia'" [estilos]="estilos"></app-input>
+             
+          <a href="#" class="reset-link">¿Olvidaste tu contraseña?</a>
+          <p>¿Aun no tienes una cuenta? <a href="/register">Registrarte</a></p>
+          
+          <div class="btn-form-submit">
+            <button type="submit"  [disabled]="loginForm.invalid" class="button">Iniciar Sesion</button>
+          </div>
+          
+        </form>
+        <button  class="g-signin2" (click)="loginWithGoogle()">
+          <img src="../../../assets/images/imghome/google.png" alt="">Iniciar sesión con Google</button>
             
        </div>
        
-       <button  class="g-signin2" (click)="loginWithGoogle()">
-         <img src="../../../assets/images/imghome/google.png" alt="">Iniciar sesión con Google</button>
+
     </div>  
     
     </section>

@@ -4,32 +4,72 @@
 
 <section>
     <div class="imagen">
-       <div class="logo">
-      <app-logo></app-logo><h1>Clinic-Pets</h1>
+       <div class="logo"  routerLink="''">
+      <app-logo ></app-logo><h1>Clinic-Pets</h1>
     </div>
     </div>
     
     <div class="contenedor-formulario">
-       <div class="formulario">
-        <h1>REGISTRAR</h1>
-        <app-input [text]="'text'" [holder]="'nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
-        <app-input [text]="'text'" [holder]="'apellido'" formControlName="apellido" [id]="'apellido'" [estilos]="estilos"></app-input>
-        <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="#documento" [id]="'#documento'" [estilos]="estilos"></app-input>
-        <app-input [text]="'text'" [holder]="'numero de telefono'" formControlName="#telefono" [id]="'#telefono'" [estilos]="estilos"></app-input>
-        <app-input [text]="'text'" [holder]="'email'" formControlName="email" [id]="'email'" [estilos]="estilos"></app-input>
-        <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contraseña" [id]="'contraseña'" [estilos]="estilos"></app-input>
-        <app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmar" [id]="'confirmar'" [estilos]="estilos"></app-input>
-           
-          <a href="#" class="reset-link">Restablecer contraseña</a>
-          
-          <button class="button">iniciar sesion</button>
-    <!-- <button class="g-signin2" (click)="loginWithGoogle()">Iniciar sesión con Google</button>-->
-    
-          
-    
-          
+      <div class="formulario">
+
+        <form class="formulario_2" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+          <h1>REGISTRAR</h1>
+          <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'apellido'" formControlName="apellido" [id]="'apellido'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'numero de telefono'" formControlName="numeroDeTelefono" [id]="'telefono'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'email'" formControlName="email" [id]="'email'" [estilos]="estilos"></app-input>
+          <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contraseña'" [estilos]="estilos"></app-input>
+         <app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input> 
+             
+            <p>¿Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
+      
+            <div *ngIf="registerForm.get('nombre')?.errors && registerForm.get('nombre')?.dirty">
+            <p *ngIf="registerForm.get('nombre')?.hasError('required')">Rellene el campo nombre</p>
+            </div>
+      
+            <div *ngIf="registerForm.get('apellido')?.errors && registerForm.get('apellido')?.dirty">
+            <p *ngIf="registerForm.get('apellido')?.hasError('required')">Rellene el campo apellido</p>
+            </div>
+      
+            <div *ngIf="registerForm.get('numeroDeDocumento')?.errors && registerForm.get('numeroDeDocumento')?.dirty">
+              <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('required')">Rellene el campo Documento</p>
+              <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('minlength')">Minimo 10 caracteres en Documento</p>
+              <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('maxlength')">maximo 10 caracteres en Documento</p>    
+            </div>
+      
+            <div *ngIf="registerForm.get('numeroDeTelefono')?.errors && registerForm.get('numeroDeTelefono')?.dirty">
+              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('required')">Rellene el campo telefono</p>
+              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('minlength')">Minimo 10 caracteres en telefono</p>
+              <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('maxlength')">maximo 10 caracteres en telefono</p>    
+            </div>
+      
+            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.dirty">
+              <p *ngIf="registerForm.get('email')?.hasError('required')">Rellene el campo correo</p>
+              <p *ngIf="registerForm.get('email')?.hasError('email')">Debe ingresar un correo valido</p>
+            </div>
+      
+            <div *ngIf="registerForm.get('contrasenia')?.errors && registerForm.get('contrasenia')?.dirty">
+              <p *ngIf="registerForm.get('contrasenia')?.hasError('required')">Rellene el campo contraseña</p>
+              <p *ngIf="registerForm.get('contrasenia')?.hasError('minlength')">Minimo 5 caracteres en contraseña</p>
+              <p *ngIf="registerForm.get('contrasenia')?.hasError('maxlength')">maximo 20 caracteres en contraseña</p>
+            </div>
+
+            <div *ngIf="registerForm.get('confirmarContrasenia')?.errors && registerForm.get('confirmarContrasenia')?.dirty">
+              <p *ngIf="registerForm.get('confirmarContrasenia')?.hasError('required')">Rellene el campo contraseña</p>
+              <p *ngIf="registerForm.get('confirmarContrasenia')?.hasError('minlength')">Minimo 5 caracteres en contraseña</p>
+              <p *ngIf="registerForm.get('confirmarContrasenia')?.hasError('maxlength')">maximo 20 caracteres en contraseña</p>
+            </div>
             
-       </div>
+      
+      
+            <div class="btn-button-submit">
+              <button type="submit" [disabled]="registerForm.invalid" class="button">Registrarse</button>
+            </div>
+      <!-- <button class="g-signin2" (click)="loginWithGoogle()">Iniciar sesión con Google</button>-->
+      
+      </form> 
+    </div>
+
     </div>  
-    
     </section>

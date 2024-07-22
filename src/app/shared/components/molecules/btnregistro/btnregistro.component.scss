@@ -1,0 +1,15 @@
+div{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button{
+    background: linear-gradient(to right, #7638FE, #43F4FF);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}

@@ -22,7 +22,9 @@ section{
     display: flex;
     align-items: center;
     padding-top: 4px;
-    padding-left: 12px
+    padding-left: 12px;
+    left: 0;
+    position: absolute;
 }
 
 .logo h1 {
@@ -30,17 +32,20 @@ section{
     margin-top: 20px;
     font-family: "Playwrite ES Deco", cursive;
 }
-
-
+p{
+    margin-top: 20px;
+}
+a{
+    text-decoration: none;
+    color: blue($color: #000000);
+}
 .imagen::before {
     content: '';
     background-color: rgba(204, 196, 255,0.10); 
-    position: absolute;
     top: 0;
     left: 0;
     width: 60%;
     height: 100%;
-   
 }
 
 .contenedor-formulario {
@@ -73,7 +78,7 @@ section{
 .reset-link {
     color: #007bff; /* Color azul, puedes cambiarlo según el tono deseado */
     text-decoration: none; /* Quitar subrayado del enlace */
-    font-size: 18px; /* Tamaño del texto */
+    font-size: 14px; /* Tamaño del texto */
 }
 
 .reset-link:hover {
@@ -81,7 +86,7 @@ section{
 }
 
 .button{
-    width: 200px;
+    width: 180px;
     height: 50px;
     border-radius: 50px;
     background-color: rgba(172, 165, 214,0.47); 
@@ -89,8 +94,30 @@ section{
     border: none;
     margin-bottom: 20px;
     cursor: pointer;
+    color: black;
 }
 
+/* Estilo cuando el cursor está sobre el botón */
+.button:hover {
+    background-color: #925683;; /* azul más oscuro */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra suave */
+    color: #ffffff;
+}
+
+/* Estilo cuando el botón está siendo presionado */
+.button:active {
+    background-color: #454ea0;  /* Verde aún más oscuro */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Sombra más pequeña */
+    transform: translateY(2px); /* Pequeño movimiento hacia abajo */
+}
+
+
+.formulario_2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
 
 
 /* login.component.scss */
