@@ -11,13 +11,14 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ModalEditarPerfilComponent  implements OnInit{
 
-  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 16px; padding: 0px 8px; width: 300px; margin-bottom: 10px";
+  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 10px; padding: 0px 8px; width: 300px; margin-bottom: 10px;";
 
   @Output() closeedit = new EventEmitter<void>();
 
   closemodaledit(): void {
     this.closeedit.emit();
   }
+
   callDataUser!: FormGroup;
   constructor(private fb: FormBuilder, private http: HttpClient){
 
@@ -110,7 +111,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
 
         console.log('perfil actualizado:', response);
 
-        this.closemodal();
+        this.closemodaledit();
         
       } catch (error) {
         console.error('Error al actualizar el perfil:', error);
