@@ -1,10 +1,9 @@
-<app-header [ruta]="'/historial'" [title]="'consultar historial'"></app-header>
+<app-header [ruta]="'/historial'" [title]="'Consultar Historial'"></app-header>
 <section class="emptyState" *ngIf="citas.length <= 0">
-    <!--<p id="ono">¡Oh no!</p>
-    <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
-    <p id="noTienesClientes">Aún no tienes clientes</p> 
-    COLOCAR ESTADO VACIO-->
+  <p id="ono">¡Oh no!</p>
+  <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
+  <p id="noTienesClientes">Aún no tienes citas</p>
 </section>
 <section *ngIf="citas.length > 0" class="background">
-    <app-table-historial></app-table-historial>
+  <app-table-historial [citas]="citas"></app-table-historial>
 </section>

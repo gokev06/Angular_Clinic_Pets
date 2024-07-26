@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
 
 @Component({
@@ -7,26 +7,21 @@ import { AppointmentService } from '../../services/appointment.service';
   styleUrls: ['./table-historial.component.scss']
 })
 export class TableHistorialComponent implements OnInit {
-
-  citas: any[] = [];
+ @Input() citas: any[] = [];
 
   constructor(private appointmentService: AppointmentService) {}
-  
+
   ngOnInit(): void {
-    this.appointmentService.getAppointments().subscribe(res => {
-      this.citas = res;
-      console.log(this.citas); 
-    });  
+    this.fetchAppointments();
   }
 
   fetchAppointments(): void {
-    this.appointmentService.getAppointments()
-      .subscribe(res => {
-        this.citas = res.map(cita => ({
-          ...cita,
-          fecha: new Date(cita.fecha.toString()).toLocaleDateString('es-ES'), // Convierte a string primitivo
-          hora: cita.hora ? cita.hora : '' 
-        }));
-      });
+    this.appointmentService.getAppointments().subscribe(res => {
+      this.citas = res.map(cita => ({
+        ...cita,
+        fecha: new Date(cita.fecha).toLocaleDateString('es-ES'),
+        hora: cita.hora ? cita.hora : ''
+      }));
+    });
   }
 }

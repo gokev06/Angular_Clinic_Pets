@@ -31,7 +31,6 @@ import { CarruselComponent } from './components/organisms/carrusel/carrusel.comp
 import { FooterComponent } from './components/organisms/footer/footer.component';
 import { CalendarioComponent } from './components/organisms/calendario/calendario.component';
 import { HorariosComponent } from './components/organisms/horarios/horarios.component';
-
 import { PagesHistorialComponent } from '../features/citas/pages/pages-historial/pages-historial.component';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
@@ -39,13 +38,14 @@ import { TableHistorialComponent } from '../features/citas/components/table-hist
 import { ErroresValidacionesComponent } from './components/molecules/errores-validaciones/errores-validaciones/errores-validaciones.component';
 import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
 import { ModalEditarPerfilComponent } from './components/templates/modal-editar-perfil/modal-editar-perfil.component';
+import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
+
 registerLocaleData(localeEs, 'es');
 
 
 @NgModule({
   declarations: [
     TableHistorialComponent,
-    PagesHistorialComponent,
     HomeComponent,
     ContactoInfoComponent,
     LogoComponent,
@@ -76,13 +76,17 @@ registerLocaleData(localeEs, 'es');
     HorariosComponent,
     ErroresValidacionesComponent,
     BtnregistroComponent,
-    ModalEditarPerfilComponent
+    ModalEditarPerfilComponent,
+    PagesHistorialComponent,
+    ScopedTableHistorialComponent
+
   ],
   imports: [
     
     CommonModule,
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },
+      {path: 'historial', component: PagesHistorialComponent}
   ]),
   ReactiveFormsModule
   ],
@@ -115,9 +119,9 @@ registerLocaleData(localeEs, 'es');
     IconCitasComponent,
     CarruselComponent,
     FooterComponent,
-    PagesHistorialComponent,
     CalendarioComponent,
-    BtnregistroComponent
+    BtnregistroComponent,
+    PagesHistorialComponent
   ]
 })
 export class SharedModule { }
