@@ -5,5 +5,5 @@
   <p id="noTienesClientes">Aún no tienes citas</p>
 </section>
 <section *ngIf="citas.length > 0" class="background">
-  <app-table-historial [citas]="citas"></app-table-historial>
+  <app-table-historial [citas]="citas"  (citaEliminada)="onCitaEliminada($event)"></app-table-historial>
 </section>

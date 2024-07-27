@@ -20,6 +20,7 @@
         <td>{{ cita.tipo }}</td>
         <td>{{ cita.estado }}</td>
         <td>{{ cita.costo }}</td>
+        <button (click)="deleteAppointment(cita.id)" id="delete-button" class="btn__eliminar" type="submit">Eliminar</button>
       </tr>
     </tbody>
   </table>

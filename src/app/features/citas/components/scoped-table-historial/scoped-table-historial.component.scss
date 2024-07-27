@@ -41,3 +41,23 @@
     width: 72px;
     text-align: center;
 }
+
+#delete-button {
+    background-color: #ff4d4d; /* Color de fondo rojo */
+    color: white; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+#delete-button:hover {
+    background-color: #ff1a1a; /* Color de fondo rojo más oscuro al pasar el ratón */
+}
+
+#delete-button:active {
+    background-color: #cc0000; /* Color de fondo rojo más oscuro al hacer clic */
+    transform: scale(0.98); /* Efecto de "presionar" */
+}

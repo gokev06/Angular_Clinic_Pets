@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
+import { catchError, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-pages-historial',
@@ -16,12 +18,42 @@ export class PagesHistorialComponent implements OnInit {
   }
 
   fetchAppointments(): void {
-    this.appointmentService.getAppointments().subscribe(res => {
-      this.citas = res.map(cita => ({
-        ...cita,
+    // Obtener el token del localStorage
+   const token = localStorage.getItem('userToken');
+
+   this.appointmentService.getUserAppointments(token).pipe(
+      map((res: any) => {
+        if (res.status === 'success' && res.data){
+          return Array.isArray(res.data) ? res.data : [res.data];
+        }else {
+          console.error('Error al obtener las citas:', res);
+          return [];
+          
+        }
+      }),
+      map(citas => citas.map((cita: any) => ({
+        id: cita.IdCita,
         fecha: new Date(cita.fecha).toLocaleDateString('es-ES'),
-        hora: cita.hora ? cita.hora : ''
-      }));
-    });
+        hora: cita.hora || '',
+        nombre: cita.nombreUsuario || '',
+        tipo: cita.tipoCita || '',
+        estado: cita.estado || '',
+        costo: cita.costo || '',
+      })
+
+      )),
+      catchError(error => {
+        console.error('Error al obtener las citas:', error);
+        return of([]);
+        
+      })
+   ).subscribe(citasFormateadas => {
+       this.citas = citasFormateadas;
+   });
+
+  }
+
+  onCitaEliminada(idCita: string): void {
+    this.fetchAppointments();
   }
 }
