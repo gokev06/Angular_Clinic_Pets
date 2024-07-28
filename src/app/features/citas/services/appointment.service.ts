@@ -31,6 +31,8 @@ export class AppointmentService {
   }
 
   deleteAppointment(idCita: string): Observable<any> {
+    console.log('se paso correctamente el idCita: ', idCita);
+    
     return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
   }
 }

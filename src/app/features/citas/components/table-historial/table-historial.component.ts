@@ -17,8 +17,32 @@ export class TableHistorialComponent  {
 
 
   deleteAppointment(idCita: string): void{
-    this.appointmentService.deleteAppointment(idCita).pipe(
+    console.log('Identificador de la cita:',idCita); 
+    
+    this.appointmentService.deleteAppointment(idCita).subscribe({
+      next: (res) => {
+        console.log('cita eliminada con exito:', res);
+        this.citaEliminada.emit(idCita);
+
+        //Actualiza la lista de citas 
+        this.citas = this.citas.filter(cita => cita.id !== idCita);
+        
+      },
+
+      error: (error) => {
+        console.error('Error al eliminar  la cita: ', error);
+        
+      }
+    });
+
+
+    /**
+     * 
+     * 
+     * .pipe(
       tap( res => {
+        console.log('escucha el pipe: ');
+        
         console.log('Cita eliminada con exito:', res);
         this.citaEliminada.emit(idCita);
       }),
@@ -27,5 +51,7 @@ export class TableHistorialComponent  {
         return of(null);
       })
     ).subscribe();
+     * 
+     */
   }
 }
