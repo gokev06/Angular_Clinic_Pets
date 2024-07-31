@@ -1,6 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HomeComponent } from './components/atoms/home/home.component';
 import { LogoComponent } from './components/atoms/logo/logo.component';
 import { TituloComponent } from './components/atoms/titulo/titulo.component';
@@ -36,6 +36,12 @@ import { PagesHistorialComponent } from '../features/citas/pages/pages-historial
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
+import { PagoTarjetaComponent } from './components/organisms/pago-tarjeta/pago-tarjeta.component';
+import { PagoCitaComponent } from '../features/citas/pages/pago-cita/pago-cita.component';
+import { PagoinfocitaComponent } from './components/organisms/pagoinfocita/pagoinfocita.component';
+
+import { AlertacitaComponent } from './components/templates/alertacita/alertacita.component';
+import { AlertacancelarcitaComponent } from './components/templates/alertacancelarcita/alertacancelarcita.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -45,6 +51,7 @@ registerLocaleData(localeEs, 'es');
     PagesHistorialComponent,
     HomeComponent,
     ContactoInfoComponent,
+    PagoCitaComponent,
     LogoComponent,
     TituloComponent,
     HeaderComponent,
@@ -70,15 +77,19 @@ registerLocaleData(localeEs, 'es');
     CarruselComponent,
     FooterComponent,
     CalendarioComponent,
-    HorariosComponent
+    HorariosComponent,
+    PagoTarjetaComponent,
+    PagoinfocitaComponent,
+    AlertacitaComponent,
+    AlertacancelarcitaComponent,
   ],
   imports: [
-    
-    CommonModule,
+    CommonModule, 
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },
   ]),
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  FormsModule
   ],
 
   providers: [
@@ -110,7 +121,9 @@ registerLocaleData(localeEs, 'es');
     CarruselComponent,
     FooterComponent,
     PagesHistorialComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    PagoTarjetaComponent,
+    PagoinfocitaComponent
   ]
 })
 export class SharedModule { }

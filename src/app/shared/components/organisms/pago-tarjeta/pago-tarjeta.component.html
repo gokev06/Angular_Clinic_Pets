@@ -1,0 +1,40 @@
+<section>
+    <div class="marco">
+      <div class="tarjeta">
+        <h2>Tarjeta de crédito</h2>
+        <img src="../../../../../assets/icons/americaexpress.png" alt="America Express">
+        <img src="../../../../../assets/icons/visa.png" alt="Visa">
+        <img src="../../../../../assets/icons/tarjeta.png" alt="Tarjeta">
+      </div>
+      <div class="numerotarjeta input-container">
+        <app-label [for]="'Numero de Tarjeta'" style="color: #607175; font-size: 18px;"></app-label>
+        <img [src]="imageSrc" class="input-icon" alt="Icono de tarjeta"> 
+        <app-input [id]="'Numero de tarjeta'" (input)="onInputChange($event)" [text]="'number'" [holder]="'Numero de tarjeta'" [estilos]="'padding: 10px; width: 500px; background-color: rgba(84, 177, 197, 0.15); border:none; border-radius: 10px; margin-bottom: 30px'"></app-input>
+
+        <app-label [for]="'Nombre y apellido'" style="color: #607175; font-size: 18px;"></app-label>
+        <app-input [id]="'Nombre y apellido'" [text]="'text'" [holder]="'Nombre y apellido'" [estilos]="'padding: 10px; width: 500px; background-color: rgba(84, 177, 197, 0.15); border:none; border-radius: 10px; margin-bottom: 30px'"></app-input>
+      </div>
+      <div class="campo">
+        <div  class="hola">
+        <app-label [for]="'Fecha vencimiento'" style="color: #607175; font-size: 18px"></app-label>
+        <input  type="text" [(ngModel)]="fechaVencimiento" (input)="formatearFecha()" placeholder="MM/AAAA"
+        style="background-color: rgba(84, 177, 197, 0.15); padding: 10px; border-radius: 10px; border: none; width: 200px;">
+    </div>
+    <div class="hola">
+        <app-label [for]="'Código de seguridad'" style="color: #607175; font-size: 18px; margin-left: 40px"></app-label>
+        <input type="password" [(ngModel)]="cvv" placeholder="CVV" maxlength="4" minlength="3" pattern="[0-9]*" autocomplete="off"class="cvv-input" style="background-color: rgba(84, 177, 197, 0.15); padding: 10px; border-radius: 10px; border: none; width: 200px; margin-left: 40px; "/>
+    </div>
+      </div>
+      <div class="campo3">
+        <div class="hola2">
+        <app-label [for]="'Tipo'" style="color: #607175; font-size: 18px"></app-label>
+        <select [(ngModel)]="tipoDocumento" (change)="onTipoDocumentoChange()"><option value="cc">CC</option><option value="nit">NIT</option><option value="pasaporte">CE</option></select>
+    </div>
+    <div class="hola1">
+        <app-label [for]="'Documento del titular'" style="color: #607175; font-size: 18px"></app-label>
+        <app-input [id]="'Numero Documento'" [text]="'number'" [holder]="'Numero de Documento'" [estilos]="'padding: 10px; width: 100%; background-color: rgba(84, 177, 197, 0.15); border:none; border-radius: 10px; margin-bottom: 30px'"></app-input>
+      </div>
+    </div>
+    </div>
+  </section> 
+  

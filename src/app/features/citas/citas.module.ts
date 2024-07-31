@@ -7,25 +7,24 @@ import { SharedModule } from '../../shared/shared.module';
 import { PagesHistorialComponent } from './pages/pages-historial/pages-historial.component';
 import { TableHistorialComponent } from './components/table-historial/table-historial.component';
 import { ScopedTableHistorialComponent } from './components/scoped-table-historial/scoped-table-historial.component';
+import { PagoCitaComponent } from './pages/pago-cita/pago-cita.component';
 
 
 @NgModule({
   declarations: [
     PagesHistorialComponent,
-    TableHistorialComponent,
     ScopedTableHistorialComponent,
-    CitasComponent
+    CitasComponent,
   ],
   imports: [
+    SharedModule,
     CommonModule,
     CitasRoutingModule,
     ReactiveFormsModule,
-    SharedModule
   ],
   exports:[
     PagesHistorialComponent,
-    TableHistorialComponent,
-    CitasComponent
+    CitasComponent,
   ]
 })
 export class CitasModule { }
