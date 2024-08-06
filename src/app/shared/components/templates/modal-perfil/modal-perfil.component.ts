@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-perfil',
@@ -6,6 +7,10 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './modal-perfil.component.scss'
 })
 export class ModalPerfilComponent {
+
+  constructor(private router:Router){
+
+  }
 
   isModalOpen = false;
   @Output() close = new EventEmitter<void>();
@@ -22,6 +27,13 @@ export class ModalPerfilComponent {
   editProfile() {
     this.modaledit= true
     }
+
+  signOff(){
+    localStorage.clear();
+    this.router.navigate([''])
+  }
+
+
   stopPropagation(event: Event) {
     event.stopPropagation();
   }

@@ -11,16 +11,22 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
-  createAppointment(appointmentData: any): Observable<any> {
+  createAppointment(appointmentData: any, token?:string | null ): Observable<any> {
     console.log('Datos enviados al backend:', appointmentData);
-    return this.http.post(`${this.apiUrl}`, appointmentData);
+
+
+    let headers = new HttpHeaders()
+    if (token) {
+       headers = headers.set('Authorization', `Bearer ${token}`)
+    }
+    return this.http.post(`${this.apiUrl}`,  appointmentData, {headers});
   }
 
   getAppointments(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}`);
   }
 
-  // Nuevo metodo para obtener las citas del usuario 
+  // Nuevo metodo para obtener las citas del usuario
   getUserAppointments(token?: string | null): Observable<any>{
     let headers = new HttpHeaders()
 
@@ -32,7 +38,7 @@ export class AppointmentService {
 
   deleteAppointment(idCita: string): Observable<any> {
     console.log('se paso correctamente el idCita: ', idCita);
-    
+
     return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
   }
 }

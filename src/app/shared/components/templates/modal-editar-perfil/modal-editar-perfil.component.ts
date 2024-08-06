@@ -1,7 +1,7 @@
 import { Component , OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {  EventEmitter, Output } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
@@ -45,13 +45,13 @@ export class ModalEditarPerfilComponent  implements OnInit{
     if (!token) {
       console.error('No se encontro el token');
       return
-      
+
     }
 
     console.log('Token recuperado de localStorage:', token);
 
 
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); 
 
     this.http.get<any>('http://localhost:10101/callData', { headers }).subscribe({
       next: (response) => {
@@ -80,7 +80,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
   }
 
   closemodal(): void {
-    
+
   }
 
   async onSubmit(){
@@ -88,7 +88,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
       const token = localStorage.getItem('userToken');
       if (!token) {
         console.error('No se encontro el token');
-        return; 
+        return;
       }
 
       const headers= new HttpHeaders().set('Authorization',`Bearer ${token}`);
@@ -103,7 +103,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
       };
 
       try {
-        
+
         const response = await firstValueFrom(
           this.http.put('http://localhost:10101/editar-perfil', updateData, {headers})
         );
@@ -111,7 +111,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
         console.log('perfil actualizado:', response);
 
         this.closemodaledit();
-        
+
       } catch (error) {
         console.error('Error al actualizar el perfil:', error);
 
@@ -122,7 +122,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
       Object.values(this.callDataUser.controls).forEach(control => {
          control.markAsTouched();
       });
-      
+
      }
   }
 }
