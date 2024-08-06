@@ -40,9 +40,9 @@
           <td class="text5">{{ cita.especie }}</td>
           <td class="text6">{{ cita.costo }}</td>
           <td class="download">
-            <div *ngIf="cita.descarga">
+            <button class="descarga" *ngIf="cita.descarga">
               <img src="../../../../../assets/icons/descargas (5) 3.png" alt="Descargar" width="30" height="30"/>
-            </div>
+            </button>
           </td>
         </tr>
       </table>

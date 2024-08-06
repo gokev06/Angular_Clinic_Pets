@@ -56,3 +56,12 @@ section {
      width: 14.28%; /* Ajusta el ancho para que coincida con la celda de la tabla */
      padding: 0; /* Elimina padding extra si es necesario */
     }
+
+    .descarga{
+        width: 80px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: rgb(235, 235, 235);
+        border: none;
+        cursor: pointer;
+    }
