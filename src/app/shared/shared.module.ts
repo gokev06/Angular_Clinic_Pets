@@ -117,7 +117,8 @@ registerLocaleData(localeEs, 'es');
     FooterComponent,
     PagesHistorialComponent,
     CalendarioComponent,
-    BtnregistroComponent
+    BtnregistroComponent,
+    TableHistorialComponent,
   ]
 })
 export class SharedModule { }

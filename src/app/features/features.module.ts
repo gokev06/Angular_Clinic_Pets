@@ -14,6 +14,7 @@ import { PagesHomeRegisterComponent } from './pagehome/pages/pages-home-register
 import { PagehomeModule } from './pagehome/pagehome.module';
 import { PagesHomeAdminComponent } from './pagehome/pages/pages-home-admin/pages-home-admin.component';
 import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-home-vet.component';
+import { TablaCitasComponent } from './citas/pages/tabla-citas/tabla-citas.component';
 
 
 
@@ -29,7 +30,8 @@ import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-hom
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+    TablaCitasComponent,
   ],
   imports: [
     FormsModule,
@@ -49,7 +51,8 @@ import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-hom
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+    TablaCitasComponent
   ]
 })
 export class FeaturesModule { }

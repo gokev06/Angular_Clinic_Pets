@@ -1,0 +1,51 @@
+<app-header [ruta]="'/historial'" [title]="'consultar historial'"></app-header>
+<section>
+<div class="table-container">
+    <table class="clients-table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Nombre</th>
+          <th>Tipo de Cita</th>
+          <th>Especie</th>
+          <th>Costo</th>
+          <th>Descargar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <td>{{ cita.fecha }}</td>
+          <td>{{ cita.hora }}</td>
+          <td>{{ cita.nombre }}</td>
+          <td>{{ cita.tipo }}</td>
+          <td>{{ cita.especie }}</td>
+          <td>{{ cita.costo }}</td>
+          <td>
+            <div *ngIf="cita.descarga">
+              <img [src]="cita.descarga" alt="Descargar" width="30" height="30"/>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="client">
+      <table>
+        <tr>
+          <td class="text1">{{ cita.fecha }}</td>
+          <td class="text2">{{ cita.hora }}</td>
+          <td class="text3">{{ cita.nombre }}</td>
+          <td class="text4">{{ cita.tipo }}</td>
+          <td class="text5">{{ cita.especie }}</td>
+          <td class="text6">{{ cita.costo }}</td>
+          <td class="download">
+            <div *ngIf="cita.descarga">
+              <img src="../../../../../assets/icons/descargas (5) 3.png" alt="Descargar" width="30" height="30"/>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
