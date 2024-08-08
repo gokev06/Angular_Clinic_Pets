@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,9 @@ import { catchError, map } from 'rxjs/operators';
 export class AuthService {
 
   private readonly TOKEN_KEY = 'userToken';
+  private readonly API_URL = 'http://localhost:10101';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   isAuthenticated(): Observable<boolean> {
     return this.getToken().pipe(
@@ -56,6 +58,29 @@ export class AuthService {
         observer.error(new Error('Failed to clear token'));
       }
      });
+  }
+
+  verifyRole(): Observable<string> {
+    return this.getToken().pipe(
+      map(token => {
+        if (! token) {
+           throw new Error('No token found ');
+        }
+
+        return token;
+      }),
+      switchMap(token => {
+        return this.http.get<{success: boolean, role: string}>(`${this.API_URL}/verifyRolUser`, {
+          headers: { Authorization: `Bearer ${token}`}
+        });
+      }),
+      map(response => response.role),
+      catchError( error => {
+        console.error('Error verifying role:', error);
+        return throwError(() => new Error('Failed to verify role'));
+
+      })
+    );
   }
 
 }

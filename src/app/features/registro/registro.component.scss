@@ -41,7 +41,7 @@ a{
 }
 .imagen::before {
     content: '';
-    background-color: rgba(204, 196, 255,0.10); 
+    background-color: rgba(204, 196, 255,0.10);
     top: 0;
     left: 0;
     width: 60%;
@@ -89,7 +89,7 @@ a{
     width: 180px;
     height: 50px;
     border-radius: 50px;
-    background-color: rgba(172, 165, 214,0.47); 
+    background-color: rgba(172, 165, 214,0.47);
     margin-top: 20px;
     border: none;
     margin-bottom: 20px;
@@ -117,6 +117,12 @@ a{
     flex-direction: column;
     text-align: center;
 
+}
+
+// estilos mensajes de error en el formulario
+.message_password{
+   font-size: 10px;
+   margin: 0;
 }
 
 

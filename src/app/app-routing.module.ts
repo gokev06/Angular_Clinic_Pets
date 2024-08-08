@@ -11,6 +11,7 @@ import { PagesHomeRegisterComponent } from './features/pagehome/pages/pages-home
 import { PagesHomeAdminComponent } from './features/pagehome/pages/pages-home-admin/pages-home-admin.component';
 import { PagesHomeVetComponent } from './features/pagehome/pages/pages-home-vet/pages-home-vet.component';
 import { PagesHistorialComponent } from './features/citas/pages/pages-historial/pages-historial.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -23,6 +24,8 @@ const routes: Routes = [
   {path: "home-admin", component: PagesHomeAdminComponent},
   {path: "home-vet", component: PagesHomeVetComponent},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
+  {path: 'unauthorized', component: UnauthorizedComponent}
+
 
 ];
 
