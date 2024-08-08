@@ -14,6 +14,9 @@ import { PagesHomeRegisterComponent } from './pagehome/pages/pages-home-register
 import { PagehomeModule } from './pagehome/pagehome.module';
 import { PagesHomeAdminComponent } from './pagehome/pages/pages-home-admin/pages-home-admin.component';
 import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-home-vet.component';
+import { SolicitudAdopcionComponent } from './adopcion/pages/solicitud-adopcion/solicitud-adopcion.component';
+import { CartaSolicitudAdopcionComponent } from './adopcion/components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
+
 
 
 
@@ -29,7 +32,9 @@ import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-hom
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+   SolicitudAdopcionComponent,
+   CartaSolicitudAdopcionComponent
   ],
   imports: [
     FormsModule,
@@ -49,7 +54,8 @@ import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-hom
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+   
   ]
 })
 export class FeaturesModule { }

@@ -39,6 +39,7 @@ import { TableHistorialComponent } from '../features/citas/components/table-hist
 import { ErroresValidacionesComponent } from './components/molecules/errores-validaciones/errores-validaciones/errores-validaciones.component';
 import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
 import { ModalEditarPerfilComponent } from './components/templates/modal-editar-perfil/modal-editar-perfil.component';
+import { ModalVerAdopcionComponent } from './components/templates/modal-ver-adopcion/modal-ver-adopcion.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -76,7 +77,8 @@ registerLocaleData(localeEs, 'es');
     HorariosComponent,
     ErroresValidacionesComponent,
     BtnregistroComponent,
-    ModalEditarPerfilComponent
+    ModalEditarPerfilComponent,
+    ModalVerAdopcionComponent
   ],
   imports: [
     
