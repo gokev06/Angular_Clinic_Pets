@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { passwordValidator } from '../../validators/contraseña-validator';
 import { matchPasswordValidator } from '../../validators/confirmar-contraseña';
-
 /**
  * Componente de registro de usuario.
  * Este componente maneja el formulario de registro de usuarios y su envío al servidor.
@@ -45,7 +44,7 @@ export class RegistroComponent implements OnInit{
       numeroDeDocumento: ["", [Validators.required,Validators.minLength(10), Validators.maxLength(10)]],
       nombre: ["", Validators.required],
       apellido: ["", Validators.required],
-      numeroDeTelefono: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      numeroDeTelefono: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(15)]],
       email: ["", [Validators.required, Validators.email]],
       contrasenia: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(15), passwordValidator()]],
       confirmarContrasenia: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(15)]]

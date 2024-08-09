@@ -61,7 +61,7 @@ a{
     width: 80%; /* Ajustado para que el formulario tenga un ancho visible */
     max-width: 400px; /* Ancho máximo del formulario */
     padding: 10px;
-    height: 630px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,6 +123,7 @@ a{
 .message_password{
    font-size: 10px;
    margin: 0;
+   color: red;
 }
 
 

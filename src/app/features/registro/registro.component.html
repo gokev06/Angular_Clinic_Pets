@@ -25,6 +25,13 @@
                   [estilos]="estilos">
               </app-input>
 
+                             <!-- Mensajes de error para el campo de documento -->
+                             <div *ngIf="registerForm.get('numeroDeDocumento')?.errors && registerForm.get('numeroDeDocumento')?.dirty">
+                              <p class="message_password"  *ngIf="registerForm.get('numeroDeDocumento')?.hasError('minlength') || registerForm.get('numeroDeDocumento')?.hasError('maxlength')">Minimo y maximo 10 caracteres en documento</p>
+                             </div>
+
+
+
               <!-- Campo para el nombre del usuario -->
               <app-input
                   [text]="'text'"
@@ -33,6 +40,11 @@
                   [id]="'Nombre'"
                   [estilos]="estilos">
               </app-input>
+
+              <!-- Mensajes de error para el campo de nombre -->
+              <div *ngIf="registerForm.get('nombre')?.errors && registerForm.get('nombre')?.dirty">
+                <p class="message_password"  *ngIf="registerForm.get('nombre')?.hasError('required')">Debe llenar el campo</p>
+            </div>
 
               <!-- Campo para el apellido del usuario -->
               <app-input
@@ -43,6 +55,11 @@
                   [estilos]="estilos">
               </app-input>
 
+               <!-- Mensajes de error para el campo de apellido -->
+              <div *ngIf="registerForm.get('apellido')?.errors && registerForm.get('apellido')?.dirty">
+                  <p class="message_password"  *ngIf="registerForm.get('apellido')?.hasError('required')">Debe llenar el campo</p>
+              </div>
+
               <!-- Campo para el número de teléfono -->
               <app-input
                   [text]="'text'"
@@ -52,6 +69,12 @@
                   [estilos]="estilos">
               </app-input>
 
+                <!-- Mensajes de error para el campo de teléfono -->
+                <div *ngIf="registerForm.get('numeroDeTelefono')?.errors && registerForm.get('numeroDeTelefono')?.dirty">
+                  <p class="message_password"  *ngIf="registerForm.get('numeroDeTelefono')?.hasError('minlength') || registerForm.get('numeroDeTelefono')?.hasError('maxlength') ">Minimo 10 y maximo 14 caracteres en telefono</p>
+              </div>
+
+
               <!-- Campo para el correo electrónico -->
               <app-input
                   [text]="'text'"
@@ -60,6 +83,11 @@
                   [id]="'email'"
                   [estilos]="estilos">
               </app-input>
+
+              <!-- Mensajes de error para el campo de correo electrónico -->
+              <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.dirty">
+                <p class="message_password"  *ngIf="registerForm.get('email')?.hasError('email')">Debe ingresar un correo valido</p>
+              </div>
 
               <!-- Campo para la contraseña -->
               <app-input
@@ -71,16 +99,10 @@
               </app-input>
 
                             <!-- Mensajes de error para el campo de contraseña -->
-                            <div *ngIf="registerForm.get('contrasenia')?.errors && registerForm.get('contrasenia')?.dirty">
-                              <p class="message_password" *ngIf="registerForm.get('contrasenia')?.hasError('required')">Rellene el campo contraseña</p>
-                              <p class="message_password" *ngIf="registerForm.get('contrasenia')?.hasError('minlength')">Minimo 8 caracteres en contraseña</p>
-                              <p class="message_password" *ngIf="registerForm.get('contrasenia')?.hasError('maxlength')">Maximo 15 caracteres en contraseña</p>
-                          </div>
+               <div *ngIf="registerForm.get('contrasenia')?.errors && registerForm.get('contrasenia')?.dirty">
+                    <p class="message_password" *ngIf="registerForm.get('contrasenia')?.hasError('minlength') || registerForm.get('contrasenia')?.hasError('maxlength') || registerForm.get('contrasenia')?.hasError('passwordRequirement') ">¡Necesitas 8-15 caracteres, una mayúscula y una minúscula!</p>
+                 </div>
 
-                          <!-- Mensaje de error personalizado para los requisitos de la contraseña -->
-                          <div *ngIf="registerForm.get('contrasenia')?.hasError('passwordRequirement') && registerForm.get('contrasenia')?.dirty">
-                              <p class="message_password">La contraseña debe contener al menos una Mayúscula y una Minúscula</p>
-                          </div>
 
               <!-- Campo para confirmar la contraseña -->
               <app-input
@@ -91,50 +113,16 @@
                   [estilos]="estilos">
               </app-input>
 
+                   
+                          <!-- Mensaje de error si las contraseñas no coinciden -->
+                          <div *ngIf="registerForm.hasError('passwordMismatch') && (registerForm.get('contrasenia')?.dirty || registerForm.get('confirmarContrasenia')?.dirty)">
+                              <p class="message_password" >confirmar contraseña no es igual a contraseña</p>
+                          </div>
+
+
               <!-- Enlace para los usuarios que ya tienen una cuenta -->
               <p>¿Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
 
-              <!-- Mensajes de error para el campo de nombre -->
-              <div *ngIf="registerForm.get('nombre')?.errors && registerForm.get('nombre')?.dirty">
-                  <p *ngIf="registerForm.get('nombre')?.hasError('required')">Rellene el campo nombre</p>
-              </div>
-
-              <!-- Mensajes de error para el campo de apellido -->
-              <div *ngIf="registerForm.get('apellido')?.errors && registerForm.get('apellido')?.dirty">
-                  <p *ngIf="registerForm.get('apellido')?.hasError('required')">Rellene el campo apellido</p>
-              </div>
-
-              <!-- Mensajes de error para el campo de documento -->
-              <div *ngIf="registerForm.get('numeroDeDocumento')?.errors && registerForm.get('numeroDeDocumento')?.dirty">
-                  <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('required')">Rellene el campo Documento</p>
-                  <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('minlength')">Minimo 10 caracteres en Documento</p>
-                  <p *ngIf="registerForm.get('numeroDeDocumento')?.hasError('maxlength')">Maximo 10 caracteres en Documento</p>
-              </div>
-
-              <!-- Mensajes de error para el campo de teléfono -->
-              <div *ngIf="registerForm.get('numeroDeTelefono')?.errors && registerForm.get('numeroDeTelefono')?.dirty">
-                  <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('required')">Rellene el campo telefono</p>
-                  <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('minlength')">Minimo 10 caracteres en telefono</p>
-                  <p *ngIf="registerForm.get('numeroDeTelefono')?.hasError('maxlength')">Maximo 10 caracteres en telefono</p>
-              </div>
-
-              <!-- Mensajes de error para el campo de correo electrónico -->
-              <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.dirty">
-                  <p *ngIf="registerForm.get('email')?.hasError('required')">Rellene el campo correo</p>
-                  <p *ngIf="registerForm.get('email')?.hasError('email')">Debe ingresar un correo valido</p>
-              </div>
-
-
-
-              <!-- Mensajes de error para el campo de confirmación de contraseña -->
-              <div *ngIf="registerForm.get('confirmarContrasenia')?.errors && registerForm.get('confirmarContrasenia')?.dirty">
-                  <p *ngIf="registerForm.get('confirmarContrasenia')?.hasError('required')">Rellene el campo confirmar contraseña</p>
-              </div>
-
-              <!-- Mensaje de error si las contraseñas no coinciden -->
-              <div *ngIf="registerForm.hasError('passwordMismatch') && (registerForm.get('contrasenia')?.dirty || registerForm.get('confirmarContrasenia')?.dirty)">
-                  <p>confirmar contraseña no es igual a contraseña</p>
-              </div>
 
               <!-- Botón de envío del formulario -->
               <div class="btn-button-submit">
