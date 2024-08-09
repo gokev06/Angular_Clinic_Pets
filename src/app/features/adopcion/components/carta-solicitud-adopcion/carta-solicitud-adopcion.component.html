@@ -11,7 +11,11 @@
       </div>
 
       <div class="botones">
-        <button class="ver" routerLink="'/ruta-destino'">ver</button>
+        <button class="ver" (click)="openModal()">ver </button>
+        <app-modal-ver-adopcion  *ngIf="modalVerAdopcion" (close)="Closemodalveradopcion()"></app-modal-ver-adopcion>
+
+        <!-- Incluir el componente modal -->
+       
         <button class="aceptar" (click)="AlertaAceptar()">aceptar</button>
         <button class="cancelar">Rechazar</button>
       </div>

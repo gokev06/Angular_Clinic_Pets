@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
+import { ModalVerAdopcionComponent } from '../../../../shared/components/templates/modal-ver-adopcion/modal-ver-adopcion.component';
 
 @Component({
   selector: 'app-carta-solicitud-adopcion',
@@ -7,6 +8,20 @@ import Swal from 'sweetalert2';
   styleUrls: ['./carta-solicitud-adopcion.component.scss']
 })
 export class CartaSolicitudAdopcionComponent implements OnInit {
+  modalVerAdopcion : boolean = false
+
+  openModal() {
+    this.modalVerAdopcion= true;
+  }
+
+
+  
+  Closemodalveradopcion(){
+this.modalVerAdopcion= false
+}
+
+
+
   @Input() datos = {
     correo: 'juano@gmail.com',
     nombre: 'COCO',
@@ -32,8 +47,14 @@ export class CartaSolicitudAdopcionComponent implements OnInit {
       
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('¡Aceptado!', 'Has hecho clic en Aceptar.', 'success');
-      } 
+        Swal.fire({
+          title: '¡ Solicitud Aceptada!',
+          imageUrl: 'assets/images/imgcitas/confirmar.png',  // Reemplaza con la ruta de tu imagen
+          imageWidth: 100,  // Ajusta el ancho de la imagen
+          imageHeight: 100,  // Ajusta la altura de la imagen
+          imageAlt: 'Descripción de la imagen'  // Descripción alternativa de la imagen
+        });
+      }
     });
   }
 }

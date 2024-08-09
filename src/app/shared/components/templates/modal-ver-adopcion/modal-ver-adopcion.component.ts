@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal-ver-adopcion',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './modal-ver-adopcion.component.scss'
 })
 export class ModalVerAdopcionComponent {
-
+  
+  @Output() close = new EventEmitter<void>();
+  closemodaladopcion(){
+    this.close.emit();
+  }
 }
