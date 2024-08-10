@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 home: string|any[]|null|undefined;
 
+  
 }
