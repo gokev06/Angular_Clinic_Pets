@@ -10,13 +10,13 @@ export class CalendarioComponent implements OnInit {
   daysInMonth: Date[] = [];
   selectedDay: Date | null = null;
   dayNames: string[] = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-  //monthNames: string[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+  today: Date = new Date(); // Añadido para comparar fechas
 
   @Output() dateSelected = new EventEmitter<Date>();
   @Output() timeSelected = new EventEmitter<string>(); 
 
   constructor() {}
-
+  
   ngOnInit(): void {
     this.generateDaysInMonth(this.viewData);
   }
@@ -40,10 +40,29 @@ export class CalendarioComponent implements OnInit {
   }
 
   selectDay(day: Date): void {
-    if (!this.isOutsideMonth(day) && !this.isBeforeFirstDay(day) && !this.isSunday(day)) {
-      this.selectedDay = day;
-      this.dateSelected.emit(day);
+    //console.log('date selected', this.dateSelected);
+    //console.log('day', day);
+    
+    if (this.isDateInPast(day)) {
+      return;
     }
+  
+    if (!this.isOutsideMonth(day) && !this.isBeforeFirstDay(day) && !this.isSunday(day)) {
+      // Ajustar la fecha para eliminar la información de tiempo
+      this.selectedDay = new Date(day.getFullYear(), day.getMonth(), day.getDate());
+      //console.log('Selected Day:', this.selectedDay);
+  
+      // Emitir la fecha en formato 'YYYY-MM-DD'
+      const formattedDate = this.selectedDay.toISOString().split('T')[0];
+      this.dateSelected.emit(this.selectedDay); // Emitir la fecha como Date
+    }
+  }
+  
+
+  isDateInPast(day: Date): boolean {
+    const today = new Date(); // Crear una nueva instancia para evitar modificar `this.today`
+    today.setHours(0, 0, 0, 0); // Establecer la hora a medianoche
+    return day.getTime() < today.getTime(); // Comparar los valores de tiempo
   }
 
   isSunday(day: Date): boolean {

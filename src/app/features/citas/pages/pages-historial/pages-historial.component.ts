@@ -18,17 +18,15 @@ export class PagesHistorialComponent implements OnInit {
   }
 
   fetchAppointments(): void {
-    // Obtener el token del localStorage
-   const token = localStorage.getItem('userToken');
+    const token = localStorage.getItem('userToken');
 
-   this.appointmentService.getUserAppointments(token).pipe(
+    this.appointmentService.getUserAppointments(token).pipe(
       map((res: any) => {
-        if (res.status === 'success' && res.data){
+        if (res.status === 'success' && res.data) {
           return Array.isArray(res.data) ? res.data : [res.data];
-        }else {
+        } else {
           console.error('Error al obtener las citas:', res);
           return [];
-          
         }
       }),
       map(citas => citas.map((cita: any) => ({
@@ -39,18 +37,14 @@ export class PagesHistorialComponent implements OnInit {
         tipo: cita.tipoCita || '',
         estado: cita.estado || '',
         costo: cita.costo || '',
-      })
-
-      )),
+      }))),
       catchError(error => {
         console.error('Error al obtener las citas:', error);
         return of([]);
-        
       })
-   ).subscribe(citasFormateadas => {
-       this.citas = citasFormateadas;
-   });
-
+    ).subscribe(citasFormateadas => {
+      this.citas = citasFormateadas;
+    });
   }
 
   onCitaEliminada(idCita: string): void {

@@ -42,22 +42,22 @@ section{
   border-radius: 30px;
 }
 
-.principal{
+.principal {
   width: 60%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   padding-top: 28px;
   padding-left: 36px;
+  position: relative; /* Añadido para posicionar el modal correctamente */
 }
 
 .calendar-container {
   display: flex;
-  justify-content: space-around;
-  justify-content: center;
   align-items: center;
-  width: 60%;
-  padding-left: 36px; /* Asegúrate de que haya suficiente espacio para el calendario y el modal */
+  width: 100%;
+  padding-left: 36px;
+  position: relative; /* Necesario para posicionar el modal dentro de este contenedor */
 }
 
 .calendar {
@@ -119,18 +119,21 @@ section{
 
 
 
-.modal{
+.modal {
+  position: absolute; /* Posiciona el modal sobre el calendario */
+  top: 0;
+  right: -50%; /* Ajusta según el tamaño del modal y el espacio necesario */
   width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10; /* Asegúrate de que el modal esté sobre otros elementos */
 }
 
 .horarios-modal {
-  margin-left: 20px; 
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 100%;
   padding-right: 36px;
   margin-right: 36px;
 }
