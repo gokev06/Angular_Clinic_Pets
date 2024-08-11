@@ -9,7 +9,7 @@
 .clients-table {
     width: 1000px; 
     border-collapse: collapse;
-    z-index: 1; /* Asegura que la tabla esté detrás del modal */
+    z-index: 1; 
     position: relative;
 }
 
@@ -59,14 +59,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    z-index: 1000; /* Asegúrate de que el modal esté por encima de otros elementos */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
     padding: 10px;
 }
 
 .modal-content {
-    width: 80%; /* Ajusta el ancho según tus necesidades */
-    max-width: 1200px; /* Máximo ancho del modal */
+    width: 80%; 
+    max-width: 1200px; 
     padding: 20px;
     background-color: white;
     border-radius: 10px;
@@ -85,13 +85,13 @@
 
 .modal-content button {
     margin: 10px 8px 0 8px;
-    padding: 10px 20px; /* Ajusta el espaciado interno según tus necesidades */
+    padding: 10px 20px; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    color: white; /* Color del texto en los botones */
-    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+    color: white; 
+    transition: background-color 0.3s ease; 
 }
 
 .modal-content .btn-aceptar {
