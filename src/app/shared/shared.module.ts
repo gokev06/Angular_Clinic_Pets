@@ -36,6 +36,7 @@ import { PagesHistorialComponent } from '../features/citas/pages/pages-historial
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
+
 registerLocaleData(localeEs, 'es');
 
 
@@ -70,7 +71,8 @@ registerLocaleData(localeEs, 'es');
     CarruselComponent,
     FooterComponent,
     CalendarioComponent,
-    HorariosComponent
+    HorariosComponent,
+  
   ],
   imports: [
     

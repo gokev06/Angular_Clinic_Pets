@@ -1,0 +1,56 @@
+<section>
+  <div class="madre">
+    <h1>Imagen Mascota</h1>
+    <form [formGroup]="loginForm">
+      <div class="container-input">
+        <input type="file" name="file-6" id="file-6" class="inputfile inputfile-6" data-multiple-caption="{count} archivos seleccionados" multiple (change)="onFileChange($event)" />
+        <label for="file-6">
+          <div class="fondo">
+            <div id="image-preview" class="image-preview" 
+              [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
+              <img src="../../../../../assets/icons/nubenegra.png" alt="" *ngIf="!selectedImage">
+              <p *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
+            </div>              
+          </div>              
+        </label>
+      </div>
+
+      <!-- Resto del formulario -->
+      <div class="formulariopadre">
+        <div class="formulario1">
+          <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'Edad'" formControlName="edad" [id]="'Edad'" [estilos]="estilos"></app-input>
+          <select [formControlName]="'especie'" class="custom-select">
+            <option value="">Especie</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Otro">Otro</option>
+          </select>
+          <app-input [text]="'text'" [holder]="'Raza'" formControlName="raza" [id]="'Raza'" [estilos]="estilos"></app-input>
+          <select [formControlName]="'sexo'" class="sexo">
+            <option value="">Sexo</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select>
+        </div>
+        <div class="formulario2">
+          <select formControlName="Esterilizacion" class="Esterilizacion">
+            <option value="">Esterilización</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+          <select id="Estado Vacunacion" formControlName="estadovacunacion" class="estadovacunacion">
+            <option value="">Estado de Vacunacion</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+          <app-input [text]="'number'" [holder]="'Teléfono'" [estilos]="estilos" formControlName="telefono" [id]="'Telefono'"></app-input>
+          <app-input [text]="'text'" [holder]="'Ubicacion'" [estilos]="estilos" formControlName="ubicacion" [id]="'Ubicacion'"></app-input>
+        </div>
+      </div>
+      <div class="btnsubmit">
+        <button class="btn__agendar" type="button" (click)="onSubmit()">Publicar Adopción</button>
+      </div>      
+    </form>      
+  </div>
+</section>

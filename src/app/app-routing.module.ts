@@ -6,6 +6,7 @@ import { PagehomeComponent } from './features/pagehome/pagehome.component';
 import { AdopcionComponent } from './features/adopcion/adopcion.component';
 import { LoginComponent } from './features/login/login.component';
 import { RegistroComponent } from './features/registro/registro.component';
+import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
 
 const routes: Routes = [
   {path :"login",component: LoginComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: "" , component: PagehomeComponent},
   {path: "adopcion", component: AdopcionComponent},
   {path: "register", component: RegistroComponent},
+  {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent}
 ];
 
 @NgModule({

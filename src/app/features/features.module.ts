@@ -11,12 +11,16 @@ import { HeaderadopcionComponent } from './adopcion/components/headeradopcion/he
 import { CardsComponent } from './adopcion/components/cards/cards.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { PagesNuevaadopcionComponent } from './adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
+import { FormularioAdopcionComponent } from './adopcion/components/formulario-adopcion/formulario-adopcion.component';
+import { CardformularioComponent } from './adopcion/components/cardformulario/cardformulario.component';
 
 
 
 
 @NgModule({
   declarations: [
+    CardformularioComponent,
     CitasComponent,
     PagehomeComponent,
     AdopcionComponent,
@@ -24,7 +28,9 @@ import { RegistroComponent } from './registro/registro.component';
     HeaderadopcionComponent,
     CardsComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PagesNuevaadopcionComponent,
+    FormularioAdopcionComponent
   ],
   imports: [
     FormsModule,
