@@ -32,12 +32,23 @@ li {
   margin-bottom: 12px;
 
   &.selected {
-    background-color:#CCC4FF;
+    background-color: #CCC4FF;
     color: white;
+  }
+
+  &:hover {
+    background-color: #9588e4;
+    color: white;
+  }
+
+  &.occupied {
+    background-color: #ccc;  // Color gris para horarios ocupados
+    cursor: not-allowed;    // Cursor de no permitido
+    color: #666;            // Color gris oscuro para el texto
   }
 }
 
-li:hover {
-  background-color:  #9588e4;
-  color: white;
-}
+
+
+
+

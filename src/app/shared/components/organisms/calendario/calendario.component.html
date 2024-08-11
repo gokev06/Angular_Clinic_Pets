@@ -1,45 +1,38 @@
-<section>
- <div  class="principal">
-  
+<div class="principal">
   <nav class="meses">
-     <h2>selecionar fecha y hora</h2>
+    <h2>Seleccionar fecha y hora</h2>
     <div class="calendar-header">
-       <a (click)="previousMonth()">&lt;</a>
-       <span>{{ viewData | date: 'LLLL yyyy' }}</span>
-       <a (click)="nextMonth()">&gt;</a>
-     </div>
-    </nav>
+      <a (click)="previousMonth()">&lt;</a>
+      <span>{{ viewData | date: 'LLLL yyyy' }}</span>
+      <a (click)="nextMonth()">&gt;</a>
+    </div>
+  </nav>
 
+  <div class="calendar-container">
+    <div class="calendar">
+      <div class="day-name" *ngFor="let dayName of dayNames">{{ dayName }}</div>
+      <div 
+        *ngFor="let day of daysInMonth" 
+        class="day" 
+        [ngClass]="{
+          'disabled': isSunday(day) || isBeforeFirstDay(day) || isDateInPast(day),
+          'selected': day === selectedDay,
+          'outside-month': isOutsideMonth(day),
+          'before-first-day': isBeforeFirstDay(day)
+        }"
+        (click)="isOutsideMonth(day) || isBeforeFirstDay(day) || isSunday(day) || isDateInPast(day) ? null : selectDay(day)"
+      >
+        {{ isOutsideMonth(day) ? '' : day.getDate() }}
+      </div>
+    </div>
 
-
-<div class="calendar-container">
-  <div class="calendar">
-    <div class="day-name" *ngFor="let dayName of dayNames">{{ dayName }}</div>
-    <div 
-      *ngFor="let day of daysInMonth" 
-      class="day" 
-      [ngClass]="{
-        'disabled': isSunday(day) || isBeforeFirstDay(day), 
-        'selected': day === selectedDay,
-        'outside-month': isOutsideMonth(day),
-        'before-first-day': isBeforeFirstDay(day)
-      }"
-      (click)="isOutsideMonth(day) || isBeforeFirstDay(day) || isSunday(day) ? null : selectDay(day)"
-    >
-      {{ isOutsideMonth(day) ? '' : day.getDate() }}
+    <!-- Modal para seleccionar horarios -->
+    <div class="modal" *ngIf="selectedDay">
+      <app-horarios 
+        [data]="{ date: selectedDay.toISOString() }" 
+        (timeSelected)="onTimeSelected($event)"
+        class="horarios-modal"
+      ></app-horarios>
     </div>
   </div>
 </div>
-</div> 
-
-<div class="modal">
-  <app-horarios 
-    *ngIf="selectedDay" 
-    [data]="{ date: selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) }"
-    (timeSelected)="onTimeSelected($event)"
-    class="horarios-modal"
-  ></app-horarios>
-</div>
-
-
-</section>
