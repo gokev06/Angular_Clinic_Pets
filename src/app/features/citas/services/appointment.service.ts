@@ -49,6 +49,8 @@ export class AppointmentService {
     if (token) {
         headers = headers.set('Authorization', `Bearer ${token}`);
     }
+    console.log('new fecha', appointmentData);
+    
     return this.http.put(`${this.apiUrl_1}/updateAppointment/${idCita}`, appointmentData, { headers });
   }
 
