@@ -1,8 +1,14 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { map, catchError, switchMap} from 'rxjs/operators';
+import { map, catchError, switchMap, retry} from 'rxjs/operators';
 import { of } from 'rxjs';
+
+const roleRoutes: string | any = {
+  'usuario': ['/home', '/historial', '/citas', '/adopcion'],
+  'administrador': ['/home-admin'],
+  'veterinario': ['/home-vet']
+}
 
 export const authGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
@@ -13,13 +19,17 @@ export const authGuard: CanActivateFn = (route, state) => {
       if (isAuth) {
         return authService.verifyRole().pipe(
           map(role => {
-            if (role === 'usuario'){
+            console.log('Current role:', role); // Para depuración
+            console.log('Current URL:', state.url); // Para depuración
+             // Verificar la ruta y el rol
+            if (roleRoutes[role] && roleRoutes[role].some((allowedRoute: any) => state.url.startsWith(allowedRoute))) {
               return true;
-            }else{
-              console.log('User does not have the required role');
-              return router.createUrlTree(['/unauthorized']);
-
             }
+
+            console.log('User does not have the required role for this route');
+            return router.createUrlTree(['/unauthorized']);
+
+
           }),
           catchError(() => {
             console.error('Error verifying role');

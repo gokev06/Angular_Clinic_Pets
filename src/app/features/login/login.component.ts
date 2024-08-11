@@ -1,5 +1,6 @@
 import { Component, Renderer2, OnInit } from '@angular/core';
-import { AuthService } from '../../core/services/auth.srvices'; // Ajusta la ruta del servicio si es necesario
+//import { AuthService } from '../../core/services/auth.srvices'; // Ajusta la ruta del servicio si es necesario
+import { AuthService } from '../../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router:Router) {}
 
   ngOnInit(): void {
-    this.loadGoogleScript();
+   // this.loadGoogleScript();
 
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
    /**
    * Maneja el envío del formulario de login.
    * Envía los datos del usuario al servidor y procesa la respuesta.
-   * 
+   *
    */
 
   async onSubmit(){
@@ -56,14 +57,14 @@ export class LoginComponent implements OnInit {
         let errorDetails: any  = {};
 
         try {
-        //detalles de los errores           
+        //detalles de los errores
         errorDetails = JSON.parse(errorBody);
         // sin informacion adicional de los erroresnumeroDeDocumento,
         errorMessege += ` - ${errorDetails.message || 'No additional error message' }`
 
         } catch (e) {
         // Si no es JSON, usamos el texto sin procesar
-        errorMessege += ` - ${errorBody || 'No error body'}` 
+        errorMessege += ` - ${errorBody || 'No error body'}`
 
         }
         // detalles de los errores
@@ -72,7 +73,7 @@ export class LoginComponent implements OnInit {
           statusText: response.statusText,
           errorBody: errorDetails
      });
-     
+
        throw new Error(errorMessege);
 
         }
@@ -83,18 +84,23 @@ export class LoginComponent implements OnInit {
        console.log('Ingreso exitoso: ' + JSON.stringify(data));
 
       if (data.token) {
-        localStorage.setItem('userToken', data.token);
-        console.log('Token guardado en localStorage:', data.token);
+         // Usa el AuthService para guardar el token
+         this.authService.setToken(data.token).subscribe(
+         () => {
+            console.log('Token guardado en localStorage');
+            // Verifica el rol y redirige
+           setTimeout(() =>  this.verifyRoleAndRedirect(), 100);
+         },
+         error => {
+          console.error('Error al guardar el token:', error);
 
-        
+         }
+         );
       }else{
         console.warn('No se recibio token en la respuesta');
-        
+
       }
 
-       //ruta para ir al home, cuando el usuario inicia sesion 
-       this.router.navigate(['home'])
-       
       } catch (error: any) {
         console.error('Error object:', error);
         console.error('Error name:', error.name);
@@ -104,21 +110,57 @@ export class LoginComponent implements OnInit {
         if (error instanceof TypeError) {
           console.error('Network error: Posiblemente el servidor no está accesible');
         }
-  
+
         // Para errores de CORS
         if (error instanceof DOMException && error.name === 'NetworkError') {
           console.error('CORS error: Posiblemente un problema de permisos de origen cruzado');
         }
-  
+
         // Para errores de registro
         const errorMessage = error.message || 'Error desconocido';
         console.log('Error en el registro: ' + errorMessage);
       }
 
-      
+
     }
    }
 
+
+   private verifyRoleAndRedirect(){
+    this.authService.verifyRole().subscribe(
+      role => {
+        console.log('Role verificado:', role); // Para depuración
+        this.redirectBasedOnRole(role);
+      },
+      error =>  {
+        console.error('Error al verificar el rol:', error);
+        this.router.navigate(['/unauthorized']);
+
+      }
+
+    )
+   }
+
+
+   private redirectBasedOnRole(role: string){
+    switch (role){
+      case 'usuario':
+        this.router.navigate(['/home']);
+        break;
+      case 'administrador':
+        this.router.navigate(['/home-admin']);
+        break;
+      case 'veterinario':
+        this.router.navigate(['/home-vet']);
+        break;
+      default:
+        console.error('Rol desconocido:', role);
+        this.router.navigate(['/unauthorized']);
+
+
+    }
+   }
+/*
   loadGoogleScript() {
     const script = this.renderer.createElement('script');
     script.src = 'https://apis.google.com/js/platform.js';
@@ -129,7 +171,9 @@ export class LoginComponent implements OnInit {
     };
     this.renderer.appendChild(document.body, script);
   }
+    */
 
+  /*
   loginWithGoogle() {
     this.authService.loginWithGoogle().subscribe(
       (response) => {
@@ -141,5 +185,9 @@ export class LoginComponent implements OnInit {
         // Maneja el error si es necesario
       }
     );
+
   }
-}
+    */
+
+
+};

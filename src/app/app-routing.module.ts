@@ -21,8 +21,8 @@ const routes: Routes = [
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]},
   {path: "register", component: RegistroComponent},
   {path: "", component: PagesHomeRegisterComponent},
-  {path: "home-admin", component: PagesHomeAdminComponent},
-  {path: "home-vet", component: PagesHomeVetComponent},
+  {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
+  {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent}
 
