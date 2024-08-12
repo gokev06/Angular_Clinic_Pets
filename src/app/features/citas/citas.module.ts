@@ -2,30 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CitasRoutingModule } from './citas-routing.module';
-import { CitasComponent } from './citas.component';
 import { SharedModule } from '../../shared/shared.module';
 import { PagesHistorialComponent } from './pages/pages-historial/pages-historial.component';
 import { TableHistorialComponent } from './components/table-historial/table-historial.component';
-import { ScopedTableHistorialComponent } from './components/scoped-table-historial/scoped-table-historial.component';
+import { CrearHistorialComponent } from './pages/crear-historial/crear-historial.component';
 
 @NgModule({
   declarations: [
-    CitasComponent,
-    PagesHistorialComponent,
-    TableHistorialComponent,
-    ScopedTableHistorialComponent
+
+
+
   ],
   imports: [
+    SharedModule,
     CommonModule,
     CitasRoutingModule,
     ReactiveFormsModule,
-    SharedModule
   ],
   exports: [
-    CitasComponent,
     PagesHistorialComponent,
     TableHistorialComponent,
-    ScopedTableHistorialComponent
   ]
 })
 export class CitasModule {}

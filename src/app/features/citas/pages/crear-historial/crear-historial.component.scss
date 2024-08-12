@@ -1,0 +1,85 @@
+form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.border{
+    border: 2px solid  #CCC4FF;
+    border-radius: 20px;
+    width: 90%;
+    margin-top: 40px;
+    display: flex;
+}
+
+.infopropietario,
+.infomascota,
+.infoveterinario{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px ;
+    width: 33%;
+}
+
+
+select{
+    border:none ; 
+    border-bottom:2px solid #CCC4FF; 
+    margin-top: 16px; 
+    height: 30px;
+    width: 300px;
+}
+
+.especialidadmedica{
+    border-bottom: 2px solid  #B5EBF6;
+}
+
+.texto{
+    width: 90%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+textarea{
+    width: 100%;
+    height: 100px;
+    font-size: 40;
+    margin-top: 8px;
+    padding-left: 8px;
+    border: 2px solid #CCC4FF;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.div{
+    width: 50%;
+    padding: 0 30px;
+}
+
+
+.btnsubmit{
+    width: 50%;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.boton,
+.botonc{
+    color: black;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(87, 250, 60, 0.47);
+    cursor: pointer;
+}
+
+.botonc{
+    background-color: rgba(250, 60, 60, 0.47);
+}
+

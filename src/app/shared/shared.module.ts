@@ -79,7 +79,7 @@ registerLocaleData(localeEs, 'es');
     ModalEditarPerfilComponent,
     PagesHistorialComponent,
     ScopedTableHistorialComponent
-
+    
   ],
   imports: [
     
@@ -121,7 +121,8 @@ registerLocaleData(localeEs, 'es');
     FooterComponent,
     CalendarioComponent,
     BtnregistroComponent,
-    PagesHistorialComponent
+    PagesHistorialComponent,
+    TableHistorialComponent,
   ]
 })
 export class SharedModule { }
