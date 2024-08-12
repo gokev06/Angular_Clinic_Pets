@@ -40,11 +40,14 @@
   </table>
 </div>
 
-<div *ngIf="mostrarCalendario" class="modal">
-  <div class="modal-content">
-    <h2>Seleccione la nueva fecha</h2>
-    <app-calendario (dateSelected)="onFechaSeleccionada($event)" (timeSelected)="onTimeSeleccionada($event)"></app-calendario>
-    <button (click)="guardarCita()">Aceptar</button>
-    <button (click)="cerrarModal()">Cancelar</button>
+<!-- Fondo oscuro y modal -->
+<div *ngIf="mostrarCalendario" class="modal-background">
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Seleccione la nueva fecha</h2>
+      <app-calendario (dateSelected)="onFechaSeleccionada($event)" (timeSelected)="onTimeSeleccionada($event)"></app-calendario>
+      <button (click)="guardarCita()" class="btn-aceptar">Aceptar</button>
+      <button (click)="cerrarModal()" class="btn-cancelar">Cancelar</button>
+    </div>
   </div>
 </div>

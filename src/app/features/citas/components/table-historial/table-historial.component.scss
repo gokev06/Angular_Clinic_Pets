@@ -3,11 +3,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    position: relative; 
 }
 
 .clients-table {
     width: 1000px; 
     border-collapse: collapse;
+    z-index: 1; 
+    position: relative;
 }
 
 .clients-table th, .clients-table td {
@@ -25,25 +28,84 @@
     background-color: #ccc4ff6b; 
 }
 
-
 #delete-button {
-    background-color: #ff4d4d; /* Color de fondo rojo */
-    color: white; /* Color de texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Espaciado interno */
-    font-size: 16px; /* Tamaño de fuente */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+    background-color: #ff4d4d; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
     margin-left: 20px;
     margin-top: 10px;
 }
 
 #delete-button:hover {
-    background-color: #ff1a1a; /* Color de fondo rojo más oscuro al pasar el ratón */
+    background-color: #ff1a1a; 
 }
 
 #delete-button:active {
-    background-color: #cc0000; /* Color de fondo rojo más oscuro al hacer clic */
-    transform: scale(0.98); /* Efecto de "presionar" */
+    background-color: #cc0000; 
+    transform: scale(0.98); 
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    padding: 10px;
+}
+
+.modal-content {
+    width: 80%; 
+    max-width: 1200px; 
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content button {
+    margin-top: 10px;
+}
+
+
+.modal-content button {
+    margin: 10px 8px 0 8px;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white; 
+    transition: background-color 0.3s ease; 
+}
+
+.modal-content .btn-aceptar {
+    background-color: #57cf5bd5; /* Color verde */
+}
+
+.modal-content .btn-aceptar:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+}
+
+.modal-content .btn-cancelar {
+    background-color: #d3655d; /* Color rojo */
+}
+
+.modal-content .btn-cancelar:hover {
+    background-color: #e53935; /* Rojo más oscuro al pasar el ratón */
 }
