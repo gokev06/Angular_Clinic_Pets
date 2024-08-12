@@ -11,28 +11,52 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
-  createAppointment(appointmentData: any): Observable<any> {
-    console.log('Datos enviados al backend:', appointmentData);
-    return this.http.post(`${this.apiUrl}`, appointmentData);
+  createAppointment(appointmentData: any, token?:string | null ): Observable<any> {
+    let headers = new HttpHeaders();
+    if (token) {
+       headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.post(`${this.apiUrl}`,  appointmentData, {headers});
   }
 
   getAppointments(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}`);
   }
 
-  // Nuevo metodo para obtener las citas del usuario 
   getUserAppointments(token?: string | null): Observable<any>{
-    let headers = new HttpHeaders()
-
+    let headers = new HttpHeaders();
     if(token){
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
-    return this.http.get(`${this.apiUrl_1}/callDate`, { headers});
+    return this.http.get(`${this.apiUrl_1}/callDate`, { headers });
   }
 
   deleteAppointment(idCita: string): Observable<any> {
-    console.log('se paso correctamente el idCita: ', idCita);
-    
     return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
+  }
+
+  getAppointmentsByDate(date: string, token?: string | null): Observable<any[]> {
+    let headers = new HttpHeaders();
+    if (token) {
+        headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.get<any[]>(`${this.apiUrl_1}/callDateAppointments/${date}`, { headers });
+  }
+
+
+  updateAppointment(idCita: string, appointmentData: any, token?: string | null): Observable<any> {
+    let headers = new HttpHeaders();
+    if (token) {
+        headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.put(`${this.apiUrl_1}/updateAppointment/${idCita}`, appointmentData, { headers });
+  }
+
+  updateAppointmentStatus(idCita: string, estado: string, token?: string | null): Observable<any> {
+    let headers = new HttpHeaders();
+    if (token) {
+        headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.put(`${this.apiUrl_1}/updateAppointment/${idCita}`, { estado }, { headers });
   }
 }

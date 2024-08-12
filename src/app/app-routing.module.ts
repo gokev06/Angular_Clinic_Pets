@@ -1,3 +1,4 @@
+import { authGuard } from './guards/auth.guard';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,18 +11,21 @@ import { PagesHomeRegisterComponent } from './features/pagehome/pages/pages-home
 import { PagesHomeAdminComponent } from './features/pagehome/pages/pages-home-admin/pages-home-admin.component';
 import { PagesHomeVetComponent } from './features/pagehome/pages/pages-home-vet/pages-home-vet.component';
 import { PagesHistorialComponent } from './features/citas/pages/pages-historial/pages-historial.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
-//rutas de las ventanas 
+//rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent},
-  {path: "citas", component: CitasComponent},
-  { path: "home" , component: PagehomeComponent},
-  {path: "adopcion", component: AdopcionComponent},
+  {path: "citas", component: CitasComponent, canActivate: [authGuard]},
+  { path: "home" , component: PagehomeComponent, canActivate: [authGuard]},
+  {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]},
   {path: "register", component: RegistroComponent},
   {path: "", component: PagesHomeRegisterComponent},
-  {path: "home-admin", component: PagesHomeAdminComponent},
-  {path: "home-vet", component: PagesHomeVetComponent},
-  { path: 'historial', component: PagesHistorialComponent}
+  {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
+  {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
+  { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
+  {path: 'unauthorized', component: UnauthorizedComponent}
+
 
 ];
 
