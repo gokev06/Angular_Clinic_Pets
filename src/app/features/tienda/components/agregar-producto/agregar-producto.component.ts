@@ -13,7 +13,7 @@ export class AgregarProductoComponent implements OnInit {
     padding: '10px',
     backgroundColor: '#CCC4FF',
     borderRadius: '5px',
-    width: '50%',
+    width: '100%',
     height: '40px',
     fontSize: '15px',
     border: 'none',

@@ -4,6 +4,10 @@
     <input id="imagen" type="file" (change)="onFileChange($event)" />
   </div>
 
+
+
+<section>
+<div class="paret1"> 
   <div>
     <label for="nombre">Nombre del Producto</label>
     <input id="nombre" type="text" formControlName="nombre" [ngStyle]="estilos" placeholder="Nombre del Producto" />
@@ -27,9 +31,11 @@
       La cantidad es obligatoria.
     </div>
   </div>
+</div> 
 
+<div class="parte2">
   <div class="input-group">
-    <div class="input-field">
+    <div class="descipcion1">
       <label for="descripcion">Descripción</label>
       <input id="descripcion" type="text" formControlName="descripcion"  placeholder="Descripción del Producto" />
       <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
@@ -37,6 +43,9 @@
       </div>
     </div>
   </div>
-
+</div>  
+</section>
+  <button class="Cancelar">Cancelar</button>
   <button type="submit" [disabled]="productoForm.invalid">Subir Producto</button>
 </form>
+
