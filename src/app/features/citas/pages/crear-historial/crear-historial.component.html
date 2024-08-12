@@ -1,0 +1,73 @@
+<app-header [ruta]="'/crear-historial'" [title]="'Crear Historial'"></app-header>
+<form [formGroup]="Formhistorial" (ngSubmit)="onSubmit()">
+<div class="border">
+    <div class="infopropietario">
+        <h2>Informacion de Propietario</h2>
+        <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'Telefono'" formControlName="telefono" [id]="'telefono'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'Direccion'" formControlName="direccion" [id]="'direccion'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'Email'" formControlName="email" [id]="'email'" [estilos]="estilos"></app-input>
+    </div>
+    <div class="infomascota">
+        <h2>Informacion de la mascota</h2>
+        <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombreMascota" [id]="'nombreMascota'" [estilos]="style"></app-input>
+        <app-input [text]="'text'" [holder]="'Edad'" formControlName="edad" [id]="'edad'" [estilos]="style"></app-input>
+        <select id="Estado Vacunacion"  formControlName="estadovacunacion" name="estadovacunacion">
+            <option value="" hidden>Estado de Vacunacion</option>
+            <option value="En orden">En orden</option>
+            <option value="Incompletas">Incompletas</option>
+        </select>
+        <select id="Especie"  formControlName="especie" name="especie">
+            <option value="" hidden>Especie</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Conejo">Conejo</option>
+            <option value="Hamster">Hamster</option>
+            <option value="Pajaro">Pajaro</option>
+          </select>
+        <app-input [text]="'text'" [holder]="'Raza'" formControlName="raza" [id]="'raza'" [estilos]="style"></app-input>
+        <select id="Tipo de Cita"  formControlName="tipocita" name="tipocita">
+            <option value="" hidden>Tipo De Cita</option>
+            <option value="Revision General">Revision General</option>
+            <option value="Ecografia">Ecografia</option>
+            <option value="Esterilizacion">Esterilizacion</option>
+        </select>
+    </div>
+
+    <div class="infoveterinario">
+        <h2>Informacion del Veterinario</h2>
+        <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombreveterinario" [id]="'nombreveterinaria'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'Titulo de Especialidad'" formControlName="especialidad" [id]="'especialidad'" [estilos]="estilos"></app-input>
+        <select id="Especialidad Medica"  formControlName="especialidadmedica"  class="especialidadmedica" name="especialidadmedica">
+            <option value="" hidden>Especialidad Medica</option>
+            <option value="Revision General">Revision General</option>
+            <option value="Ecografia">Ecografia</option>
+            <option value="Esterilizacion">Esterilizacion</option>
+        </select>
+        <app-input [text]="'text'" [holder]="'Telefono'" formControlName="telefonovet" [id]="'telefonovet'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'Email'" formControlName="emailvet" [id]="'emailvet'" [estilos]="estilos   "></app-input>
+    </div>
+</div>
+<div class="texto">
+    <div class="div">
+        <app-label [for]="'Motivo de Consulta'"></app-label>
+        <textarea formControlName="motivoconsulta" id="Motivo de Consulta"></textarea>
+        <app-label [for]="'Diagnostico'"></app-label>
+        <textarea formControlName="diagnostico" id="Diagnostico" ></textarea>
+    </div>
+    <div class="div">
+        <app-label [for]="'Tratamiento'"></app-label>
+        <textarea formControlName="tratamiento" id="Tratamiento"></textarea>
+        <app-label [for]="'Examenes Medicos'"></app-label>
+        <textarea formControlName="examen" id="Examen"></textarea>
+    </div>
+</div>
+<div class="btnsubmit">
+    <a class="botonc" >Cancelar</a>
+    <button class="boton" type="submit">Guardar</button>
+
+</div>
+
+</form>
+
+<app-footer></app-footer>

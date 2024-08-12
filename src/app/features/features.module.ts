@@ -14,8 +14,14 @@ import { PagesHomeRegisterComponent } from './pagehome/pages/pages-home-register
 import { PagesHomeAdminComponent } from './pagehome/pages/pages-home-admin/pages-home-admin.component';
 import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-home-vet.component';
 import { PagehomeModule } from './pagehome/pagehome.module';
+import { GestionCitasComponent } from './citas/pages/gestion-citas/gestion-citas.component';
+import { AgendaComponent } from './citas/pages/agenda/agenda.component';
+import { CrearHistorialComponent } from './citas/pages/crear-historial/crear-historial.component';
+
+
 @NgModule({
   declarations: [
+    GestionCitasComponent,
     CitasComponent,
     PagehomeComponent,
     AdopcionComponent,
@@ -26,7 +32,9 @@ import { PagehomeModule } from './pagehome/pagehome.module';
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+    AgendaComponent,
+    CrearHistorialComponent  
   ],
   imports: [
     CommonModule,
@@ -46,7 +54,9 @@ import { PagehomeModule } from './pagehome/pagehome.module';
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+    GestionCitasComponent,
+    AgendaComponent
   ]
 })
 export class FeaturesModule {}
