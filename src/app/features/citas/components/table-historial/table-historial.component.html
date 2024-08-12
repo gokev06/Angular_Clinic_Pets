@@ -9,7 +9,6 @@
         <th>Tipo de Cita</th>
         <th>Estado</th>
         <th>Costo</th>
-        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -32,9 +31,7 @@
           </ng-template>
         </td>
         <td>{{ cita.costo }}</td>
-        <td>
-          <button (click)="deleteAppointment(cita.id)" id="delete-button" class="btn__eliminar" type="submit">Eliminar</button>
-        </td>
+       
       </tr>
     </tbody>
   </table>

@@ -74,7 +74,7 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
             imageHeight: 200,
             confirmButtonColor: '#7DFF82',
           });
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
         },
         error => {
           Swal.fire({
