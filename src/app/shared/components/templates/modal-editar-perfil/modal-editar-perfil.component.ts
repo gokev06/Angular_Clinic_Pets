@@ -11,7 +11,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ModalEditarPerfilComponent  implements OnInit{
 
-  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 10px; padding: 0px 8px; width: 300px; margin-bottom: 10px;";
+  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 10px; padding: 0px 8px; width: 90%; margin-bottom: 10px; background: rgba(204, 196, 255, 1)";
 
   @Output() closeedit = new EventEmitter<void>();
 
