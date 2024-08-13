@@ -1,51 +1,65 @@
+<app-header [ruta]="'/citas'" [title]="'tienda'"></app-header>
+
 <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="imagen">Imagen del Producto</label>
-    <input id="imagen" type="file" (change)="onFileChange($event)" />
+  <div class="container-input">
+    <input type="file" name="file-6" id="file-6" class="inputfile inputfile-6" data-multiple-caption="{count} archivos seleccionados" multiple (change)="onFileChange($event)" />
+    <label for="file-6">
+      <div class="fondo">
+        <div id="image-preview" class="image-preview" 
+             [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
+          <img src="../../../../../assets/icons/nubenegra.png" alt="" *ngIf="!selectedImage">
+          <p *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
+        </div>              
+      </div>              
+    </label>
   </div>
 
-
-
-<section>
-<div class="paret1"> 
-  <div>
-    <label for="nombre">Nombre del Producto</label>
-    <input id="nombre" type="text" formControlName="nombre" [ngStyle]="estilos" placeholder="Nombre del Producto" />
-    <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched" class="error-message">
-      El nombre es obligatorio.
-    </div>
-  </div>
-
-  <div>
-    <label for="precio">Precio</label>
-    <input id="precio" type="number" formControlName="precio" [ngStyle]="estilos" placeholder="Precio" />
-    <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error-message">
-      El precio es obligatorio.
-    </div>
-  </div>
-
-  <div>
-    <label for="cantidad">Cantidad</label>
-    <input id="cantidad" type="number" formControlName="cantidad" [ngStyle]="estilos" placeholder="Cantidad" />
-    <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
-      La cantidad es obligatoria.
-    </div>
-  </div>
-</div> 
-
-<div class="parte2">
-  <div class="input-group">
-    <div class="descipcion1">
-      <label for="descripcion">Descripción</label>
-      <input id="descripcion" type="text" formControlName="descripcion"  placeholder="Descripción del Producto" />
-      <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
-        La descripción es obligatoria.
+  <section>
+    <div class="parte1"> 
+      <div>
+        <app-input id="nombre" formControlName="nombre" [estilos]="estilos" holder="Nombre del Producto"></app-input>
+        <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched" class="error-message">
+          El nombre es obligatorio.
+        </div>
       </div>
-    </div>
-  </div>
-</div>  
-</section>
-  <button class="Cancelar">Cancelar</button>
-  <button type="submit" [disabled]="productoForm.invalid">Subir Producto</button>
-</form>
+      
+      <div>
+        <app-input id="precio" formControlName="precio" [estilos]="estilos" holder="Precio"></app-input>
+        <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error-message">
+          El precio es obligatorio.
+        </div>
+      </div>
 
+      <div>
+        <app-input id="cantidad" formControlName="cantidad" [estilos]="estilos" holder="Cantidad"></app-input>
+        <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
+          La cantidad es obligatoria.
+        </div>
+      </div>
+
+      <select formControlName="categoria" class="categoria">
+        <option value="">Categoría</option>
+        <option value="alimento">Alimento</option>
+        <option value="medicamento">Medicamento</option>
+        <option value="juguete">Juguete</option>
+      </select>  
+    </div>  
+
+    <div class="parte2">
+      <div class="input-group">
+        <div class="descripcion1">
+          <input id="descripcion" type="text" formControlName="descripcion" placeholder="Descripción del Producto"/>
+          <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
+            La descripción es obligatoria.
+          </div>
+        </div>
+      </div>
+    </div>  
+  </section>
+
+  <div class="botones">
+    <button class="cancelar">Cancelar</button>
+    <button (click)="AlertaAceptar()" type="submit" [disabled]="productoForm.invalid">Subir Producto</button>
+
+  </div>
+</form>
