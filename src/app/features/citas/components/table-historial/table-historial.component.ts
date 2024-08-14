@@ -56,7 +56,7 @@ export class TableHistorialComponent implements OnInit {
       this.idCita = cita.id;
     } else if (nuevoEstado === 'Cancelar') {
       this.cancelAppointment(cita.id);
-      cita.estado = 'Cancelado';
+      cita.estado = 'Cancelada';
       this.citaActualizada.emit();  // Emitir evento después de cancelar la cita
     }
   }

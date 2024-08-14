@@ -61,4 +61,8 @@ export class AppointmentService {
     }
     return this.http.put(`${this.apiUrl_1}/updateAppointment/${idCita}`, { estado }, { headers });
   }
+
+  getAppointments2(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl_1}/appointments`);
+  }
 }
