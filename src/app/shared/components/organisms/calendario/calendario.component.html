@@ -5,7 +5,7 @@
      <h2>selecionar fecha y hora</h2>
     <div class="calendar-header">
        <a (click)="previousMonth()">&lt;</a>
-       <span>{{ viewData | date: 'MMMM yyyy' }}</span>
+       <span>{{ viewData | date: 'LLLL yyyy' }}</span>
        <a (click)="nextMonth()">&gt;</a>
      </div>
     </nav>
@@ -33,8 +33,13 @@
 </div> 
 
 <div class="modal">
-  <!-- Aquí colocamos el componente de horarios -->
-  <app-horarios *ngIf="selectedDay" [data]="{ date: selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) }" class="horarios-modal"></app-horarios>
+  <app-horarios 
+    *ngIf="selectedDay" 
+    [data]="{ date: selectedDay.toLocaleDateString('es-ES', { weekday: 'long' }) }"
+    (timeSelected)="onTimeSelected($event)"
+    class="horarios-modal"
+  ></app-horarios>
 </div>
+
 
 </section>

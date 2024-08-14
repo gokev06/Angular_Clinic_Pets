@@ -1,0 +1,122 @@
+.card {
+  background-color: #CCC4FF;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  position: relative; /* Cambiado de sticky a relative */
+  width: 250px; /* Ajusta el ancho de la tarjeta */
+  position: sticky;
+  top: 100px; /* Ajusta este valor según la altura del header */
+  margin-left: auto; /* Centra la tarjeta dentro de su contenedor */
+  margin-right: auto;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+  height: 425px;
+
+  &.macho {
+    background-color: #BEF3FF; /* Light blue for male pets */
+  }
+
+  &.hembra {
+    background-color: #CCC4FF; /* Light pink for female pets */
+  }
+}
+
+.card h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.card p {
+  margin: 10px 0;
+  color: #000;
+  font-weight: normal;
+  width: 100%;
+  padding: 0px 32px;
+  margin-top: 8px;
+  
+}
+
+.card img {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  width: 70%;
+  height: 150px;
+  border-radius: 15px;
+  
+}
+
+.card p strong {
+  color: #333;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    top: 0;
+  }
+
+  .card img {
+    width: 100px;
+    height: auto;
+  }
+}
+
+.contacto {
+  border-top: 2px solid #ffffff;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  height: 36px;
+  justify-content: space-evenly;
+  
+}
+.ajustar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.info1, .info2 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0px;
+}
+
+.info1 {
+  border-right: 1px solid #ffffff;
+  width: 50%;
+  justify-content: center;
+}
+
+.info2 {
+  width: 50%;
+  border-left: 1px solid #E9E1FE;
+  justify-content: center;
+}
+
+.info1 img, .info2 img {
+  width: 16px;
+  height: 16px;
+  margin-right: 0px;
+  margin-left: -20px;
+  border: none;
+}
+
+.info1 p, .info2 p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.info1 p strong, .info2 p strong {
+  font-weight: bold;
+}

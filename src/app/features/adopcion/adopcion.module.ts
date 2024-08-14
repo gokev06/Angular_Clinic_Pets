@@ -11,12 +11,14 @@ import { CardsComponent } from './components/cards/cards.component';
 import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
 
 
+
 @NgModule({
   declarations: [  
     HeaderadopcionComponent,
      CardsadopcionComponent,
      CardsComponent,
-     NuevaadopcionComponent
+     
+
   ],
   imports: [
     FormsModule,
@@ -25,7 +27,8 @@ import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.comp
     SharedModule
   ], exports:[
     HeaderadopcionComponent,
-    CardsadopcionComponent
+     CardsadopcionComponent,
+     CardsComponent,
   ]
 })
 export class AdopcionModule { }

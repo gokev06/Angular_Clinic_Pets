@@ -1,25 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CitasComponent } from './citas/citas.component';
 import { SharedModule } from '../shared/shared.module';
 import { PagehomeComponent } from './pagehome/pagehome.component';
 import { AdopcionComponent } from './adopcion/adopcion.component';
-import { AdopcionModule } from './adopcion/adopcion.module';
+import { TableHistorialComponent } from './citas/components/table-historial/table-historial.component';
+import { CardsadopcionComponent } from './adopcion/components/cardsadopcion/cardsadopcion.component';
+import { HeaderadopcionComponent } from './adopcion/components/headeradopcion/headeradopcion.component';
+import { CardsComponent } from './adopcion/components/cards/cards.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { PagesNuevaadopcionComponent } from './adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
+import { FormularioAdopcionComponent } from './adopcion/components/formulario-adopcion/formulario-adopcion.component';
+import { CardformularioComponent } from './adopcion/components/cardformulario/cardformulario.component';
 
 
 
 
 @NgModule({
   declarations: [
+    CardformularioComponent,
     CitasComponent,
     PagehomeComponent,
-  AdopcionComponent
+    AdopcionComponent,
+    CardsadopcionComponent,
+    HeaderadopcionComponent,
+    CardsComponent,
+    LoginComponent,
+    RegistroComponent,
+    PagesNuevaadopcionComponent,
+    FormularioAdopcionComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     SharedModule,
-    AdopcionModule,
     ReactiveFormsModule ,// Importa ReactiveFormsModule aquí
   ],
   exports:[

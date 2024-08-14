@@ -89,5 +89,11 @@
     </div>
 </section>
 <section *ngIf="filteredAdopciones.length === 0" class="emptyState">
-    <p>No se encontraron resultados.</p>
+    
+    <div class="estado-vacio">
+    <h1>No hay resultados que coincidan con tu búsqueda.</h1>
+    <img src="../../../../../assets/icons/muelin (1) (1).gif" alt="">
+    <p>Revisa la ortografía de la palabra.</p>
+    <p>Utiliza palabras más genéricas o menos palabras.</p>
+</div>
   </section>

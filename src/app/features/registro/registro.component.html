@@ -1,0 +1,35 @@
+
+<!-- diseño de login o inicio de sesion-->
+
+
+<section>
+    <div class="imagen">
+       <div class="logo">
+      <app-logo></app-logo><h1>Clinic-Pets</h1>
+    </div>
+    </div>
+    
+    <div class="contenedor-formulario">
+       <div class="formulario">
+        <h1>REGISTRAR</h1>
+        <app-input [text]="'text'" [holder]="'nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'apellido'" formControlName="apellido" [id]="'apellido'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="#documento" [id]="'#documento'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'numero de telefono'" formControlName="#telefono" [id]="'#telefono'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'email'" formControlName="email" [id]="'email'" [estilos]="estilos"></app-input>
+        <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contraseña" [id]="'contraseña'" [estilos]="estilos"></app-input>
+        <app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmar" [id]="'confirmar'" [estilos]="estilos"></app-input>
+           
+          <a href="#" class="reset-link">Restablecer contraseña</a>
+          
+          <button class="button">iniciar sesion</button>
+    <!-- <button class="g-signin2" (click)="loginWithGoogle()">Iniciar sesión con Google</button>-->
+    
+          
+    
+          
+            
+       </div>
+    </div>  
+    
+    </section>

@@ -1,0 +1,168 @@
+section{
+height: auto;
+width: 100%;
+background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+}
+
+.madre{
+    height: 600px;
+    width: 800px;
+    background-color:rgba(191, 224, 255, 0.19);
+}
+
+.madre h1{
+  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold; /* Hace que el texto en negrita sea más grueso */
+
+}
+
+/* style 6 */
+
+/* Ocultar el input tipo file */
+
+  
+  .formulario1{
+    display: flex;
+    flex-direction: column;
+  
+  }
+
+
+.custom-select,
+.Esterilizacion,
+.sexo,
+.estadovacunacion{
+  background-color: #CCC4FF;
+  border-radius: 15px;
+  width:300px; height: 30px;
+  font-size: 15px; border: none;
+  margin-bottom: 10px;
+ }
+
+.formulariopadre{
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 80px;
+  
+}
+
+.formulario1{
+  margin-right: 40px;
+}
+
+.custom-select,
+.sexo,
+.estadovacunacion,
+.Esterilizacion:focus{
+border: none;
+}
+
+.inputfile {
+  display: none;
+}
+
+
+
+.container-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.image-preview {
+  width: 300px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  background-color: white;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.image-preview p {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.image-preview img {
+  width: 50px;
+  height: auto;
+}
+
+.image-preview:hover {
+  border-color: #666;
+}
+
+
+.formulariopadre {
+  margin-bottom: 20px; /* Añadir margen inferior para reducir la separación */
+  
+}
+
+.btnsubmit{
+  padding: 48px 72px 48px 0px;
+  margin: 0px 130px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  
+}
+
+.btn__agendar {
+  margin-top: -35px; /* Opción adicional: reducir margen superior en los botones */
+  border-radius: 17px;
+
+}
+
+.btn__agendar{
+  background-color: rgba(87, 250, 60, 0.47);
+  color: black;
+  text-align: center;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+
+
+.fondo{
+  width: 310px;
+  height: 210px;
+  background-color: #E8E8E8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+

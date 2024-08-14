@@ -110,11 +110,13 @@
     </div>
   </section>
   <section class="calendario">
-  <app-calendario formControlName="hora"></app-calendario>
-</section>
+    <app-calendario (dateSelected)="onDateSelected($event)" (timeSelected)="onTimeSelected($event)"></app-calendario>
+  </section>
+  
   <div class="btnsubmit">
     <a class="btn__cancelar" type="submit" routerLink="">Cancelar</a>
     <button class="btn__agendar" type="submit">Agendar</button>
+    <a class="btn__historial"  routerLink="/historial">consultar Historial</a>
   
   </div>
 

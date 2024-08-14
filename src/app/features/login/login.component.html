@@ -1,0 +1,26 @@
+<!-- diseño de login o inicio de sesion-->
+
+
+<section>
+    <div class="imagen">
+       <div class="logo">
+      <app-logo></app-logo><h1>Clinic-Pets</h1>
+    </div>
+    </div>
+    
+    <div class="contenedor-formulario">
+       <div class="formulario">
+        <h1>INICIAR SESION</h1>
+        <app-input [text]="'text'" [holder]="'correo'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+        <app-input [text]="'password'" [holder]="'contraseña'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+           
+          <a href="#" class="reset-link">Restablecer contraseña</a>
+          <button class="button">iniciar sesion</button>
+            
+       </div>
+       
+       <button  class="g-signin2" (click)="loginWithGoogle()">
+         <img src="../../../assets/images/imghome/google.png" alt="">Iniciar sesión con Google</button>
+    </div>  
+    
+    </section>
