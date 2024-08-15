@@ -8,9 +8,27 @@
             <div class="header">
               <h2>Editar Perfil</h2>
             </div >
-            <img src="../../../../../assets/images/perfil.jpeg" alt="" >
             <div class="texto">
-              
+              <div class="container-input">
+                <input 
+                  type="file" 
+                  name="file-6" 
+                  id="file-6" 
+                  class="inputfile inputfile-6" 
+                  data-multiple-caption="{count} archivos seleccionados" 
+                  (change)="onFileChange($event)" 
+                  [ngClass]="{'is-invalid': !selectedImage && callDataUser.touched}"
+                />
+                <label for="file-6">
+                  <div class="fondo">
+                    <div class="image-preview" 
+                      [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
+                      <img src="../../../../../assets/images/perfil.jpeg" alt="" *ngIf="!selectedImage">
+                      <p class="p" *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
+                    </div>            
+                  </div>              
+                </label>
+              </div>
             </div>
           </div>
 

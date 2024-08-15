@@ -1,8 +1,4 @@
-img{
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-}
+
 
 .background{
     display: flex;
@@ -71,6 +67,10 @@ img{
     margin-bottom: 8px;
 }
 
+.fondo{
+    display: flex;
+    justify-content: center;
+}
 
 .content{
     width: 100%;
@@ -84,9 +84,36 @@ img{
     flex-direction: column;
 }
 
+#file-6{
+    opacity:0;
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    z-index: -1;
+    
+
+}
+
+.image-preview{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
 #a{
     background-color: rgba(250, 60, 60, 0.47);
 }
+
+.image-preview img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;;
+  }
 
 
 .validar{
@@ -97,5 +124,8 @@ img{
 .texto{
     width: 100%;
     justify-content: flex-start;
-    margin-top: 40px;
+}
+
+.p{
+    margin-top: 20px;
 }

@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: "register", component: RegistroComponent},
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent},
-  {path: "home-vet", component: PagesHomeVetComponent}
+  {path: "home-vet", component: PagesHomeVetComponent},
 ];
 
 @NgModule({
