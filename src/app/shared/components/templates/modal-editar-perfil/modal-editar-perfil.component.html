@@ -7,11 +7,16 @@
         </div>
         <form class="formulario_2" [formGroup]="callDataUser" (ngSubmit)="onSubmit()" >
 
-            <app-input [text]="'text'" [holder]="'nombre'" formControlName="nombreUsuario" [id]="'Nombre'" [estilos]="estilos"></app-input>
-            <app-input [text]="'text'" [holder]="'apellido'" formControlName="apellidoUsuario" [id]="'apellido'" [estilos]="estilos"></app-input>
+            <h4 class="Title-form-nombre">Nombre</h4>
+            <app-input [text]="'text'" [holder]="'nombre'" class="input-form" formControlName="nombreUsuario" [id]="'Nombre'" [estilos]="estilos"></app-input>
+            <h4 class="Title-form-apellido">Apellido</h4>
+            <app-input [text]="'text'" [holder]="'apellido'" class="input-form" formControlName="apellidoUsuario" [id]="'apellido'" [estilos]="estilos"></app-input>
            <!-- <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input> --> 
-            <app-input [text]="'text'" [holder]="'numero de telefono'" formControlName="telefonoUsuario" [id]="'telefono'" [estilos]="estilos"></app-input>
-            <app-input [text]="'text'" [holder]="'email'" formControlName="correoUsuario" [id]="'email'" [estilos]="estilos"></app-input>
+            <h4 class="Title-form-telefono">Numero de telefono</h4>
+            <app-input [text]="'text'" [holder]="'numero de telefono'" class="input-form" formControlName="telefonoUsuario" [id]="'telefono'" [estilos]="estilos"></app-input>
+
+            <h4 class="Title-form-email">Email</h4>
+            <app-input [text]="'text'" [holder]="'email'" class="input-form" formControlName="correoUsuario" [id]="'email'" [estilos]="estilos"></app-input>
            <!--<app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input>--> 
 
                          

@@ -1,4 +1,4 @@
-<div class="client">
+<div *ngFor="let cita of citas" class="client">
     <p id="text1">{{ cita.id }}</p>
     <p id="text2">{{ cita.fecha }}</p>
     <p id="text3">{{ cita.hora }}</p>
@@ -9,5 +9,4 @@
     <button id="delete-button" class="btn__eliminar" type="submit">Eliminar</button>
   </div>
 
-  
-  
+

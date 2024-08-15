@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./scoped-table-historial.component.scss']
 })
 export class ScopedTableHistorialComponent implements OnInit {
-  @Input() cita: any;
+  @Input() citas: any[] = [];
 
   constructor() {}
 

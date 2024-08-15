@@ -1,41 +1,35 @@
 <app-header [ruta]="'/gestion-citas'" [title]="'Gestion Citas'"></app-header>
 
-
 <app-titulo [title]="'Citas Programadas'" [estilo]="'font-size: 17px ; color: black ; padding: 28px' "></app-titulo>
 
 <nav class="meses">
-   <div class="calendar-header">
-      <a  class="flecha" (click)="previousMonth()">&lt;</a>
-      <span>{{ viewData | date: 'LLLL' }}</span>
-      <a class="flecha" (click)="nextMonth()">&gt;</a>
-   </div>
-   <div class="calendar-header">
-      <a  class="flecha" (click)="previousday()">&lt;</a>
-      <span>{{ viewData | date: 'day' }}</span>
-      <a class="flecha" (click)="nextday()">&gt;</a>
-   </div>
+  <div class="calendar-header">
+    <a class="flecha" (click)="previousMonth()">&lt;</a>
+    <span>{{ viewData | date: 'LLLL' }}</span>
+    <a class="flecha" (click)="nextMonth()">&gt;</a>
+  </div>
+  <div class="calendar-header">
+    <a class="flecha" (click)="previousday()">&lt;</a>
+    <span>{{ viewData | date: 'dd/MM/yyyy' }}</span>
+    <a class="flecha" (click)="nextday()">&gt;</a>
+  </div>
 </nav>
 
 <div class="calendar-container">
-   <div class="calendario">
-      <div id="header-table-hora" class="hora-name">Hora</div>
-      <div  id="header-table" class="day-name" *ngFor="let dayName of dayNames">{{dayName}}</div>
-      <div class="hora-name">{{horas[0]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames" ></div>
-      <div class="hora-name">{{horas[1]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames"></div>
-      <div class="hora-name">{{horas[2]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames"></div>
-      <div class="hora-name">{{horas[3]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames"></div>
-      <div class="hora-name">{{horas[4]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames"></div>
-      <div class="hora-name">{{horas[6]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames"></div>
-      <div class="hora-name">{{horas[7]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames"></div>
-      <div class="hora-name">{{horas[8]}}</div>
-      <div class="day-name" *ngFor="let dayName of dayNames"></div>
+  <div class="calendario">
+    <div class="header-row">
+      <div class="header-cell hora-name">Hora</div>
+      <div class="header-cell" *ngFor="let day of daysInMonth">
+        {{ day | date: 'EEEE' }} {{ day.getDate() }}
+      </div>
+    </div>
+
+    <!-- Fila de horas y días -->
+    <div *ngFor="let hora of horas" class="hora-row">
+      <div class="hora-name">{{hora}}</div>
+      <div *ngFor="let day of daysInMonth" [ngClass]="{'current-day': isCurrentDay(day), 'alternate-color': isAlternateColor(day)}" class="day-name">
+        {{ getCitaForDayAndHour(day, hora) || '' }}
+      </div>
+    </div>
+  </div>
 </div>
-
-

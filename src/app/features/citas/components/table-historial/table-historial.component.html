@@ -18,10 +18,33 @@
         <td>{{ cita.hora }}</td>
         <td>{{ cita.nombre }}</td>
         <td>{{ cita.tipo }}</td>
-        <td>{{ cita.estado }}</td>
+        <td>
+          <ng-container *ngIf="cita.estado === 'Agendada'; else estadoNormal">
+            <select (change)="onChangeEstado(cita, $event)">
+              <option value="Agendada" [selected]="cita.estado === 'Agendada'">Agendada</option>
+              <option value="Reagendar">Reagendar</option>
+              <option value="Cancelar">Cancelar</option>
+            </select>
+          </ng-container>
+          <ng-template #estadoNormal>
+            {{ cita.estado }}
+          </ng-template>
+        </td>
         <td>{{ cita.costo }}</td>
-        <button (click)="deleteAppointment(cita.id)" id="delete-button" class="btn__eliminar" type="submit">Eliminar</button>
+       
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- Fondo oscuro y modal -->
+<div *ngIf="mostrarCalendario" class="modal-background">
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Seleccione la nueva fecha</h2>
+      <app-calendario (dateSelected)="onFechaSeleccionada($event)" (timeSelected)="onTimeSeleccionada($event)"></app-calendario>
+      <button (click)="guardarCita()" class="btn-aceptar">Aceptar</button>
+      <button (click)="cerrarModal()" class="btn-cancelar">Cancelar</button>
+    </div>
+  </div>
 </div>

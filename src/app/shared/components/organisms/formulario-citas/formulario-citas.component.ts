@@ -18,7 +18,7 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private appointmentService: AppointmentService 
+    private appointmentService: AppointmentService
   ) {
     this.loginForm = this.formBuilder.group({});
   }
@@ -61,8 +61,10 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     console.log('Formulario:', this.loginForm.value);
     console.log('¿Formulario válido?:', this.loginForm.valid);
 
+    const token = localStorage.getItem('userToken');
+
     if (this.loginForm.valid) {
-      this.appointmentService.createAppointment(this.loginForm.value).subscribe(
+      this.appointmentService.createAppointment(this.loginForm.value, token).subscribe(
         response => {
           Swal.fire({
             title: '¡Cita confirmada!',
@@ -72,7 +74,7 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
             imageHeight: 200,
             confirmButtonColor: '#7DFF82',
           });
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
         },
         error => {
           Swal.fire({
