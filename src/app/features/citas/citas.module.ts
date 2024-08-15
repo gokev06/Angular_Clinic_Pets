@@ -5,13 +5,15 @@ import { CitasRoutingModule } from './citas-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { PagesHistorialComponent } from './pages/pages-historial/pages-historial.component';
 import { TableHistorialComponent } from './components/table-historial/table-historial.component';
-import { CrearHistorialComponent } from './pages/crear-historial/crear-historial.component';
+import { ScopedTableHistorialComponent } from './components/scoped-table-historial/scoped-table-historial.component';
+import { PagoCitaComponent } from './pages/pago-cita/pago-cita.component';
+import { CitasComponent } from './citas.component';
 
 @NgModule({
   declarations: [
-
-
-
+    PagesHistorialComponent,
+    ScopedTableHistorialComponent,
+    CitasComponent,
   ],
   imports: [
     SharedModule,
@@ -21,7 +23,7 @@ import { CrearHistorialComponent } from './pages/crear-historial/crear-historial
   ],
   exports: [
     PagesHistorialComponent,
-    TableHistorialComponent,
+    CitasComponent,
   ]
 })
 export class CitasModule {}

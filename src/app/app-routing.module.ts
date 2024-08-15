@@ -26,7 +26,6 @@ const routes: Routes = [
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
   {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
-  { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
 
 
@@ -37,9 +36,6 @@ const routes: Routes = [
   {path:"agenda" , component: AgendaComponent},
   {path: "crear-historial" , component: CrearHistorialComponent}
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
+
 export class AppRoutingModule { }
