@@ -14,6 +14,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { PagesNuevaadopcionComponent } from './adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
 import { FormularioAdopcionComponent } from './adopcion/components/formulario-adopcion/formulario-adopcion.component';
 import { CardformularioComponent } from './adopcion/components/cardformulario/cardformulario.component';
+import { InfoAdopcionComponent } from './adopcion/pages/info-adopcion/info-adopcion.component';
 
 
 
@@ -30,7 +31,9 @@ import { CardformularioComponent } from './adopcion/components/cardformulario/ca
     LoginComponent,
     RegistroComponent,
     PagesNuevaadopcionComponent,
-    FormularioAdopcionComponent
+    FormularioAdopcionComponent,
+    InfoAdopcionComponent
+   
   ],
   imports: [
     FormsModule,
@@ -41,6 +44,8 @@ import { CardformularioComponent } from './adopcion/components/cardformulario/ca
   exports:[
     CitasComponent,
     PagehomeComponent,
+    
+  
   ]
 })
 export class FeaturesModule { }

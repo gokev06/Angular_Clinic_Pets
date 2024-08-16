@@ -12,6 +12,7 @@
         <app-cards [adopcion]="adopcion"></app-cards>
     </div>
 </div>
+
     <div class="filtro">
         <h1>Filtrar Por</h1>
         <div class="contenedor-filtro">
@@ -50,38 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="contenedor-filtro">
-            <div (click)="FiltroEdad()" class="title-nombre">
-                <h3 >Edad</h3>
-                <img src="../../../../../assets/icons/mas.png" alt="">
-            </div>
-            <div class="filtro_nombre" *ngIf="FilterEdad == true">
-                <div class="contain">
-                    <input type="radio" id="az" name="order" (change)="sortAdopcionesByAge('desc')">
-                    <label for="az">Mayor</label>
-                </div>
-                <div class="contain">
-                    <input type="radio" id="za" name="order" (change)="sortAdopcionesByAge('asc')">
-                    <label for="za">Menor</label>
-                </div>
-            </div>
-        </div>
-        <div class="contenedor-filtro">
-            <div (click)="FiltroSexo()" class="title-nombre">
-                <h3 >Sexo</h3>
-                <img src="../../../../../assets/icons/mas.png" alt="">
-            </div>
-            <div class="filtro_nombre" *ngIf="FilterSexo == true">
-                <div class="contain">
-                    <input type="radio" id="az" name="order" (change)="FiltroHembra()">
-                    <label for="az">Hembra</label>
-                </div>
-                <div class="contain">
-                    <input type="radio" id="za" name="order" (change)="FiltroMacho()">
-                    <label for="za">Macho</label>
-                </div>
-            </div>
-        </div>
+        
         <div class="borrar" (click)="ngOnInit()">
             <h2>Borrar Filtros</h2>
             <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="">

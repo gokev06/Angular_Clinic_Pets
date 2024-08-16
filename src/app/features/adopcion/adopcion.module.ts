@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FormsModule } from '@angular/forms';
 import { AdopcionRoutingModule } from './adopcion-routing.module';
 import { HeaderadopcionComponent } from './components/headeradopcion/headeradopcion.component';
-
 import { SharedModule } from '../../shared/shared.module';
 import { CardsadopcionComponent } from './components/cardsadopcion/cardsadopcion.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { InfoAdopcionComponent } from './pages/info-adopcion/info-adopcion.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -23,7 +23,9 @@ import { CardsComponent } from './components/cards/cards.component';
     FormsModule,
     CommonModule,
     AdopcionRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule 
+    
   ], exports:[
     HeaderadopcionComponent,
      CardsadopcionComponent,

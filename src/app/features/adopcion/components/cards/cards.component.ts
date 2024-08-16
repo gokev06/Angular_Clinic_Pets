@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { adopcion } from '../../services/solicitud-adopcion.service'; 
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -21,10 +22,14 @@ export class CardsComponent implements OnInit{
   image: ''
 }
 
-constructor(){}
+constructor(private Router: Router){}
 
 ngOnInit() {
   
+}
+
+ruta(){
+  this.Router.navigate(['info-adopcion'])
 }
 
 }
