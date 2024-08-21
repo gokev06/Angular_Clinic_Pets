@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AppointmentService } from '../../../../features/citas/services/appointment.service';
+import { catchError, map, tap, of } from 'rxjs';
 
 @Component({
   selector: 'app-formulario-citas',
@@ -10,7 +11,7 @@ import { AppointmentService } from '../../../../features/citas/services/appointm
   styleUrls: ['./formulario-citas.component.scss']
 })
 export class FormularioCitasComponent implements OnInit, AfterViewInit {
-  loginForm: FormGroup;
+  loginForm!: FormGroup;
   isButtonActive: boolean = false;
   estilos: string = "border:none ; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px";
   style: string = "border:none ; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 200px; padding: 0 8px";
@@ -40,6 +41,8 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
       fecha: ['', Validators.required],
       hora: ['', Validators.required],
     });
+
+    this.callDateTutor();
   }
 
   @ViewChildren('myDiv') myDivs!: QueryList<ElementRef>;
@@ -55,6 +58,40 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
   onTimeSelected(time: string): void {
     this.loginForm.get('hora')?.setValue(time);
     console.log('Hora seleccionada:', time);
+  }
+
+  callDateTutor(): void {
+    const token = localStorage.getItem('userToken');
+
+    this.appointmentService.getCallTutorData(token).pipe(
+      map((res: any) => {
+        if (res.status === 'success' && res.querySuccess) {
+          const dataUser: string[] = [res.Nombre, res.Telefono, res.Correo];
+          return dataUser;
+        } else {
+          console.error('Error al obtener las citas:', res);
+
+          const dataUser: string[] = [];
+          return dataUser;
+        }
+      }),
+      tap(
+        (dataUser: string []) => {
+          if (dataUser.length > 0) {
+
+            this.loginForm.patchValue({
+              nombre: dataUser[0] || '',
+              correo: dataUser[2] || '',
+              telefono: dataUser[1] || ''
+            });
+          }
+      }
+    ),
+      catchError( error => {
+        console.error('Error al procesar la solicitud:', error);
+        return of([]); // Devuelve un observable con un array vacío en caso de error
+      })
+    ).subscribe();
   }
 
   onSubmit() {

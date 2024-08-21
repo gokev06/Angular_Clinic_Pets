@@ -31,9 +31,21 @@ export class AppointmentService {
     return this.http.get(`${this.apiUrl_1}/callDate`, { headers });
   }
 
+  getCallTutorData(token?: string | null): Observable<any[]> {
+    let headers = new HttpHeaders();
+    if(token) {
+      headers = headers.set( 'Authorization', `Bearer ${token}` );
+    }
+    return this.http.get<any[]>(`${this.apiUrl_1}/callTutorData`, {headers } )
+  }
+
+
+
   deleteAppointment(idCita: string): Observable<any> {
     return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
   }
+
+
 
   getAppointmentsByDate(date: string, token?: string | null): Observable<any[]> {
     let headers = new HttpHeaders();
@@ -42,6 +54,7 @@ export class AppointmentService {
     }
     return this.http.get<any[]>(`${this.apiUrl_1}/callDateAppointments/${date}`, { headers });
   }
+
 
 
   updateAppointment(idCita: string, appointmentData: any, token?: string | null): Observable<any> {
