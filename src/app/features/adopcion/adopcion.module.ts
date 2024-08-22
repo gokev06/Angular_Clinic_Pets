@@ -8,6 +8,7 @@ import { HeaderadopcionComponent } from './components/headeradopcion/headeradopc
 import { SharedModule } from '../../shared/shared.module';
 import { CardsadopcionComponent } from './components/cardsadopcion/cardsadopcion.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
 
 
 
