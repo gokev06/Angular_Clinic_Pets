@@ -1,24 +1,23 @@
 .card {
   background-color: #CCC4FF;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
   padding: 0px;
-  position: relative; /* Cambiado de sticky a relative */
-  width: 250px; /* Ajusta el ancho de la tarjeta */
-  position: sticky;
+  position: sticky; /* Eliminar 'relative' si no es necesario */
   top: 100px; /* Ajusta este valor según la altura del header */
-  margin-left: auto; /* Centra la tarjeta dentro de su contenedor */
+  width: 250px;
+  margin-left: auto;
   margin-right: auto;
   font-family: Arial, sans-serif;
   margin-top: 20px;
   height: 425px;
 
   &.macho {
-    background-color: #BEF3FF; /* Light blue for male pets */
+    background-color: #BEF3FF; /* Azul claro para mascotas machos */
   }
 
   &.hembra {
-    background-color: #CCC4FF; /* Light pink for female pets */
+    background-color: #CCC4FF; /* Rosa claro para mascotas hembras */
   }
 }
 
@@ -29,7 +28,6 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
-  
 }
 
 .card p {
@@ -39,7 +37,6 @@
   width: 100%;
   padding: 0px 32px;
   margin-top: 8px;
-  
 }
 
 .card img {
@@ -49,7 +46,6 @@
   width: 70%;
   height: 150px;
   border-radius: 15px;
-  
 }
 
 .card p strong {
@@ -72,12 +68,11 @@
 .contacto {
   border-top: 2px solid #ffffff;
   width: 100%;
-  height: 600px;
-  display: flex;
   height: 36px;
+  display: flex;
   justify-content: space-evenly;
-  
 }
+
 .ajustar {
   position: absolute;
   bottom: 0;
