@@ -34,4 +34,8 @@ export class InfoAdopcionComponent {
   mostrarHistoria() {
     this.mostrarInfo = false;
   }
+  openWhatsApp() {
+    window.open('https://wa.me/+573104914257?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20el%20proceso%20de%20adopción.%20¡Gracias!', '_blank');
+  }
+  
 }

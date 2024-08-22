@@ -6,8 +6,12 @@ import { HeaderadopcionComponent } from './components/headeradopcion/headeradopc
 import { SharedModule } from '../../shared/shared.module';
 import { CardsadopcionComponent } from './components/cardsadopcion/cardsadopcion.component';
 import { CardsComponent } from './components/cards/cards.component';
+<<<<<<< HEAD
 import { InfoAdopcionComponent } from './pages/info-adopcion/info-adopcion.component';
 import { RouterModule } from '@angular/router';
+=======
+import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
+>>>>>>> 0d1e46686863cfc433052e5b280df7a648ffc107
 
 
 
