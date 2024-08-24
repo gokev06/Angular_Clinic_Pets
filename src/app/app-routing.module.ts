@@ -42,7 +42,7 @@ const routes: Routes = [
   {path: "crear-historial" , component: CrearHistorialComponent},
   {path: "pago-cita", component:PagoCitaComponent},
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},
-  {path:"info-adopcion",component:InfoAdopcionComponent}
+  {path:"info-adopcion",component:InfoAdopcionComponent},
   {path: "consul-historial",component:PagesHistorialComponent },
   {path: "table-historial",component: TablaCitasComponent}
 ];
