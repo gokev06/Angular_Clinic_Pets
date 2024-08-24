@@ -20,6 +20,8 @@ import { TiendaComponent } from './features/tienda/tienda.component';
 import { AgregarProductoComponent } from './features/tienda/components/agregar-producto/agregar-producto.component';
 import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
 import { InfoAdopcionComponent } from './features/adopcion/pages/info-adopcion/info-adopcion.component';
+import { TablaCitasComponent } from './features/citas/pages/tabla-citas/tabla-citas.component';
+
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -41,6 +43,8 @@ const routes: Routes = [
   {path: "pago-cita", component:PagoCitaComponent},
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},
   {path:"info-adopcion",component:InfoAdopcionComponent}
+  {path: "consul-historial",component:PagesHistorialComponent },
+  {path: "table-historial",component: TablaCitasComponent}
 ];
 
 @NgModule({

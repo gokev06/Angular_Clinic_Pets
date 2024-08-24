@@ -1,0 +1,62 @@
+section {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+    }
+    
+    .table-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 100%;
+     margin-top: 100px;
+    }
+    
+    .clients-table {
+    width: 1050px;
+    border-collapse: collapse;
+    table-layout: fixed; /* Añade esta línea para una distribución uniforme */
+    }
+    
+    .clients-table th, .clients-table td {
+    padding: 20px;
+    text-align: center;
+    }
+    
+    .clients-table th {
+    background-color: #CCC4FF;
+     color: #7b7979c4;
+    }
+    
+    .clients-table tbody tr:nth-child(even) {
+    background-color: #ccc4ff6b;
+    }
+    
+    .client {
+     border: 1px solid #D9D9D9;
+     width: 1050px;
+     box-sizing: border-box;
+    }
+    
+    .client table {
+    width: 100%;
+     border-collapse: collapse;
+     table-layout: fixed; /* Añade esta línea para una distribución uniforme */
+    }
+    
+    .client td {
+     text-align: center;
+     padding: 20px;
+    }
+    
+    .text1, .text2, .text3, .text4, .text5, .text6, .download {
+     width: 150px ; /* Ajusta el ancho para que coincida con la celda de la tabla */
+    }
+
+    .descarga{
+        width: 50px;
+        height: 50px;
+        border: none;
+        cursor: pointer;
+    }

@@ -138,7 +138,8 @@ registerLocaleData(localeEs, 'es');
     TableHistorialComponent,
     CalendarioComponent,
     PagoTarjetaComponent,
-    PagoinfocitaComponent
+    PagoinfocitaComponent,
+    TableHistorialComponent,
   ]
 })
 export class SharedModule { }

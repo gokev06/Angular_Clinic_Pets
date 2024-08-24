@@ -21,6 +21,7 @@ import { PagesNuevaadopcionComponent } from './adopcion/pages/pages-nuevaadopcio
 import { FormularioAdopcionComponent } from './adopcion/components/formulario-adopcion/formulario-adopcion.component';
 import { CardformularioComponent } from './adopcion/components/cardformulario/cardformulario.component';
 import { InfoAdopcionComponent } from './adopcion/pages/info-adopcion/info-adopcion.component';
+import { TablaCitasComponent } from './citas/pages/tabla-citas/tabla-citas.component';
 
 
 import { TiendaComponent } from './tienda/tienda.component';
@@ -50,8 +51,9 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
 
     PagesNuevaadopcionComponent,
     FormularioAdopcionComponent,
-    InfoAdopcionComponent
+    InfoAdopcionComponent,
    
+    TablaCitasComponent,
   ],
   imports: [
     CommonModule,
@@ -76,9 +78,8 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     AgendaComponent,
     TiendaComponent,
     CardComponent,
-    AgregarProductoComponent
-    
-  
+    AgregarProductoComponent,
+    TablaCitasComponent
   ]
 })
 export class FeaturesModule {}

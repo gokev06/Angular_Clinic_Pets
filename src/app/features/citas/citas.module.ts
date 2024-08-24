@@ -8,6 +8,8 @@ import { TableHistorialComponent } from './components/table-historial/table-hist
 import { ScopedTableHistorialComponent } from './components/scoped-table-historial/scoped-table-historial.component';
 import { PagoCitaComponent } from './pages/pago-cita/pago-cita.component';
 import { CitasComponent } from './citas.component';
+import { TablaCitasComponent } from './pages/tabla-citas/tabla-citas.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { CitasComponent } from './citas.component';
   ],
   exports: [
     PagesHistorialComponent,
-    CitasComponent,
+    CitasComponent
   ]
 })
 export class CitasModule {}
