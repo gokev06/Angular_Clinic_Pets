@@ -1,8 +1,4 @@
-img{
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-}
+
 
 .background{
     display: flex;
@@ -13,33 +9,33 @@ img{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #00000049;
+    background-color: #00000073;
 }
 
 
 .header{
     display: flex;
     width: 100%;
-    justify-content: space-between;
-
+    justify-content: center;
     padding: 10px 10px;
 }
 
 .modal{
-    width: 500px;
-    height: 500px;
-    background-color: #CCC4FF ;// rgba(255, 255, 255, 0.58);
+    width: 800px;
+    background-color: #f0f0f0 ;// rgba(255, 255, 255, 0.58);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    padding: 30px ;
 }
 
-form{
-    display: flex;
+.formulario{
+    display: flex;  
+    width: 60%;
+    border: 1px solid rgba(204, 196, 255, 1);
     flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 
@@ -47,7 +43,7 @@ form{
     width: 100%;
     height: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
 }
@@ -57,24 +53,79 @@ form{
     padding: 10px 30px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: white;
+    background-color:rgba(87, 250, 60, 0.47);
     color: black;
+    text-decoration: none;
+    border: none;
+    
 }
 
-.Title-form-nombre{
-    margin: 0px 240px 0px 0px;
+.Title-form{
+    width: 100%;
+    display: flex;
+    height: 10px;
+    margin-bottom: 8px;
 }
 
-.Title-form-apellido{
-    margin: 0px 240px 0px 0px;
+.fondo{
+    display: flex;
+    justify-content: center;
 }
 
-.Title-form-telefono{
-    margin: 0px 150px 0px 0px;
+.content{
+    width: 100%;
+    display: flex;
+}
+
+.imagen{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#file-6{
+    opacity:0;
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    z-index: -1;
+    
 
 }
 
-.Title-form-email{
-    margin: 0px 260px 0px 0px;
+.image-preview{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+#a{
+    background-color: rgba(250, 60, 60, 0.47);
 }
 
+.image-preview img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;;
+  }
+
+
+.validar{
+    width: 80%;
+    padding: 0 10px ;
+}
+
+.texto{
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.p{
+    margin-top: 20px;
+}

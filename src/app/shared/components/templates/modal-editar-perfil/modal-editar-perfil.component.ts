@@ -11,9 +11,9 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './modal-editar-perfil.component.scss'
 })
 export class ModalEditarPerfilComponent  implements OnInit{
+  @Output() perfil = new EventEmitter<any>();
 
-    // Estilos CSS inline para los elementos del formulario
-  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 10px; padding: 0px 8px; width: 300px; margin-bottom: 10px;";
+  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 10px; padding: 0px 8px; width: 90%; margin-bottom: 10px; background: rgba(204, 196, 255, 1)";
 
     // Evento para cerrar el modal de edición
   @Output() closeedit = new EventEmitter<void>();
@@ -29,7 +29,27 @@ export class ModalEditarPerfilComponent  implements OnInit{
 
   // Constructor del componente
   constructor(private fb: FormBuilder, private http: HttpClient){
+    
 
+  }
+  selectedImage: string | ArrayBuffer | null = '';
+
+  onFileChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    const reader = new FileReader();
+
+    if (file) {
+      reader.onload = () => {
+        this.selectedImage = reader.result;
+      
+       this.perfil.emit({
+         ...this.callDataUser.value,
+         imagen: this.selectedImage
+        });
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
   // Método que se ejecuta al inicializar el componente
@@ -49,6 +69,14 @@ export class ModalEditarPerfilComponent  implements OnInit{
       telefonoUsuario: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       correoUsuario: ['', [Validators.required, Validators.email]],
      // contrasenia: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+    });
+
+
+    this.callDataUser.valueChanges.subscribe(valor => {
+      this.perfil.emit({
+        ...valor,
+        imagen: this.selectedImage
+      });
     });
   }
 
