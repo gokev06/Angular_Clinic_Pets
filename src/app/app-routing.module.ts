@@ -16,6 +16,8 @@ import { GestionCitasComponent } from './features/citas/pages/gestion-citas/gest
 import { AgendaComponent } from './features/citas/pages/agenda/agenda.component';
 import { CrearHistorialComponent } from './features/citas/pages/crear-historial/crear-historial.component';
 import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component';
+import { TiendaComponent } from './features/tienda/tienda.component';
+import { AgregarProductoComponent } from './features/tienda/components/agregar-producto/agregar-producto.component';
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -29,8 +31,8 @@ const routes: Routes = [
   {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
-
-
+  {path:'tienda',component:TiendaComponent},
+  {path:'subir-producto',component:AgregarProductoComponent},
   {path: "gestion-citas", component: GestionCitasComponent},
   {path:"agenda" , component: AgendaComponent},
   {path: "crear-historial" , component: CrearHistorialComponent},

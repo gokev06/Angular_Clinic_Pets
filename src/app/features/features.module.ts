@@ -19,6 +19,9 @@ import { AgendaComponent } from './citas/pages/agenda/agenda.component';
 import { CrearHistorialComponent } from './citas/pages/crear-historial/crear-historial.component';
 
 
+import { TiendaComponent } from './tienda/tienda.component';
+import { CardComponent } from './tienda/components/card-tienda/card.component';
+import { AgregarProductoComponent } from './tienda/components/agregar-producto/agregar-producto.component';
 @NgModule({
   declarations: [
     GestionCitasComponent,
@@ -34,7 +37,12 @@ import { CrearHistorialComponent } from './citas/pages/crear-historial/crear-his
     PagesHomeAdminComponent,
     PagesHomeVetComponent,
     AgendaComponent,
-    CrearHistorialComponent  
+    CrearHistorialComponent,
+    TiendaComponent,
+    CardComponent,
+    AgregarProductoComponent
+        
+
   ],
   imports: [
     CommonModule,
@@ -56,7 +64,10 @@ import { CrearHistorialComponent } from './citas/pages/crear-historial/crear-his
     PagesHomeAdminComponent,
     PagesHomeVetComponent,
     GestionCitasComponent,
-    AgendaComponent
+    AgendaComponent,
+    TiendaComponent,
+    CardComponent,
+    AgregarProductoComponent
   ]
 })
 export class FeaturesModule {}

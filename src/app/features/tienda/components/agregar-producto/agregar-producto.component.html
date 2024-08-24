@@ -1,0 +1,51 @@
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="imagen">Imagen del Producto</label>
+    <input id="imagen" type="file" (change)="onFileChange($event)" />
+  </div>
+
+
+
+<section>
+<div class="paret1"> 
+  <div>
+    <label for="nombre">Nombre del Producto</label>
+    <input id="nombre" type="text" formControlName="nombre" [ngStyle]="estilos" placeholder="Nombre del Producto" />
+    <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched" class="error-message">
+      El nombre es obligatorio.
+    </div>
+  </div>
+
+  <div>
+    <label for="precio">Precio</label>
+    <input id="precio" type="number" formControlName="precio" [ngStyle]="estilos" placeholder="Precio" />
+    <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error-message">
+      El precio es obligatorio.
+    </div>
+  </div>
+
+  <div>
+    <label for="cantidad">Cantidad</label>
+    <input id="cantidad" type="number" formControlName="cantidad" [ngStyle]="estilos" placeholder="Cantidad" />
+    <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
+      La cantidad es obligatoria.
+    </div>
+  </div>
+</div> 
+
+<div class="parte2">
+  <div class="input-group">
+    <div class="descipcion1">
+      <label for="descripcion">Descripción</label>
+      <input id="descripcion" type="text" formControlName="descripcion"  placeholder="Descripción del Producto" />
+      <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
+        La descripción es obligatoria.
+      </div>
+    </div>
+  </div>
+</div>  
+</section>
+  <button class="Cancelar">Cancelar</button>
+  <button type="submit" [disabled]="productoForm.invalid">Subir Producto</button>
+</form>
+
