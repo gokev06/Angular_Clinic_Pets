@@ -46,6 +46,7 @@ import { PagoinfocitaComponent } from './components/organisms/pagoinfocita/pagoi
 
 import { AlertacitaComponent } from './components/templates/alertacita/alertacita.component';
 import { AlertacancelarcitaComponent } from './components/templates/alertacancelarcita/alertacancelarcita.component';
+
 registerLocaleData(localeEs, 'es');
 
 
@@ -91,6 +92,7 @@ registerLocaleData(localeEs, 'es');
     PagoinfocitaComponent,
     AlertacitaComponent,
     AlertacancelarcitaComponent,
+  
   ],
   imports: [
     CommonModule, 

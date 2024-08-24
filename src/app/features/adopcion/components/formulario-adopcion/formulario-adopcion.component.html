@@ -1,0 +1,118 @@
+<section>
+  <div class="madre">
+    <form [formGroup]="loginForm">
+      <div class="hijo">
+        <div class="container-input">
+          <h1>Imagen Mascota</h1>
+          <input type="file" name="file-6" id="file-6" class="inputfile inputfile-6" 
+                 data-multiple-caption="{count} archivos seleccionados" multiple 
+                 (change)="onFileChange($event)" />
+          <label for="file-6">
+            <div class="fondo">
+              <div id="image-preview" class="image-preview" 
+                   [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
+                <img src="../../../../../assets/icons/nubenegra.png" alt="" *ngIf="!selectedImage">
+                <p *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
+              </div>              
+            </div>              
+          </label>
+        </div>
+
+        <div class="formulariopadre">
+          <div class="formulario1">
+            <div class="input-group">
+              <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombre" 
+                         [id]="'Nombre'" [estilos]="estilos"></app-input>
+              <div *ngIf="loginForm.get('nombre')?.touched && loginForm.get('nombre')?.invalid" 
+                   class="error-message">El nombre es obligatorio</div>
+            </div>
+
+            <div class="input-group">
+              <app-input [text]="'text'" [holder]="'Edad'" formControlName="edad" 
+                         [id]="'Edad'" [estilos]="estilos"></app-input>
+              <div *ngIf="loginForm.get('edad')?.touched && loginForm.get('edad')?.invalid" 
+                   class="error-message">La edad es obligatoria</div>
+            </div>
+
+            <div class="input-group">
+              <select [formControlName]="'especie'" class="custom-select">
+                <option value="">Especie</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Otro">Otro</option>
+              </select>
+              <div *ngIf="loginForm.get('especie')?.touched && loginForm.get('especie')?.invalid" 
+                   class="error-message">La especie es obligatoria</div>
+            </div>
+
+            <div class="input-group">
+              <app-input [text]="'text'" [holder]="'Raza'" formControlName="raza" 
+                         [id]="'Raza'" [estilos]="estilos"></app-input>
+              <div *ngIf="loginForm.get('raza')?.touched && loginForm.get('raza')?.invalid" 
+                   class="error-message">La raza es obligatoria</div>
+            </div>
+
+            <div class="input-group">
+              <select [formControlName]="'sexo'" class="sexo">
+                <option value="">Sexo</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+              </select>
+              <div *ngIf="loginForm.get('sexo')?.touched && loginForm.get('sexo')?.invalid" 
+                   class="error-message">El sexo es obligatorio</div>
+            </div>
+
+            <div class="input-group">
+              <select formControlName="Esterilizacion" class="Esterilizacion">
+                <option value="">Esterilización</option>
+                <option value="Si">Sí</option>
+                <option value="No">No</option>
+              </select>
+              <div *ngIf="loginForm.get('Esterilizacion')?.touched && loginForm.get('Esterilizacion')?.invalid" 
+                   class="error-message">La esterilización es obligatoria</div>
+            </div>
+          </div>
+
+          <div class="formulario2">
+            <div class="input-group">
+              <select id="Estado Vacunacion" formControlName="estadovacunacion" class="estadovacunacion">
+                <option value="">Estado de Vacunación</option>
+                <option value="Si">Sí</option>
+                <option value="No">No</option>
+              </select>
+              <div *ngIf="loginForm.get('estadovacunacion')?.touched && loginForm.get('estadovacunacion')?.invalid" 
+                   class="error-message">El estado de vacunación es obligatorio</div>
+            </div>
+
+            <div class="input-group">
+              <app-input [text]="'number'" [holder]="'Teléfono'" [estilos]="estilos" 
+                         formControlName="telefono" [id]="'Telefono'"></app-input>
+              <div *ngIf="loginForm.get('telefono')?.touched && loginForm.get('telefono')?.invalid" 
+                   class="error-message">El teléfono es obligatorio</div>
+            </div>
+
+            <div class="input-group">
+              <app-input [text]="'text'" [holder]="'Ubicación'" [estilos]="estilos" 
+                         formControlName="ubicacion" [id]="'Ubicacion'"></app-input>
+              <div *ngIf="loginForm.get('ubicacion')?.touched && loginForm.get('ubicacion')?.invalid" 
+                   class="error-message">La ubicación es obligatoria</div>
+            </div>
+
+            <div class="input-group">
+              <app-input [text]="'text'" [holder]="'Historia'" [estilos]="estilos1" 
+                         formControlName="historia" [id]="'Historia'"></app-input>
+              <div *ngIf="loginForm.get('historia')?.touched && loginForm.get('historia')?.invalid" 
+                   class="error-message">La historia es obligatoria</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="btnsubmit">
+        <button class="btn__agendar" type="button" (click)="onSubmit()">Publicar Adopción</button>
+        <button class="btn__cancelar" type="button" (click)="onCancel()">Cancelar</button>
+      </div>     
+    </form>         
+  </div>
+</section>

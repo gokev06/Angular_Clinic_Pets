@@ -1,15 +1,8 @@
-    <div class="card" >
-        <h2>{{adopcion.nombre}}</h2>
-        <img [src]="adopcion.image" alt="">
+<div class="card" routerLink="['../pages/info-adopcion']">
+        
+        <img [src]="adopcion.image" (click)="ruta()" alt="">
         <!--IMAGEN-->
-        <div class="informacion">
-            <h5><strong>Edad: </strong>{{adopcion.edad}}</h5>
-            <h5><strong>Sexo: </strong>{{adopcion.sexo}}</h5>
-            <h5><strong>Especie: </strong>{{adopcion.especie}}</h5>
-            <h5><strong>Raza: </strong>{{adopcion.raza}}</h5>
-            <h5><strong>Vacunado: </strong>{{adopcion.vacunacion}}</h5>
-            <h5><strong>Esterilizado: </strong>{{adopcion.estirilizacion}}</h5>
-        </div>
+        <h2>{{adopcion.nombre}}</h2>
         <div class="contacto">
             <div class="info1">
                 <img src="../../../../../assets/icons/ubicacion.png" alt="">

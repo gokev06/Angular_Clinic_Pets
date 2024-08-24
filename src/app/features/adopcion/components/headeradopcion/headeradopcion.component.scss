@@ -9,13 +9,15 @@ div{
 }
 
 
-button{
+a, button{
     background-color: #E9E1FE;
     border: none;
     border-radius: 10px;
     padding: 10px 30px 10px 30px;
     font-size: 14px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 

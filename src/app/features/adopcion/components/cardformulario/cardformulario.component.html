@@ -1,0 +1,15 @@
+<div class="card" [ngClass]="{'macho': datosFormulario.sexo === 'Macho', 'hembra': datosFormulario.sexo === 'Hembra'}">
+  <h2>{{ datosFormulario.nombre }}</h2>
+  <img *ngIf="datosFormulario.imagen" [src]="datosFormulario.imagen" alt="Imagen de Mascota" width="200" height="200">
+  <div class="ajustar">
+
+  <div class="contacto">
+    <div class="info1">
+      <p><strong><img src="../../../../../assets/icons/telefono.png" alt=""></strong> {{ datosFormulario.telefono }}</p>
+    </div>
+    <div class="info2">
+      <p><strong><img src="../../../../../assets/icons/ubicacion.png" alt=""></strong> {{ datosFormulario.ubicacion }}</p>
+    </div>
+    </div>
+  </div>
+</div>

@@ -18,6 +18,8 @@ import { CrearHistorialComponent } from './features/citas/pages/crear-historial/
 import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component';
 import { TiendaComponent } from './features/tienda/tienda.component';
 import { AgregarProductoComponent } from './features/tienda/components/agregar-producto/agregar-producto.component';
+import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
+import { InfoAdopcionComponent } from './features/adopcion/pages/info-adopcion/info-adopcion.component';
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -36,7 +38,9 @@ const routes: Routes = [
   {path: "gestion-citas", component: GestionCitasComponent},
   {path:"agenda" , component: AgendaComponent},
   {path: "crear-historial" , component: CrearHistorialComponent},
-  {path: "pago-cita", component:PagoCitaComponent}
+  {path: "pago-cita", component:PagoCitaComponent},
+  {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},
+  {path:"info-adopcion",component:InfoAdopcionComponent}
 ];
 
 @NgModule({

@@ -17,6 +17,10 @@ import { PagehomeModule } from './pagehome/pagehome.module';
 import { GestionCitasComponent } from './citas/pages/gestion-citas/gestion-citas.component';
 import { AgendaComponent } from './citas/pages/agenda/agenda.component';
 import { CrearHistorialComponent } from './citas/pages/crear-historial/crear-historial.component';
+import { PagesNuevaadopcionComponent } from './adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
+import { FormularioAdopcionComponent } from './adopcion/components/formulario-adopcion/formulario-adopcion.component';
+import { CardformularioComponent } from './adopcion/components/cardformulario/cardformulario.component';
+import { InfoAdopcionComponent } from './adopcion/pages/info-adopcion/info-adopcion.component';
 
 
 import { TiendaComponent } from './tienda/tienda.component';
@@ -25,6 +29,7 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
 @NgModule({
   declarations: [
     GestionCitasComponent,
+    CardformularioComponent,
     CitasComponent,
     PagehomeComponent,
     AdopcionComponent,
@@ -40,9 +45,13 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     CrearHistorialComponent,
     TiendaComponent,
     CardComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
         
 
+    PagesNuevaadopcionComponent,
+    FormularioAdopcionComponent,
+    InfoAdopcionComponent
+   
   ],
   imports: [
     CommonModule,
@@ -68,6 +77,8 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     TiendaComponent,
     CardComponent,
     AgregarProductoComponent
+    
+  
   ]
 })
 export class FeaturesModule {}

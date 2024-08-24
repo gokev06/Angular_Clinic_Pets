@@ -1,0 +1,252 @@
+
+section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.imagenes {
+  width: 35%;
+  height: 55%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+.imagenes img {
+  width: 320px;
+  height: 300px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+.imagenes h1 {
+  font-size: 24px; 
+  font-weight: bold;
+
+}
+
+.info-b {
+  width: 80%;
+  overflow: hidden; 
+  border-top: none; 
+  display: flex;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0)
+  );
+  padding: 20px;
+}
+
+
+.info-c {
+  width: 70%;
+  padding: 20px;
+  height: 100%;
+  margin-top: 30px;
+
+}
+
+ul.botones {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+ul.botones li button {
+  padding: 10px 20px; /* Espaciado interno */
+  width: 150px; /* Ancho estándar */
+  height: 50px; /* Alto estándar */
+  cursor: pointer;
+  border: none;
+  background-color: whitesmoke;
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Tamaño del texto */
+}
+
+ul.botones li button:active,
+ul.botones li button:focus {
+  background-color: white; /* Color blanco cuando el botón está presionado o tiene el foco */
+}
+
+
+
+.informacion {
+  position: relative;
+  border-left: 1px rgb(255, 255, 255);
+  border-bottom: 1px rgb(255, 255, 255);
+  border-top: 1px rgb(255, 255, 255);
+  border-right: 1px rgb(255, 255, 255);
+  background-color: white;
+  width: 100%;
+  height: 350px; 
+  overflow: hidden; 
+  border-bottom-left-radius: 4px; /* Radio para la esquina inferior izquierda */
+  border-bottom-right-radius: 4px; /* Radio para la esquina inferior derecha */ 
+  /* Sombra en los lados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1),  /* Sombra hacia abajo */
+               /* Sombra hacia la izquierda */
+}
+
+
+
+
+.informacion1,
+.historia {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  padding-top: 25px;
+  height: 100%; /* Mantiene el tamaño de las secciones */
+  box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateX(100%);
+  overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
+}
+
+.informacion1 h5,
+.historia h5{
+  font-size: 16px;
+  padding: 5px;
+}
+
+.informacion1.oculto,
+.historia.oculto {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.informacion1:not(.oculto),
+.historia:not(.oculto) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px; 
+  height: 60px; 
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+      background-color: #1EB44C;
+  }
+
+  .whatsapp-icon {
+      width: 30px;
+      height: 30px;
+      margin-top: 25px;
+      margin-right: 10px; 
+  }
+}
+
+
+
+@media screen and (max-width:480px) {
+  section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-b{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .imagenes{
+    width: 100%;
+      display: flex;
+    align-items: center;
+  }
+
+
+.imagenes img {
+  width: 250px;
+  height: 250px;
+  
+}
+
+  .info-c{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    
+  }
+}
+
+
+
+@media screen and (max-width: 769px){
+
+  .info-c{
+    width: 100%;
+  }
+  
+}
+ /*
+
+@media screen and (max-width: 920px) {
+  .info-b{
+    width: 100%;
+  }
+.imagenes {
+  width: 35%;
+  height: 70%;}
+  
+  .imagenes img{
+    width: 280px;
+    height: 280px;
+  }
+
+.btn-whatsapp{
+  width: 200px;
+  height: 60px;
+}
+}
+
+
+
+*/
