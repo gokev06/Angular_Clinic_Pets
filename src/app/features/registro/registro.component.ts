@@ -131,10 +131,6 @@ export class RegistroComponent implements OnInit{
         const errorMessage = error.message || 'Error desconocido';
         console.log('Error en el registro: ' + errorMessage);
       }
-
-
-
     }
   }
-
 }

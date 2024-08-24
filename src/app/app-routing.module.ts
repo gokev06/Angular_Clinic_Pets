@@ -15,6 +15,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { GestionCitasComponent } from './features/citas/pages/gestion-citas/gestion-citas.component';
 import { AgendaComponent } from './features/citas/pages/agenda/agenda.component';
 import { CrearHistorialComponent } from './features/citas/pages/crear-historial/crear-historial.component';
+import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component';
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -26,16 +27,18 @@ const routes: Routes = [
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
   {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
+  { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
 
 
-  {path: "home-admin", component: PagesHomeAdminComponent},
-  {path: "home-vet", component: PagesHomeVetComponent},
-  { path: 'historial', component: PagesHistorialComponent},
   {path: "gestion-citas", component: GestionCitasComponent},
   {path:"agenda" , component: AgendaComponent},
-  {path: "crear-historial" , component: CrearHistorialComponent}
+  {path: "crear-historial" , component: CrearHistorialComponent},
+  {path: "pago-cita", component:PagoCitaComponent}
 ];
-  exports: [RouterModule]
 
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
 export class AppRoutingModule { }

@@ -35,10 +35,15 @@ import { PagesHistorialComponent } from '../features/citas/pages/pages-historial
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { TableHistorialComponent } from '../features/citas/components/table-historial/table-historial.component';
+import { ErroresValidacionesComponent } from './components/molecules/errores-validaciones/errores-validaciones/errores-validaciones.component';
+import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
+import { ModalEditarPerfilComponent } from './components/templates/modal-editar-perfil/modal-editar-perfil.component';
+import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
+
 import { PagoTarjetaComponent } from './components/organisms/pago-tarjeta/pago-tarjeta.component';
 import { PagoCitaComponent } from '../features/citas/pages/pago-cita/pago-cita.component';
 import { PagoinfocitaComponent } from './components/organisms/pagoinfocita/pagoinfocita.component';
-import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
+
 import { AlertacitaComponent } from './components/templates/alertacita/alertacita.component';
 import { AlertacancelarcitaComponent } from './components/templates/alertacancelarcita/alertacancelarcita.component';
 registerLocaleData(localeEs, 'es');
@@ -65,8 +70,6 @@ registerLocaleData(localeEs, 'es');
     ContenedoresComponent,
     BoxbigComponent,
     ImgAndtextComponent,
-    BtnregistroComponent,
-    PagesHistorialComponent,
     ImgAndtextbigComponent,
     TTiendaComponent,
     IconStoreComponent,
@@ -78,6 +81,12 @@ registerLocaleData(localeEs, 'es');
     FooterComponent,
     CalendarioComponent,
     HorariosComponent,
+    ErroresValidacionesComponent,
+    BtnregistroComponent,
+    ModalEditarPerfilComponent,
+    PagesHistorialComponent,
+    ScopedTableHistorialComponent,
+  
     PagoTarjetaComponent,
     PagoinfocitaComponent,
     AlertacitaComponent,
@@ -124,6 +133,7 @@ registerLocaleData(localeEs, 'es');
     CalendarioComponent,
     BtnregistroComponent,
     PagesHistorialComponent,
+    TableHistorialComponent,
     CalendarioComponent,
     PagoTarjetaComponent,
     PagoinfocitaComponent

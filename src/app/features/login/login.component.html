@@ -1,36 +1,33 @@
-<!-- diseño de login o inicio de sesion-->
-
-
 <section>
-    <div class="imagen">
-       <div class="logo">
-      <app-logo></app-logo><h1>Clinic-Pets</h1>
-    </div>
-    </div>
+  <div class="imagen">
+     <div class="logo">
+        <app-logo></app-logo><h1>Clinic-Pets</h1>
+     </div>
+  </div>
 
-    <div class="contenedor-formulario">
-       <div class="formulario">
-        <form class="formulario_login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="contenedor-formulario">
+     <div class="formulario">
+      <form class="formulario_login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1>INICIAR SESION</h1>
 
-          <h1>INICIAR SESION</h1>
+        <app-input [text]="'text'" [holder]="'correo'" formControlName="email" [id]="'correo'" [estilos]="estilos"></app-input>
+        <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contrasenia'" [estilos]="estilos"></app-input>
 
-          <app-input [text]="'text'" [holder]="'correo'" formControlName="email" [id]="'correo'" [estilos]="estilos"></app-input>
-          <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contrasenia'" [estilos]="estilos"></app-input>
+        <a href="#" class="reset-link">¿Olvidaste tu contraseña?</a>
+        <p>¿Aún no tienes una cuenta? <a href="/register">Registrarte</a></p>
 
-          <a href="#" class="reset-link">¿Olvidaste tu contraseña?</a>
-          <p>¿Aun no tienes una cuenta? <a href="/register">Registrarte</a></p>
+        <div class="btn-form-submit">
+          <button type="submit" [disabled]="loginForm.invalid" class="button">Iniciar Sesión</button>
+        </div>
 
-          <div class="btn-form-submit">
-            <button type="submit"  [disabled]="loginForm.invalid" class="button">Iniciar Sesion</button>
-          </div>
+        <!-- Mensaje de error -->
+        <div *ngIf="showErrorMessage" class="error-message">
+          <p class="message_error">{{ errorMessage }}</p>
+        </div>
+      </form>
 
-        </form>
-        <button  class="g-signin2" >
-          <img src="../../../assets/images/imghome/google.png" alt="">Iniciar sesión con Google</button>
-
-       </div>
-
-
-    </div>
-
-    </section>
+      <button class="g-signin2">
+        <img src="../../../assets/images/imghome/google.png" alt="">Iniciar sesión con Google</button>
+     </div>
+  </div>
+</section>

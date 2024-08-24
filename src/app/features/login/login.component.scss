@@ -142,5 +142,15 @@ a{
     transform: translateY(2px); /* Pequeño movimiento hacia abajo */
 }
   
+.error-message {
+    color: red; /* Cambia el color del texto a rojo */
+    font-size: 14px; /* Tamaño del texto del mensaje de error */
+    margin: 10px;
+    align-items: center;
+    text-align: center; /* Espacio superior para separar del formulario */
+  }
   
+  .message_error {
+    margin: 0; /* Opcional: Elimina el margen por defecto del párrafo */
+  }  
 /* login.component.scss */
