@@ -11,3 +11,9 @@ a{
       color :#3a364e;
   }
 
+
+@media (max-width: 480px ){
+    a{
+        font-size: 10px;
+    }
+}

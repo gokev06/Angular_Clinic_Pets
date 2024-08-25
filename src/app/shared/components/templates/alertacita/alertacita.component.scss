@@ -43,3 +43,26 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
+  @media (min-width: 1280px) {
+    /* Your styles for screens wider than 1280px */
+  }
+  
+  @media (max-width: 1279px) and (min-width: 1101px) {
+    /* Your styles for screens between 1101px and 1279px */
+  }
+  
+  @media (max-width: 1100px) and (min-width: 921px) {
+    /* Your styles for screens between 921px and 1100px */
+  }
+  
+  @media (max-width: 920px) and (min-width: 769px) {
+    /* Your styles for screens between 769px and 920px */
+  }
+  
+  @media (max-width: 768px) and (min-width: 481px) {
+    /* Your styles for screens between 481px and 768px */
+  }
+  
+  @media (max-width: 480px) {
+    /* Your styles for screens narrower than 480px */
+  }

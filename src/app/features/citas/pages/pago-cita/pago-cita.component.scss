@@ -2,5 +2,45 @@
     display: flex;
     justify-content: space-evenly; 
     align-items: flex-start; 
+    
   }
-  
+
+@media (min-width: 1280px) {
+ 
+}
+
+@media (max-width: 1279x) and (min-width: 1101px) {
+
+}
+@media (max-width: 1100px) and (min-width: 921px) {
+
+
+}
+
+@media (max-width: 920px) and (min-width: 769px) {
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  }
+
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
