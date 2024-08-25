@@ -13,16 +13,16 @@
       <div class="formulario">
 
         <form class="formulario_2" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
-          <h1>REGISTRAR</h1>
-          <app-input [text]="'text'" [holder]="'nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
-          <app-input [text]="'text'" [holder]="'apellido'" formControlName="apellido" [id]="'apellido'" [estilos]="estilos"></app-input>
-          <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input>
-          <app-input [text]="'text'" [holder]="'numero de telefono'" formControlName="numeroDeTelefono" [id]="'telefono'" [estilos]="estilos"></app-input>
-          <app-input [text]="'text'" [holder]="'email'" formControlName="email" [id]="'email'" [estilos]="estilos"></app-input>
-          <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contraseña'" [estilos]="estilos"></app-input>
+          <h1>Regístrate</h1>
+          <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombre" [id]="'Nombre'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'Apellido'" formControlName="apellido" [id]="'apellido'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'Numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'Numero de telefono'" formControlName="numeroDeTelefono" [id]="'telefono'" [estilos]="estilos"></app-input>
+          <app-input [text]="'text'" [holder]="'Email'" formControlName="email" [id]="'email'" [estilos]="estilos"></app-input>
+          <app-input [text]="'password'" [holder]="'Contraseña'" formControlName="contrasenia" [id]="'contraseña'" [estilos]="estilos"></app-input>
          <!--<app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input>--> 
              
-            <a href="#" class="reset-link">Restablecer contraseña</a>
+         <a href="#" class="reset-link">¿Tienes una cuenta? <span class="highlight">Inicia sesión</span></a>
       
             <div *ngIf="registerForm.get('nombre')?.errors && registerForm.get('nombre')?.dirty">
             <p *ngIf="registerForm.get('nombre')?.hasError('required')">Rellene el campo nombre</p>
