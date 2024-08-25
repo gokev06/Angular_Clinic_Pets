@@ -60,3 +60,72 @@ section {
         border: none;
         cursor: pointer;
     }
+
+
+
+
+    @media (max-width:1279px){
+        .text1, .text2, .text3, .text4, .text5, .text6, .download {
+            width: 100px ; /* Ajusta el ancho para que coincida con la celda de la tabla */
+           }
+
+           .client{
+            width: 700px;
+           }
+
+           .clients-table{
+            width: 700px;
+           }
+
+           .clients-table th, .clients-table td {
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            }
+    }
+
+
+    @media (max-width: 768px){
+        .text1, .text2, .text3, .text4, .text5, .text6, .download {
+            width: 60px ; /* Ajusta el ancho para que coincida con la celda de la tabla */
+           }
+
+           .client{
+            width: 420px;
+           }
+
+           .clients-table{
+            width: 420px;
+           }
+
+           .clients-table th, .clients-table td {
+            padding: 5px;
+            text-align: center;
+            font-size: 8px;
+            }
+
+            .table-container{
+                margin-top: 50px;
+            }
+    }
+
+    
+    @media (max-width: 480px){
+        .text1, .text2, .text3, .text4, .text5, .text6, .download {
+            width: 42.8px ; /* Ajusta el ancho para que coincida con la celda de la tabla */
+           }
+
+           .client{
+            width: 300px;
+           }
+
+           .clients-table{
+            width: 300px;
+           }
+
+           .clients-table th, .clients-table td {
+            padding: 5px;
+            text-align: center;
+            font-size: 5px;
+            }
+    }
