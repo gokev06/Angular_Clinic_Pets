@@ -1,6 +1,6 @@
 <app-header [ruta]="'/historial'" [title]="'consultar historial'"></app-header>
 <section>
-<div class="table-container">
+  <div class="table-container">
     <table class="clients-table">
       <thead>
         <tr>
@@ -14,25 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let cita of citas">
-          <td>{{ cita.fecha }}</td>
-          <td>{{ cita.hora }}</td>
-          <td>{{ cita.nombre }}</td>
-          <td>{{ cita.tipo }}</td>
-          <td>{{ cita.especie }}</td>
-          <td>{{ cita.costo }}</td>
-          <td>
-            <div *ngIf="cita.descarga">
-              <img [src]="cita.descarga" alt="Descargar" width="30" height="30"/>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <div class="client">
-      <table>
-        <tr>
+        <tr *ngFor="let cita of citas" class="client">
           <td class="text1">{{ cita.fecha }}</td>
           <td class="text2">{{ cita.hora }}</td>
           <td class="text3">{{ cita.nombre }}</td>
@@ -40,12 +22,10 @@
           <td class="text5">{{ cita.especie }}</td>
           <td class="text6">{{ cita.costo }}</td>
           <td class="download">
-            <button class="descarga" *ngIf="cita.descarga">
-              <img src="../../../../../assets/icons/descargas (5) 3.png" alt="Descargar" width="30" height="30"/>
-            </button>
+            <img src="../../../../../assets/icons/descargas (5) 3.png"   (click)="downloadFile(cita.descarga, 'cita_' + cita.nombre + '.png')" alt="">
           </td>
         </tr>
-      </table>
-    </div>
+      </tbody>
+    </table>
   </div>
 </section>

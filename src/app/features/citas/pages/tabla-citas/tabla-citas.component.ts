@@ -31,19 +31,15 @@ export class TablaCitasComponent implements OnInit {
       });
   }
 
-
-  @Input() cita = {
-    fecha: '11/02/2024',
-    hora: '1:00 PM',
-    nombre: 'peppa',
-    tipo: 'control general',
-    especie: 'perro',
-    costo:'50.00',
-    descarga: '../../../../../assets/icons/descargas (5) 3.png'
+  downloadFile(url: string, fileName: string): void {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
-  
- 
-  
-  }
+}
   
 

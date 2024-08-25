@@ -14,13 +14,12 @@ section {
     }
     
     .clients-table {
-    width: 1000px;
+    width: 1050px;
     border-collapse: collapse;
     table-layout: fixed; /* Añade esta línea para una distribución uniforme */
     }
     
     .clients-table th, .clients-table td {
-    border: 3px solid #CCC4FF;
     padding: 20px;
     text-align: center;
     }
@@ -36,8 +35,7 @@ section {
     
     .client {
      border: 1px solid #D9D9D9;
-     padding: 20px;
-     width: 1000px;
+     width: 1050px;
      box-sizing: border-box;
     }
     
@@ -53,15 +51,12 @@ section {
     }
     
     .text1, .text2, .text3, .text4, .text5, .text6, .download {
-     width: 14.28%; /* Ajusta el ancho para que coincida con la celda de la tabla */
-     padding: 0; /* Elimina padding extra si es necesario */
+     width: 150px ; /* Ajusta el ancho para que coincida con la celda de la tabla */
     }
 
     .descarga{
-        width: 80px;
+        width: 50px;
         height: 50px;
-        border-radius: 5px;
-        background-color: rgb(235, 235, 235);
         border: none;
         cursor: pointer;
     }
