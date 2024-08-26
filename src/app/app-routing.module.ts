@@ -25,26 +25,26 @@ import { TablaCitasComponent } from './features/citas/pages/tabla-citas/tabla-ci
 
 //rutas de las ventanas
 const routes: Routes = [
-  {path :"login",component: LoginComponent},
-  {path: "citas", component: CitasComponent, canActivate: [authGuard]},
-  { path: "home" , component: PagehomeComponent, canActivate: [authGuard]},
-  {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]},
-  {path: "register", component: RegistroComponent},
+  {path :"login",component: LoginComponent}, //ingreso al sistema web
+  {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
+  { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
+  {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
+  {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
   {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
-  {path:'tienda',component:TiendaComponent},
-  {path:'subir-producto',component:AgregarProductoComponent},
-  {path: "gestion-citas", component: GestionCitasComponent},
-  {path:"agenda" , component: AgendaComponent},
-  {path: "crear-historial" , component: CrearHistorialComponent},
-  {path: "pago-cita", component:PagoCitaComponent},
-  {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},
-  {path:"info-adopcion",component:InfoAdopcionComponent},
-  {path: "consul-historial",component:PagesHistorialComponent },
-  {path: "table-historial",component: TablaCitasComponent}
+  {path:'tienda',component:TiendaComponent}, // incompleto
+  {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
+  {path: "gestion-citas", component: GestionCitasComponent}, // incompleto
+  {path:"agenda" , component: AgendaComponent}, // se supone que es para veterinario
+  {path: "crear-historial" , component: CrearHistorialComponent, canActivate: [authGuard]}, // ya esta crear historial
+  {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
+  {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
+  {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
+  {path: "consul-historial",component:PagesHistorialComponent },  // ni idea
+  {path: "table-historial",component: TablaCitasComponent} // ya tengo la idea de como hacerlo
 ];
 
 @NgModule({

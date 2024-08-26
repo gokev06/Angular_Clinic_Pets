@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 const roleRoutes: string | any = {
   'usuario': ['/home', '/historial', '/citas', '/adopcion'],
   'administrador': ['/home-admin'],
-  'veterinario': ['/home-vet']
+  'veterinario': ['/home-vet', '/crear-historial']
 }
 
 export const authGuard: CanActivateFn = (route, state) => {

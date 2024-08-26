@@ -31,6 +31,18 @@ export class AppointmentService {
     return this.http.get(`${this.apiUrl_1}/callDate`, { headers });
   }
 
+
+  createHistoryMedic(historialData: any,token?: string | null): Observable<any>{
+    let headers = new HttpHeaders();
+    if (token) {
+       headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    headers = headers.set('Content-Type', 'application/json');
+
+    return this.http.post(`${this.apiUrl_1}/createHistorialMedicVet`, historialData, {headers});
+
+  }
+
   deleteAppointment(idCita: string): Observable<any> {
     return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
   }
@@ -50,7 +62,7 @@ export class AppointmentService {
         headers = headers.set('Authorization', `Bearer ${token}`);
     }
     console.log('new fecha', appointmentData);
-    
+
     return this.http.put(`${this.apiUrl_1}/updateAppointment/${idCita}`, appointmentData, { headers });
   }
 
@@ -65,4 +77,5 @@ export class AppointmentService {
   getAppointments2(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl_1}/appointments`);
   }
+
 }

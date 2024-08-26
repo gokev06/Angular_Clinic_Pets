@@ -3,13 +3,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
   padding: 0px;
-<<<<<<< HEAD
-  position: relative; /* Cambiado de sticky a relative */
-  width: 300px; /* Ajusta el ancho de la tarjeta */
-  position: sticky;
-=======
   position: sticky; /* Eliminar 'relative' si no es necesario */
->>>>>>> f2259c8852bbb697274126477a6f63bb615d9a06
   top: 100px; /* Ajusta este valor según la altura del header */
   width: 250px;
   margin-left: auto;

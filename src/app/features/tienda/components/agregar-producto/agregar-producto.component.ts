@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TiendaService } from '../../services/tienda.service';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -20,11 +22,11 @@ export class AgregarProductoComponent implements OnInit {
     marginBottom: '10px',
     color: 'black'
   };
-  
+
   productoForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private tiendaService: TiendaService) {
     this.productoForm = this.formBuilder.group({});
   }
 
@@ -32,7 +34,8 @@ export class AgregarProductoComponent implements OnInit {
     this.productoForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       precio: ['', [Validators.required, Validators.min(1)]],
-      cantidad: ['', [Validators.required, Validators.min(1)]]
+      cantidad: ['', [Validators.required, Validators.min(1)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(600)]]
     });
 
     this.productoForm.valueChanges.subscribe(valor => {
@@ -62,7 +65,23 @@ export class AgregarProductoComponent implements OnInit {
 
   onSubmit(): void {
     if (this.productoForm.valid) {
-      console.log(this.productoForm.value);
-    }
-  }
+     const token = localStorage.getItem('userToken');
+     this.tiendaService.createProducts(this.productoForm.value, token)
+      .pipe(
+        catchError(error => {
+          console.error('Error al crear el producto:', error);
+          return of (null);
+        })
+      )
+      .subscribe( response => {
+        if (response) {
+          console.log('Producto creado con exito:', response);
+        };
+      });
+    } else {
+      console.log('Formulario invalido: ', this.productoForm.errors);
+
+    };
+
+  };
 }

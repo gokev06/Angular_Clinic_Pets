@@ -7,7 +7,7 @@
 
 
 <section>
-<div class="paret1"> 
+<div class="paret1">
   <div>
     <label for="nombre">Nombre del Producto</label>
     <input id="nombre" type="text" formControlName="nombre" [ngStyle]="estilos" placeholder="Nombre del Producto" />
@@ -31,7 +31,17 @@
       La cantidad es obligatoria.
     </div>
   </div>
-</div> 
+
+  <div>
+    <label for="categoria">categoria</label>
+    <input id="categoria" type="text" formControlName="categoria" [ngStyle]="estilos" placeholder="categoria" />
+    <div *ngIf="productoForm.get('categoria')?.invalid && productoForm.get('categoria')?.touched" class="error-message">
+      La categoria es obligatoria.
+    </div>
+  </div>
+
+
+</div>
 
 <div class="parte2">
   <div class="input-group">
@@ -43,7 +53,7 @@
       </div>
     </div>
   </div>
-</div>  
+</div>
 </section>
   <button class="Cancelar">Cancelar</button>
   <button type="submit" [disabled]="productoForm.invalid">Subir Producto</button>

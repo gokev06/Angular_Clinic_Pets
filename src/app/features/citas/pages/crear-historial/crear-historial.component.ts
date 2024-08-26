@@ -1,5 +1,9 @@
 import { Component , OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppointmentService } from '../../services/appointment.service';
+import { catchError } from 'rxjs';
+import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-historial',
@@ -7,13 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './crear-historial.component.scss'
 })
 export class CrearHistorialComponent  implements OnInit{
+
   Formhistorial: FormGroup;
 
   estilos: string = "border:none ; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
   style: string = "border:none ; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
 
 
-  constructor(   private formBuilder: FormBuilder,){
+  constructor(   private formBuilder: FormBuilder, private appointmentService: AppointmentService, private router: Router){
     this.Formhistorial = this.formBuilder.group({});
   }
 
@@ -43,13 +48,29 @@ export class CrearHistorialComponent  implements OnInit{
 
 onSubmit() {
   if (this.Formhistorial.valid) {
-    console.log('Formulario:', this.Formhistorial.value);
+    const token = localStorage.getItem('userToken');
+    this.appointmentService.createHistoryMedic(this.Formhistorial.value, token)
+
+     .pipe(
+      catchError( error => {
+        console.error('Error al crear el historial:', error);
+
+        return of(null)
+      })
+     )
+     .subscribe( response => {
+      if (response) {
+        alert('historial medico creado');
+        console.log('Historial creado con éxito:', response);
+        this.router.navigate(['/home-vet']);
+      }
+     });
   }else{
     console.log('error: ', this.Formhistorial.errors);
-    
+
   }
 
 
-}
+ }
 
 }
