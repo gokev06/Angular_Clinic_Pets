@@ -75,3 +75,81 @@ nav{
     text-decoration: none;
     
   }
+
+
+  @media (max-width: 480px) {
+    .contenedores {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 200px;
+      background-color: #333;
+      z-index: 1000;
+      transition: left 0.3s ease;
+    }
+  
+    .contenedores.open {
+      left: 0;
+      height: 400px;
+      width: 100px;
+    }
+  
+    .colorC {
+      width: 100%;
+      margin: 0;
+      padding: 15px;
+      border-bottom: 1px solid #444;
+      height: 90px;
+    }
+  
+    .colorC .titulos {
+      color: white;
+    }
+  
+    .rounded-container {
+      border: none;
+      background-color: transparent;
+      margin-top: -60px;
+    }
+  
+    .rounded-container img {
+      width: 30px;
+      height: 30px;
+  
+    }
+  
+    .drawer-toggle {
+      position: fixed;
+      top: 38px;
+      left: 10px;
+      background-color: transparent;
+      color: black;
+      border: none;
+      padding: 10px;
+      z-index: 1001;
+      cursor: pointer;
+      font-size: 18px;
+      width: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .titulos{
+    font-size: 10px !important;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    color: #9588E4;
+    margin-bottom: 175px;
+  }
+  
+    .contenedores.open .drawer-toggle {
+      font-size: 16px; /* Tamaño de letra más pequeño cuando el drawer está abierto /
+      width: 20px; / Ajustar el ancho del botón cuando está abierto /
+      height: 20px; / Ajustar la altura del botón cuando está abierto /
+      padding: 5px; / Reducir el padding del botón cuando está abierto */
+    }
+  
+  }

@@ -11,3 +11,8 @@ a{
       color :#3a364e;
   }
 
+  @media screen and  (max-width:480px) {
+    a{
+        font-size: 10px;
+    }
+  }

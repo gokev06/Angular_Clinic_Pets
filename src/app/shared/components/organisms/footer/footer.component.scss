@@ -81,3 +81,17 @@ footer{
     font-size: 16px;
 
 }
+
+@media (max-width:480px) {
+    footer{
+        height: 200px;
+        display: flex;
+        align-items: center;
+        // flex-direction: column;
+    }
+    
+
+    .informacion{
+         display: none;
+     }
+}

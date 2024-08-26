@@ -28,3 +28,15 @@
 .cjamorada p{
     font-size: 16px;
 }
+
+
+
+@media (max-width:480px){
+    .cajagrande{
+        width: 100%;
+        display: flex;
+        padding-left: 0px;
+        padding-top: 10px;
+    }
+    
+}
