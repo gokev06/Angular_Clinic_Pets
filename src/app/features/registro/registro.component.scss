@@ -40,8 +40,8 @@ a{
     color: blue($color: #000000);
 }
 .imagen::before {
-    content: '';
-    background-color: rgba(204, 196, 255,0.10);
+    background-color: rgba(204, 196, 255,0.10); 
+    position: absolute;
     top: 0;
     left: 0;
     width: 60%;
@@ -72,43 +72,77 @@ a{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 }
+.formulario_2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+}
+.formulario_2 h1 {
+    font-family: 'Arial', sans-serif; /* Tipografía */
+    font-size: 30px; /* Tamaño del texto */
+    font-weight: bold; /* Grosor del texto */
+    color: #333; /* Color del texto */
+    text-align: center; /* Alineación centrada */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    line-height: 1.2; /* Altura de la línea */
+    background: linear-gradient(90deg, #4A90E2, #9013FE); /* Degradado de fondo */
+    -webkit-background-clip: text; /* Clip del fondo para el texto (solo WebKit) */
+    -webkit-text-fill-color: transparent; /* Relleno de color transparente */
+    padding: 10px; /* Relleno alrededor del texto */
+}
 
-
+h1:hover {
+    color: #4A90E2; /* Cambia el color al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transform: scale(1.05); /* Agranda ligeramente el texto */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Transición suave */
+}
 
 .reset-link {
-    color: #007bff; /* Color azul, puedes cambiarlo según el tono deseado */
-    text-decoration: none; /* Quitar subrayado del enlace */
-    font-size: 14px; /* Tamaño del texto */
+    margin-top: 20px;
+    text-decoration: none; /* Quitar subrayado del enlace completo */
+    font-size: 11px; /* Tamaño del texto */
+    color: inherit; /* Mantiene el color del texto principal */
 }
 
-.reset-link:hover {
-    text-decoration: underline; /* Subrayado al pasar el mouse */
+.reset-link .highlight {
+    color: #007bff; /* Cambia el color a azul para "Inicia sesión" */
+    text-decoration: none; /* Asegúrate de que no haya subrayado por defecto */
 }
+
+.reset-link .highlight:hover {
+    text-decoration: underline; /* Subraya solo "Inicia sesión" al pasar el mouse */
+}
+
+
+
 
 .button{
     width: 180px;
     height: 50px;
     border-radius: 50px;
-    background-color: rgba(172, 165, 214,0.47);
-    margin-top: 20px;
+    background-color: rgba(172, 165, 214,0.47); 
+    margin-top: 10px;
     border: none;
     margin-bottom: 20px;
     cursor: pointer;
-    color: black;
+    
 }
 
-/* Estilo cuando el cursor está sobre el botón */
+
 .button:hover {
-    background-color: #925683;; /* azul más oscuro */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra suave */
+    background-color: #458ba0; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
     color: #ffffff;
 }
 
-/* Estilo cuando el botón está siendo presionado */
+
 .button:active {
-    background-color: #454ea0;  /* Verde aún más oscuro */
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Sombra más pequeña */
-    transform: translateY(2px); /* Pequeño movimiento hacia abajo */
+    background-color: #454ea0;  
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    transform: translateY(2px); 
 }
 
 
@@ -116,7 +150,206 @@ a{
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+.typing-effect{
+    display: none;
+}
+/* login.component.scss */
+/* Móviles pequeños (320px - 480px) */
+@media (max-width: 1280px) {
+    /* Estilos para móviles pequeños */
+}
 
+/* Móviles grandes (481px - 767px) */
+@media (min-width: 921px) and (max-width: 1279px) {
+     section{
+        width: 100%;
+        height: 100%;
+     }
+     .imagen{
+        width: 50%;
+     }
+     .imagen::before {
+        width: 50%;
+        height: 100%;
+    }
+    .formulario{
+        height: auto;
+        width: 300px;
+    }
+    .contenedor-formulario{
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+    .btn-button-submit{
+        margin-bottom: -25px;
+    }
+    .reset-link {
+        font-size: 11px; /* Tamaño del texto */
+    }
+}
+
+/* Tabletas (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 920px) {
+    section{
+        width: 100%;
+        height: 100%;
+     }
+     .imagen{
+        width: 50%;
+     }
+     .imagen::before {
+        width: 50%;
+        height: 100%;
+    }
+    .formulario{
+        height: auto;
+        width: 300px;
+    }
+    .contenedor-formulario{
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+    .btn-button-submit{
+        margin-bottom: -25px;
+    }
+    .reset-link {
+        font-size: 11px; /* Tamaño del texto */
+    }
+}
+
+/* Pantallas de escritorio pequeñas (1025px - 1280px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Estilos para pantallas de escritorio pequeñas */
+    section{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+     }
+
+.imagen::before {
+    width: 100%;
+    height: 100%;
+}
+.imagen {
+    width: 100%;
+    height: 100;
+}
+.contenedor-formulario {
+    width: 80%;
+    height: auto;
+    margin-bottom: 30px;
+}
+.typing-effect{
+    display: block;
+}
+.imagen[_ngcontent-ng-c37286177] {
+    width: 100%;
+    height: 90vh;
+}
+.typing-effect {
+    font-size: 18px; /* Ajusta el tamaño de la fuente según prefieras */
+    font-weight: normal; /* Cambia a 'normal' para una fuente normal */
+    color: #333;
+    line-height: 30px; /* Alinea el texto verticalmente dentro del contenedor */
+    white-space: nowrap;
+    margin-top: 20px;
+    height: 35px;
+    overflow: hidden;
+    border-right: 4px solid transparent; /* Usa 'transparent' para ocultar el cursor al final */
+    animation: typing 4s steps(40, end) forwards; /* Agrega 'forwards' para mantener el texto visible después de la animación */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    line-height: 1.2; /* Altura de la línea */
+    background: linear-gradient(90deg, #4A90E2, #9013FE); /* Degradado de fondo */
+    -webkit-background-clip: text; /* Clip del fondo para el texto (solo WebKit) */
+    -webkit-text-fill-color: transparent; /* Relleno de color transparente */
+    
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+.formulario{
+    width: 300px;
+    height: 400px;
+    border: none;
+    box-shadow: none; 
+}
+.formulario_2 h1{
+    display: none;
+}
+}
+
+/* Pantallas de escritorio medianas (1281px - 1440px) */
+@media (min-width: 352px) and (max-width: 480px) {
+    /* Estilos para pantallas de escritorio medianas */
+    section{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+     }
+
+.imagen::before {
+    width: 100%;
+    height: 100%;
+}
+.imagen {
+    width: 100%;
+    height: 100;
+}
+.contenedor-formulario {
+    width: 80%;
+    height: auto;
+    margin-bottom: 30px;
+}
+.typing-effect{
+    display: block;
+}
+.imagen[_ngcontent-ng-c37286177] {
+    width: 100%;
+    height: 90vh;
+}
+.typing-effect {
+    font-size: 18px; /* Ajusta el tamaño de la fuente según prefieras */
+    font-weight: normal; /* Cambia a 'normal' para una fuente normal */
+    color: #333;
+    line-height: 30px; /* Alinea el texto verticalmente dentro del contenedor */
+    white-space: nowrap;
+    margin-top: 20px;
+    height: 35px;
+    overflow: hidden;
+    border-right: 4px solid transparent; /* Usa 'transparent' para ocultar el cursor al final */
+    animation: typing 4s steps(40, end) forwards; /* Agrega 'forwards' para mantener el texto visible después de la animación */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    line-height: 1.2; /* Altura de la línea */
+    background: linear-gradient(90deg, #4A90E2, #9013FE); /* Degradado de fondo */
+    -webkit-background-clip: text; /* Clip del fondo para el texto (solo WebKit) */
+    -webkit-text-fill-color: transparent; /* Relleno de color transparente */
+    
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+.formulario{
+    width: 300px;
+    height: 400px;
+    border: none;
+    box-shadow: none; 
+}
+.formulario_2 h1{
+    display: none;
+}
 }
 
 // estilos mensajes de error en el formulario
@@ -127,4 +360,3 @@ a{
 }
 
 
-/* login.component.scss */
