@@ -1,4 +1,9 @@
+
 <div class="table-container">
+  <div class="btn-volver">
+   <!-- <h1 class="volver"><a routerLink="/home">Home</a>><a routerLink="/citas">Citas</a>><a routerLink="/historial">Historial</a></h1>-->
+   <button class="volver" routerLink="/citas">Volver</button>
+</div>
   <table class="clients-table">
     <thead>
       <tr>
@@ -43,8 +48,10 @@
     <div class="modal-content">
       <h2>Seleccione la nueva fecha</h2>
       <app-calendario (dateSelected)="onFechaSeleccionada($event)" (timeSelected)="onTimeSeleccionada($event)"></app-calendario>
-      <button (click)="guardarCita()" class="btn-aceptar">Aceptar</button>
-      <button (click)="cerrarModal()" class="btn-cancelar">Cancelar</button>
+      <div class="btns">
+        <button (click)="guardarCita()" class="btn-aceptar">Aceptar</button>
+        <button (click)="cerrarModal()" class="btn-cancelar">Cancelar</button>
+      </div>
     </div>
   </div>
 </div>
