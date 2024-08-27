@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TiendaService } from '../../services/tienda.service';
 import { catchError, of } from 'rxjs';
+
 
 @Component({
   selector: 'app-agregar-producto',
@@ -26,7 +28,7 @@ export class AgregarProductoComponent implements OnInit {
   productoForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
 
-  constructor(private formBuilder: FormBuilder, private tiendaService: TiendaService) {
+  constructor(private formBuilder: FormBuilder, private tiendaService: TiendaService, private router: Router) {
     this.productoForm = this.formBuilder.group({});
   }
 
@@ -35,6 +37,7 @@ export class AgregarProductoComponent implements OnInit {
       nombre: ['', Validators.required],
       precio: ['', [Validators.required, Validators.min(1)]],
       cantidad: ['', [Validators.required, Validators.min(1)]],
+      categoria: ['', [Validators.required, Validators.min(1)]],
       descripcion: ['', [Validators.required, Validators.maxLength(600)]]
     });
 
@@ -76,6 +79,8 @@ export class AgregarProductoComponent implements OnInit {
       .subscribe( response => {
         if (response) {
           console.log('Producto creado con exito:', response);
+          alert('producto creado');
+          this.router.navigate(['/home-admin']);
         };
       });
     } else {
