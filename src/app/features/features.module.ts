@@ -27,6 +27,9 @@ import { TablaCitasComponent } from './citas/pages/tabla-citas/tabla-citas.compo
 import { TiendaComponent } from './tienda/tienda.component';
 import { CardComponent } from './tienda/components/card-tienda/card.component';
 import { AgregarProductoComponent } from './tienda/components/agregar-producto/agregar-producto.component';
+
+
+
 @NgModule({
   declarations: [
     GestionCitasComponent,
@@ -47,15 +50,20 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     TiendaComponent,
     CardComponent,
     AgregarProductoComponent,
+        
 
     PagesNuevaadopcionComponent,
     FormularioAdopcionComponent,
     InfoAdopcionComponent,
    
     TablaCitasComponent,
+  
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     PagehomeModule
   ],
   exports: [
@@ -76,6 +84,7 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     CardComponent,
     AgregarProductoComponent,
     TablaCitasComponent
+ 
   ]
 })
 export class FeaturesModule {}

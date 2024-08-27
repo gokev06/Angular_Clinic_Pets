@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
   async onSubmit() {
     if (this.loginForm.valid) {
       const userData = this.loginForm.value;
+      console.log('Datos enviados:', userData);
+
       this.showErrorMessage = false; // Resetear el estado del mensaje de error
       this.errorMessage = ''; // Resetear el mensaje de error
 
