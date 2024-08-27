@@ -43,26 +43,92 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
-  @media (min-width: 1280px) {
-    /* Your styles for screens wider than 1280px */
+ 
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0; 
+  right: 0; 
+  left: 0;
+  bottom: 0;
+  background-color: rgba(43, 43, 53, 0.251); 
+}
+
+
+.modal-content {
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border: none;
+  background-color: white;
+}
+
+.modal-content img{
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 60px;
+  height: 40px;
+}
+.texto{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+button{
+  background-color: rgba(55, 163, 59, 0.47);
+  color: #607175;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+@media (min-width: 1280px) {
+  /* Your styles for screens wider than 1280px */
+}
+
+@media (max-width: 1279px) and (min-width: 921px) {
+  /* Your styles for screens between 1101px and 1279px */
+}
+
+@media (max-width: 1100px) and (min-width: 921px) {
+  /* Your styles for screens between 921px and 1100px */
+}
+
+@media (max-width: 920px) and (min-width: 769px) {
+  .modal{
+    bottom: -515px;
+    display: flex;
+    align-items: end;
   }
-  
-  @media (max-width: 1279px) and (min-width: 1101px) {
-    /* Your styles for screens between 1101px and 1279px */
+  .modal-content {
+   margin-bottom: 235px;
+}
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .modal{
+    bottom: -515px;
+    display: flex;
+    align-items: end;
   }
-  
-  @media (max-width: 1100px) and (min-width: 921px) {
-    /* Your styles for screens between 921px and 1100px */
+  .modal-content {
+   margin-bottom: 235px;
+}
+}
+
+@media (max-width: 480px) {
+  .modal{
+    bottom: -515px;
+    display: flex;
+    align-items: end;
   }
-  
-  @media (max-width: 920px) and (min-width: 769px) {
-    /* Your styles for screens between 769px and 920px */
-  }
-  
-  @media (max-width: 768px) and (min-width: 481px) {
-    /* Your styles for screens between 481px and 768px */
-  }
-  
-  @media (max-width: 480px) {
-    /* Your styles for screens narrower than 480px */
-  }
+  .modal-content {
+   margin-bottom: 235px;
+}
+}

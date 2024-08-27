@@ -10,27 +10,32 @@ export class PagoinfocitaComponent {
 
   showAlert() {
     Swal.fire({
+      width: '20em',
       title: 'Confirmar pago',
-      text: '¿Estás seguro de que quieres confirmar el pago?' ,
-      color:'#498649',
+      text: '¿Quieres confirmar el pago?',
+      color: '#498649',
       showCancelButton: true,
       imageUrl: '../../../../../assets/icons/tarjetapago.png',
       imageWidth: 100,
-      imageHeight: 100, 
+      imageHeight: 100,
       confirmButtonText: 'Sí, confirmar',
       confirmButtonColor: 'rgba(55, 163, 59, 0.47)',
       cancelButtonText: 'No, cancelar',
-      cancelButtonColor:'rgba(209, 0, 0, 0.47)',
-      
+      cancelButtonColor: 'rgba(209, 0, 0, 0.47)',
+      customClass: {
+        container: 'custom-swal-container'  // Aplica la clase personalizada aquí
+      }
+
     }).then((result) => {
       if (result.isConfirmed) {
-      this.isModalOpen = true
+        this.isModalOpen = true;
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        this.modalcancel= true
+        this.modalcancel = true;
       }
     });
   }
-  modalcancel= false
+
+  modalcancel = false;
   isModalOpen = false;
 
   toggleModalcancel() {
@@ -48,4 +53,3 @@ export class PagoinfocitaComponent {
     this.isModalOpen = false;
   }
 }
-

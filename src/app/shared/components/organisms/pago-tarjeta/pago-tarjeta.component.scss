@@ -316,14 +316,18 @@ select {
     height: auto;
   }
   .campo3 {
-    margin-left: 15px;
-    margin-right: 15px;
+    display: flex;
+    margin-left: 50px;
+    margin-right: -52px;
+    justify-content: space-between;
+    margin-top: 30px;
+    width: 370px;
 }
 .a{
   width: 270px;
 }
 .ntitular{
-  width: 270px;
+  width: 175px;
 }
 .tarjeta{
   width: 270px;
@@ -354,7 +358,7 @@ select {
   width: 270px;
 }
 .hola1{
-  width: 380px;
+  width: 280px;
 }
 .hola2 {
   width: 35px;
