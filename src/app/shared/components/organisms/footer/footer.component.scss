@@ -1,42 +1,39 @@
-footer{
+footer {
     width: 100%;
     height: 150px;
     background-color: #CCC4FF;
     display: flex;
-   
 }
 
-.direccion{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  padding-left: 16px;
-  padding-top: 12px;
+.direccion {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-top: 12px;
 }
 
-
-.direccion p{
+.direccion p {
     margin-top: 16px;
     font-size: 12px;
 }
-.iconos{
+
+.iconos {
     width: 50%;
     display: flex;
     padding: 8px;
     align-items: center;
     padding-top: 16px;
-
 }
 
-.informacion{
+.informacion {
     width: 50%;
     display: flex;
     justify-content: flex-end;
     padding-right: 40px;
 }
 
-
-.contactenos{
+.contactenos {
     width: 25%;
     color: #454545;
     display: flex;
@@ -46,22 +43,17 @@ footer{
     padding-left: 36px;
     margin-right: 36px;
     padding-top: 12px;
-
 }
 
-.contactenos p{
+.contactenos p {
     font-size: 12px;
-
 }
 
-.contactenos h2{
+.contactenos h2 {
     font-size: 16px;
-    
 }
- 
 
-
-.importante{
+.importante {
     width: 25%;
     color: #454545;
     display: flex;
@@ -70,14 +62,55 @@ footer{
     flex-direction: column;
     margin-right: 36px;
     margin-bottom: 4px;
-    
 }
 
-.importante p{
+.importante p {
     font-size: 12px;
 }
 
-.importante h2{
+.importante h2 {
     font-size: 16px;
+}
 
+/* Responsive para pantallas pequeñas (352px - 480px) */
+@media (min-width: 352px) and (max-width: 480px) {
+    footer {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        margin-top: 200px;
+        // flex-direction: column;
+    }
+
+    .informacion {
+        display: none;
+    }
+}
+
+/* Responsive para pantallas medianas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    footer {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        // flex-direction: column;
+    }
+
+    .informacion {
+        display: none;
+    }
+}
+
+/* Responsive para pantallas grandes (769px - 920px) */
+@media (min-width: 769px) and (max-width: 920px) {
+    footer {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        // flex-direction: column;
+    }
+
+    .informacion {
+        display: none;
+    }
 }

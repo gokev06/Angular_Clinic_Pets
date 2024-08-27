@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ContenedoresVetComponent {
 
+  public drawerOpen: boolean = false;
+
+  toggleDrawer() {
+    this.drawerOpen = !this.drawerOpen;
+  }
 }

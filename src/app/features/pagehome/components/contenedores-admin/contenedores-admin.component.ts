@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './contenedores-admin.component.scss'
 })
 export class ContenedoresAdminComponent {
+  public drawerOpen: boolean = false;
 
+  toggleDrawer() {
+    this.drawerOpen = !this.drawerOpen;
+  }
 }

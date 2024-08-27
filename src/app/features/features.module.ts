@@ -47,7 +47,6 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     TiendaComponent,
     CardComponent,
     AgregarProductoComponent,
-        
 
     PagesNuevaadopcionComponent,
     FormularioAdopcionComponent,
@@ -57,9 +56,6 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
     PagehomeModule
   ],
   exports: [

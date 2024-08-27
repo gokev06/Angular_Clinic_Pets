@@ -1,72 +1,185 @@
-.tamaño{
+.tamaño {
     width: 100%;
     height: 300px;
     display: flex;
     padding-left: 16px;
-   }
+    justify-content: center; /* Centra el contenido en pantallas grandes */
+}
 
-.tamaño .lucas{
+.tamaño .lucas {
     margin-right: 24px;
     width: 174px;
     height: 249px;
 }
 
-
-.pricipalbox{
+.pricipalbox {
     width: 65%;
     height: 157px;
     background-color: #BEF3FF;
     display: flex;
-    margin-top: 16px;
-    display: flex;
     flex-direction: column;
+    margin-top: 16px;
     border-radius: 8px;
 }
 
-
-.content{
+.content {
     display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
 }
 
-.content img{
+.content img {
     padding: 0 8px;
     width: 100px;
 }
 
-.pricipalbox img{
+.pricipalbox img {
     width: 30%;
     height: 144px;
     padding-top: 8px;
     display: block;
 }
 
-
-
-.text_adoptame{
+.text_adoptame {
     width: 100%;
-    height: 100px;
-    display: block;
+    height: auto; /* Permite que el contenedor ajuste su altura según el contenido */
     padding: 12px;
-  
+    box-sizing: border-box; /* Incluye padding y border en el ancho total del contenedor */
+    overflow: hidden; /* Oculta cualquier desbordamiento de contenido */
 }
 
-
-.text_adoptame p{
-    width: 100%;
+.text_adoptame p {
     font-size: 16px;
+    margin: 0;
+    line-height: 1.5; /* Mejora la legibilidad del texto */
+    word-wrap: break-word; /* Ajusta las palabras largas para que no se salgan del contenedor */
 }
 
-
-.img-text{
+.img-text {
     width: 400px;
 }
- 
 
-.img-text img{
+.img-text img {
     width: 37.6vw;
     height: 11vh;
     padding-top: 16px;
-    display: block;
     margin-top: 8px;
+    display: block;
+}
 
+/* Diseño para pantallas pequeñas (352px - 480px) */
+@media (min-width: 352px) and (max-width: 480px) {
+    .tamaño {
+        width: 70%;
+        display: none; /* Manteniendo display: none */
+        flex-direction: column;
+        padding-left: 0;
+    }
+
+    .lucas {
+        margin-right: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .img-text {
+        width: 200px;
+    }
+
+    .img-text img {
+        width: 100%;
+        height: auto;
+    }
+
+    .pricipalbox {
+        width: 90%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .text_adoptame p {
+        width: 100%;
+        font-size: 14px;
+        line-height: 1.4; /* Ajuste de interlineado para pantallas pequeñas */
+    }
+}
+
+/* Diseño para pantallas medianas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .tamaño {
+     
+        display: none; /* Manteniendo display: none */
+        padding-left: 0;
+    }
+
+    .lucas {
+        margin-right: 10px;
+        width: 180px;
+        height: 220px;
+    }
+
+    .img-text {
+        display: none;
+    }
+
+    .pricipalbox {
+      
+        height: 2px;
+        display: flex;
+        align-items: center;
+    }
+
+    .pricipalbox img {
+        width: 25%;
+        height: auto;
+    }
+
+    .content {
+        margin-left: 10px;
+    }
+
+    .text_adoptame p {
+        width: 100%;
+        font-size: 14px;
+        line-height: 1.4; /* Ajuste de interlineado para pantallas medianas */
+    }
+}
+
+/* Diseño para pantallas grandes (769px - 920px) */
+@media (min-width: 769px) and (max-width: 920px) {
+    .tamaño {
+        width: 90%;
+        margin-left: 10px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .lucas {
+        width: 174px;
+        height: 249px;
+    }
+
+    .pricipalbox {
+        width: 80%;
+        height: 157px;
+    }
+
+    .content {
+        margin-left: 10px;
+    }
+
+    .pricipalbox img {
+        width: 30%;
+    }
+
+    .text_adoptame p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.5; /* Ajuste de interlineado para pantallas grandes */
+    }
+
+    .img-text {
+        display: none;
+    }
 }

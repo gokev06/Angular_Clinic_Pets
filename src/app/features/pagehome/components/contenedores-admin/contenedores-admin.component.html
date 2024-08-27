@@ -1,1 +1,96 @@
-<p>contenedores-admin works!</p>
+
+<section>
+  <div>
+    <button class="drawer-toggle" (click)="toggleDrawer()">☰</button>
+  </div>
+  <div class="contenedores" [ngClass]="{'open': drawerOpen}">
+    
+        <div class="colorC">
+            <div class="position">
+              <div class="rounded-container"  routerLinkActive="active">  
+              <img src="../../../../../assets/images/imghome/cambio 1.png" alt="">
+            </div>
+             </div>
+                <nav class="bigtext">
+                  <app-titulo class="titulos" [estilo]="''" [ruta]="'/'" [title]="'Gestionar  horarios de atención'"></app-titulo>
+                  
+               </nav> 
+        </div>
+    
+    
+        <div class="colorC">
+            <div class="position">
+              <div class="rounded-container"  routerLinkActive="active">  
+              <img src="../../../../../assets/images/imghome/cita (3) 1.png" alt="">
+            </div>
+             </div>
+                <nav class="bigtext">
+                  <app-titulo class="titulos" [estilo]="''" [ruta]="'/'" [title]="'Gestionar Citas'"></app-titulo>
+                  
+               </nav> 
+        </div>
+      
+      
+        <div class="colorC">
+          <div class="position">
+            <div class="rounded-container" routerLink="/" routerLinkActive="active">
+            <img src="../../../../../assets/images/imghome/tienda (1) 1.png" alt="" >
+          </div> 
+           </div>     
+       <nav class="bigtext">  
+        <app-titulo class="titulos" [estilo]="''" [ruta]="'/'" [title]="'Gestionar Productos'"></app-titulo>
+          </nav> 
+      </div>
+    
+    
+      <div class="colorC">
+           <div class="position">
+            <div class="rounded-container" routerLink="/" routerLinkActive="active">
+          <img src="../../../../../assets/images/imghome/adoptado 1.png" alt="">
+           </div> 
+        </div>      
+      <nav class="bigtext">
+        <app-titulo class="titulos" [estilo]="''" [ruta]="'/'" [title]="'Gestionar Adopcion'"></app-titulo>
+        </nav> 
+      </div>
+    
+    
+      <div class="colorC">
+        <div class="position">
+          <div class="rounded-container" routerLinkActive="active">  
+          <img src="../../../../../assets/images/imghome/estetoscopio 1.png" alt="">
+        </div>
+         </div>
+            <nav class="bigtext">
+              <app-titulo class="titulos" [estilo]="''" [ruta]="'/citas'" [title]="'Gestionar Veterianrios'"></app-titulo>
+           </nav> 
+    </div>
+      
+    
+    
+    
+    <div class="colorC">
+      <div class="position">
+        <div class="rounded-container" routerLinkActive="active">  
+        <img src="../../../../../assets/images/imghome/tendencia 1.png" alt="">
+      </div>
+       </div>
+          <nav class="bigtext">
+            <app-titulo class="titulos" [estilo]="''" [ruta]="'/citas'" [title]="'Gestion de facturaciones'"></app-titulo>
+         </nav> 
+    </div>
+    
+    
+    <div class="colorC">
+      <div class="position">
+        <div class="rounded-container" routerLinkActive="active">  
+        <img src="../../../../../assets/images/imghome/listas-de-control 1.png" alt="">
+      </div>
+       </div>
+          <nav class="bigtext">
+            <app-titulo class="titulos" [estilo]="''" [ruta]="'/citas'" [title]="'Inventario'"></app-titulo>
+         </nav> 
+    </div>
+    
+      </div>
+    </section>
