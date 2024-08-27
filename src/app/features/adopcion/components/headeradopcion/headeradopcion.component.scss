@@ -1,4 +1,4 @@
-div{
+.header-container {
     background-color: #CCC4FF;
     width: 100%;
     height: 60px;
@@ -8,18 +8,16 @@ div{
     align-items: center;
 }
 
-
-a, button{
+a, button {
     background-color: #E9E1FE;
     border: none;
     border-radius: 10px;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px;
     font-size: 14px;
     cursor: pointer;
     text-decoration: none;
     color: black;
 }
-
 
 /* Contenedor del buscador */
 .search-container {
@@ -31,24 +29,109 @@ a, button{
     justify-content: center;
 }
 
-/* Estilos del input de búsqueda */
 .search-input {
-    padding: 10px 40px 10px 40px; /* Dejar espacio para el ícono */
+    padding: 10px 40px;
     font-size: 13px;
     border: 2px solid #000;
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px;
 }
 
-/* Estilos del ícono de búsqueda */
 .search-icon {
     position: absolute;
-    left: 28%; /* Posicionar el ícono a la izquierda */
-    font-size: 20px; /* Tamaño del ícono */
-    pointer-events: none; /* Evitar que el ícono bloquee los clics en el input */
-    color: #000; /* Color del ícono */
+    left: 85%; /* Alineación del ícono del buscador */
+    font-size: 20px;
+    pointer-events: none;
+    color: #000;
 }
 
-img{
+img {
     width: 15px;
     height: 15px;
+}
+
+.search-container-responsive {
+    display: none;
+    position: relative;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: center;
+}
+
+.search-input-responsive {
+    width: calc(100% - 30px); 
+    padding: 10px 30px;
+}
+
+.search-icon-responsive {
+    position: absolute;
+    right: 10px; 
+    font-size: 20px;
+    color: #000;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 352px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .search-container {
+        display: none; /* Ocultar el buscador original */
+    }
+
+    .search-container-responsive {
+        display: flex; /* Mostrar el nuevo buscador en la parte inferior */
+        width: 100%;
+        margin-top: 20px; /* Espacio entre el buscador y los botones */
+    }
+
+    .search-input-responsive {
+        width: 100%;
+    }
+
+    button, a {
+        padding: 8px 20px;
+        font-size: 12px;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .search-container {
+        display: none; 
+    }
+
+    .search-container-responsive {
+        display: flex; 
+        width: 100%;
+        margin-top: 20px; 
+    }
+
+    .search-input-responsive {
+        width: 100%;
+    }
+
+    button, a {
+        padding: 8px 20px;
+        font-size: 12px;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width:769px){
+
+
 }
