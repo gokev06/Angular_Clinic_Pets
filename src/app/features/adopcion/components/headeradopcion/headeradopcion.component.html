@@ -1,9 +1,17 @@
-<div>
-    <button>Mis publicaciones</button>
-   <div class="search-container">
-    <input [(ngModel)]="searchTerm" (input)="onSearch()" type="text" placeholder="Buscar..." class="search-input">
-    <span class="search-icon"><img src="../../../../../assets/icons/buscar.png" alt=""></span>
+<div class="header-container">
+  <button>Mis publicaciones</button>
+  <div class="search-container">
+      <input [(ngModel)]="searchTerm" (input)="onSearch()" type="text" placeholder="Buscar..." class="search-input">
+      <span class="search-icon">
+        <img src="../../../../../assets/icons/buscar.png" alt=""></span>
   </div>
+  <a href="/nueva-adopcion">Nueva Publicacion</a>
 
-    <a href="/nueva-adopcion">Nueva Publicacion</a>
+<div class="search-container-responsive">
+  <input [(ngModel)]="searchTerm" (input)="onSearch()" type="text" placeholder="Buscar..." class="search-input">
+  <span class="search-icon">
+    <img src="../../../../../assets/icons/buscar.png" alt=""></span>
 </div>
+</div>
+
+
