@@ -1,10 +1,14 @@
 <app-header [ruta]="'/historial'" [title]="'Consultar Historial'"></app-header>
-<section class="emptyState" *ngIf="citas.length <= 0">
-  <p id="ono">¡Oh no!</p>
-  <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
-  <p id="noTienesClientes">Aún no tienes citas</p>
+<section class="emptyState" *ngIf="citas.length <= 0 ">
+  <div class="vacio">
+    <h1>Vaya...</h1>
+    <img src="../../../../../assets/images/gato.png" alt="">
+    <h2>Parece que no haz agendado una cita</h2>
+    <h3>Agenda tu cita para que puedas tener un historial.</h3>
+    <button class="volver" routerLink="/citas">Volver</button>
+  </div>
 </section>
-<section *ngIf="citas.length > 0" class="background">
+<section *ngIf="citas.length > 0 " class="background">
   <app-table-historial 
     [citas]="citas"  
     (citaEliminada)="onCitaEliminada($event)" 
