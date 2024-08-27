@@ -18,6 +18,7 @@ import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-hom
 
 
 
+
 @NgModule({
   declarations: [
     CitasComponent,
@@ -30,7 +31,8 @@ import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-hom
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+  
   ],
   imports: [
     FormsModule,
@@ -50,7 +52,8 @@ import { PagesHomeVetComponent } from './pagehome/pages/pages-home-vet/pages-hom
     RegistroComponent,
     PagesHomeRegisterComponent,
     PagesHomeAdminComponent,
-    PagesHomeVetComponent
+    PagesHomeVetComponent,
+ 
   ]
 })
 export class FeaturesModule { }

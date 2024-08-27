@@ -29,6 +29,32 @@
     font-size: 16px;
 }
 
+@media (max-width: 352px){
+    .cajagrande{
+       
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+       
+    }
+    .cjamorada{
+     width: 80%;
+    }
+
+    .cjamorada p{
+        font-size: 10px;
+    }
+    .tamaño{
+        width: 80%;
+        margin-left: 10px;
+      }
+        .tamaño img{
+            width: 95%;
+            
+        }
+}
+
 
 
 @media (max-width:480px){
@@ -37,6 +63,31 @@
         display: flex;
         padding-left: 0px;
         padding-top: 10px;
+        margin-right: 20px;
     }
+    
+    .cjamorada p{
+        font-size: 10px;
+    }
+  .tamaño{
+    margin-left: 10px;
+  }
+    .tamaño img{
+        margin-right: 10px;
+    }
+}
+
+@media (max-width:769px) {
+    .cajagrande{
+        width: 100%;
+        display: flex;
+        display: none;
+        padding-left: 0px;
+        padding-top: 10px;
+        margin-right: 20px;
+    }
+
+
+  
     
 }

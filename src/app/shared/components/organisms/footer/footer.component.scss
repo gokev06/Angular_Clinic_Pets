@@ -82,7 +82,39 @@ footer{
 
 }
 
+
+@media (max-width:352px) {
+    footer{
+        height: 200px;
+        margin-top: 400px;
+        display: flex;
+        align-items: center;
+        // flex-direction: column;
+    }
+    
+
+    .informacion{
+         display: none;
+     }
+}
+
 @media (max-width:480px) {
+    footer{
+        height: 200px;
+        display: flex;
+        align-items: center;
+        // flex-direction: column;
+    }
+    
+
+    .informacion{
+         display: none;
+     }
+}
+
+
+
+@media (max-width:769px) {
     footer{
         height: 200px;
         display: flex;

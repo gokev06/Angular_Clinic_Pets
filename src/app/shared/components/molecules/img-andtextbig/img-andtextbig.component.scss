@@ -54,7 +54,7 @@
 
 
 .text_adoptame p{
-    width: 100%;
+    width: 400px;
     font-size: 16px;
 }
 
@@ -72,6 +72,7 @@
     margin-top: 8px;
 
 }
+
 @media (max-width:480px){
  
     .tamaño{
@@ -83,6 +84,54 @@
 
     .img-text{
         width: 200px;
+    }
+   
+}
+
+
+@media (max-width:769px){
+ 
+    .tamaño{
+        width: 80%;
+        margin-left: 76px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .tamaño .lucas{
+        margin-right: 0px;
+        margin-top: 10px;
+        width: 180px;
+        height: 220px;
+        border-radius: 2px;
+    }
+    
+   .img-text{
+    display: none;
+   }
+
+
+   .pricipalbox{
+    width: 65%;
+    height: 213px;
+}
+    
+    .pricipalbox img{
+        padding-top: 8px;
+        display: block;
+        margin-left: 20px
+    }
+
+    .content{
+        display: flex;
+        margin-left: 20px;
+        
+    }
+
+    .text_adoptame p{
+        width: 100%;
+        font-size: 12px;
     }
    
 }

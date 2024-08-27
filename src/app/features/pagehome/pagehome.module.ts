@@ -25,7 +25,9 @@ import { ContenedoresVetComponent } from './components/contenedores-vet/contened
   ]),
   ],
   exports:[
-    HeaderHomeComponent
+    HeaderHomeComponent,
+    ContenedoresAdminComponent,
+    ContenedoresVetComponent,
   ]
 })
 export class PagehomeModule { }
