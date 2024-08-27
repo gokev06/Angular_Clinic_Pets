@@ -1,93 +1,132 @@
-.cajagrande{
+.cajagrande {
     width: 100%;
     height: 400px;
     display: flex;
     padding-left: 72px;
 }
 
-
-.tamaño{
+.tamaño {
     width: 45%;
     height: 350px;
     margin-left: 56px;
     margin-top: 24px;
-   
-  
 }
 
-.cjamorada{
+.cjamorada {
     width: 55%;
     height: 233px;
-    background-color:  #E0DBFF;
+    background-color: #E0DBFF;
     margin-right: 8px;
     margin-top: 40px;
     padding: 8px 16px;
-   border-radius: 8px;
+    border-radius: 8px;
 }
 
-.cjamorada p{
+.cjamorada p {
     font-size: 16px;
 }
-
-@media (max-width: 352px){
-    .cajagrande{
-       
+/* Diseño para pantallas pequeñas (hasta 480px) */
+@media (min-width:352px) and (max-width: 480px) {
+    .cajagrande {
         height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .cjamorada {
+        width: 300px; 
+        height: 200px; 
+        margin-right: 0;
+        margin-top: 45px;
+        align-items: center;
+    }
+
+    .cjamorada p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .tamaño {
+        width: 300px; 
+        height: 200px; 
         display: flex;
         align-items: center;
-        flex-direction: column;
-       
-    }
-    .cjamorada{
-     width: 80%;
+        justify-content: center;
+        margin: 0;
+        margin-top: 40px;
     }
 
-    .cjamorada p{
-        font-size: 10px;
-    }
-    .tamaño{
-        width: 80%;
-        margin-left: 10px;
-      }
-        .tamaño img{
-            width: 95%;
-            
-        }
-}
-
-
-
-@media (max-width:480px){
-    .cajagrande{
-        width: 100%;
-        display: flex;
-        padding-left: 0px;
-        padding-top: 10px;
-        margin-right: 20px;
-    }
-    
-    .cjamorada p{
-        font-size: 10px;
-    }
-  .tamaño{
-    margin-left: 10px;
-  }
-    .tamaño img{
-        margin-right: 10px;
+    .tamaño img {
+        width: 180px; 
+        margin: 0 auto;
     }
 }
 
-@media (max-width:769px) {
-    .cajagrande{
+/* Diseño para pantallas medianas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .cajagrande {
         width: 100%;
-        display: flex;
-        display: none;
-        padding-left: 0px;
+        padding-left: 0;
         padding-top: 10px;
-        margin-right: 20px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
 
+    .cjamorada {
+        width: 400px; 
+        height: 250px; 
+    }
 
-  
-    
+    .cjamorada p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .tamaño {
+        width: 350px; 
+        height: 250px; 
+        margin-left: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tamaño img {
+        width: 200px; 
+    }
+}
+
+
+/* Diseño para pantallas grandes (769px - 920px) */
+@media (min-width: 769px) and (max-width: 920px) {
+    .cajagrande {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 10px;
+        margin-right: 20px;
+        align-items: center;
+    }
+
+    .cjamorada {
+        width: 500px; /* Tamaño fijo */
+        height: 300px; /* Tamaño fijo */
+    }
+
+    .cjamorada p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .tamaño {
+        width: 400px; /* Tamaño fijo */
+        height: 300px; /* Tamaño fijo */
+        margin-left: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tamaño img {
+        width: 250px; /* Tamaño fijo */
+    }
 }
