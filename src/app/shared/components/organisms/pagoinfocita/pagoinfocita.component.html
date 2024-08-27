@@ -3,27 +3,24 @@
       <div class="padre">
         <img src="../../../../../assets/icons/logopets.png" alt="">
         <div class="madre">
-          <app-titulo estilo="color: #607175; font-size: 20px; margin-bottom:10px;" title="Tambovet"></app-titulo>
+          <app-titulo estilo="color: #607175; font-size: 20px; margin-bottom:10px; " title="Tambovet"></app-titulo>
           <app-titulo estilo="color: #607175; font-size: 20px" title="Clinica Veterinaria"></app-titulo>
         </div>
         <img src="../../../../../assets/icons/logopets.png" alt="">
       </div>
       <div class="campo">
         <div class="p">
-          <app-label [for]="'Tipo de Cita:'" style="font-size: 25px; color: #607175;"></app-label>
+          <label for="'Tipo de Cita:'" class="label">Tipos de Cita:</label>
         </div>
-        <app-input [id]="'Tipo de cita'" [text]="'text'" [holder]="''"
-                  [estilos]="'padding: 10px; width: 300px; background-color: rgba(84, 177, 197, 0.15); border:none; border-radius: 10px; margin-top: 10px'"></app-input>
+        <input id="'Tipo de cita'" text="'text'" class="input"> 
+              <div class="p">
+                <label for="'Costo:'" class="label">Costo:</label>
+        </div>
+        <input id="'Costo'" text="'text'" class="input"> 
         <div class="p">
-          <app-label [for]="'Costo:'" style="font-size: 25px; color: #607175;"></app-label>
+          <label for="'Fecha:'" class="label">Fecha:</label>
         </div>
-        <app-input [id]="'Costo'" [text]="'text'" [holder]="''"
-                  [estilos]="'padding: 10px; width: 300px; background-color: rgba(84, 177, 197, 0.15); border:none; border-radius: 10px; margin-top: 10px'"></app-input>
-        <div class="p">
-          <app-label [for]="'Fecha'" style="font-size: 25px; color: #607175;"></app-label>
-        </div>
-        <app-input [id]="'Fecha'" [text]="'text'" [holder]="''"
-                  [estilos]="'padding: 10px; width: 300px; background-color: rgba(84, 177, 197, 0.15); border:none; border-radius: 10px; margin-top: 10px'"></app-input>
+        <input id="'Fecha'" text="'text'" class="input"> 
         <div class="boton">
           <button (click)="showAlert()">Confirmar pago</button>
         </div>

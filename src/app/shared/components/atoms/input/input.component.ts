@@ -17,7 +17,8 @@ export class InputComponent implements ControlValueAccessor {
   @Input() text: string = ""; 
   @Input() id: string ="";
   @Input() holder: string="";
-  @Input() estilos : String=""
+  @Input() estilos : String="";
+  @Input() clase : string= "";
 
   control = new FormControl();
 
