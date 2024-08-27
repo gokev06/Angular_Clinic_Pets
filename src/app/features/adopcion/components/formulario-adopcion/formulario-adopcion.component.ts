@@ -111,8 +111,8 @@ export class FormularioAdopcionComponent implements OnInit {
             if (response) {
               console.log('Adopción creada con éxito:', response);
               Swal.fire({
-                title: '¡Publicado!',
-                text: 'La adopción ha sido publicada.',
+                title: '¡Adopcion creada!',
+                text: 'La adopcion esta en espera para publicar.',
                 imageUrl: '../../../../../assets/icons/exito.png',
                 showConfirmButton: true,
                 confirmButtonText: 'Aceptar',
