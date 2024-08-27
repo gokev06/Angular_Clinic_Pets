@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
  export interface adopcion{
@@ -23,13 +23,26 @@ import { Observable } from 'rxjs';
 })
 export class SolicitudAdopcionService {
 
-  private apiurl = 'http://localhost:8000/adopciones'
-
+  private apiurl = 'http://localhost:8000/adopciones';
+  private apiUrl_1 = 'http://localhost:10101';
 
   constructor( private http: HttpClient) { }
 
   getAdopciones(): Observable<adopcion[]> {
     return this.http.get<adopcion[]>(this.apiurl);
   }
+
+  createPets(petsData: any, token?: string | null): Observable<any>{
+    let headers = new HttpHeaders();
+    if (token) {
+       headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    headers = headers.set('Content-Type', 'application/json');
+
+    return this.http.post(`${this.apiUrl_1}/addPetsUser`, petsData, {headers});
+  }
+  
+
+
 
 }

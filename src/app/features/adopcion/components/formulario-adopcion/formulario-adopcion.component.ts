@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SolicitudAdopcionService } from '../../services/solicitud-adopcion.service';
+import { catchError, of } from 'rxjs';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -9,6 +11,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./formulario-adopcion.component.scss']
 })
 export class FormularioAdopcionComponent implements OnInit {
+
+
   @Output() datosAdopcionFormulario = new EventEmitter<any>();
   estilos = 'padding:0 10px; background-color: #CCC4FF; border-radius: 5px; width: 300px; height: 40px; font-size: 15px; border: none; margin-bottom: 30px; color: black;';
   estilos1 = 'padding:10px 10px 150px 10px; background-color: #CCC4FF; border-radius: 5px; width: 300px; height: 180px; font-size: 15px; border: none; margin-bottom: 30px; color: black; line-height: 1; ';
@@ -16,7 +20,7 @@ export class FormularioAdopcionComponent implements OnInit {
   loginForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private solicitudService: SolicitudAdopcionService) {
     this.loginForm = this.formBuilder.group({});
   }
 
@@ -60,11 +64,13 @@ export class FormularioAdopcionComponent implements OnInit {
   }
 
   onSubmit(): void {
+    // Verificación inicial del formulario y la imagen seleccionada
     if (this.loginForm.invalid || !this.selectedImage) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
+    // Mostrar alerta de confirmación antes de proceder
     Swal.fire({
       title: 'Confirmación',
       text: '¿Está seguro de publicar la adopción?',
@@ -86,27 +92,46 @@ export class FormularioAdopcionComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        this.datosAdopcionFormulario.emit({
-          ...this.loginForm.value,
-          imagen: this.selectedImage
-        });
-
-        Swal.fire({
-          title: '¡Publicado!',
-          text: 'La adopción ha sido publicada.',
-          imageUrl: '../../../../../assets/icons/exito.png',
-          showConfirmButton: true,
-          confirmButtonText: 'Aceptar',
-          customClass: {
-            title: 'swal2-title',
-            image: 'swal2-image',
-            popup: 'my-swal-popup',
-            confirmButton: 'my-confirm-button'
-          },
-          didRender: () => {
-            this.applyCustomStylesToPublishedAlert();
-          }
-        });
+        // Si el usuario confirma, procede a crear la adopción
+        const token = localStorage.getItem('userToken');
+        this.solicitudService.createPets(this.loginForm.value, token)
+          .pipe(
+            catchError(error => {
+              console.error('Error al crear adopción', error);
+              Swal.fire({
+                title: 'Error',
+                text: 'Hubo un error al publicar la adopción.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+              });
+              return of(null);
+            })
+          )
+          .subscribe(response => {
+            if (response) {
+              console.log('Adopción creada con éxito:', response);
+              Swal.fire({
+                title: '¡Adopcion creada!',
+                text: 'La adopcion esta en espera para publicar.',
+                imageUrl: '../../../../../assets/icons/exito.png',
+                showConfirmButton: true,
+                confirmButtonText: 'Aceptar',
+                customClass: {
+                  title: 'swal2-title',
+                  image: 'swal2-image',
+                  popup: 'my-swal-popup',
+                  confirmButton: 'my-confirm-button'
+                },
+                didRender: () => {
+                  this.applyCustomStylesToPublishedAlert();
+                }
+              }).then(() => {
+                this.router.navigate(['/home']);
+              });
+            } else {
+              console.log('Formulario inválido: ', this.loginForm.errors);
+            }
+          });
       }
     });
   }
