@@ -70,3 +70,52 @@ span {
 .hora-row {
     display: contents;
 }
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .calendario {
+        grid-template-columns: minmax(100px, 1fr) repeat(7, minmax(50px, 1fr)); /* Reduce el tamaño mínimo de las columnas de días */
+        grid-template-rows: auto repeat(auto-fill, minmax(40px, 1fr)); /* Reduce el tamaño mínimo de las filas */
+    }
+
+    .header-cell, .hora-name, .day-name {
+        font-size: calc(9px + 1vw); /* Ajusta el tamaño de la fuente dinámicamente */
+        padding: 8px 4px; /* Ajusta el padding */
+    }
+}
+
+@media (max-width: 992px) {
+    .calendario {
+        grid-template-columns: minmax(80px, 1fr) repeat(7, minmax(40px, 1fr)); /* Reduce aún más el tamaño mínimo de las columnas de días */
+        grid-template-rows: auto repeat(auto-fill, minmax(30px, 1fr)); /* Reduce aún más el tamaño mínimo de las filas */
+    }
+
+    .header-cell, .hora-name, .day-name {
+        font-size: calc(8px + 1vw); /* Ajusta el tamaño de la fuente dinámicamente */
+        padding: 6px 3px; /* Ajusta el padding */
+    }
+}
+
+@media (max-width: 768px) {
+    .calendario {
+        grid-template-columns: minmax(60px, 1fr) repeat(7, minmax(30px, 1fr)); /* Reduce aún más el tamaño mínimo de las columnas de días */
+        grid-template-rows: auto repeat(auto-fill, minmax(25px, 1fr)); /* Reduce aún más el tamaño mínimo de las filas */
+    }
+
+    .header-cell, .hora-name, .day-name {
+        font-size: calc(7px + 1vw); /* Ajusta el tamaño de la fuente dinámicamente */
+        padding: 4px 2px; /* Ajusta el padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .calendario {
+        grid-template-columns: minmax(50px, 1fr) repeat(7, minmax(20px, 1fr)); /* Reduce aún más el tamaño mínimo de las columnas de días */
+        grid-template-rows: auto repeat(auto-fill, minmax(20px, 1fr)); /* Reduce aún más el tamaño mínimo de las filas */
+    }
+
+    .header-cell, .hora-name, .day-name {
+        font-size: calc(6px + 1vw); /* Ajusta el tamaño de la fuente dinámicamente */
+        padding: 2px 1px; /* Ajusta el padding */
+    }
+}

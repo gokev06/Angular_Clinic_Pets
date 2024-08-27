@@ -1,6 +1,5 @@
-
-
-.background{
+/* Contenedor de fondo del modal */
+.background {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,120 +11,202 @@
     background-color: #00000073;
 }
 
-
-.header{
+/* Encabezado del modal */
+.header {
     display: flex;
     width: 100%;
     justify-content: center;
-    padding: 10px 10px;
+    padding: 10px;
 }
 
-.modal{
-    width: 800px;
-    background-color: #f0f0f0 ;// rgba(255, 255, 255, 0.58);
+/* Modal */
+.modal {
+    width: 80%; /* Ajuste para pantallas pequeñas */
+    max-width: 800px; /* Ancho máximo para pantallas grandes */
+    background-color: #f0f0f0;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    padding: 30px ;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.formulario{
+/* Formulario */
+.formulario {
     display: flex;  
-    width: 60%;
+    width: 100%; /* Asegura que el formulario use todo el ancho del modal */
     border: 1px solid rgba(204, 196, 255, 1);
     flex-direction: column;
     border-radius: 20px;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-
-.btn-button-submit{
+/* Botón de envío */
+.btn-button-submit {
     width: 100%;
-    height: 50px;
+    height: auto; /* Ajusta la altura automáticamente para pantallas pequeñas */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Cambia a space-between para más espacio entre botones */
     align-items: center;
-
+    flex-wrap: wrap; /* Permite que los botones se ajusten en diferentes líneas si es necesario */
 }
 
-
-.button{
-    padding: 10px 30px;
+/* Botón */
+.button {
+    padding: 3px 10px; /* Reduce aún más el padding para hacer los botones más pequeños */
     border-radius: 5px;
     cursor: pointer;
-    background-color:rgba(87, 250, 60, 0.47);
+    background-color: rgba(87, 250, 60, 0.47);
     color: black;
     text-decoration: none;
     border: none;
-    
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    margin: 3px; /* Reduce el margen alrededor de los botones */
 }
 
-.Title-form{
+/* Título del formulario */
+.Title-form {
     width: 100%;
     display: flex;
     height: 10px;
     margin-bottom: 8px;
 }
 
-.fondo{
+/* Fondo */
+.fondo {
     display: flex;
     justify-content: center;
 }
 
-.content{
+/* Contenido */
+.content {
     width: 100%;
     display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en diferentes líneas */
 }
 
-.imagen{
-    width: 40%;
+/* Imagen */
+.imagen {
+    width: 100%; /* Ajusta el ancho para pantallas pequeñas */
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-#file-6{
-    opacity:0;
+/* Estilo del archivo oculto */
+#file-6 {
+    opacity: 0;
     width: 0.1px;
     height: 0.1px;
     overflow: hidden;
     z-index: -1;
-    
-
 }
 
-.image-preview{
+/* Vista previa de la imagen */
+.image-preview {
     display: flex;
     align-items: center;
     flex-direction: column;
     background-size: cover;
     background-position: center;
     position: relative;
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
+    width: 100px; /* Ajuste para pantallas pequeñas */
+    height: 100px; /* Ajuste para pantallas pequeñas */
+    border-radius: 50%;
+    margin: 10px 0;
 }
-#a{
+
+/* Fondo para imagen de vista previa */
+#a {
     background-color: rgba(250, 60, 60, 0.47);
 }
 
+/* Imagen dentro de la vista previa */
 .image-preview img {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;;
-  }
-
-
-.validar{
-    width: 80%;
-    padding: 0 10px ;
+    width: 100px; /* Ajuste para pantallas pequeñas */
+    height: 100px; /* Ajuste para pantallas pequeñas */
+    border-radius: 50%;
 }
 
-.texto{
+/* Validar sección */
+.validar {
+    width: 100%; /* Ajuste para pantallas pequeñas */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Texto */
+.texto {
     width: 100%;
     justify-content: flex-start;
 }
 
-.p{
+/* Párrafo */
+.p {
     margin-top: 20px;
+}
+
+/* Estilo específico para la sección de selección de imagen */
+#file-6 + label {
+    margin-top: 20px; /* Agrega un margen superior para separar la sección de selección de imagen */
+    display: block;
+    text-align: center;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .modal {
+        width: 90%; /* Aumenta el ancho del modal en pantallas más pequeñas */
+        padding: 15px; /* Reduce el padding en pantallas más pequeñas */
+    }
+
+    .imagen {
+        width: 100%; /* Asegura que la imagen use todo el ancho disponible */
+    }
+
+    .image-preview {
+        width: 80px; /* Ajuste para pantallas pequeñas */
+        height: 80px; /* Ajuste para pantallas pequeñas */
+    }
+
+    .image-preview img {
+        width: 80px; /* Ajuste para pantallas pequeñas */
+        height: 80px; /* Ajuste para pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        width: 95%; /* Aumenta el ancho del modal en pantallas aún más pequeñas */
+        padding: 10px; /* Reduce el padding aún más en pantallas más pequeñas */
+    }
+
+    .image-preview {
+        width: 60px; /* Ajuste para pantallas muy pequeñas */
+        height: 60px; /* Ajuste para pantallas muy pequeñas */
+    }
+
+    .image-preview img {
+        width: 60px; /* Ajuste para pantallas muy pequeñas */
+        height: 60px; /* Ajuste para pantallas muy pequeñas */
+    }
+
+    .btn-button-submit {
+        display: flex;
+        height: auto; /* Permite que el contenedor de botones se ajuste automáticamente */
+        justify-content: space-between;
+    }
+
+    .button {
+        width: 40%; /* Asegura que el botón use todo el ancho disponible */
+        margin-bottom: 5px; /* Agrega un margen inferior entre los botones */
+        padding: 3px 8px; /* Ajusta el padding para pantallas muy pequeñas */
+        font-size: 10px; /* Tamaño de fuente aún más pequeño */
+        text-align: center;
+    }
+
+    #file-6 + label {
+        font-size: 12px; /* Ajusta el tamaño de la fuente para pantallas muy pequeñas */
+    }
 }
