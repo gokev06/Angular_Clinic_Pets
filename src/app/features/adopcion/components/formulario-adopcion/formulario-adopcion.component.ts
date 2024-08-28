@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { SolicitudAdopcionService } from '../../services/solicitud-adopcion.service';
 import { catchError, of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -12,10 +12,9 @@ import Swal from 'sweetalert2';
 })
 export class FormularioAdopcionComponent implements OnInit {
 
-
   @Output() datosAdopcionFormulario = new EventEmitter<any>();
   estilos = 'padding:0 10px; background-color: #CCC4FF; border-radius: 5px; width: 300px; height: 40px; font-size: 15px; border: none; margin-bottom: 30px; color: black;';
-  estilos1 = 'padding:10px 10px 150px 10px; background-color: #CCC4FF; border-radius: 5px; width: 300px; height: 180px; font-size: 15px; border: none; margin-bottom: 30px; color: black; line-height: 1; ';
+  estilos1 = 'padding:10px 10px 150px 10px; background-color: #CCC4FF; border-radius: 5px; width: 300px; height: 180px; font-size: 15px; border: none; margin-bottom: 30px; color: black; line-height: 1;';
 
   loginForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
@@ -27,15 +26,15 @@ export class FormularioAdopcionComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       nombre: ['', Validators.required],
-      edad: ['', Validators.required],
+      edad: ['', [Validators.required, this.edadValidator]],
       especie: ['', Validators.required],
-      raza: ['', Validators.required],
+      raza: ['', [Validators.required, this.razaValidator]],
       sexo: ['', Validators.required],
       Esterilizacion: ['', Validators.required],
       estadovacunacion: ['', Validators.required],
-      telefono: ['', Validators.required],
+      telefono: ['', [Validators.required, this.telefonoValidator]],
       ubicacion: ['', Validators.required],
-      historia: ['', Validators.required]
+      historia: ['', [Validators.required, Validators.maxLength(200)]]
     });
 
     this.loginForm.valueChanges.subscribe(valor => {
@@ -64,13 +63,11 @@ export class FormularioAdopcionComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Verificación inicial del formulario y la imagen seleccionada
     if (this.loginForm.invalid || !this.selectedImage) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
-    // Mostrar alerta de confirmación antes de proceder
     Swal.fire({
       title: 'Confirmación',
       text: '¿Está seguro de publicar la adopción?',
@@ -92,7 +89,6 @@ export class FormularioAdopcionComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si el usuario confirma, procede a crear la adopción
         const token = localStorage.getItem('userToken');
         this.solicitudService.createPets(this.loginForm.value, token)
           .pipe(
@@ -111,8 +107,8 @@ export class FormularioAdopcionComponent implements OnInit {
             if (response) {
               console.log('Adopción creada con éxito:', response);
               Swal.fire({
-                title: '¡Adopcion creada!',
-                text: 'La adopcion esta en espera para publicar.',
+                title: '¡Adopción creada!',
+                text: 'La adopción está en espera para publicar.',
                 imageUrl: '../../../../../assets/icons/exito.png',
                 showConfirmButton: true,
                 confirmButtonText: 'Aceptar',
@@ -182,11 +178,32 @@ export class FormularioAdopcionComponent implements OnInit {
     }
 
     if (imageElement) {
-      imageElement.setAttribute('style', ' display: flex; justify-content: center; width: 150px; height: 150px;');
+      imageElement.setAttribute('style', 'display: flex; justify-content: center; width: 150px; height: 150px;');
     }
 
     if (confirmButton) {
       confirmButton.setAttribute('style', 'margin-right: 10px; color: black; background-color: rgba(87, 250, 60, 0.47);');
     }
+  }
+
+  // Validación para el campo edad
+  edadValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    const valid = /^[0-9]+( mes| meses)?$/.test(value);
+    return valid ? null : { 'edadInvalid': true };
+  }
+
+  // Validación para el campo raza
+  razaValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    const valid = /^[a-zA-Z\s]+$/.test(value);
+    return valid ? null : { 'razaInvalid': true };
+  }
+
+  // Validación para el campo teléfono
+  telefonoValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    const valid = /^[0-9]+$/.test(value);
+    return valid ? null : { 'telefonoInvalid': true };
   }
 }

@@ -66,8 +66,8 @@ export class ModalEditarPerfilComponent  implements OnInit{
       nombreUsuario: ['', Validators.required],
       apellidoUsuario: ['', Validators.required],
       //numeroDeDocumento: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      telefonoUsuario: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      correoUsuario: ['', [Validators.required, Validators.email]],
+      telefonoUsuario: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]],
+      correoUsuario: ['', [Validators.required, Validators.email]]
      // contrasenia: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
     });
 
