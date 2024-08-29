@@ -49,19 +49,40 @@ export class FormularioAdopcionComponent implements OnInit {
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
-    const reader = new FileReader();
 
     if (file) {
-      reader.onload = () => {
-        this.selectedImage = reader.result;
-        this.datosAdopcionFormulario.emit({
-          ...this.loginForm.value,
-          imagen: this.selectedImage
-        });
-      };
-      reader.readAsDataURL(file);
+      this.solicitudService.uploadImage(file).subscribe(
+        response => {
+          if (response && response.url) {
+            this.selectedImage = response.url;
+            console.log('Imagen subida exitosamente:', this.selectedImage);
+
+            this.datosAdopcionFormulario.emit({
+              ...this.loginForm.value,
+              imagen: this.selectedImage
+            });
+          } else {
+            console.error('La respuesta no contiene una URL de imagen');
+            this.mostrarError('La respuesta del servidor no es válida');
+          }
+        },
+        error => {
+          console.error('Error al subir la imagen', error);
+          this.mostrarError('Hubo un error al subir la imagen');
+        }
+      );
     }
   }
+
+  private mostrarError(mensaje: string): void {
+    Swal.fire({
+      title: 'Error',
+      text: mensaje,
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
 
   onSubmit(): void {
     // Verificación inicial del formulario y la imagen seleccionada

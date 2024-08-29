@@ -25,6 +25,7 @@ export class SolicitudAdopcionService {
 
   private apiurl = 'http://localhost:8000/adopciones';
   private apiUrl_1 = 'http://localhost:10101';
+  private apiUrl_2 = 'http://localhost:10101';
 
   constructor( private http: HttpClient) { }
 
@@ -41,8 +42,16 @@ export class SolicitudAdopcionService {
 
     return this.http.post(`${this.apiUrl_1}/addPetsUser`, petsData, {headers});
   }
-  
 
+  uploadImage(imageFile: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', imageFile);
 
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('userToken')}`
+    });
+
+    return this.http.post(` ${this.apiUrl_2}/filesUpload`, formData, { headers });
+  }
 
 }
