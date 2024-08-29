@@ -48,19 +48,20 @@
             </h4>
             <app-input [text]="'text'" [holder]="'apellido'" class="input-form" formControlName="apellidoUsuario" [id]="'apellido'" [estilos]="estilos"></app-input>
            <!-- <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input> --> 
-            <h4 class="Title-form">Telefono:
-              <div  class="validar" *ngIf="callDataUser.get('telefonoUsuario')?.errors && callDataUser.get('telefonoUsuario')?.dirty">
-                <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('required')">Rellene el campo telefono</p>
-                <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('minlength')">Minimo 10 caracteres en telefono</p>
-                <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('maxlength')">maximo 10 caracteres en telefono</p>    
-              </div>
-            </h4>
+           <h4 class="Title-form">Telefono:
+            <div class="validar" *ngIf="callDataUser.get('telefonoUsuario')?.errors && callDataUser.get('telefonoUsuario')?.dirty">
+              <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('required')">Rellene el campo teléfono</p>
+              <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('pattern')">El teléfono debe contener solo números</p>
+              <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('minlength')">Mínimo 10 caracteres en teléfono</p>
+              <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('maxlength')">Máximo 10 caracteres en teléfono</p>    
+            </div>
+          </h4> 
             <app-input [text]="'text'" [holder]="'numero de telefono'" class="input-form" formControlName="telefonoUsuario" [id]="'telefono'" [estilos]="estilos"></app-input>
 
             <h4 class="Title-form">Email:
-              <div  class="validar"  *ngIf="callDataUser.get('correoUsuario')?.errors && callDataUser.get('correoUsuario')?.dirty">
+              <div class="validar" *ngIf="callDataUser.get('correoUsuario')?.errors && callDataUser.get('correoUsuario')?.dirty">
                 <p *ngIf="callDataUser.get('correoUsuario')?.hasError('required')">Rellene el campo correo</p>
-                <p *ngIf="callDataUser.get('correoUsuario')?.hasError('email')">Debe ingresar un correo valido</p>
+                <p *ngIf="callDataUser.get('correoUsuario')?.hasError('email')">Debe ingresar un correo válido</p>
               </div>
             </h4>
             <app-input [text]="'text'" [holder]="'email'" class="input-form" formControlName="correoUsuario" [id]="'email'" [estilos]="estilos"></app-input>
