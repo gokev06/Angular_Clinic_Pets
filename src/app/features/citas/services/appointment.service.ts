@@ -47,6 +47,8 @@ export class AppointmentService {
     return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
   }
 
+
+
   getAppointmentsByDate(date: string, token?: string | null): Observable<any[]> {
     let headers = new HttpHeaders();
     if (token) {
@@ -54,6 +56,7 @@ export class AppointmentService {
     }
     return this.http.get<any[]>(`${this.apiUrl_1}/callDateAppointments/${date}`, { headers });
   }
+
 
 
   updateAppointment(idCita: string, appointmentData: any, token?: string | null): Observable<any> {
