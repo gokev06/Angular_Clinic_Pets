@@ -14,6 +14,8 @@ import { PagesHistorialComponent } from './features/citas/pages/pages-historial/
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { TiendaComponent } from './features/tienda/tienda.component';
 import { AgregarProductoComponent } from './features/tienda/components/agregar-producto/agregar-producto.component';
+import { TiendaProductoComponent } from './features/tienda/components/tienda-producto/tienda-producto.component';
+import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -26,9 +28,10 @@ const routes: Routes = [
   {path: "home-admin", component: PagesHomeAdminComponent},
   {path: "home-vet", component: PagesHomeVetComponent},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
-  {path: 'unauthorized', component: UnauthorizedComponent},
+  {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent},
-  {path:'subir-producto',component:AgregarProductoComponent}
+  {path:'subir-producto',component:AgregarProductoComponent},
+  {path: 'info-producto', component:InfoProductoTiendaComponent}
 
 
 
