@@ -17,6 +17,8 @@ import { PagehomeModule } from './pagehome/pagehome.module';
 import { TiendaComponent } from './tienda/tienda.component';
 import { CardComponent } from './tienda/components/card-tienda/card.component';
 import { AgregarProductoComponent } from './tienda/components/agregar-producto/agregar-producto.component';
+import { InfoTComponent } from './tienda/components/filtro/info-t.component';
+import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
 @NgModule({
   declarations: [
     CitasComponent,
@@ -32,7 +34,9 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     PagesHomeVetComponent,
     TiendaComponent,
     CardComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    InfoTComponent,
+    FiltroTiendaComponent
         
 
   ],

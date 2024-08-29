@@ -1,8 +1,19 @@
-<div class="card">
-    <div class="logo"><img src="../../../../../assets/icons/logo-pet.png" alt=""></div>
+<div class="principal">
 
-    <div class="imagen-principal">
-        <img src="../../../../../assets/images/imghome/descarga (1) 2.png" alt="">
-    </div>
-
+<div class="card" *ngFor="let producto of productos">
+  <div class="logo">
+    <!-- <img [src]="producto.logo" alt="Logo"> -->
+  </div>
+  <div class="imagen-principal">
+    <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+  </div>
+  <div class="info-producto">
+    <h3>{{ producto.nombre }}</h3>
+    <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
+    <p>Categoría: {{ producto.categoria }}</p>
+   <div class="posicion-b">
+    <button class="boton">Agregar</button>
+  </div> 
+  </div>
+</div>
 </div>
