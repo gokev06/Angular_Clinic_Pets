@@ -20,6 +20,8 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
 import { TiendaProductoComponent } from './tienda/components/tienda-producto/tienda-producto.component';
 import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda/info-producto-tienda.component';
 
+import { InfoTComponent } from './tienda/components/filtro/info-t.component';
+import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
 @NgModule({
   declarations: [
     CitasComponent,
@@ -37,7 +39,11 @@ import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda
     CardComponent,
     AgregarProductoComponent,
     TiendaProductoComponent,
-    InfoProductoTiendaComponent
+    InfoProductoTiendaComponent,
+    InfoTComponent,
+    FiltroTiendaComponent
+        
+
   ],
   imports: [
     CommonModule,
