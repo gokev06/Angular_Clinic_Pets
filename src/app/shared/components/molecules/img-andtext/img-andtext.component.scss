@@ -3,6 +3,7 @@
     height: 400px;
     display: flex;
     padding-left: 72px;
+    padding-bottom: 90px;
 }
 
 .tamaño {
@@ -26,7 +27,7 @@
     font-size: 16px;
 }
 /* Diseño para pantallas pequeñas (hasta 480px) */
-@media (min-width:352px) and (max-width: 480px) {
+@media (max-width: 480px) {
     .cajagrande {
         height: auto;
         flex-direction: column;
@@ -35,8 +36,8 @@
     }
 
     .cjamorada {
-        width: 300px; 
-        height: 200px; 
+        width: 300px;
+        height: 200px;
         margin-right: 0;
         margin-top: 45px;
         align-items: center;
@@ -48,8 +49,8 @@
     }
 
     .tamaño {
-        width: 300px; 
-        height: 200px; 
+        width: 300px;
+        height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -58,7 +59,7 @@
     }
 
     .tamaño img {
-        width: 180px; 
+        width: 180px;
         margin: 0 auto;
     }
 }
@@ -75,8 +76,8 @@
     }
 
     .cjamorada {
-        width: 400px; 
-        height: 250px; 
+        width: 400px;
+        height: 250px;
     }
 
     .cjamorada p {
@@ -85,15 +86,15 @@
     }
 
     .tamaño {
-        width: 350px; 
-        height: 250px; 
+        width: 350px;
+        height: 250px;
         margin-left: 0;
         align-items: center;
         justify-content: center;
     }
 
     .tamaño img {
-        width: 200px; 
+        width: 200px;
     }
 }
 

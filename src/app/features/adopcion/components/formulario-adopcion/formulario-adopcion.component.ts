@@ -18,6 +18,8 @@ export class FormularioAdopcionComponent implements OnInit {
 
   loginForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
+  tempImageFile: File | null = null;  // Nueva variable para almacenar temporalmente el archivo de imagen
+  imageUrl: string | null = null;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private solicitudService: SolicitudAdopcionService) {
     this.loginForm = this.formBuilder.group({});
@@ -45,25 +47,59 @@ export class FormularioAdopcionComponent implements OnInit {
     });
   }
 
+
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
-    const reader = new FileReader();
 
     if (file) {
+      this.tempImageFile = file;
+      const reader = new FileReader();
       reader.onload = () => {
-        this.selectedImage = reader.result;
-        this.datosAdopcionFormulario.emit({
-          ...this.loginForm.value,
-          imagen: this.selectedImage
-        });
+        this.selectedImage = reader.result; // Previsualización de la imagen seleccionada
       };
       reader.readAsDataURL(file);
     }
   }
 
+  uploadImage(): Promise <string> {
+    return new Promise((resolve, reject) => {
+      if (!this.tempImageFile) {
+        reject('No image file selected');
+        return;
+      }
+
+      this.solicitudService.uploadImage(this.tempImageFile).subscribe(
+        response => {
+          if( response && response.url){
+            this.imageUrl = response.url;
+            resolve(response.url);
+          } else{
+            reject('La respuesta no contiene una URL de imagen');
+          }
+        },
+        error => {
+          console.error('Error al subir la imagen', error);
+          reject('Hubo un error al subir la imagen');
+        }
+      );
+    });
+  }
+
+
+
+  private mostrarError(mensaje: string): void {
+    Swal.fire({
+      title: 'Error',
+      text: mensaje,
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+
   onSubmit(): void {
-    if (this.loginForm.invalid || !this.selectedImage) {
+    if (this.loginForm.invalid || !this.tempImageFile) {
       this.loginForm.markAllAsTouched();
       return;
     }
@@ -89,44 +125,52 @@ export class FormularioAdopcionComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        const token = localStorage.getItem('userToken');
-        this.solicitudService.createPets(this.loginForm.value, token)
-          .pipe(
-            catchError(error => {
-              console.error('Error al crear adopción', error);
-              Swal.fire({
-                title: 'Error',
-                text: 'Hubo un error al publicar la adopción.',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              });
-              return of(null);
-            })
-          )
-          .subscribe(response => {
-            if (response) {
-              console.log('Adopción creada con éxito:', response);
-              Swal.fire({
-                title: '¡Adopción creada!',
-                text: 'La adopción está en espera para publicar.',
-                imageUrl: '../../../../../assets/icons/exito.png',
-                showConfirmButton: true,
-                confirmButtonText: 'Aceptar',
-                customClass: {
-                  title: 'swal2-title',
-                  image: 'swal2-image',
-                  popup: 'my-swal-popup',
-                  confirmButton: 'my-confirm-button'
-                },
-                didRender: () => {
-                  this.applyCustomStylesToPublishedAlert();
-                }
-              }).then(() => {
-                this.router.navigate(['/home']);
-              });
-            } else {
-              console.log('Formulario inválido: ', this.loginForm.errors);
-            }
+          this.uploadImage().then(imageUrl => {
+            const formData = {
+              ...this.loginForm.value,
+              imagen: imageUrl
+            };
+
+            const token = localStorage.getItem('userToken');
+            this.solicitudService.createPets(formData, token)
+            .pipe(
+              catchError(error => {
+                console.error('Error al crear adopción', error);
+                Swal.fire({
+                  title: 'Error',
+                  text: 'Hubo un error al publicar la adopción.',
+                  icon: 'error',
+                  confirmButtonText: 'Aceptar'
+                });
+                return of(null);
+              })
+            )
+            .subscribe( response => {
+              if (response) {
+                 console.log('Adopción creada con éxito:', response);
+                 Swal.fire({
+                  title: '¡Adopción creada!',
+                  text: 'La adopción está en espera para publicar.',
+                  imageUrl: '../../../../../assets/icons/exito.png',
+                  showConfirmButton: true,
+                  confirmButtonText: 'Aceptar',
+                  customClass: {
+                    title: 'swal2-title',
+                    image: 'swal2-image',
+                    popup: 'my-swal-popup',
+                    confirmButton: 'my-confirm-button'
+                  },
+                  didRender: () => {
+                    this.applyCustomStylesToPublishedAlert();
+                  }
+                }).then(() => {
+                  this.router.navigate(['/home']);
+                });
+
+              }
+            });
+          }).catch(error => {
+            this.mostrarError(error);
           });
       }
     });

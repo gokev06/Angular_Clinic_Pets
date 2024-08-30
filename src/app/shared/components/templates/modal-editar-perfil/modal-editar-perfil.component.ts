@@ -24,7 +24,7 @@ export class ModalEditarPerfilComponent  implements OnInit{
     this.closeedit.emit();
   }
 
-    // Evento para cerrar el modal de edición
+   
   callDataUser!: FormGroup;
 
   // Constructor del componente
