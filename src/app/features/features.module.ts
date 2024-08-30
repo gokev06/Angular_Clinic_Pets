@@ -22,14 +22,14 @@ import { FormularioAdopcionComponent } from './adopcion/components/formulario-ad
 import { CardformularioComponent } from './adopcion/components/cardformulario/cardformulario.component';
 import { InfoAdopcionComponent } from './adopcion/pages/info-adopcion/info-adopcion.component';
 import { TablaCitasComponent } from './citas/pages/tabla-citas/tabla-citas.component';
-
-
 import { TiendaComponent } from './tienda/tienda.component';
 import { CardComponent } from './tienda/components/card-tienda/card.component';
 import { AgregarProductoComponent } from './tienda/components/agregar-producto/agregar-producto.component';
+import { TiendaProductoComponent } from './tienda/components/tienda-producto/tienda-producto.component';
+import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda/info-producto-tienda.component';
 
-
-
+import { InfoTComponent } from './tienda/components/filtro/info-t.component';
+import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
 @NgModule({
   declarations: [
     GestionCitasComponent,
@@ -50,8 +50,10 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     TiendaComponent,
     CardComponent,
     AgregarProductoComponent,
-        
-
+    TiendaProductoComponent,
+    InfoProductoTiendaComponent,
+    InfoTComponent,
+    FiltroTiendaComponent,
     PagesNuevaadopcionComponent,
     FormularioAdopcionComponent,
     InfoAdopcionComponent,
@@ -83,8 +85,9 @@ import { AgregarProductoComponent } from './tienda/components/agregar-producto/a
     TiendaComponent,
     CardComponent,
     AgregarProductoComponent,
-    TablaCitasComponent
- 
+    TablaCitasComponent,
+    TiendaProductoComponent,
+    InfoProductoTiendaComponent
   ]
 })
 export class FeaturesModule {}

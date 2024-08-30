@@ -1,13 +1,23 @@
+<app-header [ruta]="'/citas'" [title]="'tienda'"></app-header>
+
 <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="imagen">Imagen del Producto</label>
-    <input id="imagen" type="file" (change)="onFileChange($event)" />
+  <div class="container-input">
+    <input type="file" name="file-6" id="file-6" class="inputfile inputfile-6" data-multiple-caption="{count} archivos seleccionados" multiple (change)="onFileChange($event)" />
+    <label for="file-6">
+      <div class="fondo">
+        <div id="image-preview" class="image-preview" 
+             [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
+          <img src="../../../../../assets/icons/nubenegra.png" alt="" *ngIf="!selectedImage">
+          <p *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
+        </div>              
+      </div>              
+    </label>
   </div>
 
 
 
 <section>
-<div class="paret1">
+<div class="paret1"> 
   <div>
     <label for="nombre">Nombre del Producto</label>
     <input id="nombre" type="text" formControlName="nombre" [ngStyle]="estilos" placeholder="Nombre del Producto" />
@@ -31,17 +41,7 @@
       La cantidad es obligatoria.
     </div>
   </div>
-
-  <div>
-    <label for="categoria">categoria</label>
-    <input id="categoria" type="text" formControlName="categoria" [ngStyle]="estilos" placeholder="categoria" />
-    <div *ngIf="productoForm.get('categoria')?.invalid && productoForm.get('categoria')?.touched" class="error-message">
-      La categoria es obligatoria.
-    </div>
-  </div>
-
-
-</div>
+</div> 
 
 <div class="parte2">
   <div class="input-group">
@@ -53,9 +53,8 @@
       </div>
     </div>
   </div>
-</div>
+</div>  
 </section>
   <button class="Cancelar">Cancelar</button>
   <button type="submit" [disabled]="productoForm.invalid">Subir Producto</button>
 </form>
-

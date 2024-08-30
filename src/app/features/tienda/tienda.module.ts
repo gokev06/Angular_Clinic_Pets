@@ -17,6 +17,8 @@ import { CardComponent } from './components/card-tienda/card.component';
     ReactiveFormsModule,
     FormsModule,
     SharedModule
+  ],
+  exports:[
   ]
 })
 export class TiendaModule { }

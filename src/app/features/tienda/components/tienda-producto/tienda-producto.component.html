@@ -1,0 +1,97 @@
+<div class="padre">
+  <div class="parteuno">
+    <nav aria-label="breadcrumb" class="breadcrumb-container">
+      <ul class="breadcrumb">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/tienda">Tienda</a></li>
+        <li class="current-page"><a href="#">Producto</a></li>
+      </ul>
+    </nav>
+    <div class="contenedor-imagen" 
+         (mouseenter)="activarZoom()" 
+         (mouseleave)="desactivarZoom()" 
+         (mousemove)="moverImagen($event)">
+      <img src="../../../../../assets/images/chunky.jpg" 
+           alt="Imagen para Zoom" 
+           [ngStyle]="{
+             'transform': zoomActivo ? 'scale(1.2) translate(' + posX + '%, ' + posY + '%)' : 'scale(1) translate(0, 0)'
+           }">
+    </div>
+    
+  </div>
+  <div class="partedos">
+    <div class="center">
+      <h1>Alimento Para Perro Chunky Adulto <br> Razas Pequeñas - {{ textoKilogramos }}</h1>
+    </div>
+    <section>
+      <h3>Seleccione Presentación/Talla/Tamaño:</h3>
+<div class="botones">
+  <button
+    *ngFor="let kg of kilogramos"
+    (click)="seleccionarKilogramos(kg)"
+    [ngClass]="{'selected': kg === kilogramaSeleccionado}"
+  >
+    {{ kg }} kg
+  </button>
+</div>
+      <h1>{{ textoPrecio }} COP</h1>
+      
+      <!-- Nuevos botones -->
+      <div class="botones-adicionales">
+        <h3>Seleccione Cantidad:</h3>
+        <div class="cantidad">
+          <button class="btn-cantidad1" (click)="cambiarCantidad(-1)">-</button>
+          <input type="text" id="cantidad" [value]="cantidad" readonly />
+          <button class="btn-cantidad2" (click)="cambiarCantidad(1)">+</button>
+        </div>
+        <button class="agregarAlCarrito">Agregar al carrito</button>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="tabs">
+  <button [ngClass]="{'active': selectedTab === 'info'}" (click)="selectTab('info')">Descripción</button>
+  <button [ngClass]="{'active': selectedTab === 'description'}" (click)="selectTab('description')">Información</button>
+</div>
+
+<div class="tab-content">
+  <div *ngIf="selectedTab === 'info'">
+    <h2>Descripción</h2>
+    <p>Chunky es el alimento ideal para perros adultos de razas pequeñas,<br> formulado cuidadosamente para satisfacer todas las necesidades <br> nutricionales  de tu mascota. </p>
+    <a href="/tienda">Ver mas productos de la tienda</a>
+  </div>
+  <div *ngIf="selectedTab === 'description'">
+    <h2>Información</h2>
+    <p>Alimento Chunky para Cachorros está formulado especialmente para satisfacer las necesidades nutricionales de los cachorros en crecimiento. Proporciona una dieta equilibrada y completa que apoya un desarrollo saludable y un crecimiento óptimo.
+
+      Beneficios Clave:
+      Nutrición Completa: Diseñado para cubrir todas las necesidades nutricionales de los cachorros en sus primeras etapas de vida. Contiene proteínas de alta calidad y una mezcla equilibrada de grasas y carbohidratos para apoyar un crecimiento saludable.
+      
+      Desarrollo Óptimo: Enriquecido con vitaminas y minerales esenciales para promover un desarrollo adecuado de huesos, dientes y músculos.
+      
+      Sistema Inmunológico Fuerte: Fortificado con antioxidantes y nutrientes que apoyan el sistema inmunológico del cachorro, ayudando a mantenerlo saludable y resistente a enfermedades.
+      
+      Digestión Saludable: Incluye prebióticos y fibras naturales que favorecen una digestión eficiente y una flora intestinal saludable.
+      
+      Palatabilidad Superior: Con un sabor delicioso que asegura que los cachorros disfruten cada comida, facilitando la transición del destete al alimento sólido.
+      
+      Instrucciones de Alimentación:
+      Cantidad Recomendada: Ajusta la cantidad de alimento según el peso y la edad del cachorro. Consulta la guía de alimentación en el envase para recomendaciones específicas.
+      
+      Frecuencia de Alimentación: Ofrece comidas varias veces al día en porciones pequeñas. Gradualmente reduce la frecuencia a medida que el cachorro crece.
+      
+      Agua Fresca: Asegúrate de que siempre haya agua limpia y fresca disponible para el cachorro.
+      
+      Consejos Adicionales de Cuidado:
+      Visitas al Veterinario: Realiza chequeos regulares con el veterinario para monitorear la salud y el crecimiento del cachorro.
+      
+      Ejercicio: Proporciona tiempo adecuado de juego y ejercicio para mantener al cachorro activo y saludable.
+      
+      Higiene: Mantén un régimen regular de baño y cuidado para asegurar que el cachorro se mantenga limpio y libre de parásitos.
+      
+      Socialización: Introduce al cachorro a diferentes personas, lugares y otros animales para fomentar una socialización adecuada y un comportamiento equilibrado.
+      
+      </p>
+  </div>
+</div>
+
