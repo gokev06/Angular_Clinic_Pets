@@ -21,6 +21,7 @@ export const authGuard: CanActivateFn = (route, state) => {
           map(role => {
             console.log('Current role:', role); // Para depuración
             console.log('Current URL:', state.url); // Para depuración
+            sessionStorage.setItem('userRole', role);
              // Verificar la ruta y el rol
             if (roleRoutes[role] && roleRoutes[role].some((allowedRoute: any) => state.url.startsWith(allowedRoute))) {
               return true;

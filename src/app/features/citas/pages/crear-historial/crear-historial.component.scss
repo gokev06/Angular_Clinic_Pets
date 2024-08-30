@@ -25,9 +25,9 @@ form{
 
 
 select{
-    border:none ; 
-    border-bottom:2px solid #CCC4FF; 
-    margin-top: 16px; 
+    border:none ;
+    border-bottom:2px solid #CCC4FF;
+    margin-top: 16px;
     height: 30px;
     width: 300px;
 }
@@ -76,6 +76,7 @@ textarea{
     border: none;
     border-radius: 20px;
     background-color: rgba(87, 250, 60, 0.47);
+    text-decoration: none;
     cursor: pointer;
 }
 

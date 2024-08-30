@@ -31,6 +31,14 @@ export class AppointmentService {
     return this.http.get(`${this.apiUrl_1}/callDate`, { headers });
   }
 
+  getCallTutorData(token?: string | null): Observable <any>{
+    let headers = new HttpHeaders();
+    if (token) {
+       headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.get(`${this.apiUrl_1}/callTutorData`, {headers});
+  }
+
 
   createHistoryMedic(historialData: any,token?: string | null): Observable<any>{
     let headers = new HttpHeaders();
