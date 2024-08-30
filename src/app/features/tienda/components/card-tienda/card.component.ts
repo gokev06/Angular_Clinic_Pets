@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductoService, productos } from'../../services/producto-tienda.service';
 import { from } from 'rxjs';
 
@@ -10,22 +10,11 @@ import { from } from 'rxjs';
 })
 export class CardComponent implements OnInit  {
 
-  productos: productos[] = [];
+  @Input() productos: productos[] = []; // Recibir productos filtrados desde el componente padre
 
-  constructor(private productoService: ProductoService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.cargarProductos();
-  }
-
-  private cargarProductos(): void {
-    this.productoService.getProductos().subscribe({
-      next: (data: productos[]) => {
-        this.productos = data;
-      },
-      error: (err) => {
-        console.error('Error al obtener productos', err);
-      }
-    });
+    // Inicialización adicional si es necesario
   }
 }
