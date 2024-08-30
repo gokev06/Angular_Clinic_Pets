@@ -40,6 +40,7 @@ export class AppointmentService {
   }
 
 
+
   createHistoryMedic(historialData: any,token?: string | null): Observable<any>{
     let headers = new HttpHeaders();
     if (token) {
