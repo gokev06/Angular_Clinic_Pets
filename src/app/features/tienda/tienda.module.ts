@@ -6,12 +6,14 @@ import { SharedModule } from '../../shared/shared.module';
 import { AgregarProductoComponent } from './components/agregar-producto/agregar-producto.component';
 import { CardComponent } from './components/card-tienda/card.component';
 import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.component';
+import { TiendaAdminComponent } from './pages/tienda-admin/tienda-admin.component';
 
 @NgModule({
   declarations: [
     AgregarProductoComponent,
     CardComponent,
-    HeaderTiendaComponent
+    HeaderTiendaComponent,
+    TiendaAdminComponent
   ],
   imports: [
     CommonModule,

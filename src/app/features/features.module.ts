@@ -23,6 +23,7 @@ import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda
 import { InfoTComponent } from './tienda/components/filtro/info-t.component';
 import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
 import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-tienda.component';
+import { TiendaAdminComponent } from './tienda/pages/tienda-admin/tienda-admin.component';
 @NgModule({
   declarations: [
     CitasComponent,
@@ -43,8 +44,8 @@ import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-
     InfoProductoTiendaComponent,
     InfoTComponent,
     FiltroTiendaComponent,
-    HeaderTiendaComponent
-        
+    HeaderTiendaComponent,
+    TiendaAdminComponent
 
   ],
   imports: [
@@ -70,7 +71,8 @@ import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-
     CardComponent,
     AgregarProductoComponent,
     TiendaProductoComponent,
-    InfoProductoTiendaComponent
+    InfoProductoTiendaComponent,
+
   ]
 })
 export class FeaturesModule {}
