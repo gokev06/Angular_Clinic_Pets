@@ -302,30 +302,30 @@
       "id": 5,
       "nombre": "Producto 1",
       "precio": 10000,
-      "categoria": "jueguetes",
+      "categoria": "Accesorios",
       "imagen": "https://puppiscolombia.vteximg.com.br/arquivos/ids/169297-1000-1000/224020-juguete-para-perro-pestages-mordedor-de.jpg?v=637421132127170000"
     },
     {
       "id": 6,
       "nombre": "Antiparasito perros",
       "precio": 20000,
-      "categoria": "medicamentos",
+      "categoria": "Medicamentos",
       "imagen": "https://puppiscolombia.vteximg.com.br/arquivos/ids/193238-1000-1000/Proyecto-nuevo--37-.png?v=638597854886570000"
     },
 
     {
       "id": 7,
-      "nombre": "Antipulgas",
+      "nombre": "Chunky ",
       "precio": 18000,
-      "categoria": "medicamentos",
-      "imagen": "https://puppiscolombia.vteximg.com.br/arquivos/ids/172883-150-150/Antipulgas-Bravecto-de-2-a-4.5-kg-para-perro.jpg?v=637574784781500000"
+      "categoria": "Alimento",
+      "imagen": "https://villavoexpress.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ODk3NDUsInB1ciI6ImJsb2JfaWQifX0=--2b4c29024a2f569ba7052871f059b73de3585655/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fZml0IjpbODAwLDgwMF19LCJwdXIiOiJ2YXJpYXRpb24ifX0=--1420d7fd3d20057726f0ef3c0043db24ca0403be/111101714-min.jpg?locale=es"
     },
     {
       "id": 8,
-      "nombre": "Producto 2",
-      "precio": 200,
-      "categoria": "Categoría 2",
-      "imagen": "imagen2.jpg"
+      "nombre": "Antiparasito perros",
+      "precio": 20000,
+      "categoria": "Medicamentos",
+      "imagen": "https://www.supermascotas.com.co/wp-content/uploads/2023/08/AntiparasitarioInternoYExternoParaPerroSimparicaTrio48Mg-1.png"
     }
   ]
 }

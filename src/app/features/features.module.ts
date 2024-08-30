@@ -22,6 +22,7 @@ import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda
 
 import { InfoTComponent } from './tienda/components/filtro/info-t.component';
 import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
+import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-tienda.component';
 @NgModule({
   declarations: [
     CitasComponent,
@@ -41,7 +42,8 @@ import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-
     TiendaProductoComponent,
     InfoProductoTiendaComponent,
     InfoTComponent,
-    FiltroTiendaComponent
+    FiltroTiendaComponent,
+    HeaderTiendaComponent
         
 
   ],

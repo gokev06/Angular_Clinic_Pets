@@ -1,5 +1,4 @@
 <div class="principal">
-
 <div class="card" *ngFor="let producto of productos">
   <div class="logo">
     <!-- <img [src]="producto.logo" alt="Logo"> -->
@@ -11,9 +10,6 @@
     <h3>{{ producto.nombre }}</h3>
     <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
     <p>Categoría: {{ producto.categoria }}</p>
-   <div class="posicion-b">
-    <button class="boton">Agregar</button>
-  </div> 
   </div>
 </div>
 </div>

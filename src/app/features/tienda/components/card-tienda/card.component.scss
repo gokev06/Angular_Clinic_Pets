@@ -2,22 +2,23 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 
 .card {
   width: 270px; /* Ajusta el ancho según sea necesario */
-  height: 470px; /* Ajusta la altura según sea necesario */
+  height: 420px; /* Ajusta la altura según sea necesario */
   margin: 16px; /* Espacio entre tarjetas */
-  border: 1px solid #ddd;
+  border: 1px solid #cfcfcf;
   border-radius: 4px;
   padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
   
   .logo img {
@@ -34,6 +35,7 @@
 
   .info-producto h3 {
     font-size: 20px;
+    font-weight: 700;
     margin: 8px 0;
   }
   
@@ -42,18 +44,3 @@
   }
   
 
-.posicion-b{
-  width: 100%;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-}
-.boton{
-  width: 200px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #CCC4FF;
-  border: none;
-  margin-top: 10px;
-  margin-right: 10px;
-}
