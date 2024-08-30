@@ -1,8 +1,9 @@
-<app-header [ruta]="'/citas'" [title]="'tienda'" ></app-header>
-<div class="search-container">
-    <input type="text" placeholder="Buscar..." (input)="onSearch($event)">
-  </div>
+<app-header [ruta]="'/citas'" [title]="'tienda'" >
+</app-header>
+<app-info-t></app-info-t>
 
- <section>
-<app-card></app-card>
-</section> 
+
+  <div class="wrap">
+    <app-filtro-tienda></app-filtro-tienda>
+   <app-card></app-card> 
+  </div>

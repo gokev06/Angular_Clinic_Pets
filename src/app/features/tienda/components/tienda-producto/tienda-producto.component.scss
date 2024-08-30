@@ -1,0 +1,266 @@
+.padre{
+  display: flex;
+  justify-content: space-evenly;
+}
+.contenedor-imagen {
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  margin: 0 auto;
+  position: relative;
+}
+
+.contenedor-imagen img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contenedor-imagen:hover {
+  cursor: zoom-in;
+}
+.breadcrumb-container {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  }
+  
+  .breadcrumb {
+  list-style: none;
+  display: flex;
+   padding: 0;
+   margin: 0;
+   justify-content: center;
+   margin: 40px;
+  }
+  
+  .breadcrumb li {
+   position: relative;
+   margin-right: 10px; /* Espacio entre los elementos */
+  }
+  
+  .breadcrumb li:not(:last-child)::after {
+   content: '|'; /* Separador vertical */
+   position: absolute;
+   right: -10px; /* Ajusta la posición según el espacio entre los elementos */
+   top: 0;
+   color: #607178; /* Color del separador */
+   margin-left: 10px;
+   margin-right: 15px;
+  }
+  
+  .breadcrumb a {
+  text-decoration: none;
+   color: #607178; /* Color de los enlaces */
+   margin-right: 20px;
+  }
+  
+  
+  .breadcrumb a:hover {
+   text-decoration: underline;
+  }
+  
+  /* Estilo para el breadcrumb de la página actual */
+  .breadcrumb .current-page a {
+   color: #CCC4FF; /* Color del breadcrumb actual */
+   font-weight: bold; /* Opcional: hacer el texto negrita */
+  }
+  .center{
+    margin-top: 20px;
+    
+  }
+  .center h1{
+      margin-top: 0;
+      margin-left: 15px;
+      text-align: left;
+      font-weight: 700; 
+  }
+ 
+.partedos section {
+  margin-top: 50px;
+}
+.partedos{
+  margin-top: 85px;
+}
+.botones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #D9D9D9;
+  color: #333;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #CCC4FF;
+  color: rgb(0, 0, 0);
+  
+}
+
+h1 {
+  margin-top: 20px;
+  color: #333;
+  text-align: left;
+  margin-left: 25px;
+  margin-top: 50px;
+  font-weight: 700;
+}
+ h3 {
+  font: 400 16px / 28px Roboto, sans-serif;
+  letter-spacing: .009375em;
+  margin: 0 0 16px;
+  width: 300px;
+  margin-left: 15px;
+}
+.botones-adicionales {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.botones-adicionales h3{
+  
+  margin-right: 60px;
+}
+.botones button {
+  background-color: #f0f0f0; // Color predeterminado
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.botones button.selected {
+  background-color: #CCC4FF; // Color cuando está seleccionado
+  color: black;
+}
+
+
+.agregarAlCarrito {
+  width: 300px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: rgba(87, 250, 60, 0.47);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.agregarAlCarrito:hover {
+  background-color: rgba(88, 250, 60, 0.301);
+}
+
+.cantidad {
+  display: flex;
+  align-items: center;
+
+    margin-top: -10px;
+  
+}
+
+.btn-cantidad1 {
+  padding: 10px 30px;
+  background-color: #CCC4FF;
+  color: black;
+  border-radius: 10px 0 0 10px; 
+  cursor: pointer;
+  font-size: 16px;
+}
+.btn-cantidad2 {
+  padding: 10px 30px;
+  background-color: #CCC4FF;
+  color: black;
+  border-radius: 0 10px 10px 0px ; 
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+
+input[type="text"] {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+}
+//info
+
+.tabs {
+  display: flex;
+  justify-content: flex-start; /* Alinea las pestañas a la izquierda */
+  margin-top: 82px;
+  background-color: #E8E8E8;
+  padding-left:80px;
+
+  button {
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 0; /* Elimina el margen entre los botones */
+    border-radius: 5px 5px 0 0; /* Bordes redondeados en la parte superior */
+  }
+
+  button.active {
+    background-color: #CCC4FF;
+    color: black;
+  }
+
+  button:not(.active):hover {
+    background-color: rgba(204, 196, 255, 0.38);
+  }
+}
+
+.tab-content {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border: none; /* Elimina el borde superior */
+  margin-top: -1px; /* Elimina el espacio entre las pestañas y el contenido */
+  background-color: #fff; /* Fondo blanco para el contenido */
+  margin-left: 80px;
+  
+  h2 {
+    margin-top: 0;
+  }
+}
+//link
+/* Estilo para los enlaces */
+a {
+  color: #CCC4FF; /* Color del enlace */
+  text-decoration: none; /* Quita el subrayado */
+  transition: color 0.3s, background-color 0.3s; /* Transición suave para el color y el fondo */
+  font-weight: bold; /* Fuente en negrita */
+}
+
+/* Estilo para los enlaces al pasar el ratón (hover) */
+a:hover {
+  color: rgba(204, 196, 255, 0.38); /* Color del enlace al pasar el ratón */
+  text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+}
+
+/* Estilo para los enlaces cuando están activos */
+a:active {
+  color: #CCC4FF; /* Color del enlace cuando se hace clic */
+}
+
+/* Estilo para los enlaces visitados */
+a:visited {
+  color: #CCC4FF; /* Color del enlace ya visitado */
+}

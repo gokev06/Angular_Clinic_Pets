@@ -22,6 +22,8 @@ import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nue
 import { InfoAdopcionComponent } from './features/adopcion/pages/info-adopcion/info-adopcion.component';
 import { TablaCitasComponent } from './features/citas/pages/tabla-citas/tabla-citas.component';
 
+import { TiendaProductoComponent } from './features/tienda/components/tienda-producto/tienda-producto.component';
+import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -48,7 +50,14 @@ const routes: Routes = [
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
   {path: "consul-historial",component:PagesHistorialComponent },  // ni idea
-  {path: "table-historial",component: TablaCitasComponent} // ya tengo la idea de como hacerlo
+  {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
+  {path: 'unauthozrized', component: UnauthorizedComponent},
+  {path:'tienda',component:TiendaComponent},
+  {path:'subir-producto',component:AgregarProductoComponent},
+  {path: 'info-producto', component:InfoProductoTiendaComponent}
+
+
+
 ];
 
 @NgModule({
@@ -56,3 +65,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+//mergue

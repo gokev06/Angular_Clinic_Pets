@@ -1,0 +1,7 @@
+<div class="filtro-categorias">
+    <ul>
+        <li *ngFor="let categoria of categorias" (click)="filtrar(categoria)">
+            {{ categoria }}
+        </li>
+    </ul>
+</div>
