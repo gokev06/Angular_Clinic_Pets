@@ -50,7 +50,10 @@ const routes: Routes = [
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
   {path: "consul-historial",component:PagesHistorialComponent },  // ni idea
-  {path: "table-historial",component: TablaCitasComponent} // ya tengo la idea de como hacerlo
+  {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
+  {path: 'unauthozrized', component: UnauthorizedComponent},
+  {path:'tienda',component:TiendaComponent},
+  {path:'subir-producto',component:AgregarProductoComponent},
   {path: 'info-producto', component:InfoProductoTiendaComponent}
 
 

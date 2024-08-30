@@ -28,11 +28,8 @@ export class AgregarProductoComponent implements OnInit {
       nombre: ['', Validators.required],
       precio: ['', [Validators.required, Validators.min(1)]],
       cantidad: ['', [Validators.required, Validators.min(1)]],
-      categoria:['', Validators.required],
-      //categoria: ['', [Validators.required, Validators.min(1)]],
-      //descripcion: ['', [Validators.required, Validators.maxLength(600)]]
-    
-  });
+      categoria:['', Validators.required]
+    });
 
     this.productoForm.valueChanges.subscribe(valor => {
       this.datosProductoFormulario.emit({
@@ -61,23 +58,6 @@ export class AgregarProductoComponent implements OnInit {
 
   onSubmit(): void {
     if (this.productoForm.valid) {
-     const token = localStorage.getItem('userToken');
-     this.tiendaService.createProducts(this.productoForm.value, token)
-      .pipe(
-        catchError(error => {
-          console.error('Error al crear el producto:', error);
-          return of (null);
-        })
-      )
-      .subscribe( response => {
-        if (response) {
-          console.log('Producto creado con exito:', response);
-          alert('producto creado');
-          this.router.navigate(['/home-admin']);
-        };
-      });
-    } else {
-      console.log('Formulario invalido: ', this.productoForm.errors);
       console.log(this.productoForm.value);
     }
   }
