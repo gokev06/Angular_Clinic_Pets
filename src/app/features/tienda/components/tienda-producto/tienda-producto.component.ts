@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductoService } from '../../services/producto-tienda.service';
 
 @Component({
   selector: 'app-tienda-producto',
   templateUrl: './tienda-producto.component.html',
   styleUrls: ['./tienda-producto.component.scss']
 })
-export class TiendaProductoComponent {
+export class TiendaProductoComponent implements OnInit {
   // Variables para el zoom de la imagen
   posX: number = 0;
   posY: number = 0;
@@ -13,8 +14,8 @@ export class TiendaProductoComponent {
 
   // Variables para manejar la selección de kilogramos y precios
   kilogramos: number[] = [1.5, 4, 8]; // Opciones de kilogramos
-  textoKilogramos: string = `1.5 kg.`; // Texto inicial para kilogramos
-  textoPrecio: string = `Precio: $15.00`; // Texto inicial para precio
+  textoKilogramos: string = ''; // Texto inicial para kilogramos
+  textoPrecio: string = ''; // Texto inicial para precio
   
   // Precio base por kilogramo
   precioPorKilogramo: number = 10; // Ejemplo: $10 por kilogramo
@@ -25,7 +26,7 @@ export class TiendaProductoComponent {
   // Variable para el botón seleccionado
   kilogramaSeleccionado: number | null = null;
 
-  // Métodos para manejar el zoom de la imagen
+  // Método para manejar el zoom de la imagen
   activarZoom() {
     this.zoomActivo = true;
   }
@@ -66,37 +67,64 @@ export class TiendaProductoComponent {
     }
   }
 
-  total: number = 0;  // Total acumulado
-  progreso: number = 0;  // Porcentaje de la barra
-  mostrarMensaje: boolean = false;  // Controla la visualización del mensaje
-  mensaje: string = '';
-
-  // Método para agregar al carrito y actualizar el medidor
-  agregarAlCarrito() {
-    const precioProducto = 10000;  // Ejemplo: cada producto cuesta $10.000
-    this.total += precioProducto;
-    
-    this.actualizarProgreso();
-    
-    if (this.total >= 100000) {
-      this.mensaje = '¡Felicidades, tu envío es gratis!';
-      this.mostrarMensaje = true;
-    }
-  }
-
-  // Método para actualizar el progreso de la barra
-  actualizarProgreso() {
-    this.progreso = (this.total / 100000) * 100;
-    
-    if (this.progreso > 100) {
-      this.progreso = 100;  // Limitar el progreso a 100%
-    }
-  }
-  
   selectedTab: string = 'info'; // Pestaña seleccionada por defecto
 
   // Método para seleccionar una pestaña
   selectTab(tab: string) {
     this.selectedTab = tab;
   }
-}
+
+  items: any[] = []; // Lista de ítems para el carrusel
+  currentIndex: number = 0;
+
+  constructor(private productoService: ProductoService) {}
+
+  ngOnInit(): void {
+    this.cargarProductos();
+    setInterval(() => this.showSlide(this.currentIndex + 1), 5000); // Auto-slide functionality
+
+    // Seleccionar el primer kilogramo al iniciar
+    this.kilogramaSeleccionado = this.kilogramos[0];
+    this.seleccionarKilogramos(this.kilogramaSeleccionado);
+  }
+
+  private cargarProductos(): void {
+    this.productoService.getProductos().subscribe({
+      next: (data: any[]) => {
+        this.items = data; // Asegúrate de que `data` tenga el formato adecuado
+      },
+      error: (err) => {
+        console.error('Error al obtener productos', err);
+      }
+    });
+  }
+
+  showSlide(index: number) {
+    const items = document.querySelectorAll('.carousel-item') as NodeListOf<HTMLElement>;
+    const innerCarousel = document.querySelector('.carousel-inner') as HTMLElement;
+
+    if (items.length === 0) return;
+
+    // Asegúrate de que el índice esté dentro del rango
+    const totalVisibleItems = 3;
+    const totalItems = items.length;
+    const maxIndex = totalItems - totalVisibleItems;
+
+    if (index > maxIndex) {
+      this.currentIndex = 0; // Volver al inicio si se supera el límite
+    } else if (index < 0) {
+      this.currentIndex = maxIndex; // Ir al final si es menor que 0
+    } else {
+      this.currentIndex = index;
+    }
+
+    innerCarousel.style.transform = `translateX(-${this.currentIndex * (100 / totalVisibleItems)}%)`;
+  }
+
+  prevSlide() {
+    this.showSlide(this.currentIndex - 1);
+  }
+
+  nextSlide() {
+    this.showSlide(this.currentIndex + 1);
+  }}
