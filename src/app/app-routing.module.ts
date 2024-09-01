@@ -15,7 +15,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { GestionCitasComponent } from './features/citas/pages/gestion-citas/gestion-citas.component';
 import { AgendaComponent } from './features/citas/pages/agenda/agenda.component';
 import { CrearHistorialComponent } from './features/citas/pages/crear-historial/crear-historial.component';
-import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component';
+import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component'; 
 import { TiendaComponent } from './features/tienda/tienda.component';
 import { AgregarProductoComponent } from './features/tienda/components/agregar-producto/agregar-producto.component';
 import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
