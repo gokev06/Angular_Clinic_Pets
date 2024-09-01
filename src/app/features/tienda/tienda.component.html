@@ -1,9 +1,12 @@
-<app-header [ruta]="'/citas'" [title]="'tienda'" >
-</app-header>
-<app-info-t></app-info-t>
+<app-header-tienda (buscar)="onBuscar($event)"></app-header-tienda>
 
+<app-info-t (categoriaSeleccionada)="onCategoriaSeleccionada($event)"></app-info-t>
 
-  <div class="wrap">
-    <app-filtro-tienda></app-filtro-tienda>
-   <app-card></app-card> 
+ <div class="wrap">
+        <div class="filtro">
+         
+        </div>
+        <div class="cards">
+         <app-card [productos]="productosFiltrados"></app-card>
+        </div>   
   </div>

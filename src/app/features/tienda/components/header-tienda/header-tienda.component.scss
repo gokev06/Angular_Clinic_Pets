@@ -1,0 +1,59 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: #CCC4FF;
+    padding: 0 44px;
+  }
+  
+  .titles {
+    width: 350px;
+    height: 40px; // Asegúrate de que la altura coincida con la del input de búsqueda
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-input {
+    padding: 8px;
+    border: 1.5px solid black; 
+    border-radius: 8px; 
+    margin-right: 8px;
+    height: 40px; 
+    width: 100%; 
+  }
+  
+  
+  
+  .hola {
+    border-right: 1.5px solid black;
+    padding: 0 12px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .a {
+    border-left: 1.5px solid black;
+    padding: 0 12px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+
+.car{
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.car img{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}

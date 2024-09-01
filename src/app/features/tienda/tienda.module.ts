@@ -5,11 +5,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { AgregarProductoComponent } from './components/agregar-producto/agregar-producto.component';
 import { CardComponent } from './components/card-tienda/card.component';
+import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.component';
 
 @NgModule({
   declarations: [
     AgregarProductoComponent,
-    CardComponent
+    CardComponent,
+    HeaderTiendaComponent
   ],
   imports: [
     CommonModule,

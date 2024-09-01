@@ -56,8 +56,6 @@ const routes: Routes = [
   {path:'subir-producto',component:AgregarProductoComponent},
   {path: 'info-producto', component:InfoProductoTiendaComponent}
 
-
-
 ];
 
 @NgModule({
