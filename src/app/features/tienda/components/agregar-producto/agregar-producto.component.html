@@ -5,24 +5,24 @@
     <input type="file" name="file-6" id="file-6" class="inputfile inputfile-6" data-multiple-caption="{count} archivos seleccionados" multiple (change)="onFileChange($event)" />
     <label for="file-6">
       <div class="fondo">
-        <div id="image-preview" class="image-preview" 
+        <div id="image-preview" class="image-preview"
              [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
           <img src="../../../../../assets/icons/nubenegra.png" alt="" *ngIf="!selectedImage">
           <p *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
-        </div>              
-      </div>              
+        </div>
+      </div>
     </label>
   </div>
 
   <section>
-    <div class="parte1"> 
+    <div class="parte1">
       <div>
         <app-input id="nombre" formControlName="nombre" [estilos]="estilos" holder="Nombre del Producto"></app-input>
         <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched" class="error-message">
           El nombre es obligatorio.
         </div>
       </div>
-      
+
       <div>
         <app-input id="precio" formControlName="precio" [estilos]="estilos" holder="Precio"></app-input>
         <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error-message">
@@ -42,8 +42,8 @@
         <option value="alimento">Alimento</option>
         <option value="medicamento">Medicamento</option>
         <option value="juguete">Juguete</option>
-      </select>  
-    </div>  
+      </select>
+    </div>
 
     <div class="parte2">
       <div class="input-group">
@@ -54,12 +54,12 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   </section>
 
   <div class="botones">
     <button class="cancelar">Cancelar</button>
-    <button (click)="AlertaAceptar()" type="submit" [disabled]="productoForm.invalid">Subir Producto</button>
+    <button (click)="AlertaAceptar($event)" type="button"  [disabled]="productoForm.invalid">Subir Producto</button>
 
   </div>
 </form>

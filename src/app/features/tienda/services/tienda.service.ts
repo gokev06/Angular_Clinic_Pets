@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TiendaService {
 
-  private apiUrl_1 = 'http://localhost:10101'; 
+  private apiUrl_1 = 'http://localhost:10101';
 
   constructor(private http: HttpClient) {}
 
@@ -24,3 +24,4 @@ export class TiendaService {
   }
 
 }
+ 

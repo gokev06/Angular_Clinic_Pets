@@ -23,7 +23,8 @@ registerLocaleData(localeEs, 'es');
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
     provideAnimationsAsync(),

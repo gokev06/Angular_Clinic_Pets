@@ -15,7 +15,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { GestionCitasComponent } from './features/citas/pages/gestion-citas/gestion-citas.component';
 import { AgendaComponent } from './features/citas/pages/agenda/agenda.component';
 import { CrearHistorialComponent } from './features/citas/pages/crear-historial/crear-historial.component';
-import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component'; 
+import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component';
 import { TiendaComponent } from './features/tienda/tienda.component';
 import { AgregarProductoComponent } from './features/tienda/components/agregar-producto/agregar-producto.component';
 import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
@@ -41,7 +41,6 @@ const routes: Routes = [
   {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
-  {path:'tienda',component:TiendaComponent}, // incompleto
   {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
   {path: "gestion-citas", component: GestionCitasComponent}, // incompleto
   {path:"agenda" , component: AgendaComponent}, // se supone que es para veterinario
@@ -53,7 +52,6 @@ const routes: Routes = [
   {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent},
-  {path:'subir-producto',component:AgregarProductoComponent},
   {path: 'info-producto', component:InfoProductoTiendaComponent}
 
 ];

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { productos, ProductoService } from './services/producto-tienda.service';
 
 @Component({
@@ -7,8 +7,8 @@ import { productos, ProductoService } from './services/producto-tienda.service';
   styleUrl: './tienda.component.scss'
 })
 export class TiendaComponent {
-  productos: productos[] = [];
-  productosFiltrados: productos[] = [];
+  productos: productos[]  = [];
+  @Input() productosFiltrados: productos[] = [];
   busqueda: string = '';
   categoriaSeleccionada: string = 'Todos'; // Inicialmente, muestra todos los productos
 
@@ -48,7 +48,7 @@ export class TiendaComponent {
                                   producto.categoria.toLowerCase() === this.categoriaSeleccionada.toLowerCase();
         // Filtra por búsqueda
         const coincideBusqueda = producto.nombre.toLowerCase().includes(this.busqueda.toLowerCase());
-        
+
         // Devuelve verdadero si coincide con la categoría y la búsqueda
         return coincideCategoria && coincideBusqueda;
       });
