@@ -26,7 +26,7 @@ export class SolicitudAdopcionService {
   private apiurl = 'http://localhost:8000/adopciones';
   private apiUrl_1 = 'http://localhost:10101';
   private apiUrl_2 = 'http://localhost:10101';
-
+ 
   constructor( private http: HttpClient) { }
 
   getAdopciones(): Observable<adopcion[]> {

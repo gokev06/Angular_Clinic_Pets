@@ -1,20 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductoService, productos } from'../../services/producto-tienda.service';
+import { ProductoService} from'../../services/producto-tienda.service';
 import { from } from 'rxjs';
 
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit  {
+export class CardComponent {
+  productos: any[] = [];
 
-  @Input() productos: productos[] = []; // Recibir productos filtrados desde el componente padre
-
-  constructor() {}
+  constructor(private productService: ProductoService){}
 
   ngOnInit(): void {
-    // Inicialización adicional si es necesario
+
   }
+
 }

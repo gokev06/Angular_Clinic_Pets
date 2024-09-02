@@ -1,12 +1,10 @@
-<app-header-tienda (buscar)="onBuscar($event)"></app-header-tienda>
+<app-header-tienda ></app-header-tienda>
+<app-info-t ></app-info-t>
 
-<app-info-t (categoriaSeleccionada)="onCategoriaSeleccionada($event)"></app-info-t>
-
- <div class="wrap">
-        <div class="filtro">
-
-        </div>
-        <div class="cards">
-          <app-card [productos]="productosFiltrados" ></app-card>
-        </div>
+<div class="wrap">
+  <div class="filtro">
   </div>
+  <div class="cards">
+    <app-card ></app-card>
+  </div>
+</div>

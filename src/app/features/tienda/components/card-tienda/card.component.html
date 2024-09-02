@@ -1,15 +1,15 @@
 <div class="principal">
-<div class="card" *ngFor="let producto of productos">
-  <div class="logo">
-    <!-- <img [src]="producto.logo" alt="Logo"> -->
+  <div class="card" *ngFor="let producto of productos">
+    <div class="logo">
+      <!-- <img [src]="producto.logo" alt="Logo"> -->
+    </div>
+    <div class="imagen-principal">
+      <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+    </div>
+    <div class="info-producto">
+      <h3>{{ producto.nombre }}</h3>
+      <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
+      <p>Categoría: {{ producto.categoria }}</p>
+    </div>
   </div>
-  <div class="imagen-principal">
-    <img [src]="producto.imagen" alt="{{ producto.nombre }}">
-  </div>
-  <div class="info-producto">
-    <h3>{{ producto.nombre }}</h3>
-    <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
-    <p>Categoría: {{ producto.categoria }}</p>
-  </div>
-</div>
 </div>

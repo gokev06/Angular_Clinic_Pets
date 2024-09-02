@@ -19,7 +19,7 @@ export class FormularioAdopcionComponent implements OnInit {
   loginForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
   tempImageFile: File | null = null;  // Nueva variable para almacenar temporalmente el archivo de imagen
-  imageUrl: string | null = null;
+  imageUrl: string | null = null;  
 
   constructor(private formBuilder: FormBuilder, private router: Router, private solicitudService: SolicitudAdopcionService) {
     this.loginForm = this.formBuilder.group({});

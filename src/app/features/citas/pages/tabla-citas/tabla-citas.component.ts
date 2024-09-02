@@ -8,16 +8,16 @@ import { AppointmentService } from '../../services/appointment.service';
 })
 export class TablaCitasComponent implements OnInit {
 
- 
+
   citas: any[] = [];
 
   constructor(private appointmentService: AppointmentService) {}
-  
+
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(res => {
       this.citas = res;
-      console.log(this.citas); 
-    });  
+      console.log(this.citas);
+    });    
   }
 
   fetchAppointments(): void {
@@ -26,7 +26,7 @@ export class TablaCitasComponent implements OnInit {
         this.citas = res.map(cita => ({
           ...cita,
           fecha: new Date(cita.fecha.toString()).toLocaleDateString('es-ES'), // Convierte a string primitivo
-          hora: cita.hora ? cita.hora : '' 
+          hora: cita.hora ? cita.hora : ''
         }));
       });
   }
@@ -41,5 +41,5 @@ export class TablaCitasComponent implements OnInit {
     document.body.removeChild(link);
   }
 }
-  
+
 

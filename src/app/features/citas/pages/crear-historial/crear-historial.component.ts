@@ -14,6 +14,7 @@ export class CrearHistorialComponent  implements OnInit{
 
   Formhistorial: FormGroup;
 
+
   estilos: string = "border:none ; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
   style: string = "border:none ; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
 
@@ -21,6 +22,7 @@ export class CrearHistorialComponent  implements OnInit{
   constructor(   private formBuilder: FormBuilder, private appointmentService: AppointmentService, private router: Router){
     this.Formhistorial = this.formBuilder.group({});
   }
+
 
   ngOnInit(): void {
     this.Formhistorial = this.formBuilder.group({

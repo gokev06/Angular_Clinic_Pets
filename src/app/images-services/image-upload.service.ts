@@ -6,14 +6,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ImageUploadService {
-/*
-  private apiUrl = 'http://localhost:10101/files/upload';
 
-  constructor(private http: HttpClient) { }
+  private apiUrl_2 = 'http://localhost:10101';
 
-  uploadImage(file: File): Observable<any>{
-    const
+  constructor(private http: HttpClient){
+
   }
 
-  */
+  uploadImage(imageFile: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', imageFile);
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('userToken')}`
+    });
+
+    return this.http.post(` ${this.apiUrl_2}/filesUpload`, formData, { headers });
+  }
 }

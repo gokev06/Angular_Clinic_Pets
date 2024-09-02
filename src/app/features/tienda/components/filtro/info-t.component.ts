@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { productos, ProductoService } from '../../services/producto-tienda.service';
+import { ProductoService } from '../../services/producto-tienda.service';
 
 @Component({
   selector: 'app-info-t',
@@ -15,7 +15,7 @@ export class InfoTComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  
+
   filtrar(categoria: string) {
     this.categoriaSeleccionada.emit(categoria);
   }

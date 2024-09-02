@@ -43,6 +43,9 @@
         <option value="medicamento">Medicamento</option>
         <option value="juguete">Juguete</option>
       </select>
+      <div *ngIf="productoForm.get('categoria')?.invalid && productoForm.get('categoria')?.touched" class="error-message">
+        La categoría es obligatoria.
+      </div>
     </div>
 
     <div class="parte2">
@@ -58,8 +61,8 @@
   </section>
 
   <div class="botones">
-    <button class="cancelar">Cancelar</button>
-    <button (click)="AlertaAceptar($event)" type="button"  [disabled]="productoForm.invalid">Subir Producto</button>
+    <button class="cancelar" type="button" (click)="onCancel()" >Cancelar</button>
+    <button (click)="onSubmit()" type="button"  >Subir Producto</button>
 
   </div>
 </form>

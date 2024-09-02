@@ -1,31 +1,39 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
 
-export interface productos {
-  id?: number;
-  nombre: string;
-  precio: number;
-  categoria: string;
-  imagen: string;
-  descripcion: string;
+interface DataResponse {
+  idProducto: string;
+  name: string;
+  description: string;
 }
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
 
-  private apiurl = 'http://localhost:8000/productos'; // URL de la API
+  private apiUrl_1 = 'http://localhost:10101';
+  private token: string | null = localStorage.getItem('userToken');
 
   constructor(private http: HttpClient) { }
 
-  getProductos(): Observable<productos[]> {
-    return this.http.get<productos[]>(this.apiurl);
+  getProductos(): Observable<any[]> {
+    let headers = new HttpHeaders();
+    if(this.token){
+      headers = headers.set('Authorization', `Bearer ${this.token}`);
+    }
+    return this.http.get<any[]>(`${this.apiUrl_1}/askAllForProducts`, { headers })
+      .pipe(
+        tap((data) => console.log('Datos recibidos:', data))
+      );
   }
 
+}
+
+/*
   getProductoById(id: number): Observable<productos> {
     const url = `${this.apiurl}/${id}`;
     return this.http.get<productos>(url);
-  }
-}
+  } */
