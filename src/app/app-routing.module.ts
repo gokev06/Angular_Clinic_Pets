@@ -15,20 +15,26 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { GestionCitasComponent } from './features/citas/pages/gestion-citas/gestion-citas.component';
 import { AgendaComponent } from './features/citas/pages/agenda/agenda.component';
 import { CrearHistorialComponent } from './features/citas/pages/crear-historial/crear-historial.component';
-import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component';
+import { PagoCitaComponent } from './features/citas/pages/pago-cita/pago-cita.component'; 
 import { TiendaComponent } from './features/tienda/tienda.component';
 import { AgregarProductoComponent } from './features/tienda/components/agregar-producto/agregar-producto.component';
 import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
 import { InfoAdopcionComponent } from './features/adopcion/pages/info-adopcion/info-adopcion.component';
 import { TablaCitasComponent } from './features/citas/pages/tabla-citas/tabla-citas.component';
 
+import { TiendaProductoComponent } from './features/tienda/components/tienda-producto/tienda-producto.component';
+import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
 
 //rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
-  {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
+//  {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
+  {path: "citas", component: CitasComponent}, // ventana citas usuario
+
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
-  {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
+  //{path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
+
+  {path: "adopcion", component: AdopcionComponent}, // ventana adopcion de usuario
   {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
@@ -43,7 +49,15 @@ const routes: Routes = [
   {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
-  {path: "table-historial",component: TablaCitasComponent} // ya tengo la idea de como hacerlo
+  {path: "consul-historial",component:PagesHistorialComponent },  // ni idea
+  {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
+  {path: 'unauthozrized', component: UnauthorizedComponent},
+  {path:'tienda',component:TiendaComponent},
+  {path:'subir-producto',component:AgregarProductoComponent},
+  {path: 'info-producto', component:InfoProductoTiendaComponent}
+
+
+
 ];
 
 @NgModule({
@@ -51,3 +65,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+//mergue

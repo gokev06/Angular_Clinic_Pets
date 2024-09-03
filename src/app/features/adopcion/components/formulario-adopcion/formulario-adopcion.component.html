@@ -30,8 +30,8 @@
             <div class="input-group">
               <app-input [text]="'text'" [holder]="'Edad'" formControlName="edad"
                          [id]="'Edad'" [estilos]="estilos"></app-input>
-              <div *ngIf="loginForm.get('edad')?.touched && loginForm.get('edad')?.invalid"
-                   class="error-message">La edad es obligatoria</div>
+              <div *ngIf="loginForm.get('edad')?.touched && loginForm.get('edad')?.errors?.['edadInvalid']"
+                   class="error-message">La edad debe ser un número <!--seguido opcionalmente de "mes" o "meses"--></div>
             </div>
 
             <div class="input-group">
@@ -48,8 +48,8 @@
             <div class="input-group">
               <app-input [text]="'text'" [holder]="'Raza'" formControlName="raza"
                          [id]="'Raza'" [estilos]="estilos"></app-input>
-              <div *ngIf="loginForm.get('raza')?.touched && loginForm.get('raza')?.invalid"
-                   class="error-message">La raza es obligatoria</div>
+              <div *ngIf="loginForm.get('raza')?.touched && loginForm.get('raza')?.errors?.['razaInvalid']"
+                   class="error-message">La raza solo puede contener letras</div>
             </div>
 
             <div class="input-group">
@@ -87,8 +87,8 @@
             <div class="input-group">
               <app-input [text]="'number'" [holder]="'Teléfono'" [estilos]="estilos"
                          formControlName="telefono" [id]="'Telefono'"></app-input>
-              <div *ngIf="loginForm.get('telefono')?.touched && loginForm.get('telefono')?.invalid"
-                   class="error-message">El teléfono es obligatorio</div>
+              <div *ngIf="loginForm.get('telefono')?.touched && loginForm.get('telefono')?.errors?.['telefonoInvalid']"
+                   class="error-message">El teléfono solo puede contener números</div>
             </div>
 
             <div class="input-group">
@@ -101,8 +101,8 @@
             <div class="input-group">
               <app-input [text]="'text'" [holder]="'Historia'" [estilos]="estilos1"
                          formControlName="historia" [id]="'Historia'"></app-input>
-              <div *ngIf="loginForm.get('historia')?.touched && loginForm.get('historia')?.invalid"
-                   class="error-message">La historia es obligatoria</div>
+              <div *ngIf="loginForm.get('historia')?.touched && loginForm.get('historia')?.errors?.['maxlength']"
+                   class="error-message">La historia no puede exceder los 200 caracteres</div>
             </div>
           </div>
         </div>

@@ -267,5 +267,65 @@
       "ciudad": "calarca",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCVSPUdz3daPKic-eORjl2Vdj_txXc4ceUkw&s"
     }
+  ],
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Alimento humedo",
+      "precio": 10000,
+      "categoria": "Alimento",
+      "imagen": "https://purina.com.co/sites/default/files/styles/webp/public/2023-09/Empaque%20alimento%20humedo.jpg.webp?itok=d4texQQ_"
+    },
+    {
+      "id": 2,
+      "nombre": "Alimento humedo Chunky",
+      "precio": 5000,
+      "categoria": "Alimento",
+      "imagen": "https://almin.com.co/34935-large_default/chunky-delidog-trozos-de-pavo250g-caja-10-und.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Cuido Gato",
+      "precio": 10000,
+      "categoria": "Alimento",
+      "imagen": "https://www.supermascotas.com.co/wp-content/uploads/2023/05/7702521679514_1.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Alimento gato",
+      "precio": 5000,
+      "categoria": "Alimento",
+      "imagen": "https://www.supermascotas.com.co/wp-content/uploads/2023/07/ComidaParaGatoHillsOptimalCareAdultoPollo7LB-1.png"
+    },
+
+    {
+      "id": 5,
+      "nombre": "Producto 1",
+      "precio": 10000,
+      "categoria": "jueguetes",
+      "imagen": "https://puppiscolombia.vteximg.com.br/arquivos/ids/169297-1000-1000/224020-juguete-para-perro-pestages-mordedor-de.jpg?v=637421132127170000"
+    },
+    {
+      "id": 6,
+      "nombre": "Antiparasito perros",
+      "precio": 20000,
+      "categoria": "medicamentos",
+      "imagen": "https://puppiscolombia.vteximg.com.br/arquivos/ids/193238-1000-1000/Proyecto-nuevo--37-.png?v=638597854886570000"
+    },
+
+    {
+      "id": 7,
+      "nombre": "Antipulgas",
+      "precio": 18000,
+      "categoria": "medicamentos",
+      "imagen": "https://puppiscolombia.vteximg.com.br/arquivos/ids/172883-150-150/Antipulgas-Bravecto-de-2-a-4.5-kg-para-perro.jpg?v=637574784781500000"
+    },
+    {
+      "id": 8,
+      "nombre": "Producto 2",
+      "precio": 200,
+      "categoria": "Categoría 2",
+      "imagen": "imagen2.jpg"
+    }
   ]
 }

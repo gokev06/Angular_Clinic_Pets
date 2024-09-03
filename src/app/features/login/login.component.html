@@ -1,32 +1,31 @@
 <section>
   <div class="imagen">
-     <div class="logo">
-        <app-logo></app-logo><h1>Clinic-Pets</h1>
-     </div>
+    <div class="logo">
+      <app-logo></app-logo><h1>Clinic-Pets</h1>
+    </div>
   </div>
 
   <div class="contenedor-formulario">
-     <div class="formulario">
+    <div class="formulario">
       <form class="formulario_login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h1>INICIAR SESION</h1>
 
         <app-input [text]="'text'" [holder]="'correo'" formControlName="email" [id]="'correo'" [estilos]="estilos"></app-input>
         <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contrasenia'" [estilos]="estilos"></app-input>
 
+        <div *ngIf="showValidationError" class="error-message">
+          <p class="message_error">{{ errorMessage }}</p>
+        </div>
+        <div *ngIf="showErrorMessage" class="error-message">
+          <p class="message_error">{{ errorMessage }}</p>
+        </div>
         <a href="#" class="reset-link">¿Olvidaste tu contraseña?</a>
         <p>¿Aún no tienes una cuenta? <a href="/register">Registrarte</a></p>
 
         <div class="btn-form-submit">
           <button type="submit" [disabled]="loginForm.invalid" class="button">Iniciar Sesión</button>
         </div>
-
-        <!-- Mensaje de error -->
-        <div *ngIf="showErrorMessage" class="error-message">
-          <p class="message_error">{{ errorMessage }}</p>
-        </div>
       </form>
-
-      
-     </div>
+    </div>
   </div>
 </section>
