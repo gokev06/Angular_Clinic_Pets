@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {  EventEmitter, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import Swal from 'sweetalert2';
 
 // Definición del componente Angular
 @Component({
@@ -132,52 +133,90 @@ export class ModalEditarPerfilComponent  implements OnInit{
   }
 
   // Método para enviar el formulario actualizado
-  async onSubmit(){
-     if(this.callDataUser.valid){
-        // Obtiene el token de autenticación
-      const token = localStorage.getItem('userToken');
-      if (!token) {
-        console.error('No se encontro el token');
-        return;
-      }
-
-      // Configura los headers para la petición HTTP
-      const headers= new HttpHeaders().set('Authorization',`Bearer ${token}`);
-
-      // Prepara los datos del formulario para enviar
-      const formData = this.callDataUser.value;
-
-      const updateData = {
-        nombre: formData.nombreUsuario,
-        apellido: formData.apellidoUsuario,
-        numeroDeTelefono: formData.telefonoUsuario,
-        email: formData.correoUsuario
-      };
-
-      try {
-
-    // Realiza una petición PUT para actualizar el perfil del usuario
-        const response = await firstValueFrom(
-          this.http.put('http://localhost:10101/editar-perfil', updateData, {headers})
-        );
-
-        console.log('perfil actualizado:', response);
-
-      // Cierra el modal después de actualizar exitosamente
-        this.closemodaledit();
-
-      } catch (error) {
-        console.error('Error al actualizar el perfil:', error);
-
-      }
-     }else{
-      console.log('Formulario invalido');
-
-    // Marca todos los campos del formulario como tocados para mostrar errores de validación
-      Object.values(this.callDataUser.controls).forEach(control => {
-         control.markAsTouched();
+  async onSubmit() {
+    if (this.callDataUser.valid) {
+      Swal.fire({
+        title: '¿Confirmar actualización?',
+        text: '¿Estás seguro de que quieres actualizar tu perfil?',
+        showCancelButton: true,
+        confirmButtonColor: '#7DFF82',
+        cancelButtonColor: '#F57171',
+        confirmButtonText: 'Sí, actualizar',
+        imageUrl: '../../../../../assets/images/imgcitas/huellas.png',
+        imageWidth: 200,
+        imageHeight: 200
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          // Obtiene el token de autenticación
+          const token = localStorage.getItem('userToken');
+          if (!token) {
+            console.error('No se encontró el token');
+            return;
+          }
+  
+          // Configura los headers para la petición HTTP
+          const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  
+          // Prepara los datos del formulario para enviar
+          const formData = this.callDataUser.value;
+  
+          const updateData = {
+            nombre: formData.nombreUsuario,
+            apellido: formData.apellidoUsuario,
+            numeroDeTelefono: formData.telefonoUsuario,
+            email: formData.correoUsuario
+          };
+  
+          try {
+            // Realiza una petición PUT para actualizar el perfil del usuario
+            const response = await firstValueFrom(
+              this.http.put('http://localhost:10101/editar-perfil', updateData, { headers })
+            );
+  
+            console.log('Perfil actualizado:', response);
+  
+            Swal.fire({
+              title: '¡Perfil actualizado!',
+              text: 'Tu perfil ha sido actualizado exitosamente.',
+              imageUrl: '../../../../../assets/images/imgcitas/confirmar.png',
+              imageWidth: 200,
+              imageHeight: 200,
+              confirmButtonColor: '#7DFF82',
+            });
+  
+            // Cierra el modal después de actualizar exitosamente
+            this.closemodaledit();
+  
+          } catch (error) {
+            console.error('Error al actualizar el perfil:', error);
+            Swal.fire({
+              title: '¡Error!',
+              text: 'Ocurrió un error al actualizar el perfil.',
+              icon: 'error',
+              confirmButtonColor: '#F57171',
+            });
+          }
+        }
       });
-
-     }
+    } else {
+      Swal.fire({
+        title: '¡Hubo un problema!',
+        text: 'Parece que no llenaste correctamente el formulario',
+        imageUrl: '../../../../../assets/images/imgcitas/huellas.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        confirmButtonColor: 'rgba(209, 0, 0, 0.47)',
+        customClass: {
+          title: 'mi-titulo',
+          confirmButton: 'botonC',
+        }
+      });
+  
+      // Marca todos los campos del formulario como tocados para mostrar errores de validación
+      Object.values(this.callDataUser.controls).forEach(control => {
+        control.markAsTouched();
+      });
+    }
   }
+  
 }

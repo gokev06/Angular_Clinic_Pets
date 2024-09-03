@@ -26,7 +26,7 @@
     background-color: #f0f0f0;
     border-radius: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -82,8 +82,7 @@
 /* Contenido */
 .content {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en diferentes líneas */
+    display: flex;  
 }
 
 /* Imagen */
@@ -146,6 +145,7 @@
 /* Párrafo */
 .p {
     margin-top: 20px;
+    width: 300px;
 }
 
 /* Estilo específico para la sección de selección de imagen */
@@ -161,6 +161,16 @@
         width: 90%; /* Aumenta el ancho del modal en pantallas más pequeñas */
         padding: 15px; /* Reduce el padding en pantallas más pequeñas */
     }
+
+    .content{
+        flex-wrap: wrap; /* Permite que los elementos se ajusten en diferentes líneas */
+    }
+
+
+    .fondo{
+        margin-bottom: 50px;
+    }
+
 
     .imagen {
         width: 100%; /* Asegura que la imagen use todo el ancho disponible */
@@ -182,6 +192,7 @@
         width: 95%; /* Aumenta el ancho del modal en pantallas aún más pequeñas */
         padding: 10px; /* Reduce el padding aún más en pantallas más pequeñas */
     }
+
 
     .image-preview {
         width: 60px; /* Ajuste para pantallas muy pequeñas */
