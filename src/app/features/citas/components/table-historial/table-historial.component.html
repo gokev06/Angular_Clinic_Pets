@@ -13,7 +13,7 @@
         <th>Nombre</th>
         <th>Tipo de Cita</th>
         <th>Estado</th>
-        <th>Costo</th>
+        <th>Precio</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@
         <td>
           <ng-container *ngIf="cita.estado === 'Agendada'; else estadoNormal">
             <select (change)="onChangeEstado(cita, $event)">
-              <option value="Agendada" [selected]="cita.estado === 'Agendada'">Agendada</option>
+              <option value="" hidden [selected]="cita.estado === 'Agendada'">Agendada</option>
               <option value="Reagendar">Reagendar</option>
               <option value="Cancelar">Cancelar</option>
             </select>
@@ -35,7 +35,7 @@
             {{ cita.estado }}
           </ng-template>
         </td>
-        <td>{{ cita.costo }}</td>
+        <td>{{ cita.precio }}</td>
        
       </tr>
     </tbody>

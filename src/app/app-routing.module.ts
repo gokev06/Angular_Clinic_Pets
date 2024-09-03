@@ -24,20 +24,24 @@ import { TablaCitasComponent } from './features/citas/pages/tabla-citas/tabla-ci
 
 import { TiendaProductoComponent } from './features/tienda/components/tienda-producto/tienda-producto.component';
 import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
+import { GestionDeHorariosComponent } from './features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
+import { UsuariosComponent } from './features/usuarios/usuarios.component';
 
 //rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
-//  {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
-  {path: "citas", component: CitasComponent}, // ventana citas usuario
+  {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
+  //{path: "citas", component: CitasComponent}, // ventana citas usuario
 
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
-  //{path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
+  {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
 
-  {path: "adopcion", component: AdopcionComponent}, // ventana adopcion de usuario
+  //{path: "adopcion", component: AdopcionComponent}, // ventana adopcion de usuario
   {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
+
+  //{path: "home-admin", component: PagesHomeAdminComponent},
   {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
@@ -45,7 +49,8 @@ const routes: Routes = [
   {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
   {path: "gestion-citas", component: GestionCitasComponent}, // incompleto
   {path:"agenda" , component: AgendaComponent}, // se supone que es para veterinario
-  {path: "crear-historial" , component: CrearHistorialComponent, canActivate: [authGuard]}, // ya esta crear historial
+  {path: "gestion-horaios", component: GestionDeHorariosComponent},
+  {path: "crear-historial" , component: CrearHistorialComponent},//, canActivate: [authGuard]}, // ya esta crear historial
   {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
@@ -54,8 +59,8 @@ const routes: Routes = [
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent},
   {path:'subir-producto',component:AgregarProductoComponent},
-  {path: 'info-producto', component:InfoProductoTiendaComponent}
-
+  {path: 'info-producto', component:InfoProductoTiendaComponent},
+  {path: 'gestion-veterinarios', component:UsuariosComponent}
 ];
 
 @NgModule({

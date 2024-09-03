@@ -9,7 +9,7 @@
           <th>Nombre</th>
           <th>Tipo de Cita</th>
           <th>Especie</th>
-          <th>Costo</th>
+          <th>Precio</th>
           <th>Descargar</th>
         </tr>
       </thead>
@@ -20,7 +20,7 @@
           <td class="text3">{{ cita.nombre }}</td>
           <td class="text4">{{ cita.tipo }}</td>
           <td class="text5">{{ cita.especie }}</td>
-          <td class="text6">{{ cita.costo }}</td>
+          <td class="text6">{{ cita.precio }}</td>
           <td class="download">
             <img src="../../../../../assets/icons/descargas (5) 3.png"   (click)="downloadFile(cita.descarga, 'cita_' + cita.nombre + '.png')" alt="">
           </td>

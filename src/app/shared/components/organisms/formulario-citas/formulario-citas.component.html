@@ -132,8 +132,12 @@
             <div class="columm_tipo">
               <select formControlName="tipoDeCita" id="tipoCita">
                 <option value="" hidden>Seleccionar tipo de cita</option>
-                <option value="revision general">Revisión general</option>
-                <option value="ecografia">Ecografía</option>
+                <option value="Consulta general">Consulta general</option>
+                <option value="Vacunación">Vacunación</option>
+                <option value="Consulta de Cirugía">Consulta de Cirugía</option>
+                <option value="Consulta de Odontología">Consulta de Odontología</option>
+                <option value="Consulta de Nutrición">Consulta de Nutrición</option>
+                <option value="Chequeo Pre-Adopción">Chequeo Pre-Adopción</option>
               </select>
             </div>
             <p *ngIf="loginForm.get('tipoDeCita')?.errors?.['required']" #myDiv>

@@ -31,6 +31,9 @@ import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda
 import { InfoTComponent } from './tienda/components/filtro/info-t.component';
 import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
 import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-tienda.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { GestionVeterinariosComponent } from './usuarios/pages/gestion-veterinarios/gestion-veterinarios.component';
 @NgModule({
   declarations: [
     GestionCitasComponent,
@@ -59,11 +62,13 @@ import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-
     FormularioAdopcionComponent,
     InfoAdopcionComponent,
     TablaCitasComponent,
-    HeaderTiendaComponent
-        
+    HeaderTiendaComponent,
+    UsuariosComponent,
+    GestionVeterinariosComponent
 
   ],
   imports: [
+    UsuariosModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -89,7 +94,7 @@ import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-
     AgregarProductoComponent,
     TablaCitasComponent,
     TiendaProductoComponent,
-    InfoProductoTiendaComponent
+    InfoProductoTiendaComponent,
   ]
 })
 export class FeaturesModule {}

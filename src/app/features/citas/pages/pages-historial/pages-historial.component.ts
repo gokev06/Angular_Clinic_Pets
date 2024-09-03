@@ -36,7 +36,7 @@ export class PagesHistorialComponent implements OnInit {
         nombre: cita.nombreUsuario || '',
         tipo: cita.tipoCita || '',
         estado: cita.estado || '',
-        costo: cita.costo || '',
+        precio: cita.precio || '',
       }))),
       catchError(error => {
         console.error('Error al obtener las citas:', error);

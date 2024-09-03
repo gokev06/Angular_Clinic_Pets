@@ -26,14 +26,14 @@
       <div>
         <app-input id="precio" formControlName="precio" [estilos]="estilos" holder="Precio"></app-input>
         <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error-message">
-          El precio es obligatorio.
+          El precio es obligatorio y debe ser un número positivo con hasta dos decimales.
         </div>
       </div>
 
       <div>
         <app-input id="cantidad" formControlName="cantidad" [estilos]="estilos" holder="Cantidad"></app-input>
         <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
-          La cantidad es obligatoria.
+          La cantidad es obligatoria y debe ser un número entero positivo.
         </div>
       </div>
 
@@ -50,7 +50,7 @@
         <div class="descripcion1">
           <input id="descripcion" type="text" formControlName="descripcion" placeholder="Descripción del Producto"/>
           <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
-            La descripción es obligatoria.
+            La descripción es obligatoria y no debe tener más de 60 caracteres.
           </div>
         </div>
       </div>
