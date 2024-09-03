@@ -1,7 +1,9 @@
 .padre{
+
   display: flex;
   justify-content: space-evenly;
 }
+
 .contenedor-imagen {
   width: 400px;
   height: 500px;
@@ -10,6 +12,7 @@
   margin: 0 auto;
   position: relative;
 }
+
 
 .contenedor-imagen img {
   width: 100%;
@@ -70,8 +73,11 @@
   .center{
     margin-top: 20px;
     
+    
   }
   .center h1{
+    width: 30%;
+    position: absolute;
       margin-top: 0;
       margin-left: 15px;
       text-align: left;
@@ -83,6 +89,7 @@
 }
 .partedos{
   margin-top: 65px;
+  
 }
 .botones {
   display: flex;
@@ -122,18 +129,29 @@ h1 {
   margin: 0 0 16px;
   width: 300px;
   margin-left: 15px;
+  margin-top: 130px;
+}
+.botones-adicionales h3{
+  font: 400 16px / 28px Roboto, sans-serif;
+  letter-spacing: .009375em;
+  margin: 0 0 16px;
+  width: 300px;
+  margin-left: 15px;
+  margin-top: 130px;
 }
 .botones-adicionales {
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  margin-top: 50px;
+  margin-top: -100px;
+  margin-right: 220px;
 }
 
 .botones-adicionales h3{
   
   margin-right: 100px;
+  margin-left: -120px;
 }
 .botones button {
   background-color: #f0f0f0; // Color predeterminado
@@ -280,13 +298,11 @@ a:visited {
 }
 
 
-.madre{
-  display: flex;
-}
+
 //crad
 
 .card {
-  width: 180px; 
+  width: 135px; 
   height: 230px; 
  font-size: 10px;
   border: 1px solid #ddd;
@@ -299,8 +315,9 @@ a:visited {
   align-items: center;
 }
 .card h3{
-  font-size: 12px;
-  margin-top: -50px;
+  margin-left: 0px;
+    font-size: 12px;
+    margin-top: -15px;
 }
 
 
@@ -308,7 +325,12 @@ a:visited {
     width: 50px;
     height: auto;
   }
-
+  section h3 {
+    display: flex;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+  }
   .imagen-principal img {
     width: 100%;
     height:  60%;
@@ -322,6 +344,7 @@ a:visited {
   .datos{
     width: 760px;
     margin-top: 100px;
+    display: block;
   }
   .fross{
     width: 50%;
@@ -348,6 +371,7 @@ a:visited {
     display: flex;
     overflow: hidden;
     width: 100%;
+    margin-bottom: 30px;
   }
   
   .carousel-inner {
@@ -377,3 +401,369 @@ a:visited {
     margin-top: 0;
   }
   
+  @media (min-width: 352px) and (max-width: 480px) {
+    .padre{
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      
+    }
+    .carousel-container {
+      margin-bottom: 30px;
+    }
+    .contenedor-imagen {
+      width: 90%;
+      height: 400px;
+    
+    }
+    
+  .center h1{
+    margin-top: -65px;
+    width: 90%;
+    margin-left: 25px;
+    font-size: 20px;
+    margin-top: -70px;
+  }
+  .breadcrumb {
+    margin-left: 50px;
+}
+h3 {
+  margin-top: 70px;
+ margin-left: 40px;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+}
+.botones-adicionales{
+  display: flex;
+  justify-content: center;
+}
+.botones-carro{
+  display: flex;
+  justify-content: center;
+ 
+  margin-left: 220px;
+}
+.agregarAlCarrito {
+  width: 150px;
+  font-size: 12px;
+  margin-right: 40px;
+  margin-left: 0;
+}
+.btn-cantidad2{
+  width: 0;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-cantidad1{
+  width: 0;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  width: 35px;
+    height: 40px;
+}
+.quemado {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.botones-adicionales h3{
+display: flex;
+justify-content: center;
+margin-left: 330px;
+}
+.cantidad[_ngcontent-ng-c3624827601] {
+  padding-bottom: 20px;
+  margin-right: 35px;
+}
+.tabs[_ngcontent-ng-c3624827601] {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+.tabs{
+padding-left: 0;
+width: 100%;
+}
+.tab-content {
+  width: 350px;
+  height: 100px;
+  margin-bottom: 120px;
+}
+h6 {
+
+  width: 50%;
+  height: 40px;
+}
+.datos{
+
+  display: none;
+}
+
+  }
+  @media (min-width: 481px) and (max-width: 768px) {
+    .abuelo{
+      height: auto;
+      width: 100%;
+    }
+    .padre{
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      
+    }
+    .contenedor-imagen {
+      width: 400px;
+      height: auto;
+  }
+    .contenedor-imagen img{
+      width: 90%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .center h1 {
+      margin-top: -65px;
+      width: 90%;
+      margin-left: 50px;
+  }
+
+
+.botones{
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-left: 0;
+}
+.botones-adicionales{
+  display: flex;
+  justify-content: center;
+}
+.botones-adicionales h3 {
+text-align: center;
+margin-right: 0;
+  margin-top: 130px;
+  margin-left: 230px;
+}
+.botones-carro {
+  display: flex;
+  justify-content: center;
+  margin-left: 270px;
+}
+.agregarAlCarrito {
+  width: 160px;
+  height: 40px;
+  font-size: 13px;
+}
+.quemado {
+  display: flex;
+ flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.tabs {
+padding-left: 0;
+}
+
+.contenedor-imagen img {
+  width: 100%;
+  height: 415px;
+}
+.fross{
+  width: 100%;
+}
+.datos{
+  width: 100%;
+}
+.madre[_ngcontent-ng-c1441835545] {
+  width: 100%;
+}
+
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding-left: 20px;
+}
+.carousel-container img {
+
+  width: 150px;
+
+}
+.card h3{
+  
+  margin-right: 10px;
+        margin-top: -60px;
+}
+section h3 {
+  text-align: center;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;}
+  }
+  @media (min-width: 769px) and (max-width: 920px) {
+    .abuelo{
+      height: auto;
+      width: 100%;
+    }
+    .padre{
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      
+    }
+    .contenedor-imagen {
+      width: 400px;
+      height: auto;
+  }
+    .contenedor-imagen img{
+      width: 90%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .center h1 {
+      margin-top: -65px;
+      width: 90%;
+      margin-left: 50px;
+  }
+  .contenedor-imagen img {
+    width: 100%;
+    height: 415px;
+  }
+  .fross{
+    width: 100%;
+  }
+  .datos{
+    width: 100%;
+  }
+  .madre[_ngcontent-ng-c1441835545] {
+    width: 100%;
+  }
+  .quemado {
+    display: flex;
+   flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .botones-adicionales {
+    margin-right:0 ;
+}
+
+.botones-adicionales h3{
+  display: flex;
+  justify-content: center;
+  margin-right: 0%;
+  margin-left: 0%;
+}
+.partedos section {
+  margin-top: -75px;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-left: 0;
+}
+  
+  .tabs {
+  padding-left: 0;
+  }
+  .botones {
+    display: flex;
+    margin-left: 0px;
+    justify-content: center;
+}
+section h3 {
+ text-align: center;
+ width: 100%;
+ margin-right: 0;
+ margin-left: 0;
+
+}
+.card{
+  width: 200px;
+  padding-left: 10px;
+}
+.carousel-container {
+  padding-left: 40px;
+}
+.card h3{
+  margin-top: -70px;
+}
+  }
+  @media (min-width: 921px) and (max-width: 1279px) {
+    .contenedor-imagen img {
+      width: 100%;
+      height: 415px;
+    }
+    .fross{
+      width: 50%;
+    }
+    .datos{
+      width: 50%;
+    }
+    .madre[_ngcontent-ng-c1441835545] {
+      width: 100%;
+    }
+    .carousel-container {
+      width: 100%;
+      margin-bottom: 30px;
+  }
+  .parteuno{
+    width: 50%;
+  }
+  .partedos{
+    margin-top: 45px;
+  }
+  .partedos section {
+    margin-top: 50px;
+    width:460px;
+    
+}
+.botones-adicionales {
+  margin-left: 0;
+  margin-right: 0;
+}
+.botones-adicionales h3{
+  margin-right: 100px;
+  margin-left: -160px;
+}
+  .partedos{
+    
+   width: 50%; 
+    display: flex;
+    justify-content: unset;
+  }
+  h6[_ngcontent-ng-c1441835545] {
+  
+    width: 100%;
+   
+}
+.card{
+  width: 145px;
+ 
+}
+
+  }
