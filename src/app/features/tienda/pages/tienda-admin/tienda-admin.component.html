@@ -1,3 +1,5 @@
 <app-header-tienda></app-header-tienda>
 <app-info-t (categoriaSeleccionada)="onCategoriaSeleccionada($event)"></app-info-t>
-<app-card [productos]="productosFiltrados"></app-card>
+<div class="principal">
+<app-card-admin [productos]="productosFiltrados"></app-card-admin>
+</div>

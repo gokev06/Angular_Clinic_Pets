@@ -7,13 +7,15 @@ import { AgregarProductoComponent } from './components/agregar-producto/agregar-
 import { CardComponent } from './components/card-tienda/card.component';
 import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.component';
 import { TiendaAdminComponent } from './pages/tienda-admin/tienda-admin.component';
+import { CardAdminComponent } from './components/card-admin/card-admin.component';
 
 @NgModule({
   declarations: [
     AgregarProductoComponent,
     CardComponent,
     HeaderTiendaComponent,
-    TiendaAdminComponent
+    TiendaAdminComponent,
+    CardAdminComponent
   ],
   imports: [
     CommonModule,
