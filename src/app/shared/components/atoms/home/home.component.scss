@@ -10,3 +10,23 @@
 .home:hover{
     color :#3a364e;
 }
+@media (max-width:920px) {
+  .home{
+    font-size: 20px;
+  }
+  
+}
+
+
+@media (max-width: 768px){
+  .home{
+    font-size: 15px;
+  }
+}
+
+
+@media (max-width: 480px){
+  .home{
+    font-size: 10px;
+  }
+}

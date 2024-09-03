@@ -33,3 +33,38 @@
   align-items: center;
 }
 
+@media (max-width:920px) {
+  .titles{
+    width:300px ;
+  }
+  
+}
+
+@media (max-width: 768px){
+  .titles{
+    width:250px ;
+  }
+
+  .header{
+    padding: 0 20px;
+  }
+
+  .hola { 
+    border-right: 1px solid black ;
+    padding: 0 10px;
+    height: 30px;
+  }
+  
+  .a{
+    border-left: 1px solid black;
+    padding: 0  10px;
+    height: 30px;
+  }
+  
+}
+
+@media (max-width: 480px){
+  .header{
+    height: 50px;
+  }
+}
