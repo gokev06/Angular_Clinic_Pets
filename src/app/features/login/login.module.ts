@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { SharedModule } from '../../shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     CommonModule,
     LoginRoutingModule,
-    SharedModule
+    SharedModule,
+
   ]
 })
 export class LoginModule { }

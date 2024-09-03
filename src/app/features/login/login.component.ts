@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,22 @@ export class LoginComponent implements OnInit {
   showErrorMessage: boolean = false;
   errorMessage: string = '';
 
-  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
       contrasenia: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(20)]]
     });
+  }
+
+  showSuccess(): void {
+    this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
+    toastClass: 'toast toast-success ngx-toastr' // Aplica una clase personalizada
+  }
+
+  showError(): void {
+    this.toastr.error('Error en el inicio de sesión', 'Error');
   }
 
   async onSubmit() {
@@ -38,6 +48,7 @@ export class LoginComponent implements OnInit {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(userData)
         });
+
 
         if (!response.ok) {
           // Manejo de errores HTTP
@@ -61,6 +72,7 @@ export class LoginComponent implements OnInit {
           this.showErrorMessage = true;
           if (response.status === 401) {
             this.errorMessage = 'Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.';
+
           } else {
             this.errorMessage = 'Error desconocido. Por favor, intenta nuevamente más tarde.';
           }
@@ -75,6 +87,7 @@ export class LoginComponent implements OnInit {
             () => {
               console.log('Token guardado en localStorage');
               setTimeout(() => this.verifyRoleAndRedirect(), 100);
+              this.showSuccess()
             },
             error => {
               console.error('Error al guardar el token:', error);

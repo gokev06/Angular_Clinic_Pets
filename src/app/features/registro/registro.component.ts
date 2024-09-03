@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { passwordValidator } from '../../validators/contraseña-validator';
 import { matchPasswordValidator } from '../../validators/confirmar-contraseña';
+import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 /**
  * Componente de registro de usuario.
  * Este componente maneja el formulario de registro de usuarios y su envío al servidor.
@@ -32,7 +33,7 @@ export class RegistroComponent implements OnInit{
    * @param router Navegador de rutas de Angular utilizado para redirigir al usuario después de un registro exitoso.
    */
 
-  constructor(private fb: NonNullableFormBuilder, private http: HttpClient, private router:Router){}
+  constructor(private fb: NonNullableFormBuilder, private http: HttpClient, private router:Router, private toastr: ToastrService){}
 
   /**
    * Método de inicialización del componente.
@@ -51,6 +52,8 @@ export class RegistroComponent implements OnInit{
     },  {
       validators: matchPasswordValidator('contrasenia', 'confirmarContrasenia')
     });
+
+
 
     // Comentado: Suscripción a cambios en el formulario para depuración.
     /*
@@ -105,6 +108,7 @@ export class RegistroComponent implements OnInit{
           // Registro exitoso, redirige al usuario a la página de inicio de sesión.
         const data =  await response.json();
         console.log('Registro exitoso:', data);
+        this.showSuccess();
 
         // ruta para ir al login una vez el usuario este registrado
 
@@ -132,5 +136,9 @@ export class RegistroComponent implements OnInit{
         console.log('Error en el registro: ' + errorMessage);
       }
     }
+  }
+  showSuccess(): void {
+    this.toastr.success('Registro exitoso', 'Exito');
+    toastClass: 'toast toast-success' // Aplica una clase personalizada
   }
 }
