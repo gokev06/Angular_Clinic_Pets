@@ -32,7 +32,9 @@ export class AgregarProductoComponent implements OnInit {
       precio: ['', [Validators.required,]],
       cantidad: ['', [Validators.required, Validators.minLength(1)]],
       categoria: ['', [Validators.required]],
-      descripcion: ['', [Validators.required, Validators.maxLength(600)]]
+      descripcion: ['', [Validators.required, Validators.maxLength(600)]],
+      informacion: ['', [Validators.required, Validators.maxLength(600)]],
+      seleccionTallaPresentacion: ['', [Validators.required]]
     });
 
     this.productoForm.valueChanges.subscribe(valor => {

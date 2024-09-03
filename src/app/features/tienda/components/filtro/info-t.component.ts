@@ -8,7 +8,7 @@ import { ProductoService } from '../../services/producto-tienda.service';
 })
 
 export class InfoTComponent implements OnInit {
-  categorias: string[] = ['Todos', 'Juguetes', 'Alimento', 'Accesorios', 'Medicamentos', 'Otros'];
+  categorias: string[] = ['Todos', 'juguete', 'alimentos', 'accesorios', 'medicamento', 'Otros'];
   @Output() categoriaSeleccionada = new EventEmitter<string>();
 
   constructor() {}

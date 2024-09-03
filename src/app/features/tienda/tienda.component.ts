@@ -8,12 +8,18 @@ import { ProductoService } from './services/producto-tienda.service';
 })
 export class TiendaComponent {
 
+  searchTerm: string = '';
+  selectedCategory: string = 'Todos';
+
   constructor(private productoService: ProductoService) {}
 
-  ngOnInit(): void {
-
+  onSearch(term: string): void {
+      this.searchTerm = term;
   }
 
+  onCategorySelected(category: string){
+     this.selectedCategory = category;
+  }
 
 
 }

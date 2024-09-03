@@ -1,10 +1,14 @@
-<app-header-tienda ></app-header-tienda>
-<app-info-t ></app-info-t>
+<app-header-tienda (search)="onSearch($event)" ></app-header-tienda>
+<app-info-t (categoriaSeleccionada)="onCategorySelected($event)"></app-info-t>
 
 <div class="wrap">
-  <div class="filtro">
-  </div>
+
+  <div class="filtro"></div>
+
   <div class="cards">
-    <app-card ></app-card>
+
+    <app-card [searchTerm]="searchTerm" [selectedCategory]="selectedCategory"></app-card>
+
   </div>
+
 </div>
