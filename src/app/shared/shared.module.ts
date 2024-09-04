@@ -39,6 +39,7 @@ import { ErroresValidacionesComponent } from './components/molecules/errores-val
 import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
 import { ModalEditarPerfilComponent } from './components/templates/modal-editar-perfil/modal-editar-perfil.component';
 import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
+import { ChatBotComponent } from './components/templates/chat-bot/chat-bot.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -78,7 +79,8 @@ registerLocaleData(localeEs, 'es');
     BtnregistroComponent,
     ModalEditarPerfilComponent,
     PagesHistorialComponent,
-    ScopedTableHistorialComponent
+    ScopedTableHistorialComponent,
+    ChatBotComponent
 
   ],
   imports: [
@@ -121,7 +123,8 @@ registerLocaleData(localeEs, 'es');
     FooterComponent,
     CalendarioComponent,
     BtnregistroComponent,
-    PagesHistorialComponent
+    PagesHistorialComponent,
+    ChatBotComponent
   ]
 })
 export class SharedModule { }
