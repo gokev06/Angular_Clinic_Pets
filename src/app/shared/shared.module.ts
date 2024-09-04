@@ -39,6 +39,7 @@ import { ErroresValidacionesComponent } from './components/molecules/errores-val
 import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
 import { ModalEditarPerfilComponent } from './components/templates/modal-editar-perfil/modal-editar-perfil.component';
 import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
+import { CarritoModalComponent } from './components/templates/carrito-modal/carrito-modal.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -78,8 +79,8 @@ registerLocaleData(localeEs, 'es');
     BtnregistroComponent,
     ModalEditarPerfilComponent,
     PagesHistorialComponent,
-    ScopedTableHistorialComponent
-
+    ScopedTableHistorialComponent,
+    CarritoModalComponent
   ],
   imports: [
     
@@ -121,7 +122,8 @@ registerLocaleData(localeEs, 'es');
     FooterComponent,
     CalendarioComponent,
     BtnregistroComponent,
-    PagesHistorialComponent
+    PagesHistorialComponent,
+    CarritoModalComponent
   ]
 })
 export class SharedModule { }

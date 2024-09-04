@@ -9,6 +9,7 @@ export interface productos {
   categoria: string;
   imagen: string;
   descripcion: string;
+  cantidad: number;
 }
 
 @Injectable({

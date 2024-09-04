@@ -1,0 +1,172 @@
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000049;
+}
+
+
+
+.header{
+    display: flex;
+    width: 100%;
+    height: auto;
+    
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+
+
+.modal {
+    width: 800px;
+    height: 600px; /* Establece una altura fija para el modal */
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Agrega barra de desplazamiento vertical cuando el contenido exceda la altura */
+}
+.centrar{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 0 ;
+    margin-left: 25px;
+}
+.precio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.precio p{
+display: flex;
+align-items: center;
+margin-top: 15px;
+}
+.mocapi{
+    display: flex;
+    justify-content: space-around;
+}
+.producto{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+.producto1{
+    display: flex;
+    align-items: center;
+}
+
+.carro{
+    width: 60px;
+    height: 60px;
+}
+.info{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #CCC4FF;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+}
+.info1{
+    margin-top: 20px;
+}
+.info2 , .producto{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    width: 300px;
+}
+
+
+.imagen-principal , .mocapi{
+    display: flex;
+    align-items: center;
+}
+
+.mocapi{
+    justify-content: space-around;
+}
+
+.imagen-principal , .info1 h1 {
+width: 300px;
+}
+
+
+.info1 , h1{
+    padding-left: 15px;
+}
+.imagen-principal img{
+    width: 120px;
+    height: 100px;
+    padding: 10px;
+
+    
+}
+.tabla{
+    width: 750px;
+    height: auto;
+    border: 2px solid #CCC4FF;
+    background-color: white;
+    border-radius: 18px;
+    margin-bottom: 20px;
+}   
+
+.cart-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-button {
+    width: 30px;
+    height: 30px;
+    background-color: #CCC4FF;
+    color: #000000;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity {
+    font-size: 18px;
+    margin: 0 10px;
+  }
+  /* carrito.component.css */
+.carrito-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000000;
+  }
+  
+  .btn-danger {
+    background-color: #CCC4FF;
+  }
+  
+  .btn-success {
+    background-color: #CCC4FF;
+  }
+  
+  

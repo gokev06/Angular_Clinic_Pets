@@ -9,7 +9,8 @@
         class="search-input"/>
     
 </div><div class="car">
-    <img src="../../../../../assets/icons/mascotas 1.png" alt="">
+    <img src="../../../../../assets/icons/mascotas 1.png" alt=""  (click)="showmodal()">
     <app-perfil></app-perfil>
     </div>
   </div>
+  <app-carrito-modal *ngIf="isModalOpen" (close)="closeModal()" [productos]="productos"></app-carrito-modal>
