@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,22 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
   showValidationError: boolean = false; // Nueva variable para mostrar el mensaje de error de validación
 
-  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
       contrasenia: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(20)]]
     });
+  }
+
+  showSuccess(): void {
+    this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
+    toastClass: 'toast toast-success ngx-toastr' // Aplica una clase personalizada
+  }
+
+  showError(): void {
+    this.toastr.error('Error en el inicio de sesión', 'Error');
   }
 
   async onSubmit() {
@@ -41,12 +51,12 @@ export class LoginComponent implements OnInit {
     const userData = this.loginForm.value;
     console.log('Datos enviados:', userData);
 
-    try {
-      const response = await fetch('http://localhost:10101/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
-      });
+      try {
+        const response = await fetch('http://localhost:10101/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userData)
+        });
 
       if (!response.ok) {
         // Manejo de errores HTTP
@@ -67,39 +77,39 @@ export class LoginComponent implements OnInit {
           errorBody: errorDetails
         });
 
-        this.showErrorMessage = true;
-        if (response.status === 401) {
-          this.errorMessage = 'Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.';
-        } else {
-          this.errorMessage = 'Error desconocido. Por favor, intenta nuevamente más tarde.';
+          this.showErrorMessage = true;
+          if (response.status === 401) {
+            this.errorMessage = 'Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.';
+          } else {
+            this.errorMessage = 'Error desconocido. Por favor, intenta nuevamente más tarde.';
+          }
+          return; // Terminar ejecución si hay error
         }
-        return; // Terminar ejecución si hay error
-      }
 
       const data = await response.json();
       console.log('Success:', data);
 
-      if (data.token) {
-        this.authService.setToken(data.token).subscribe(
-          () => {
-            console.log('Token guardado en localStorage');
-            setTimeout(() => this.verifyRoleAndRedirect(), 100);
-          },
-          error => {
-            console.error('Error al guardar el token:', error);
-            this.showErrorMessage = true;
-            this.errorMessage = 'Error al guardar el token. Intenta nuevamente.';
-          }
-        );
-      } else {
-        this.showErrorMessage = true;
-        this.errorMessage = 'Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.';
-      }
-    } catch (error: any) {
-      console.error('Error object:', error);
-      console.error('Error name:', error.name);
-      console.error('Error message', error.message);
-      console.error('Error stack', error.stack);
+        if (data.token) {
+          this.authService.setToken(data.token).subscribe(
+            () => {
+              console.log('Token guardado en localStorage');
+              setTimeout(() => this.verifyRoleAndRedirect(), 100);
+            },
+            error => {
+              console.error('Error al guardar el token:', error);
+              this.showErrorMessage = true;
+              this.errorMessage = 'Error al guardar el token. Intenta nuevamente.';
+            }
+          );
+        } else {
+          this.showErrorMessage = true;
+          this.errorMessage = 'Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.';
+        }
+      } catch (error: any) {
+        console.error('Error object:', error);
+        console.error('Error name:', error.name);
+        console.error('Error message', error.message);
+        console.error('Error stack', error.stack);
 
       this.showErrorMessage = true;
       if (error instanceof TypeError) {

@@ -26,6 +26,9 @@ $clinic-Pets-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Allerta&display=swap');
+@import "ngx-toastr/toastr";
+
+
 
 
 *{
@@ -44,3 +47,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.toast-success {
+  background-color: #ffffff !important; /* Cambia el color de fondo para alertas de éxito */
+  color: rgb(0, 0, 0)  !important; /* Cambia el color del texto si es necesario */
+}
+
+
+.toast-success .toast-icon {
+  background-image: url('data:image/svg+xml;base64,...'); /* Agrega el ícono manualmente */
+}

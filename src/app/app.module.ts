@@ -11,6 +11,8 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { CalendarioComponent } from './shared/components/organisms/calendario/calendario.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(localeEs, 'es');
 
@@ -24,7 +26,7 @@ registerLocaleData(localeEs, 'es');
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    
+
   ],
   providers: [
     provideAnimationsAsync(),

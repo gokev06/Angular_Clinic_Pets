@@ -9,6 +9,7 @@ import { ScopedTableHistorialComponent } from './components/scoped-table-histori
 import { PagoCitaComponent } from './pages/pago-cita/pago-cita.component';
 import { CitasComponent } from './citas.component';
 import { TablaCitasComponent } from './pages/tabla-citas/tabla-citas.component';
+import { GestionDeHorariosComponent } from './pages/gestion-de-horarios/gestion-de-horarios.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { TablaCitasComponent } from './pages/tabla-citas/tabla-citas.component';
   ],
   exports: [
     PagesHistorialComponent,
-    CitasComponent
+    CitasComponent,
   ]
 })
 export class CitasModule {}

@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { TiendaService } from '../../services/tienda.service';
 import { ImageUploadService } from '../../../../images-services/image-upload.service';
 import { catchError, of } from 'rxjs';
@@ -44,6 +44,21 @@ export class AgregarProductoComponent implements OnInit {
         imagen: this.selectedImage
       });
     });
+  }
+
+  // Validadores personalizados
+  precioValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    if (control.value !== null && (isNaN(control.value) || control.value <= 0)) {
+      return { invalidPrice: true };
+    }
+    return null;
+  }
+
+  cantidadValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    if (control.value !== null && (isNaN(control.value) || control.value <= 0 || !Number.isInteger(control.value))) {
+      return { invalidQuantity: true };
+    }
+    return null;
   }
 
   onFileChange(event: Event): void {

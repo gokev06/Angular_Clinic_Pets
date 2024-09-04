@@ -15,28 +15,27 @@
   </div>
 
   <section>
-    <section class="cube__form__group">
-      <div class="parte1">
-        <div>
-          <app-input id="nombre" formControlName="nombre" [estilos]="estilos" holder="Nombre del Producto"></app-input>
-          <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched" class="error-message">
-            El nombre es obligatorio.
-          </div>
+    <div class="parte1">
+      <div>
+        <app-input id="nombre" formControlName="nombre" [estilos]="estilos" holder="Nombre del Producto"></app-input>
+        <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched" class="error-message">
+          El nombre es obligatorio.
         </div>
+      </div>
 
-        <div>
-          <app-input id="precio" formControlName="precio" [estilos]="estilos" holder="Precio"></app-input>
-          <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error-message">
-            El precio es obligatorio.
-          </div>
+      <div>
+        <app-input id="precio" formControlName="precio" [estilos]="estilos" holder="Precio"></app-input>
+        <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error-message">
+          El precio es obligatorio.
         </div>
+      </div>
 
-        <div>
-          <app-input id="cantidad" formControlName="cantidad" [estilos]="estilos" holder="Cantidad"></app-input>
-          <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
-            La cantidad es obligatoria.
-          </div>
+      <div>
+        <app-input id="cantidad" formControlName="cantidad" [estilos]="estilos" holder="Cantidad"></app-input>
+        <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
+          La cantidad es obligatoria y debe ser un número entero positivo.
         </div>
+      </div>
 
         <select formControlName="categoria" class="categoria">
           <option value="">Categoría</option>
@@ -59,33 +58,16 @@
 
       </div>
 
-
-    </section>
-
-    <section class="cube__input__group" >
-      <div class="parte2">
-        <div class="input-group">
-          <div class="descripcion1">
-            <input id="descripcion" type="text" formControlName="descripcion" placeholder="Descripción del Producto"/>
-            <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
-              La descripción es obligatoria.
-            </div>
+    <div class="parte2">
+      <div class="input-group">
+        <div class="descripcion1">
+          <input id="descripcion" type="text" formControlName="descripcion" placeholder="Descripción del Producto"/>
+          <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
+            La descripción es obligatoria.
           </div>
         </div>
       </div>
-
-      <div class="parte2">
-        <div class="input-group">
-          <div class="descripcion1">
-            <input id="descripcion" type="text" formControlName="informacion" placeholder="informacion del Producto"/>
-            <div *ngIf="productoForm.get('informacion')?.invalid && productoForm.get('informacion')?.touched" class="error-message">
-              La informacion es obligatoria.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </section>
 
   <div class="botones">

@@ -46,7 +46,7 @@ import { PagoinfocitaComponent } from './components/organisms/pagoinfocita/pagoi
 
 import { AlertacitaComponent } from './components/templates/alertacita/alertacita.component';
 import { AlertacancelarcitaComponent } from './components/templates/alertacancelarcita/alertacancelarcita.component';
-
+import { GestionDeHorariosComponent } from '../features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -92,7 +92,7 @@ registerLocaleData(localeEs, 'es');
     PagoinfocitaComponent,
     AlertacitaComponent,
     AlertacancelarcitaComponent,
-  
+    GestionDeHorariosComponent
   ],
   imports: [
     CommonModule, 
@@ -132,7 +132,6 @@ registerLocaleData(localeEs, 'es');
     IconCitasComponent,
     CarruselComponent,
     FooterComponent,
-    CalendarioComponent,
     BtnregistroComponent,
     PagesHistorialComponent,
     TableHistorialComponent,
@@ -140,6 +139,7 @@ registerLocaleData(localeEs, 'es');
     PagoTarjetaComponent,
     PagoinfocitaComponent,
     TableHistorialComponent,
+    GestionDeHorariosComponent
   ]
 })
 export class SharedModule { }

@@ -94,6 +94,7 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     console.log('Hora seleccionada:', time);
   }
 
+
   onSubmit() {
     console.log('Formulario:', this.loginForm.value);
     console.log('¿Formulario válido?:', this.loginForm.valid);
@@ -101,27 +102,43 @@ export class FormularioCitasComponent implements OnInit, AfterViewInit {
     const token = localStorage.getItem('userToken');
 
     if (this.loginForm.valid) {
-      this.appointmentService.createAppointment(this.loginForm.value, token).subscribe(
-        response => {
-          Swal.fire({
-            title: '¡Cita confirmada!',
-            text: 'La cita ha sido confirmada exitosamente.',
-            imageUrl: '../../../../../assets/images/imgcitas/confirmar.png',
-            imageWidth: 200,
-            imageHeight: 200,
-            confirmButtonColor: '#7DFF82',
-          });
-          this.router.navigate(['/home']);
-        },
-        error => {
-          Swal.fire({
-            title: '¡Error!',
-            text: 'Ocurrió un error al confirmar la cita.',
-            icon: 'error',
-            confirmButtonColor: '#F57171',
+      Swal.fire({
+        title: '¿Confirmar cita?',
+        text: '¿Estás seguro de que quieres confirmar esta cita?',
+        showCancelButton: true,
+        confirmButtonColor: '#7DFF82',
+        cancelButtonColor: '#F57171',
+        confirmButtonText: 'Sí, confirmar',
+        imageUrl: '../../../../../assets/images/imgcitas/huellas.png',
+        imageWidth: 200,
+        imageHeight: 200
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.appointmentService.createAppointment(this.loginForm.value, token).subscribe(response => {
+            Swal.fire({
+              title: '¡Cita confirmada!',
+              text: 'La cita ha sido confirmada exitosamente.',
+              imageUrl: '../../../../../assets/images/imgcitas/confirmar.png',
+              imageWidth: 200,
+              imageHeight: 200,
+              confirmButtonColor: '#7DFF82',
+            });
+
+            this.router.navigate(['/historial']);
+          }, 
+          error => {
+            console.error('Error al confirmar la cita:', error);
+            Swal.fire({
+              title: '¡Error!',
+              text: 'Ocurrió un error al confirmar la cita.',
+              icon: 'error',
+              confirmButtonColor: '#F57171',
+            });
+            console.log();
+            
           });
         }
-      );
+      });
     } else {
       Swal.fire({
         title: '¡Hubo un problema!',
