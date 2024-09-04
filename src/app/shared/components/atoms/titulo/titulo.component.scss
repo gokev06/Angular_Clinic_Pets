@@ -6,17 +6,23 @@ a{
     justify-content: center;
     color:#9588E4;
   }
-  
+
   a:hover{
       color :#3a364e;
   }
+  @media (max-width:920px) {
+    a{
+      font-size: 20px;
+    }
 
-  
+  }
+
+
 @media (max-width:920px) {
     a{
       font-size: 20px;
     }
-    
+
   }
 
 
@@ -31,7 +37,7 @@ a{
       font-size: 10px;
     }
   }
-  
+
   @media screen and  (max-width:480px) {
     a{
         font-size: 10px;

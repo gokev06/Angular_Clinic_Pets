@@ -26,6 +26,8 @@ import { TiendaProductoComponent } from './features/tienda/components/tienda-pro
 import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
 import { GestionDeHorariosComponent } from './features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 import { UsuariosComponent } from './features/usuarios/usuarios.component';
+import { TiendaAdminComponent } from './features/tienda/pages/tienda-admin/tienda-admin.component';
+
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -56,7 +58,9 @@ const routes: Routes = [
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent},
   {path: 'info-producto', component:InfoProductoTiendaComponent},
-  {path: 'gestion-veterinarios', component:UsuariosComponent}
+  {path: 'tienda-producto', component: TiendaProductoComponent},
+  {path: 'gestion-veterinarios', component:UsuariosComponent},
+  {path: 'tienda-admin',component:TiendaAdminComponent},
 ];
 
 @NgModule({
