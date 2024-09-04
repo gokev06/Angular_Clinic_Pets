@@ -21,6 +21,7 @@ import { AgregarProductoComponent } from './features/tienda/components/agregar-p
 import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nuevaadopcion/pages-nuevaadopcion.component';
 import { InfoAdopcionComponent } from './features/adopcion/pages/info-adopcion/info-adopcion.component';
 import { TablaCitasComponent } from './features/citas/pages/tabla-citas/tabla-citas.component';
+import { SolicitudAdopcionComponent } from './features/adopcion/pages/solicitud-adopcion/solicitud-adopcion.component';
 
 import { TiendaProductoComponent } from './features/tienda/components/tienda-producto/tienda-producto.component';
 import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path: 'tienda-producto', component: TiendaProductoComponent},
   {path: 'gestion-veterinarios', component:UsuariosComponent},
   {path: 'tienda-admin',component:TiendaAdminComponent},
+  {path: "ver-adopcion",component: SolicitudAdopcionComponent }
 ];
 
 @NgModule({

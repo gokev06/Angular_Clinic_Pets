@@ -12,7 +12,7 @@ import { InconphoneComponent } from './components/atoms/inconfacebook/inconphone
 import { InconmessageComponent } from './components/atoms/inconyt/inconmessage.component';
 import { ContactoInfoComponent } from './components/atoms/contacto-info/contacto-info.component';
 import { RouterModule } from "@angular/router";
-import { CitasComponent } from '../features/citas/citas.component'; 
+import { CitasComponent } from '../features/citas/citas.component';
 import { InputComponent } from './components/atoms/input/input.component';
 import { LabelComponent } from './components/atoms/label/label.component';
 import { FormularioCitasComponent } from './components/organisms/formulario-citas/formulario-citas.component';
@@ -47,6 +47,7 @@ import { PagoinfocitaComponent } from './components/organisms/pagoinfocita/pagoi
 import { AlertacitaComponent } from './components/templates/alertacita/alertacita.component';
 import { AlertacancelarcitaComponent } from './components/templates/alertacancelarcita/alertacancelarcita.component';
 import { GestionDeHorariosComponent } from '../features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
+import { ModalVerAdopcionComponent } from './components/templates/modal-ver-adopcion/modal-ver-adopcion.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -87,15 +88,16 @@ registerLocaleData(localeEs, 'es');
     ModalEditarPerfilComponent,
     PagesHistorialComponent,
     ScopedTableHistorialComponent,
-  
+
     PagoTarjetaComponent,
     PagoinfocitaComponent,
     AlertacitaComponent,
     AlertacancelarcitaComponent,
-    GestionDeHorariosComponent
+    GestionDeHorariosComponent,
+    ModalVerAdopcionComponent
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterModule.forRoot([
       { path: 'citas', component: CitasComponent },
       {path: 'historial', component: PagesHistorialComponent}
@@ -139,7 +141,9 @@ registerLocaleData(localeEs, 'es');
     PagoTarjetaComponent,
     PagoinfocitaComponent,
     TableHistorialComponent,
-    GestionDeHorariosComponent
+    GestionDeHorariosComponent,
+    BtnregistroComponent,
+    ModalVerAdopcionComponent
   ]
 })
 export class SharedModule { }

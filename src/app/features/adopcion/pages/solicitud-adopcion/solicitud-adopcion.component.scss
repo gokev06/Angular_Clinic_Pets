@@ -1,0 +1,12 @@
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos secundarios */
+    flex-direction: column;
+}
+
+app-carta-solicitud-adopcion {
+    width: 100%; /* Asegura que los elementos secundarios usen todo el ancho disponible */
+    display: flex;
+    justify-content: center; /* Centra el contenido dentro de cada app-carta-solicitud-adopcion */
+}

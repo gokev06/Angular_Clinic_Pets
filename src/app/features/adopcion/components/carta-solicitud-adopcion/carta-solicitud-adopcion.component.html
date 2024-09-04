@@ -1,0 +1,23 @@
+
+<div class="carta">
+
+  <div class="img">
+       <!-- <img id="miImagen" src="" alt="Imagen del formulario">-->
+    <img src="../../../../../assets/images/imghome/coco 2.png" alt="">
+  </div>    
+      <div class="texto">
+        <p nombre="text1" >{{datos.correo}}</p>
+        <p nombre="text2">{{datos.nombre}}</p>
+      </div>
+
+      <div class="botones">
+        <button class="ver" (click)="openModal()">ver </button>
+        <app-modal-ver-adopcion  *ngIf="modalVerAdopcion" (close)="Closemodalveradopcion()"></app-modal-ver-adopcion>
+
+        <!-- Incluir el componente modal -->
+       
+        <button class="aceptar" (click)="AlertaAceptar()">aceptar</button>
+        <button class="cancelar">Rechazar</button>
+      </div>
+</div>
+

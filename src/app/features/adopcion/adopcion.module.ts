@@ -10,14 +10,16 @@ import { InfoAdopcionComponent } from './pages/info-adopcion/info-adopcion.compo
 import { RouterModule } from '@angular/router';
 import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
 
+import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud-adopcion.component';
+import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
 
 
 @NgModule({
-  declarations: [  
+  declarations: [
     HeaderadopcionComponent,
      CardsadopcionComponent,
      CardsComponent,
-     
+
 
   ],
   imports: [
@@ -25,12 +27,15 @@ import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.comp
     CommonModule,
     AdopcionRoutingModule,
     SharedModule,
-    RouterModule 
-    
-  ], exports:[
+    RouterModule
+
+  ],
+   exports:[
     HeaderadopcionComponent,
      CardsadopcionComponent,
      CardsComponent,
-  ]
+     SharedModule
+
+  ],
 })
 export class AdopcionModule { }

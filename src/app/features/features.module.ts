@@ -27,6 +27,9 @@ import { CardComponent } from './tienda/components/card-tienda/card.component';
 import { AgregarProductoComponent } from './tienda/components/agregar-producto/agregar-producto.component';
 import { TiendaProductoComponent } from './tienda/components/tienda-producto/tienda-producto.component';
 import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda/info-producto-tienda.component';
+import { SolicitudAdopcionComponent } from './adopcion/pages/solicitud-adopcion/solicitud-adopcion.component';
+import { CartaSolicitudAdopcionComponent } from './adopcion/components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
+
 
 import { InfoTComponent } from './tienda/components/filtro/info-t.component';
 import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
@@ -68,8 +71,9 @@ import { CardAdminComponent } from './tienda/components/card-admin/card-admin.co
     TablaCitasComponent,
     UsuariosComponent,
     TiendaAdminComponent,
-    CardAdminComponent
-
+    CardAdminComponent,
+   SolicitudAdopcionComponent,
+   CartaSolicitudAdopcionComponent
   ],
   imports: [
     UsuariosModule,
@@ -99,6 +103,7 @@ import { CardAdminComponent } from './tienda/components/card-admin/card-admin.co
     TablaCitasComponent,
     TiendaProductoComponent,
     InfoProductoTiendaComponent,
+
 
   ]
 })
