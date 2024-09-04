@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
+//import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
   showValidationError: boolean = false; // Nueva variable para mostrar el mensaje de error de validación
 
-  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) {}
+  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router, /* private toastr: ToastrService*/) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -26,14 +26,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /*
   showSuccess(): void {
     this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
     toastClass: 'toast toast-success ngx-toastr' // Aplica una clase personalizada
   }
 
+
   showError(): void {
     this.toastr.error('Error en el inicio de sesión', 'Error');
-  }
+  }*/
 
   async onSubmit() {
 

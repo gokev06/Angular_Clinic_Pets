@@ -26,6 +26,7 @@ registerLocaleData(localeEs, 'es');
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    
 
   ],
   providers: [

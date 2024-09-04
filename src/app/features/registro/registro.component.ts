@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { passwordValidator } from '../../validators/contraseña-validator';
 import { matchPasswordValidator } from '../../validators/confirmar-contraseña';
-import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
+//import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 /**
  * Componente de registro de usuario.
  * Este componente maneja el formulario de registro de usuarios y su envío al servidor.
@@ -35,7 +35,7 @@ export class RegistroComponent implements OnInit{
   hasAttemptedSubmit = false;
   errorMessage: string = '';  // Añadido para manejar el mensaje de error
 
-  constructor(private fb: NonNullableFormBuilder, private http: HttpClient, private router:Router, private toastr: ToastrService){}
+  constructor(private fb: NonNullableFormBuilder, private http: HttpClient, private router:Router, /*private toastr: ToastrService*/){}
 
   /**
    * Método de inicialización del componente.
@@ -109,8 +109,7 @@ export class RegistroComponent implements OnInit{
       } else {
         const data = await response.json();
         console.log('Registro exitoso:', data);
-<<<<<<< HEAD
-        this.showSuccess();
+       // this.showSuccess();
 
         // ruta para ir al login una vez el usuario este registrado
 
@@ -136,9 +135,6 @@ export class RegistroComponent implements OnInit{
         // Para errores de registro
         const errorMessage = error.message || 'Error desconocido';
         console.log('Error en el registro: ' + errorMessage);
-=======
-        this.router.navigate(['login']);
->>>>>>> d641b5dccb4a41080dbecef1c23bae2df3ecea74
       }
     } catch (error: any) {
       console.error('Error object:', error);
@@ -158,8 +154,10 @@ export class RegistroComponent implements OnInit{
       console.log('Error en el registro: ' + errorMessage);
     }
   }
+
+  /*
   showSuccess(): void {
     this.toastr.success('Registro exitoso', 'Exito');
     toastClass: 'toast toast-success' // Aplica una clase personalizada
-  }
-}
+  }*/
+

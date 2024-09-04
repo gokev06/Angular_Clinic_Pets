@@ -61,10 +61,12 @@ import { GestionVeterinariosComponent } from './usuarios/pages/gestion-veterinar
     PagesNuevaadopcionComponent,
     FormularioAdopcionComponent,
     InfoAdopcionComponent,
-
+    GestionVeterinariosComponent,
+    HeaderTiendaComponent,
     TablaCitasComponent,
+    UsuariosComponent
 
->>>>>>>>> Temporary merge branch 2
+
   ],
   imports: [
     UsuariosModule,
