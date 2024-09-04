@@ -31,17 +31,15 @@ import { UsuariosComponent } from './features/usuarios/usuarios.component';
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
   {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
-  //{path: "citas", component: CitasComponent}, // ventana citas usuario
+
 
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
 
-  //{path: "adopcion", component: AdopcionComponent}, // ventana adopcion de usuario
   {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
 
-  //{path: "home-admin", component: PagesHomeAdminComponent},
   {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
@@ -57,7 +55,6 @@ const routes: Routes = [
   {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent},
-  {path:'subir-producto',component:AgregarProductoComponent},
   {path: 'info-producto', component:InfoProductoTiendaComponent},
   {path: 'gestion-veterinarios', component:UsuariosComponent}
 ];
