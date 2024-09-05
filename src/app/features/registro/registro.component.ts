@@ -109,36 +109,8 @@ export class RegistroComponent implements OnInit{
       } else {
         const data = await response.json();
         console.log('Registro exitoso:', data);
-<<<<<<< HEAD
-        this.showSuccess();
-
-        // ruta para ir al login una vez el usuario este registrado
-
-        this.router.navigate(['login'])
-
-       }
-      } catch (error: any) {
-        // Manejo detallado de errores.
-        console.error('Error object:', error);
-        console.error('Error name:', error.name);
-        console.error('Error message', error.message);
-        console.error('Error stack', error.stack);
-
-        if (error instanceof TypeError) {
-          console.error('Network error: Posiblemente el servidor no está accesible');
-        }
-
-        // Para errores de CORS
-        if (error instanceof DOMException && error.name === 'NetworkError') {
-          console.error('CORS error: Posiblemente un problema de permisos de origen cruzado');
-        }
-
-        // Para errores de registro
-        const errorMessage = error.message || 'Error desconocido';
-        console.log('Error en el registro: ' + errorMessage);
-=======
         this.router.navigate(['login']);
->>>>>>> d641b5dccb4a41080dbecef1c23bae2df3ecea74
+        this.showSuccess()
       }
     } catch (error: any) {
       console.error('Error object:', error);
