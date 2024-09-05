@@ -48,7 +48,7 @@ export class PagesHistorialComponent implements OnInit {
   }
 
   onCitaEliminada(idCita: string): void {
-    this.fetchAppointments();
+    this.fetchAppointments(); 
   }
 
   onCitaActualizada(): void {

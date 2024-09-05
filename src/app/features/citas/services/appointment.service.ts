@@ -24,7 +24,7 @@ export class AppointmentService {
   }
 
   getUserAppointments(token?: string | null): Observable<any>{
-    let headers = new HttpHeaders(); 
+    let headers = new HttpHeaders();
     if(token){
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
@@ -53,7 +53,7 @@ export class AppointmentService {
   }
 
   deleteAppointment(idCita: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
+    return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`); 
   }
 
 

@@ -57,11 +57,11 @@ const routes: Routes = [
   {path: "consul-historial",component:PagesHistorialComponent },  // ni idea
   {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
   {path: 'unauthozrized', component: UnauthorizedComponent},
-  {path:'tienda',component:TiendaComponent},
+  {path:'tienda',component:TiendaComponent, canActivate: [authGuard]},
   {path: 'info-producto', component:InfoProductoTiendaComponent},
   {path: 'tienda-producto', component: TiendaProductoComponent},
   {path: 'gestion-veterinarios', component:UsuariosComponent},
-  {path: 'tienda-admin',component:TiendaAdminComponent},
+  {path: 'tienda-admin',component:TiendaAdminComponent, canActivate: [authGuard]},
   {path: "ver-adopcion",component: SolicitudAdopcionComponent }
 ];
 

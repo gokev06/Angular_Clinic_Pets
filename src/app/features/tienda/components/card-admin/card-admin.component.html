@@ -1,20 +1,21 @@
 <div class="principal">
-    <div class="card" *ngFor="let producto of productos">
+    <div class="card" *ngFor="let producto of filteredData">
         <div class="logo">
           <!-- <img [src]="producto.logo" alt="Logo"> -->
         </div>
         <div class="imagen-principal">
-          <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+          <img [src]="producto.imagen" alt="{{ producto.nombreProducto }}">
         </div>
         <div class="info-producto">
-          <h3>{{ producto.nombre }}</h3>
+          <p hidden >Id: {{producto.IdProducto}}</p>
+          <h3>{{ producto.nombreProducto  }}</h3>
           <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
           <p>Categoría: {{ producto.categoria }}</p>
           <div class="botones">
-            <button class="btn-editar">Editar</button>
-            <button class="btn-eliminar">Eliminar</button>
+            <button class="btn-editar" >Editar</button>
+            <button type="button" (click)="onProductDelete(producto.IdProducto)" class="btn-eliminar">Eliminar</button>
           </div>
         </div>
       </div>
-      
+
     </div>

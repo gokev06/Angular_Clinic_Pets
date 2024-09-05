@@ -5,8 +5,8 @@ import { map, catchError, switchMap, retry} from 'rxjs/operators';
 import { of } from 'rxjs';
 
 const roleRoutes: string | any = {
-  'usuario': ['/home', '/historial', '/citas', '/adopcion'],
-  'administrador': ['/home-admin'],
+  'usuario': ['/home', '/historial', '/citas', '/adopcion', '/tienda'],
+  'administrador': ['/home-admin', '/tienda-admin'],
   'veterinario': ['/home-vet', '/crear-historial']
 }
 
