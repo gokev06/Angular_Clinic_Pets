@@ -1,0 +1,49 @@
+<div class="background">
+    <div class="modal">
+        <div class="header">
+            <div class="precio">
+                <img src="../../../../../assets/images/carrocompras.webp" alt="" class="carro">
+                <p>{{ totalPrice }}</p>
+            </div>
+            <div class="salir">
+                <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="" (click)="closemodal()">
+            </div>
+        </div>
+        <div class="centrar">
+            <div class="tabla" *ngFor="let producto of productos">
+                <div class="info">
+                    <div class="info1">
+                        <h1>Articulo</h1>
+                    </div>
+                    <div class="info2">
+                        <h1>Cantidad</h1>
+                        <h1>Subtotal</h1>
+                    </div>
+                </div>
+                <div class="mocapi">
+                    <div class="imagen-principal">
+                        <img [src]="producto.imagen" alt="">
+                        <p>{{producto.nombre}}</p>
+                      
+                    </div>
+
+                    <div class="producto">
+                        <div class="cart-item">
+                            <button class="quantity-button" (click)="decreaseQuantity(producto)">-</button>
+                            <span class="quantity">{{ producto.cantidad }}</span>
+                            <button class="quantity-button" (click)="increaseQuantity(producto)">+</button>
+                          </div>
+                          <p>{{ producto.precio * producto.cantidad }}</p>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- carrito.component.html -->
+<div class="carrito-actions">
+    <button (click)="vaciarCarrito()" class="btn btn-danger">Vaciar Carrito</button>
+    <button (click)="finalizarCompra()" class="btn btn-success">Finalizar Compra</button>
+  </div>
+  
+    </div>
+</div>

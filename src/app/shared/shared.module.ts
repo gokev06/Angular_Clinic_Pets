@@ -39,6 +39,7 @@ import { ErroresValidacionesComponent } from './components/molecules/errores-val
 import { BtnregistroComponent } from './components/molecules/btnregistro/btnregistro.component';
 import { ModalEditarPerfilComponent } from './components/templates/modal-editar-perfil/modal-editar-perfil.component';
 import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
+import { CarritoModalComponent } from './components/templates/carrito-modal/carrito-modal.component';
 
 import { PagoTarjetaComponent } from './components/organisms/pago-tarjeta/pago-tarjeta.component';
 import { PagoCitaComponent } from '../features/citas/pages/pago-cita/pago-cita.component';
@@ -94,7 +95,8 @@ registerLocaleData(localeEs, 'es');
     AlertacitaComponent,
     AlertacancelarcitaComponent,
     GestionDeHorariosComponent,
-    ModalVerAdopcionComponent
+    ModalVerAdopcionComponent,
+    CarritoModalComponent
   ],
   imports: [
     CommonModule,
@@ -143,7 +145,8 @@ registerLocaleData(localeEs, 'es');
     TableHistorialComponent,
     GestionDeHorariosComponent,
     BtnregistroComponent,
-    ModalVerAdopcionComponent
+    ModalVerAdopcionComponent,
+    CarritoModalComponent
   ]
 })
 export class SharedModule { }
