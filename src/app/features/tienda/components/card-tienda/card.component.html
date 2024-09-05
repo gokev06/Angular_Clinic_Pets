@@ -11,6 +11,9 @@
       <h3>{{ producto.nombreProducto }}</h3>
       <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
       <p>Categoría: {{ producto.categoria }}</p>
+      <div class="btn_info">
+        <button class="btn__ver__info" type="button" (click)=" redirectToInfoProduct(producto.IdProducto)" >Ver Producto</button>
+      </div>
     </div>
   </div>
 </div>

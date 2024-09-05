@@ -7,20 +7,19 @@
         (input)="onSearch($event)"
         class="search-input"/>
 
-</div><div class="car">
-
-
-
+</div>
+<div class="car">
     <!--
   <button type="button" class="btn__add__Product" (click)="redirectToAnotherPage()"> Agregar Producto</button>
 
        <img src="../../../../../assets/icons/mascotas 1.png" alt="">
     -->
-    <app-perfil></app-perfil>
-    </div>
-  </div>
     <img src="../../../../../assets/icons/mascotas 1.png" alt=""  (click)="showmodal()">
     <app-perfil></app-perfil>
     </div>
+    <app-carrito-modal *ngIf="isModalOpen" (close)="closeModal()" [allData]="allData"></app-carrito-modal>
   </div>
-  <app-carrito-modal *ngIf="isModalOpen" (close)="closeModal()" [productos]="productos"></app-carrito-modal>
+
+
+
+

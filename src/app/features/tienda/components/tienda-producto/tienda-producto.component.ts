@@ -12,19 +12,11 @@ export class TiendaProductoComponent implements OnInit {
   posY: number = 0;
   zoomActivo: boolean = false;
 
-  // Variables para manejar la selección de kilogramos y precios
-  kilogramos: number[] = [1.5, 4, 8]; // Opciones de kilogramos
-  textoKilogramos: string = ''; // Texto inicial para kilogramos
-  textoPrecio: string = ''; // Texto inicial para precio
-  
-  // Precio base por kilogramo
-  precioPorKilogramo: number = 10; // Ejemplo: $10 por kilogramo
+
 
   // Nueva variable para manejar la cantidad
   cantidad: number = 1;
 
-  // Variable para el botón seleccionado
-  kilogramaSeleccionado: number | null = null;
 
   // Método para manejar el zoom de la imagen
   activarZoom() {
@@ -52,12 +44,7 @@ export class TiendaProductoComponent implements OnInit {
     }
   }
 
-  // Método para actualizar el texto y precio al seleccionar un kilogramo
-  seleccionarKilogramos(kg: number) {
-    this.textoKilogramos = `${kg} kg.`; 
-    this.textoPrecio = `Precio: $${kg * this.precioPorKilogramo}.00`;
-    this.kilogramaSeleccionado = kg; // Establecer el botón seleccionado
-  }
+
 
   // Método para cambiar la cantidad
   cambiarCantidad(cambio: number) {
@@ -83,9 +70,6 @@ export class TiendaProductoComponent implements OnInit {
     this.cargarProductos();
     setInterval(() => this.showSlide(this.currentIndex + 1), 5000); // Auto-slide functionality
 
-    // Seleccionar el primer kilogramo al iniciar
-    this.kilogramaSeleccionado = this.kilogramos[0];
-    this.seleccionarKilogramos(this.kilogramaSeleccionado);
   }
 
   private cargarProductos(): void {
@@ -97,6 +81,10 @@ export class TiendaProductoComponent implements OnInit {
         console.error('Error al obtener productos', err);
       }
     });
+  }
+
+  callProductId():void{
+    this.productoService.ge
   }
 
   showSlide(index: number) {

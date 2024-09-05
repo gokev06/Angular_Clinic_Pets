@@ -55,6 +55,22 @@ export class ProductoService {
     );
   }
 
+  callProductData(IdProducto: number): Observable <DataResponse[]> {
+    return this.http.get<any>(`${this.apiUrl_1}/uploadProductId`).pipe(
+      map( (Response) => Response.Result.map((item: any) => ({
+        IdProducto: item.IdProducto,
+        imagen: item.imagen,
+        nombreProducto: item.nombreProducto,
+        precio: item.precio,
+        stock: item.stock,
+        categoria: item.categoria,
+        seleccionTallaPresentacion: item.seleccionTallaPresentacion,
+        descripcion: item.descripcion,
+        informacion: item.informacion
+      })))
+    )
+  }
+
   deleteProduct(productId: string): Observable <any>{
     const  token: string | null = localStorage.getItem('userToken');
     const headers = new HttpHeaders({

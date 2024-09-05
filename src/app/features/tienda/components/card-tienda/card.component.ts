@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductoService, DataResponse} from'../../services/producto-tienda.service';
 import { from } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class CardComponent implements OnInit {
 
   categoryFilteredData: DataResponse[] = []; // Nueva propiedad para almacenar los datos filtrados por categoría
 
-  constructor(private productService: ProductoService){}
+  constructor(private productService: ProductoService, private router: Router){}
 
   ngOnInit(): void {
     this.productService.getDataProducts().subscribe((data) => {
@@ -27,6 +28,13 @@ export class CardComponent implements OnInit {
       this.applyCategoryFilter(); // Aplicar filtro de categoría al inicio
      // this.filterData();
     })
+  }
+
+  redirectToInfoProduct(idProduct: string){
+      sessionStorage.setItem('ProductId', idProduct);
+      console.log(sessionStorage.getItem('ProductId'));
+
+       this.router.navigate(['/info-producto'])
   }
 
   ngOnChanges(changes: SimpleChanges): void{

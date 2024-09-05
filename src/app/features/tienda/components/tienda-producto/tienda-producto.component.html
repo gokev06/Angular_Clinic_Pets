@@ -8,12 +8,12 @@
         <li class="current-page"><a href="#">Producto</a></li>
       </ul>
     </nav>
-    <div class="contenedor-imagen" 
-         (mouseenter)="activarZoom()" 
-         (mouseleave)="desactivarZoom()" 
+    <div class="contenedor-imagen"
+         (mouseenter)="activarZoom()"
+         (mouseleave)="desactivarZoom()"
          (mousemove)="moverImagen($event)">
-      <img src="../../../../../assets/images/chunky.jpg" 
-           alt="Imagen para Zoom" 
+      <img src="../../../../../assets/images/chunky.jpg"
+           alt="Imagen para Zoom"
            [ngStyle]="{
              'transform': zoomActivo ? 'scale(1.2) translate(' + posX + '%, ' + posY + '%)' : 'scale(1) translate(0, 0)'
            }">
@@ -27,9 +27,11 @@
       </h1>
     </div>
     <section>
-    
-      <h3>Seleccione Presentación/Talla/Tamaño:</h3>
-      <div class="botones">
+
+      <h3>Precio Producto:</h3>
+      <!----
+
+            <div class="botones">
         <button
           *ngFor="let kg of kilogramos"
           (click)="seleccionarKilogramos(kg)"
@@ -38,8 +40,11 @@
           {{ kg }} kg
         </button>
       </div>
+
+      -->
+
       <h1>{{ textoPrecio }} COP</h1>
-      
+
       <!-- Nuevos botones -->
       <div class="botones-adicionales">
         <h3>Seleccione Cantidad:</h3>
@@ -62,7 +67,7 @@
       <div class="tabs">
         <button [ngClass]="{'active': selectedTab === 'info'}" (click)="selectTab('info')">Descripción</button>
         <button [ngClass]="{'active': selectedTab === 'description'}" (click)="selectTab('description')">Información</button>
-        
+
       </div>
       <div class="tab-content">
         <div *ngIf="selectedTab === 'info'">
