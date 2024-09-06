@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductoService,  DataResponse } from '../../services/producto-tienda.service';
 
@@ -7,14 +7,21 @@ import { ProductoService,  DataResponse } from '../../services/producto-tienda.s
   templateUrl: './header-tienda.component.html',
   styleUrls: ['./header-tienda.component.scss']
 })
-export class HeaderTiendaComponent {
+export class HeaderTiendaComponent implements OnInit {
 
   constructor(private router: Router, private productosService: ProductoService){}
 
   busqueda: string = '';
   allData: DataResponse[] = [];
+  userRol: string | null = null;
+  viewCartBtn: boolean = false;
 
    @Output() search = new EventEmitter<string>();
+
+
+   ngOnInit(): void {
+     this.rolSeleccionado();
+   }
 
    onSearch(event: Event) {
     const searchTerm = (event.target as HTMLInputElement).value;
@@ -24,6 +31,13 @@ export class HeaderTiendaComponent {
    redirectToAnotherPage(){
     this.router.navigate(['/subir-producto'])
    }
+
+   rolSeleccionado(): void{
+    this.userRol = sessionStorage.getItem('userRole');
+    if (this.userRol == 'usuario') {
+       this.viewCartBtn = true
+    }
+  }
 
   isModalOpen = false;
 

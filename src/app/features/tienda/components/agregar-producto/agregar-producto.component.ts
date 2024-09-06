@@ -173,7 +173,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/tienda']);
+    this.router.navigate(['/tienda-admin']);
   }
 
 }

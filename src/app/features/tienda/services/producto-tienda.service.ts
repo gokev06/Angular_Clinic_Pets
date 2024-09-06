@@ -17,6 +17,8 @@ export interface DataResponse {
 
 
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -55,8 +57,13 @@ export class ProductoService {
     );
   }
 
-  callProductData(IdProducto: number): Observable <DataResponse[]> {
-    return this.http.get<any>(`${this.apiUrl_1}/uploadProductId`).pipe(
+  callProductData(IdProducto: string): Observable <DataResponse[]> {
+    const  token: string | null = localStorage.getItem('userToken');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}` // Suponiendo que el token puede ser necesario
+  });
+    return this.http.get<any>(`${this.apiUrl_1}/uploadProductId/${IdProducto}`,{headers} ).pipe(
       map( (Response) => Response.Result.map((item: any) => ({
         IdProducto: item.IdProducto,
         imagen: item.imagen,
@@ -86,6 +93,15 @@ export class ProductoService {
       })
     );
   }
+
+  addProductCart(productPush: any): Observable<any>{
+    const  token: string | null = localStorage.getItem('userToken');
+    let headers = new HttpHeaders();
+    if (token) {
+       headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.post(`${this.apiUrl_1}/addProductCart`, productPush, {headers});
+  };
 
 }
 

@@ -12,7 +12,7 @@
          (mouseenter)="activarZoom()"
          (mouseleave)="desactivarZoom()"
          (mousemove)="moverImagen($event)">
-      <img src="../../../../../assets/images/chunky.jpg"
+      <img src="{{ data[0].imagen }}"
            alt="Imagen para Zoom"
            [ngStyle]="{
              'transform': zoomActivo ? 'scale(1.2) translate(' + posX + '%, ' + posY + '%)' : 'scale(1) translate(0, 0)'
@@ -22,13 +22,15 @@
 
   <div class="partedos">
     <div class="center">
-      <h1>
-        Alimento Para Perro Chunky Adulto Razas Pequeñas - {{ textoKilogramos }}
-      </h1>
-    </div>
+      <h1>Producto: {{data[0].nombreProducto}}</h1>
+     </div>
     <section>
+      <div >
+        <h2 class="data__categoria">Categoria: {{data[0].categoria}}</h2>
+        <h3 class="data__peso">Cont Net: {{data[0].seleccionTallaPresentacion}}</h3>
+      </div>
 
-      <h3>Precio Producto:</h3>
+
       <!----
 
             <div class="botones">
@@ -42,20 +44,24 @@
       </div>
 
       -->
-
-      <h1>{{ textoPrecio }} COP</h1>
+      <h1>Stock Disponible: {{ data[0].stock}}</h1>
+      <h1>Precio Producto: {{ data[0].precio | currency:'COP':'symbol':'1.0-0' }} </h1>
 
       <!-- Nuevos botones -->
       <div class="botones-adicionales">
         <h3>Seleccione Cantidad:</h3>
         <div class="botones-carro">
           <div class="cantidad">
-            <button class="btn-cantidad1" (click)="cambiarCantidad(-1)">-</button>
+            <button class="btn-cantidad1" (click)="removeProduct()">-</button>
             <input type="text" id="cantidad" [value]="cantidad" readonly />
-            <button class="btn-cantidad2" (click)="cambiarCantidad(1)">+</button>
+            <button class="btn-cantidad2" (click)="addProduct()">+</button>
           </div>
-          <button class="agregarAlCarrito">Agregar al carrito</button>
+
+          <button type="button" (click)="addProductCart()"  class="agregarAlCarrito">Agregar al carrito</button>
         </div>
+      </div>
+      <div *ngIf="soldOut"  class="product-soldOut">
+        <b class="product-soldOut" >Producto Agotado</b>
       </div>
     </section>
   </div>
@@ -73,14 +79,14 @@
         <div *ngIf="selectedTab === 'info'">
           <h2>Descripción</h2>
           <p>
-            Chunky es el alimento ideal para perros adultos de razas pequeñas, formulado cuidadosamente para satisfacer todas las necesidades nutricionales de tu mascota.
+            {{ data[0].descripcion}}
           </p>
           <a href="/tienda">Ver más productos de la tienda</a>
         </div>
         <div *ngIf="selectedTab === 'description'" class="descripcion-contenedor">
           <h2>Información</h2>
           <p>
-            Alimento Chunky para Cachorros está formulado especialmente para satisfacer las necesidades nutricionales de los cachorros en crecimiento. Proporciona una dieta equilibrada y completa que apoya un desarrollo saludable y un crecimiento óptimo.
+            {{ data[0].informacion}}
           </p>
         </div>
       </div>
@@ -89,15 +95,15 @@
       <h6>Productos similares</h6>
       <div class="carousel-container">
         <div class="carousel-inner">
-          <div class="carousel-item" *ngFor="let item of items">
+          <div class="carousel-item" *ngFor="let item of allData">
             <div class="card">
               <div class="logo">
               </div>
               <div class="imagen-principal">
-                <img [src]="item.imagen" alt="{{ item.nombre }}">
+                <img [src]="item.imagen" alt="{{ item.nombreProducto }}">
               </div>
               <div class="info-producto">
-                <h3>{{ item.nombre }}</h3>
+                <h3>{{ item.nombreProducto }}</h3>
                 <p>{{ item.precio | currency:'COP':'symbol':'1.0-0' }}</p>
                 <p>Categoría: {{ item.categoria }}</p>
               </div>

@@ -53,7 +53,7 @@ export class AppointmentService {
   }
 
   deleteAppointment(idCita: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`); 
+    return this.http.delete(`${this.apiUrl_1}/deleteData/${idCita}`);
   }
 
 

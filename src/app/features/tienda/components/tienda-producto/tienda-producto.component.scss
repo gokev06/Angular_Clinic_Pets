@@ -29,7 +29,7 @@
   font-family: Arial, sans-serif;
   font-size: 11px;
   }
-  
+
   .breadcrumb {
   list-style: none;
   display: flex;
@@ -38,12 +38,12 @@
    justify-content: center;
    margin: 20px;
   }
-  
+
   .breadcrumb li {
    position: relative;
    margin-right: 10px; /* Espacio entre los elementos */
   }
-  
+
   .breadcrumb li:not(:last-child)::after {
    content: '|'; /* Separador vertical */
    position: absolute;
@@ -53,18 +53,18 @@
    margin-left: 10px;
    margin-right: 15px;
   }
-  
+
   .breadcrumb a {
   text-decoration: none;
    color: #607178; /* Color de los enlaces */
    margin-right: 20px;
   }
-  
-  
+
+
   .breadcrumb a:hover {
    text-decoration: underline;
   }
-  
+
   /* Estilo para el breadcrumb de la página actual */
   .breadcrumb .current-page a {
    color: #CCC4FF; /* Color del breadcrumb actual */
@@ -72,8 +72,8 @@
   }
   .center{
     margin-top: 20px;
-    
-    
+
+
   }
   .center h1{
     width: 30%;
@@ -81,15 +81,15 @@
       margin-top: 0;
       margin-left: 15px;
       text-align: left;
-      font-weight: 700; 
+      font-weight: 700;
   }
- 
+
 .partedos section {
   margin-top: 50px;
 }
 .partedos{
   margin-top: 65px;
-  
+
 }
 .botones {
   display: flex;
@@ -112,7 +112,7 @@ button {
 button:hover {
   background-color: #CCC4FF;
   color: rgb(0, 0, 0);
-  
+
 }
 
 h1 {
@@ -149,7 +149,7 @@ h1 {
 }
 
 .botones-adicionales h3{
-  
+
   margin-right: 100px;
   margin-left: -120px;
 }
@@ -189,15 +189,15 @@ h1 {
   align-items: center;
 
     margin-top: -10px;
-  
+
 }
 
 .btn-cantidad1 {
-  
+
   padding: 10px 20px;
   background-color: #CCC4FF;
   color: black;
-  border-radius: 10px 0 0 10px; 
+  border-radius: 10px 0 0 10px;
   cursor: pointer;
   font-size: 16px;
 
@@ -206,11 +206,11 @@ h1 {
   padding: 10px 20px;
   background-color: #CCC4FF;
   color: black;
-  border-radius: 0 10px 10px 0px ; 
+  border-radius: 0 10px 10px 0px ;
   cursor: pointer;
   font-size: 16px;
   margin-right: 30px;
-  
+
 }
 
 
@@ -263,11 +263,11 @@ input[type="text"] {
   border: none; /* Elimina el borde superior */
   margin-top: -1px; /* Elimina el espacio entre las pestañas y el contenido */
   background-color: #fff; /* Fondo blanco para el contenido */
- 
+
   width: 80%;
 }
 
-  
+
   h2 {
     margin-top: 0;
   }
@@ -302,8 +302,8 @@ a:visited {
 //crad
 
 .card {
-  width: 135px; 
-  height: 230px; 
+  width: 135px;
+  height: 230px;
  font-size: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -373,20 +373,20 @@ a:visited {
     width: 100%;
     margin-bottom: 30px;
   }
-  
+
   .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
   }
-  
+
   .carousel-item {
     flex: 0 0 auto; /* Esto asegura que cada ítem tenga un ancho fijo */
     width: 33.33%; /* Ajusta este valor según el número de ítems que quieras mostrar */
     box-sizing: border-box;
     padding: 5 20px; /* Añade espacio interno para separar las tarjetas */
   }
-  
+
   .card {
     background: white;
     border-radius: 8px;
@@ -394,20 +394,20 @@ a:visited {
     padding: 16px;
     text-align: center;
   }
-  
+
   .card img {
     width: 100%;
     border-radius: 8px;
     margin-top: 0;
   }
-  
+
   @media (min-width: 352px) and (max-width: 480px) {
     .padre{
       width: 100%;
       height: auto;
       display: flex;
       flex-direction: column;
-      
+
     }
     .carousel-container {
       margin-bottom: 30px;
@@ -415,9 +415,9 @@ a:visited {
     .contenedor-imagen {
       width: 90%;
       height: 400px;
-    
+
     }
-    
+
   .center h1{
     margin-top: -65px;
     width: 90%;
@@ -447,7 +447,7 @@ h1 {
 .botones-carro{
   display: flex;
   justify-content: center;
- 
+
   margin-left: 220px;
 }
 .agregarAlCarrito {
@@ -525,7 +525,7 @@ h6 {
       height: auto;
       display: flex;
       flex-direction: column;
-      
+
     }
     .contenedor-imagen {
       width: 400px;
@@ -538,7 +538,7 @@ h6 {
       justify-content: center;
       align-items: center;
     }
-    
+
     .center h1 {
       margin-top: -65px;
       width: 90%;
@@ -611,7 +611,7 @@ padding-left: 0;
 
 }
 .card h3{
-  
+
   margin-right: 10px;
         margin-top: -60px;
 }
@@ -631,7 +631,7 @@ section h3 {
       height: auto;
       display: flex;
       flex-direction: column;
-      
+
     }
     .contenedor-imagen {
       width: 400px;
@@ -644,7 +644,7 @@ section h3 {
       justify-content: center;
       align-items: center;
     }
-    
+
     .center h1 {
       margin-top: -65px;
       width: 90%;
@@ -686,7 +686,7 @@ h1 {
   justify-content: center;
   margin-left: 0;
 }
-  
+
   .tabs {
   padding-left: 0;
   }
@@ -712,6 +712,20 @@ section h3 {
 .card h3{
   margin-top: -70px;
 }
+
+.data__categoria{
+  font-weight: bolder;
+  margin-left: 15%;
+}
+
+.product-soldOut{
+  text-align: center;
+  color: red;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+
   }
   @media (min-width: 921px) and (max-width: 1279px) {
     .contenedor-imagen img {
@@ -740,7 +754,7 @@ section h3 {
   .partedos section {
     margin-top: 50px;
     width:460px;
-    
+
 }
 .botones-adicionales {
   margin-left: 0;
@@ -751,19 +765,19 @@ section h3 {
   margin-left: -160px;
 }
   .partedos{
-    
-   width: 50%; 
+
+   width: 50%;
     display: flex;
     justify-content: unset;
   }
   h6[_ngcontent-ng-c1441835545] {
-  
+
     width: 100%;
-   
+
 }
 .card{
   width: 145px;
- 
+
 }
 
   }
