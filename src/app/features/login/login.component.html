@@ -4,7 +4,10 @@
       <app-logo></app-logo><h1>Clinic-Pets</h1>
     </div>
   </div>
-
+  <div class="responsive-only">
+    <!-- Contenido que solo se mostrará en dispositivos móviles -->
+    <h1 class="typing-effect">Iniciar sesión</h1>
+  </div>
   <div class="contenedor-formulario">
     <div class="formulario">
       <form class="formulario_login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
