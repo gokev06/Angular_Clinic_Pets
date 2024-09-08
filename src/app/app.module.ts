@@ -10,7 +10,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { CalendarioComponent } from './shared/components/organisms/calendario/calendario.component';
-
 registerLocaleData(localeEs, 'es');
 
 @NgModule({

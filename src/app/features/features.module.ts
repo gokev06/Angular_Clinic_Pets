@@ -15,9 +15,10 @@ import { PagesNuevaadopcionComponent } from './adopcion/pages/pages-nuevaadopcio
 import { FormularioAdopcionComponent } from './adopcion/components/formulario-adopcion/formulario-adopcion.component';
 import { CardformularioComponent } from './adopcion/components/cardformulario/cardformulario.component';
 import { InfoAdopcionComponent } from './adopcion/pages/info-adopcion/info-adopcion.component';
-
-
-
+import { AdminCardsComponent } from './adopcion/components/admin-cards/admin-cards.component';
+import { AdminAdopcionesComponent } from './adopcion/pages/admin-adopciones/admin-adopciones.component';
+import { AdmiCardsNuevaComponent } from './adopcion/components/admi-cards-nueva/admi-cards-nueva.component';
+import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-header.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import { InfoAdopcionComponent } from './adopcion/pages/info-adopcion/info-adopc
     RegistroComponent,
     PagesNuevaadopcionComponent,
     FormularioAdopcionComponent,
-    InfoAdopcionComponent
+    InfoAdopcionComponent,
+    AdminCardsComponent,
+    AdminAdopcionesComponent, 
+    AdmiCardsNuevaComponent,
+    AdmiHeaderComponent
    
   ],
   imports: [

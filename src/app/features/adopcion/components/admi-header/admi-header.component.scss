@@ -1,0 +1,132 @@
+.header-container {
+  background-color: #CCC4FF;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 44px;
+  justify-content: space-between; /* Alinea los elementos a los extremos */
+}
+
+a, button {
+  background-color: #E9E1FE;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 550px;
+    justify-content: center;
+}
+
+.search-input {
+    padding: 10px 40px;
+    font-size: 13px;
+    border: 2px solid #000;
+    border-radius: 20px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 37%; /* Alineación del ícono del buscador */
+    font-size: 20px;
+    pointer-events: none;
+    color: #000;
+}
+
+img {
+    width: 15px;
+    height: 15px;
+}
+
+.search-container-responsive {
+    display: none;
+    position: relative;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: center;
+}
+
+.search-input-responsive {
+    width: calc(100% - 30px); 
+    padding: 10px 30px;
+}
+
+.search-icon-responsive {
+    position: absolute;
+    right: 10px; 
+    font-size: 20px;
+    color: #000;
+}
+
+
+/* Contenedor del buscador */
+.search-container {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Permite que el contenedor de búsqueda ocupe todo el espacio disponible */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  position: relative;
+}
+
+.search-input {
+  padding: 10px 40px;
+  font-size: 13px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  width: 100%; /* Asegura que el campo de búsqueda ocupe todo el ancho del contenedor */
+  max-width: 400px; /* Limita el tamaño máximo del campo de búsqueda */
+}
+
+
+
+.campana-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.campana {
+  cursor: pointer; /* Cambia el cursor al pasar sobre el ícono para indicar que es un botón */
+}
+
+.campana img {
+  width: 40px; /* Ajusta el tamaño de la campana según sea necesario */
+  height: 40px;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px; /* Ajusta la posición vertical del badge */
+  right: -5px; /* Ajusta la posición horizontal del badge */
+  background-color: red; /* Color de fondo del badge */
+  color: white; /* Color del texto */
+  border-radius: 50%; /* Hace que el badge sea circular */
+  width: 20px; /* Ajusta el tamaño del badge */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; /* Tamaño del texto en el badge */
+}
+
+@media screen and (max-width: 769px) {
+  .header-container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+  
+  .search-container {
+    margin-top: 20px; /* Espacio entre el buscador y la campana en pantallas pequeñas */
+    width: 100%;
+  }
+}
