@@ -46,7 +46,7 @@
 
     .botones {
         display: flex;
-        justify-content: flex-start; /* Alinea los botones al inicio */
+        justify-content: center; /* Alinea los botones al inicio */
         gap: 8px; /* Añade espacio entre los botones */
         margin-top: 10px;
       
@@ -60,6 +60,10 @@
           &.btn-editar {
             background-color: #A5D9FF; /* Verde */
             color: black;
+          }
+
+          .btn-editar img{
+            border: none;
           }
       
           &.btn-eliminar {
