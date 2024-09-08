@@ -30,6 +30,8 @@ import { InfoProductoTiendaComponent } from './tienda/pages/info-producto-tienda
 
 import { InfoTComponent } from './tienda/components/filtro/info-t.component';
 import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-tienda.component';
+import { SolicitudAdopcionComponent } from './adopcion/pages/solicitud-adopcion/solicitud-adopcion.component';
+import { CartaSolicitudAdopcionComponent } from './adopcion/components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
 @NgModule({
   declarations: [
     GestionCitasComponent,
@@ -57,9 +59,9 @@ import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-
     PagesNuevaadopcionComponent,
     FormularioAdopcionComponent,
     InfoAdopcionComponent,
-   
     TablaCitasComponent,
-  
+    SolicitudAdopcionComponent,
+    CartaSolicitudAdopcionComponent
   ],
   imports: [
     CommonModule,

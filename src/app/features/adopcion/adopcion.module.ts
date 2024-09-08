@@ -9,6 +9,8 @@ import { CardsComponent } from './components/cards/cards.component';
 import { InfoAdopcionComponent } from './pages/info-adopcion/info-adopcion.component';
 import { RouterModule } from '@angular/router';
 import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
+import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
+import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud-adopcion.component';
 
 
 
@@ -17,7 +19,7 @@ import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.comp
     HeaderadopcionComponent,
      CardsadopcionComponent,
      CardsComponent,
-     
+
 
   ],
   imports: [

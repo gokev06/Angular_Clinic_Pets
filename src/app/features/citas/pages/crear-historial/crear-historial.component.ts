@@ -4,6 +4,7 @@ import { AppointmentService } from '../../services/appointment.service';
 import { catchError } from 'rxjs';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-historial',
@@ -48,29 +49,57 @@ export class CrearHistorialComponent  implements OnInit{
 
 onSubmit() {
   if (this.Formhistorial.valid) {
-    const token = localStorage.getItem('userToken');
-    this.appointmentService.createHistoryMedic(this.Formhistorial.value, token)
-
-     .pipe(
-      catchError( error => {
-        console.error('Error al crear el historial:', error);
-
-        return of(null)
-      })
-     )
-     .subscribe( response => {
-      if (response) {
-        alert('historial medico creado');
-        console.log('Historial creado con éxito:', response);
-        this.router.navigate(['/home-vet']);
+    Swal.fire({
+      title: '¿Crear historial médico?',
+      text: '¿Estás seguro de que deseas crear este historial médico?',
+      showCancelButton: true,
+      confirmButtonColor: '#7DFF82',
+      cancelButtonColor: '#F57171',
+      confirmButtonText: 'Sí, crear',
+      cancelButtonText: 'No, cancelar',
+      imageUrl: '../../../../../assets/images/imgcitas/huellas.png',
+      imageWidth: 200,
+      imageHeight: 200
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const token = localStorage.getItem('userToken');
+        this.appointmentService.createHistoryMedic(this.Formhistorial.value, token)
+          .pipe(
+            catchError(error => {
+              console.error('Error al crear el historial:', error);
+              Swal.fire({
+                title: '¡Error!',
+                text: 'Ocurrió un error al crear el historial médico.',
+                icon: 'error',
+                confirmButtonColor: '#F57171',
+              });
+              return of(null);
+            })
+          )
+          .subscribe(response => {
+            if (response) {
+              Swal.fire({
+                title: '¡Historial médico creado!',
+                text: 'El historial médico ha sido creado exitosamente.',
+                icon: 'success',
+                confirmButtonColor: '#7DFF82',
+              });
+              console.log('Historial creado con éxito:', response);
+              this.router.navigate(['/home-vet']);
+            }
+          });
       }
-     });
-  }else{
+    });
+  } else {
+    Swal.fire({
+      title: '¡Hubo un problema!',
+      text: 'Debes completar correctamente el formulario antes de enviar.',
+      icon: 'warning',
+      confirmButtonColor: '#F57171',
+    });
     console.log('error: ', this.Formhistorial.errors);
-
   }
+}
 
-
- }
 
 }

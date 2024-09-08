@@ -1,5 +1,13 @@
-<app-header [ruta]="'/historial'" [title]="'consultar historial'"></app-header>
-<section>
+<app-header [ruta]="'/table-historial'" [title]="'consultar historial'"></app-header>
+<section class="estadovacio" *ngIf="citas.length <= 0 ">
+  <div class="vacio">
+    <h1>Vaya...</h1>
+    <img src="../../../../../assets/images/gato.png" alt="">
+    <h2>Parece que no hay citas para mostrar</h2>
+    <button class="volver" routerLink="/home-vet">Volver</button>
+  </div>
+</section>
+<section class="section" *ngIf="citas.length > 0 ">
   <div class="table-container">
     <table class="clients-table">
       <thead>
