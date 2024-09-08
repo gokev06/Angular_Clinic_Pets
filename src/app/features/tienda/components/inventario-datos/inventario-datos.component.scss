@@ -1,0 +1,100 @@
+/* Estilo general de la tabla del inventario */
+
+.tabla {
+  width: 95%;
+  border-collapse: collapse;
+  border: 1px solid #CCC4FF;
+}
+
+/* Encabezado de la tabla */
+.encabezado {
+  background: #f4f4f4;
+  font-weight: bold;
+}
+
+/* Filas de la tabla */
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr 2fr;
+  border-bottom: 1px solid #CCC4FF;
+  align-items: center;
+}
+
+/* Filas alternas para mejorar legibilidad */
+.fila:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Celdas de la tabla */
+.celda {
+  padding: 12px;
+  text-align: center;
+}
+
+/* Estilo de las imágenes de los productos */
+.celda.imagen img {
+  width: 50px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Estilo de los campos de entrada en modo de edición */
+.celda input {
+  width: 60%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+/* Botones de acción */
+.btn-editar,
+.btn-guardar,
+.btn-cancelar,
+.btn-eliminar {
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin: 0 4px;
+  transition: background 0.3s ease;
+}
+
+/* Estilos específicos para cada botón */
+.btn-editar {
+  background: rgba(190, 243, 255, 1);
+  color: black;
+}
+
+.btn-editar:hover {
+  background: rgba(190, 243, 255, 0.498);
+}
+
+.btn-guardar {
+  background: rgba(87, 250, 60, 0.47);
+  color: black;
+}
+
+.btn-guardar:hover {
+  background: rgba(88, 250, 60, 0.292);
+}
+
+.btn-cancelar {
+  background: rgba(172, 165, 214, 0.47);
+  color: black;
+}
+
+.btn-cancelar:hover {
+  background: rgba(172, 165, 214, 0.313);
+}
+
+.btn-eliminar {
+  background: rgba(250, 60, 60, 0.47);
+  color: black;
+}
+
+.btn-eliminar:hover {
+  background: rgba(250, 60, 60, 0.26);
+}

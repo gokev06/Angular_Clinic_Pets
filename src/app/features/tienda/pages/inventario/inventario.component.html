@@ -1,0 +1,5 @@
+<app-header-inventario (buscar)="onBuscar($event)"></app-header-inventario>
+<app-info-t (categoriaSeleccionada)="onCategoriaSeleccionada($event)"></app-info-t>
+<div class="principal">
+<app-inventario-datos [productos]="productosFiltrados"></app-inventario-datos>
+</div>

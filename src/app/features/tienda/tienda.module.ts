@@ -8,6 +8,8 @@ import { CardComponent } from './components/card-tienda/card.component';
 import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.component';
 import { TiendaAdminComponent } from './pages/tienda-admin/tienda-admin.component';
 import { CardAdminComponent } from './components/card-admin/card-admin.component';
+import { InventarioComponent } from './pages/inventario/inventario.component';
+import { HeaderInventarioComponent } from './components/header-inventario/header-inventario.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CardAdminComponent } from './components/card-admin/card-admin.component
     CardComponent,
     HeaderTiendaComponent,
     TiendaAdminComponent,
-    CardAdminComponent
+    CardAdminComponent,
+    InventarioComponent,
+    HeaderInventarioComponent
   ],
   imports: [
     CommonModule,

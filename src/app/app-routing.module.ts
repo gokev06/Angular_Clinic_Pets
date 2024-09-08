@@ -17,9 +17,10 @@ import { AgregarProductoComponent } from './features/tienda/components/agregar-p
 import { TiendaProductoComponent } from './features/tienda/components/tienda-producto/tienda-producto.component';
 import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
 import { TiendaAdminComponent } from './features/tienda/pages/tienda-admin/tienda-admin.component';
-
+import { InventarioComponent } from './features/tienda/pages/inventario/inventario.component';
 //rutas de las ventanas
 const routes: Routes = [
+ 
   {path :"login",component: LoginComponent},
   {path: "citas", component: CitasComponent, canActivate: [authGuard]},
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path:'tienda',component:TiendaComponent},
   {path:'subir-producto',component:AgregarProductoComponent},
   {path: 'info-producto', component:InfoProductoTiendaComponent},
-  {path: 'tienda-admin',component:TiendaAdminComponent}
+  {path: 'tienda-admin',component:TiendaAdminComponent},
+  {path: 'inventario', component: InventarioComponent }
  
 
 

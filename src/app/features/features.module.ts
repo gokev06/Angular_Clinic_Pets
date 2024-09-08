@@ -25,6 +25,9 @@ import { FiltroTiendaComponent } from './tienda/components/filtro-tienda/filtro-
 import { HeaderTiendaComponent } from './tienda/components/header-tienda/header-tienda.component';
 import { TiendaAdminComponent } from './tienda/pages/tienda-admin/tienda-admin.component';
 import { CardAdminComponent } from './tienda/components/card-admin/card-admin.component';
+import { InventarioComponent } from './tienda/pages/inventario/inventario.component';
+import { InventarioDatosComponent } from './tienda/components/inventario-datos/inventario-datos.component';
+import {  HeaderInventarioComponent } from './tienda/components/header-inventario/header-inventario.component';
 @NgModule({
   declarations: [
     CitasComponent,
@@ -47,7 +50,11 @@ import { CardAdminComponent } from './tienda/components/card-admin/card-admin.co
     FiltroTiendaComponent,
     HeaderTiendaComponent,
     TiendaAdminComponent,
-    CardAdminComponent
+    CardAdminComponent,
+    InventarioComponent,
+    InventarioDatosComponent,
+    HeaderInventarioComponent
+    
 
   ],
   imports: [
