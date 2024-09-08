@@ -25,6 +25,17 @@ export interface DataProduct {
   precioTotal: number,
 }
 
+export interface productInfo {
+  IdProducto: string,
+  imagen: string,
+  nombreProducto: string,
+  descripcion: string,
+  informacion: string,
+  precio: number,
+  stock: number,
+  categoria: string,
+  seleccionTallaPresentacion: string,
+}
 
 
 
@@ -100,6 +111,27 @@ export class ProductoService {
     return this.http.put<any>(`${this.apiUrl_1}/actualizarCantidadProductoCarrito/${IdUsuarioProducto}`, cuerpo, {headers})
   }
 
+  getDataProductIdInfo(IdProducto: string): Observable <productInfo[]>{
+    const token: string | null = localStorage.getItem('userToken');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${this.apiUrl_1}/askProductInfo/${IdProducto}`, {headers}).pipe(
+      map( (Response) => Response.Result.map((item: any) => ({
+         IdProducto: item.IdProducto,
+         imagen: item.imagen,
+         nombreProducto: item.nombreProducto,
+         descripcion: item.descripcion,
+         informacion: item.informacion,
+         precio: item.precio,
+         stock: item.stock,
+         categoria: item.categoria,
+         seleccionTallaPresentacion: item.seleccionTallaPresentacion
+      })))
+    )
+  }
+
   callProductData(IdProducto: string): Observable <DataResponse[]> {
     const  token: string | null = localStorage.getItem('userToken');
     const headers = new HttpHeaders({
@@ -160,6 +192,8 @@ export class ProductoService {
     }
     return this.http.post(`${this.apiUrl_1}/addProductCart`, productPush, {headers});
   };
+
+
 
 }
 

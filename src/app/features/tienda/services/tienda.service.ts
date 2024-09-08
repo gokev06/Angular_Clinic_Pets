@@ -23,5 +23,12 @@ export class TiendaService {
     return this.http.post(`${this.apiUrl_1}/addProductsAdmin`, productData, {headers});
   }
 
+  updateProduct(productId: string, productData: any, token: string | null): Observable <any> {
+    let headers = new HttpHeaders();
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.put(`${this.apiUrl_1}/updateProduct/${productId}`, productData, { headers });
+  }
+
 }
- 
