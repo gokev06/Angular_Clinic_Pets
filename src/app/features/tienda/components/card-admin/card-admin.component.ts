@@ -90,12 +90,8 @@ export class CardAdminComponent implements OnInit, OnChanges {
       ).subscribe();
   }
 
-  redirectToEditProduct(idProduct: string){
-    sessionStorage.setItem('ProductId', idProduct);
-    let editarProducto = 'true'
-    sessionStorage.setItem('EditProduct', editarProducto );
-
-    this.router.navigate(['subir-producto'])
+  redirectToEditProduct(productoId: string) {
+    this.router.navigate(['/editar-producto', productoId]);
   }
 
 }
