@@ -87,10 +87,13 @@
     </section>
 
   </section>
-
-  <div class="botones">
+  <div class="edit_btn botones">
     <button class="cancelar" type="button" (click)="onCancel()" >Cancelar</button>
-    <button (click)="onSubmit()" type="button"  >Subir Producto</button>
-
+    <span   *ngIf="viewElement; else elseBlock">
+      <button  class="actualizar" type="button" >Actualizar</button>
+    </span>
+    <ng-template #elseBlock>
+      <button   (click)="onSubmit()" type="button"  >Subir Producto</button>
+    </ng-template>
   </div>
 </form>

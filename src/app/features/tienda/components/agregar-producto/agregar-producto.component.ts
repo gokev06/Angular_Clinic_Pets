@@ -17,6 +17,7 @@ export class AgregarProductoComponent implements OnInit {
 
   estilos = 'padding: 8px; background-color: #CCC4FF; border-radius: 5px; width: 100%; height:35px; font-size: 15px; border: none; margin-bottom: 5px; color: black';
 
+  viewElement: boolean = false;
   productoForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
   tempImageFile: File | null = null;  // Nueva variable para almacenar temporalmente el archivo de imagen
@@ -27,6 +28,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      this.viewBtn();
     this.productoForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       precio: ['', [Validators.required,]],
@@ -175,5 +177,15 @@ export class AgregarProductoComponent implements OnInit {
   onCancel(): void {
     this.router.navigate(['/tienda-admin']);
   }
+
+
+   viewBtn():void{
+       let editBtn = sessionStorage.getItem('EditProduct');
+       if (editBtn == 'true') {
+         this.viewElement = true;
+       }else{
+        this.viewElement = false;
+       }
+   }
 
 }

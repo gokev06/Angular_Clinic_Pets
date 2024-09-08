@@ -29,6 +29,8 @@ export class HeaderTiendaComponent implements OnInit {
    }
 
    redirectToAnotherPage(){
+    let editarProducto = 'false'
+    sessionStorage.setItem('EditProduct', editarProducto );
     this.router.navigate(['/subir-producto'])
    }
 
