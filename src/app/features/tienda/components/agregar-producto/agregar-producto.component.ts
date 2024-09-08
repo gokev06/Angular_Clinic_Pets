@@ -53,7 +53,8 @@ export class AgregarProductoComponent implements OnInit {
       categoria: ['', [Validators.required]],
       descripcion: ['', [Validators.required, Validators.maxLength(600)]],
       informacion: ['', [Validators.required, Validators.maxLength(600)]],
-      seleccionTallaPresentacion: ['', [Validators.required]]
+      seleccionTallaPresentacion: ['', [Validators.required]],
+      imagen: [''] // Nuevo control para la imagen
     });
 
     this.productoForm.valueChanges.subscribe(valor => {
@@ -89,32 +90,35 @@ export class AgregarProductoComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         this.selectedImage = reader.result; // Previsualización de la imagen seleccionada
+        this.productoForm.patchValue({ imagen: reader.result});  // Actualiza el valor en el formulario
       };
       reader.readAsDataURL(file);
     }
   }
 
-  uploadImage(): Promise <string> {
+  uploadImage(): Promise<string> {
     return new Promise((resolve, reject) => {
-      if (!this.tempImageFile) {
-        reject('No image file selected');
-        return;
-      }
-
-      this.imageService.uploadImage(this.tempImageFile).subscribe(
-        response => {
-          if( response && response.url){
-            this.imageUrl = response.url;
-            resolve(response.url);
-          } else{
-            reject('La respuesta no contiene una URL de imagen');
+      if (this.tempImageFile) {
+        this.imageService.uploadImage(this.tempImageFile).subscribe(
+          response => {
+            if (response && response.url) {
+              this.imageUrl = response.url;
+              resolve(response.url);
+            } else {
+              reject('La respuesta no contiene una URL de imagen');
+            }
+          },
+          error => {
+            console.error('Error al subir la imagen', error);
+            reject('Hubo un error al subir la imagen');
           }
-        },
-        error => {
-          console.error('Error al subir la imagen', error);
-          reject('Hubo un error al subir la imagen');
-        }
-      );
+        );
+      } else if (this.imageUrl) {
+        // Si no hay una nueva imagen, pero tenemos una URL existente, la usamos
+        resolve(this.imageUrl);
+      } else {
+        reject('No hay imagen para subir ni URL existente');
+      }
     });
   }
 
@@ -212,7 +216,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
 
-   loadProductData(productId: string): void {
+  loadProductData(productId: string): void {
     this.productoService.getDataProductIdInfo(productId).subscribe({
       next: (response) => {
         if (response && response.length > 0) {
@@ -224,7 +228,8 @@ export class AgregarProductoComponent implements OnInit {
             categoria: product.categoria,
             descripcion: product.descripcion,
             informacion: product.informacion,
-            seleccionTallaPresentacion: product.seleccionTallaPresentacion
+            seleccionTallaPresentacion: product.seleccionTallaPresentacion,
+            imagen: product.imagen
           });
           this.selectedImage = product.imagen;
           this.imageUrl = product.imagen;
