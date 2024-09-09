@@ -99,8 +99,8 @@
             </div>
 
             <div class="input-group">
-              <app-input [text]="'text'" [holder]="'Historia'" [estilos]="estilos1"
-                         formControlName="historia" [id]="'Historia'"></app-input>
+              <textarea text="'text'" placeholder=Historia estilos="estilos1"
+                         formControlName="historia" id="'Historia'"></textarea>
               <div *ngIf="loginForm.get('historia')?.touched && loginForm.get('historia')?.errors?.['maxlength']"
                    class="error-message">La historia no puede exceder los 200 caracteres</div>
             </div>

@@ -38,8 +38,7 @@ const routes: Routes = [
 
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
-
-  {path: "register", component: RegistroComponent}, // ingreso al registro
+ {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
 

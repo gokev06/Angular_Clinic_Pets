@@ -211,7 +211,19 @@ section{
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
   }
 
-  
+ textarea{
+  padding:10px 10px 150px 10px; background-color: #CCC4FF; border-radius: 5px; width: 300px; height: 180px; font-size: 15px; border: none; margin-bottom: 30px; color: black; line-height: 1;
+  padding: 10px; 
+  text-align: start;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  resize: none; 
+  box-sizing: border-box; 
+ } 
+ textarea::placeholder {
+  color: #000; /* Color del placeholder */
+  font-size: 16px; /* Tamaño de la fuente del placeholder */
+}
   
 
 

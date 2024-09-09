@@ -2,8 +2,14 @@
 <div class="table-container">
   <div class="btn-volver">
    <!-- <h1 class="volver"><a routerLink="/home">Home</a>><a routerLink="/citas">Citas</a>><a routerLink="/historial">Historial</a></h1>-->
-   <button class="volver" routerLink="/citas">Volver</button>
-</div>
+   <nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ul class="breadcrumb">
+      <li><a href="/home">Home</a></li>
+      <li><a href="/citas">Citas</a></li>
+      <li class="current-page"><a href="#">Consultar Historial</a></li>
+    </ul>
+  </nav>
+  </div>
   <table class="clients-table">
     <thead>
       <tr>
@@ -27,8 +33,8 @@
           <ng-container *ngIf="cita.estado === 'Agendada'; else estadoNormal">
             <select (change)="onChangeEstado(cita, $event)">
               <option value="" hidden [selected]="cita.estado === 'Agendada'">Agendada</option>
-              <option value="Reagendar">Reagendar</option>
-              <option value="Cancelar">Cancelar</option>
+              <option class="reagendar" value="Reagendar">Reagendar</option>
+              <option class="reagendar1" value="Cancelar">Cancelar</option>
             </select>
           </ng-container>
           <ng-template #estadoNormal>
