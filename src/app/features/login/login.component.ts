@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.errorMessage = ''; // Limpiar el mensaje de error
 
     const userData = this.loginForm.value;
-    console.log('Datos enviados:', userData);
+   // console.log('Datos enviados:', userData);
 
       try {
         const response = await fetch('http://localhost:10101/auth', {
@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
         }
 
       const data = await response.json();
-      console.log('Success:', data);
+       //  console.log('Success:', data);
 
         if (data.token) {
           this.authService.setToken(data.token).subscribe(

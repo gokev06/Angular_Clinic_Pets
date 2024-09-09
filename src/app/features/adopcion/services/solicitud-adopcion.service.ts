@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
  export interface adopcion{
   id?: number;
@@ -17,6 +17,27 @@ import { Observable } from 'rxjs';
   image:string;
 }
 
+export interface ApiResponse {
+  status: string;
+  message: string;
+  Result: Adopciones[];
+}
+
+export interface Adopciones{
+  IdAdopcionMascota: number;
+  IdUsuario: string;
+  ImagenMascota: string;
+  nombreMascota: string;
+  edadMascota: number;
+  especieMascota: string;
+  razaMascota: string;
+  sexo: string;
+  esterilizacionMascota: string;
+  estadoVacunacionMascota: string;
+  numeroTelefono: string;
+  ubicacion: string;
+  historia: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +47,7 @@ export class SolicitudAdopcionService {
   private apiurl = 'http://localhost:8000/adopciones';
   private apiUrl_1 = 'http://localhost:10101';
   private apiUrl_2 = 'http://localhost:10101';
- 
+
   constructor( private http: HttpClient) { }
 
   getAdopciones(): Observable<adopcion[]> {
@@ -53,5 +74,15 @@ export class SolicitudAdopcionService {
 
     return this.http.post(` ${this.apiUrl_2}/filesUpload`, formData, { headers });
   }
+
+  getPetsData(): Observable <Adopciones[]> {
+    const token: string | null = localStorage.getItem('userToken');
+    let headers = new HttpHeaders();
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.get <any>(`${this.apiUrl_1}/askPetsData`, {headers})
+  }
+
 
 }

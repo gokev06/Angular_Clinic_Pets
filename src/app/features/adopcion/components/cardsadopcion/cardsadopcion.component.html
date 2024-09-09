@@ -1,66 +1,84 @@
-<app-headeradopcion (filterEvent)="applyFilter($event)"></app-headeradopcion>
+<app-headeradopcion ></app-headeradopcion>
 
 <section class="emptyState" *ngIf="adopciones.length <= 0">
     <!--<p id="ono">¡Oh no!</p>
     <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
-    <p id="noTienesClientes">Aún no tienes clientes</p> 
+    <p id="noTienesClientes">Aún no tienes clientes</p>
     COLOCAR ESTADO VACIO-->
 </section>
-<section *ngIf="filteredAdopciones.length > 0" class="background">
+<section *ngIf="adopciones.length > 0" class="background">
     <div class="container-cards">
     <div *ngFor="let adopcion of filteredAdopciones" class="cartas">
-        <app-cards [adopcion]="adopcion"></app-cards>
+      <div class="card" routerLink="['../pages/info-adopcion']">
+
+        <img [src]="adopcion.ImagenMascota" (click)="ruta()" alt="">
+        <!--IMAGEN-->
+        <h2>{{adopcion.nombreMascota}}</h2>
+        <div class="contacto">
+            <div class="info1">
+                <img src="../../../../../assets/icons/ubicacion.png" alt="">
+                <h5>{{ adopcion.ubicacion }}</h5>
+            </div>
+            <div class="info2">
+                <img src="../../../../../assets/icons/telefono.png" alt="">
+                <h5>{{ adopcion.numeroTelefono }}</h5>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
 
     <div class="filtro">
         <h1>Filtrar Por</h1>
 
-        <div class="borrar" (click)="ngOnInit()">
+        <div class="borrar" >
             <h2>Borrar Filtros</h2>
             <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="">
         </div>
-        
+
         <div class="contenedor-filtro">
-            <div (click)="FiltroNombre()" class="title-nombre">
+            <div  class="title-nombre">
                 <h3 >Nombre</h3>
                     <img src="../../../../../assets/icons/mas.png" alt="">
             </div>
-            <div class="filtro_nombre" *ngIf="FilterNombre == true">
+            <div class="filtro_nombre" >
                 <div class="contain">
-                    <input type="radio" id="az" name="order" (change)="sortAsc()">
+                    <input type="radio" id="az" name="order" >
                     <label for="az">A-Z</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="za" name="order" (change)="sortDesc()">
+                    <input type="radio" id="za" name="order" >
                     <label for="za">Z-A</label>
                 </div>
             </div>
         </div>
         <div class="contenedor-filtro">
-            <div (click)="FiltroEspecie()" class="title-nombre">
+            <div  class="title-nombre">
                 <h3 >Especie</h3>
                 <img src="../../../../../assets/icons/mas.png" alt="">
             </div>
-            <div class="filtro_nombre" *ngIf="FilterEspecie == true">
+            <div class="filtro_nombre" >
                 <div class="contain">
-                    <input type="radio" id="az" name="order" (change)="filterPerro()">
+                    <input type="radio" id="az" name="order" >
                     <label for="az">Perro</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="za" name="order" (change)="filterGatos()">
+                    <input type="radio" id="za" name="order" >
                     <label for="za">Gato</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="za" name="order" (change)="clearFilter()">
+                    <input type="radio" id="za" name="order">
                     <label for="za">Todos</label>
                 </div>
             </div>
         </div>
-        
-     
+
+
     </div>
 </section>
-<section *ngIf="filteredAdopciones.length === 0" class="emptyState">
+<!--
+<section  *ngIf="filteredAdopciones.length > 0"  class="emptyState" >
     <p>No se encontraron resultados.</p>
   </section>
+-->
+

@@ -6,7 +6,51 @@
     position: relative; 
     flex-direction: column;
 }
+.breadcrumb-container {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  }
 
+  .breadcrumb {
+  list-style: none;
+  display: flex;
+   padding: 0;
+   margin: 0;
+   justify-content: center;
+   margin: 20px;
+  }
+
+  .breadcrumb li {
+   position: relative;
+   margin-right: 10px; /* Espacio entre los elementos */
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+   content: '|'; /* Separador vertical */
+   position: absolute;
+   right: -10px; /* Ajusta la posición según el espacio entre los elementos */
+   top: 0;
+   color: #607178; /* Color del separador */
+   margin-left: 10px;
+   margin-right: 15px;
+  }
+
+  .breadcrumb a {
+  text-decoration: none;
+   color: #607178; /* Color de los enlaces */
+   margin-right: 20px;
+  }
+
+
+  .breadcrumb a:hover {
+   text-decoration: underline;
+  }
+
+  /* Estilo para el breadcrumb de la página actual */
+  .breadcrumb .current-page a {
+   color: #CCC4FF; /* Color del breadcrumb actual */
+   font-weight: bold; /* Opcional: hacer el texto negrita */
+  }
 .btn-volver{
     width: 100%;
     padding: 20px 40px;
@@ -72,7 +116,7 @@ select{
     width: 90%;
     height: 30px;
     border-radius: 10px;
-    background-color: rgb(221, 221, 221);
+    background-color: rgba(204, 196, 255, 0.38);
     border: none;
 }
 
@@ -100,6 +144,7 @@ select{
     position: relative;
 }
 
+
 .modal-content h2 {
     margin-top: 0;
 }
@@ -107,6 +152,13 @@ select{
 .modal-content button {
     margin-top: 10px;
 }
+.reagendar{
+    background-color: rgba(87, 250, 60, 0.47);
+}
+.reagendar1{
+    background-color: rgba(250, 60, 60, 0.47);
+}
+
 
 
 .modal-content button {
@@ -116,24 +168,24 @@ select{
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    color: white; 
+    color: black; 
     transition: background-color 0.3s ease; 
 }
 
 .modal-content .btn-aceptar {
-    background-color: #57cf5bd5; /* Color verde */
+    background-color: rgba(87, 250, 60, 0.47);; /* Color verde */
 }
 
 .modal-content .btn-aceptar:hover {
-    background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+    background-color: rgba(88, 250, 60, 0.267);; /* Verde más oscuro al pasar el ratón */
 }
 
 .modal-content .btn-cancelar {
-    background-color: #d3655d; /* Color rojo */
+    background-color: rgba(250, 60, 60, 0.47); /* Color rojo */
 }
 
 .modal-content .btn-cancelar:hover {
-    background-color: #e53935; /* Rojo más oscuro al pasar el ratón */
+    background-color: rgba(250, 60, 60, 0.338); /* Rojo más oscuro al pasar el ratón */
 }
 
 

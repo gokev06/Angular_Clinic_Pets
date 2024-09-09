@@ -340,6 +340,18 @@ cursor: pointer;
 
 
 
+.actualizar{
+
+  width: 264px;
+  padding: 10px;
+  border: none;
+ border-radius: 5px;
+ font-size: 16px;
+ cursor: pointer;
+}
+
+
+
 .categoria{
   background-color: #CCC4FF;
   border-radius: 5px;
@@ -355,6 +367,12 @@ cursor: pointer;
   flex-direction: column;
   justify-content: center;
 
+}
+
+.edit_btn{
+   display: flex;
+   justify-content: center;
+   gap: 30px;
 }
 
 

@@ -38,8 +38,7 @@ const routes: Routes = [
 
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
-
-  {path: "register", component: RegistroComponent}, // ingreso al registro
+ {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
 
@@ -47,6 +46,7 @@ const routes: Routes = [
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
   {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
+  {path: 'editar-producto/:id', component: AgregarProductoComponent},
   {path: "gestion-citas", component: GestionCitasComponent}, // incompleto
   {path:"agenda" , component: AgendaComponent}, // se supone que es para veterinario
   {path: "gestion-horaios", component: GestionDeHorariosComponent},

@@ -13,7 +13,7 @@
 </div>
 <div class="car">
   <div *ngIf="viewCartBtn; else btnAddProduct">
-    <img src="../../../../../assets/icons/mascotas 1.png" alt=""  (click)="showmodal()">
+    <img class="cart__btn" src="../../../../../assets/icons/mascotas 1.png" alt=""  (click)="showmodal()">
   </div>
    <ng-template #btnAddProduct>
    <button type="button" class="btn__add__Product" (click)="redirectToAnotherPage()"> Agregar Producto</button>
@@ -22,10 +22,10 @@
 
 </div>
 </div>
-<app-carrito-modal *ngIf="isModalOpen" (close)="closeModal()" [allData]="allData"></app-carrito-modal>
+<app-carrito-modal *ngIf="isModalOpen" (close)="closeModal()" ></app-carrito-modal>
 
 
-  
+
 
 
 
