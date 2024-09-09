@@ -40,7 +40,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.viewBtn();
+       //this.viewBtn();
       this.initForm();
       this.checkEditMode();
   }

@@ -96,6 +96,7 @@ export class FormularioAdopcionComponent implements OnInit {
       confirmButtonText: 'Aceptar'
     });
   }
+  
 
 
   onSubmit(): void {
@@ -250,4 +251,5 @@ export class FormularioAdopcionComponent implements OnInit {
     const valid = /^[0-9]+$/.test(value);
     return valid ? null : { 'telefonoInvalid': true };
   }
+  
 }
