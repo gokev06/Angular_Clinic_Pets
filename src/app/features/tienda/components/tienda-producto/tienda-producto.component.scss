@@ -72,6 +72,7 @@
   }
   .center{
     margin-top: 20px;
+    margin-left: 5px;
 
 
   }
@@ -86,14 +87,16 @@
 
 .partedos section {
   margin-top: 50px;
+  
 }
 .partedos{
   margin-top: 65px;
+  width: 370px;
 
 }
 .botones {
   display: flex;
-  gap: 10px;
+  
   margin-left: 15px;
 }
 
@@ -125,11 +128,11 @@ h1 {
 }
  h3 {
   font: 400 16px / 28px Roboto, sans-serif;
-  letter-spacing: .009375em;
+  letter-spacing: 0.009375em;
   margin: 0 0 16px;
   width: 300px;
-  margin-left: 15px;
-  margin-top: 130px;
+  margin-left: 20px;
+  margin-top: 30px;
 }
 .botones-adicionales h3{
   font: 400 16px / 28px Roboto, sans-serif;
@@ -138,6 +141,7 @@ h1 {
   width: 300px;
   margin-left: 15px;
   margin-top: 130px;
+  
 }
 .botones-adicionales {
   display: flex;
@@ -146,12 +150,12 @@ h1 {
   align-items: center;
   margin-top: -100px;
   margin-right: 220px;
+  width: 410px;
 }
 
 .botones-adicionales h3{
 
-  margin-right: 100px;
-  margin-left: -120px;
+  margin-right: 70px;
 }
 .botones button {
   background-color: #f0f0f0; // Color predeterminado
@@ -226,7 +230,8 @@ input[type="text"] {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  margin-left: 25px;
+  margin-left: 50px;
+
 }
 //info
 
@@ -269,7 +274,8 @@ input[type="text"] {
 
 
   h2 {
-    margin-top: 0;
+    margin-top: 70px;
+    margin-left: 20px;
   }
 
 //link
@@ -325,12 +331,7 @@ a:visited {
     width: 50px;
     height: auto;
   }
-  section h3 {
-    display: flex;
-    justify-content: center;
-    display: flex;
-    justify-content: center;
-  }
+ 
   .imagen-principal img {
     width: 100%;
     height:  60%;
