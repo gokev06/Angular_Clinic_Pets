@@ -22,6 +22,7 @@ import { PagesNuevaadopcionComponent } from './features/adopcion/pages/pages-nue
 import { InfoAdopcionComponent } from './features/adopcion/pages/info-adopcion/info-adopcion.component';
 import { TablaCitasComponent } from './features/citas/pages/tabla-citas/tabla-citas.component';
 import { SolicitudAdopcionComponent } from './features/adopcion/pages/solicitud-adopcion/solicitud-adopcion.component';
+import { AdminAdopcionesComponent } from './features/adopcion/pages/admin-adopciones/admin-adopciones.component';
 
 import { TiendaProductoComponent } from './features/tienda/components/tienda-producto/tienda-producto.component';
 import { InfoProductoTiendaComponent } from './features/tienda/pages/info-producto-tienda/info-producto-tienda.component';
@@ -64,6 +65,7 @@ const routes: Routes = [
   {path: 'tienda-admin',component:TiendaAdminComponent, canActivate: [authGuard]},
   {path: "ver-adopcion",component: SolicitudAdopcionComponent },
   {path: "pago-compra", component: PagoCompraComponent},
+  {path:"admin-adopciones", component: AdminAdopcionesComponent}
 ];
 
 @NgModule({

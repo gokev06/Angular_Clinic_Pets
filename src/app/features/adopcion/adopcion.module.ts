@@ -8,12 +8,16 @@ import { CardsadopcionComponent } from './components/cardsadopcion/cardsadopcion
 import { CardsComponent } from './components/cards/cards.component';
 import { InfoAdopcionComponent } from './pages/info-adopcion/info-adopcion.component';
 import { RouterModule } from '@angular/router';
+import { AdminAdopcionesComponent } from './pages/admin-adopciones/admin-adopciones.component';
+import { AdminCardsComponent } from './components/admin-cards/admin-cards.component';
+import { AdmiCardsNuevaComponent } from './components/admi-cards-nueva/admi-cards-nueva.component';
+import { AdmiHeaderComponent } from './components/admi-header/admi-header.component';
+
 import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
 import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
 import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud-adopcion.component';
 
-import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud-adopcion.component';
-import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
+
 
 
 @NgModule({
@@ -21,7 +25,11 @@ import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-ad
     HeaderadopcionComponent,
      CardsadopcionComponent,
      CardsComponent,
-
+     AdminAdopcionesComponent,
+     AdminCardsComponent,
+     AdmiCardsNuevaComponent,
+     AdmiHeaderComponent,
+     
 
   ],
   imports: [
