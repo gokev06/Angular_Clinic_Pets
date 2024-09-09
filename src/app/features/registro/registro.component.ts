@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AppointmentRegisterService } from './service/appointment-register.service';
 import { passwordValidator } from '../../validators/contraseña-validator';
 import { matchPasswordValidator } from '../../validators/confirmar-contraseña';
+import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 
 @Component({
   selector: 'app-registro',
@@ -21,8 +22,20 @@ export class RegistroComponent implements OnInit {
     private fb: NonNullableFormBuilder,
     private http: HttpClient,
     private router: Router,
-    private appointmentRegisterService: AppointmentRegisterService
+    private appointmentRegisterService: AppointmentRegisterService,
+    private toastr: ToastrService
   ) {}
+
+    
+  showSuccess(): void {
+    this.toastr.success('Te haz registrado correctamente', 'Exito');
+    toastClass: 'toast toast-success' // Aplica una clase personalizada
+  }
+
+
+  showError(): void {
+    this.toastr.error('Parece que hubo un problema', 'Error');
+  }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -42,6 +55,7 @@ export class RegistroComponent implements OnInit {
     this.hasAttemptedSubmit = true;
 
     if (this.registerForm.invalid) {
+      this.showError();
       this.errorMessage = 'Todos los campos son obligatorios';
       return;
     }
@@ -64,20 +78,25 @@ export class RegistroComponent implements OnInit {
         const errorBody = await response.json();
         console.error('Error details', errorBody);
 
+
         if (errorBody.errors && Array.isArray(errorBody.errors)) {
           errorBody.errors.forEach((error: any) => {
             console.error(`${error.path}: ${error.msg}`);
+            this.showError()
           });
         } else {
           throw new Error('Error desconocido en el servidor');
+          this.showError()
         }
       } else {
         const data = await response.json();
         console.log('Registro exitoso:', data);
+        this.showSuccess()
         this.router.navigate(['login']);
       }
     } catch (error: any) {
       console.error('Error en el registro:', error.message || 'Error desconocido');
+      this.showError()
     }
   }
 }

@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-//import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
+
+import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
   showValidationError: boolean = false; // Nueva variable para mostrar el mensaje de error de validación
 
-  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router, /* private toastr: ToastrService*/) {}
+  constructor(private renderer: Renderer2, private authService: AuthService, private fb: FormBuilder, private http: HttpClient, private router: Router,  private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /*
+  
   showSuccess(): void {
     this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
     toastClass: 'toast toast-success' // Aplica una clase personalizada
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   showError(): void {
     this.toastr.error('Error en el inicio de sesión', 'Error');
-  }*/
+  }
 
   async onSubmit() {
 
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.loginForm.markAllAsTouched(); // Marca todos los campos como tocados
       this.showValidationError = true;
       this.errorMessage = 'Todos los campos son obligatorios y deben ser válidos.';
-      //this.showError()
+      this.showError()
       return;
     }
 
@@ -83,7 +84,7 @@ export class LoginComponent implements OnInit {
           this.showErrorMessage = true;
           if (response.status === 401) {
             this.errorMessage = 'Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.';
-            //this.showError()
+            this.showError()
           } else {
             this.errorMessage = 'Error desconocido. Por favor, intenta nuevamente más tarde.';
           }
@@ -108,7 +109,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.showErrorMessage = true;
           this.errorMessage = 'Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.';
-          //this.showError()
+          this.showError()
         }
       } catch (error: any) {
         console.error('Error object:', error);
@@ -146,7 +147,7 @@ export class LoginComponent implements OnInit {
   }
 
   private redirectBasedOnRole(role: string) {
-    //this.showSuccess()
+    this.showSuccess()
     switch (role) {
       case 'usuario':
         this.router.navigate(['/home']);

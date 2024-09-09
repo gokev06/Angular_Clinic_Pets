@@ -13,8 +13,8 @@
       <form class="formulario_login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h1>INICIAR SESION</h1>
 
-        <app-input [text]="'text'" [holder]="'correo'" formControlName="email" [id]="'correo'" [estilos]="estilos"></app-input>
-        <app-input [text]="'password'" [holder]="'contraseña'" formControlName="contrasenia" [id]="'contrasenia'" [estilos]="estilos"></app-input>
+        <app-input [text]="'text'" [holder]="'Correo'" formControlName="email" [id]="'correo'" [estilos]="estilos"></app-input>
+        <app-input [text]="'password'" [holder]="'Contraseña'" formControlName="contrasenia" [id]="'contrasenia'" [estilos]="estilos"></app-input>
 
         <div *ngIf="showValidationError" class="error-message">
           <p class="message_error">{{ errorMessage }}</p>
