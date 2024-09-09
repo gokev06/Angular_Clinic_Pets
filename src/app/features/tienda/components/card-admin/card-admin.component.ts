@@ -3,6 +3,7 @@ import { ProductoService, DataResponse} from'../../services/producto-tienda.serv
 import { from } from 'rxjs';
 import { catchError, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class CardAdminComponent implements OnInit, OnChanges {
   categoryFilteredData: DataResponse[] = []; // Nueva propiedad para almacenar los datos filtrados por categoría
 
 
-  constructor(private productService: ProductoService) {}
+  constructor(private productService: ProductoService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -87,6 +88,10 @@ export class CardAdminComponent implements OnInit, OnChanges {
           console.log('Operación de eliminación finalizada');
         })
       ).subscribe();
+  }
+
+  redirectToEditProduct(productoId: string) {
+    this.router.navigate(['/editar-producto', productoId]);
   }
 
 }

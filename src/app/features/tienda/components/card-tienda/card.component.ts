@@ -37,6 +37,8 @@ export class CardComponent implements OnInit {
        this.router.navigate(['/info-producto'])
   }
 
+ 
+
   ngOnChanges(changes: SimpleChanges): void{
     //this.filterData();
     if (changes['selectedCategory']) {

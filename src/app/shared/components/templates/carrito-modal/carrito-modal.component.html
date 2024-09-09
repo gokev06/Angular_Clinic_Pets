@@ -3,7 +3,7 @@
         <div class="header">
             <div class="precio">
                 <img src="../../../../../assets/images/carrocompras.webp" alt="" class="carro">
-                <p>{{ totalPrice }}</p>
+                <p>Total: {{ precioTotal | currency:'COP':'symbol':'1.0-0' }}</p>
             </div>
             <div class="salir">
                 <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="" (click)="closemodal()">
@@ -15,6 +15,7 @@
                     <div class="info1">
                         <h1>Articulo</h1>
                     </div>
+
                     <div class="info2">
                         <h1>Cantidad</h1>
                         <h1>Subtotal</h1>
@@ -29,11 +30,11 @@
 
                     <div class="producto">
                         <div class="cart-item">
-                            <button class="quantity-button" (click)="decreaseQuantity(producto)">-</button>
-                            <span class="quantity">{{ producto.stock }}</span>
-                            <button class="quantity-button" (click)="increaseQuantity(producto)">+</button>
+                            <button class="quantity-button" (click)="disminuirCantidad(producto)" >-</button>
+                            <span class="quantity">{{ producto.cantidad }}</span>
+                            <button class="quantity-button" (click)="aumentarCantidad(producto)">+</button>
                           </div>
-                          <p>{{ producto.precio * producto.stock }}</p>
+                          <p>{{ producto.precioUnitario * producto.cantidad | currency:'COP':'symbol':'1.0-0'}}</p>
 
                     </div>
                 </div>
@@ -41,9 +42,8 @@
         </div>
      <!-- carrito.component.html -->
 <div class="carrito-actions">
-    <button (click)="vaciarCarrito()" class="btn btn-danger">Vaciar Carrito</button>
-    <button (click)="finalizarCompra()" class="btn btn-success">Finalizar Compra</button>
+    <button type="button" (click)="eliminarProducto()"  class="btn btn-danger">Vaciar Carrito</button>
+    <button  class="btn btn-success">Finalizar Compra</button>
   </div>
-
-    </div>
+  </div>
 </div>

@@ -16,7 +16,7 @@
     display: flex;
     width: 100%;
     height: auto;
-    
+
     justify-content: space-between;
     padding: 10px 10px;
 }
@@ -42,7 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 .precio p{
 display: flex;
@@ -109,7 +109,7 @@ width: 300px;
     height: 100px;
     padding: 10px;
 
-    
+
 }
 .tabla{
     width: 750px;
@@ -118,13 +118,13 @@ width: 300px;
     background-color: white;
     border-radius: 18px;
     margin-bottom: 20px;
-}   
+}
 
 .cart-item {
     display: flex;
     align-items: center;
   }
-  
+
   .quantity-button {
     width: 30px;
     height: 30px;
@@ -139,7 +139,7 @@ width: 300px;
     display: flex;
     align-items: center;
   }
-  
+
   .quantity {
     font-size: 18px;
     margin: 0 10px;
@@ -151,7 +151,7 @@ width: 300px;
     justify-content: center;
     margin-bottom: 20px;
   }
-  
+
   .btn {
     padding: 10px 20px;
     border: none;
@@ -160,13 +160,22 @@ width: 300px;
     font-size: 16px;
     color: #000000;
   }
-  
+
   .btn-danger {
     background-color: #CCC4FF;
   }
-  
+
   .btn-success {
     background-color: #CCC4FF;
   }
-  
-  
+
+  .delete-button {
+    background-color: #FF4C4C;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+

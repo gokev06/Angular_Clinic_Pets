@@ -46,6 +46,7 @@ const routes: Routes = [
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
   {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
+  {path: 'editar-producto/:id', component: AgregarProductoComponent},
   {path: "gestion-citas", component: GestionCitasComponent}, // incompleto
   {path:"agenda" , component: AgendaComponent}, // se supone que es para veterinario
   {path: "gestion-horaios", component: GestionDeHorariosComponent},
