@@ -54,7 +54,8 @@
         <div>
           <app-input id="cantidad" formControlName="seleccionTallaPresentacion" [estilos]="estilos" holder="Unidad de medida "></app-input>
           <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
-            La unidad de medida es obligatoria.
+            la unidad es obligatoria
+            
           </div>
         </div>
 
@@ -68,10 +69,11 @@
       <div class="parte2">
         <div class="input-group">
           <div class="descripcion1">
-            <input id="descripcion" type="text" formControlName="descripcion" placeholder="Descripción del Producto"/>
+            <textarea id="descripcion" formControlName="descripcion" placeholder="Descripción del Producto"></textarea>
             <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
               La descripción es obligatoria.
             </div>
+            
           </div>
         </div>
       </div>
@@ -79,7 +81,7 @@
       <div class="parte2">
         <div class="input-group">
           <div class="descripcion1">
-            <input id="descripcion" type="text" formControlName="informacion" placeholder="informacion del Producto"/>
+            <textarea  id="descripcion" type="text" formControlName="informacion" placeholder="informacion del Producto"></textarea>
             <div *ngIf="productoForm.get('informacion')?.invalid && productoForm.get('informacion')?.touched" class="error-message">
               La informacion es obligatoria.
             </div>

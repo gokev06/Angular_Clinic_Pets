@@ -8,30 +8,41 @@
 
 
 .card {
-  width: 270px; /* Ajusta el ancho según sea necesario */
-  height: 420px; /* Ajusta la altura según sea necesario */
-  margin: 16px; /* Espacio entre tarjetas */
+  width: 270px; /* Ancho fijo */
+  height: 420px; /* Alto fijo */
+  margin: 16px;
   border: 1px solid #cfcfcf;
   border-radius: 4px;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden; /* Evita desbordamientos */
   cursor: pointer;
 }
 
-  .logo img {
-    width: 50px;
-    height: auto;
-  }
 
-  .imagen-principal img {
-    width: 100%;
-    height:  60%;
-    margin-top: 16px;
-  }
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.imagen-principal {
+  width: 100%;
+  height: 200px; /* Altura fija para las imágenes */
+  overflow: hidden; /* Evita desbordamientos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen-principal img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+}
+
 
 
   .info-producto h3 {
@@ -47,6 +58,7 @@
   .btn_info{
     display: flex;
     justify-content: center;
+    margin-top: 30px;
   }
 
   .btn__ver__info{
@@ -54,10 +66,12 @@
     border: 1px;
     border-radius: 10px;
     cursor: pointer;
+    background-color: #CCC4FF;
+    color: black;
   }
 
   .btn__ver__info:hover{
     border: 3px;
-    background-color: rgb(97, 97, 235);
+    background-color: #ada1fc;
   }
 
