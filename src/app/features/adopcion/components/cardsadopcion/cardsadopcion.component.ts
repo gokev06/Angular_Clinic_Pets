@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SolicitudAdopcionService, adopcion } from '../../services/solicitud-adopcion.service';
+import { SolicitudAdopcionService, adopcion, Adopciones } from '../../services/solicitud-adopcion.service';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cardsadopcion',
@@ -9,8 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class CardsadopcionComponent implements OnInit {
 
-  adopciones: adopcion[] = [];
-  filteredAdopciones: adopcion[] = [];
+  adopciones: Adopciones[] = [];
+  filteredAdopciones: Adopciones[] = [];
   currentSlide: number = 0;
   slideWidth: number = 300; // Ancho de cada tarjeta (ajústalo según tus necesidades)
 
@@ -22,14 +24,32 @@ export class CardsadopcionComponent implements OnInit {
   FilterEdad: boolean = false;
   FilterSexo: boolean = false;
 
-  constructor(private SolicitudAdopcionService: SolicitudAdopcionService) {}
+  constructor(private SolicitudAdopcionService: SolicitudAdopcionService, private router: Router) {}
 
   ngOnInit() {
-    this.SolicitudAdopcionService.getAdopciones().subscribe(data => {
-      this.adopciones = data;
-      this.filteredAdopciones = data;
-    });
+    this.SolicitudAdopcionService.getPetsData().subscribe(
+      (data: any) => {
+        console.log("Datos recibidos de la API:", data);
+        if (data && data.Result && Array.isArray(data.Result)) {
+          this.adopciones = data.Result;
+          this.filteredAdopciones = data.Result;
+          console.log("Número de adopciones:", this.adopciones.length);
+        } else {
+          console.error("La respuesta de la API no tiene el formato esperado");
+          this.adopciones = [];
+          this.filteredAdopciones = [];
+        }
+      },
+      (error) => {
+        console.error("Error al obtener datos:", error);
+      }
+    );
   }
+
+  ruta(){
+    this.router.navigate(['info-adopcion'])
+  }
+
 
   /* Carrusel - Obtener el estilo de transformación para desplazar las tarjetas
   getTransformStyle(): string {
@@ -51,15 +71,16 @@ export class CardsadopcionComponent implements OnInit {
   }*/
 
   // Filtros
+  /*
   applyFilter(searchTerm: string) {
     if (!searchTerm) {
       this.filteredAdopciones = this.adopciones;
     } else {
       searchTerm = searchTerm.toLowerCase();
       this.filteredAdopciones = this.adopciones.filter(adopcion =>
-        adopcion.nombre.toLowerCase().includes(searchTerm) ||
-        adopcion.raza.toLowerCase().includes(searchTerm) ||
-        adopcion.ciudad.toLowerCase().includes(searchTerm)
+        adopcion.nombreMascota.toLowerCase().includes(searchTerm) ||
+        adopcion.razaMascota.toLowerCase().includes(searchTerm) ||
+        adopcion.ubicacion.toLowerCase().includes(searchTerm)
       );
     }
   }
@@ -82,51 +103,61 @@ export class CardsadopcionComponent implements OnInit {
 
   FiltroHembra() {
     this.sexo = "hembra";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
+    this.SolicitudAdopcionService.getPetsData().pipe(
       map(adopciones => adopciones.filter(adopcion => adopcion.sexo.toLowerCase() === this.sexo.toLowerCase()))
     ).subscribe(filteredAdopciones => {
       this.filteredAdopciones = filteredAdopciones;
     });
-  }
+  } */
 
+  /*
   FiltroMacho() {
     this.sexo = "Macho";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
+    this.SolicitudAdopcionService.getPetsData().pipe(
       map(adopciones => adopciones.filter(adopcion => adopcion.sexo.toLowerCase() === this.sexo.toLowerCase()))
     ).subscribe(filteredAdopciones => {
       this.filteredAdopciones = filteredAdopciones;
     });
   }
+    */
 
+  /*
   sortAsc() {
     this.filteredAdopciones.sort((a: any, b: any) => a.nombre.localeCompare(b.nombre));
-  }
+  } */
 
+  /*
   sortDesc() {
     this.filteredAdopciones.sort((a: any, b: any) => b.nombre.localeCompare(a.nombre));
   }
+    */
 
+   /*
   filterGatos() {
     this.especie = "gato";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
-      map(adopciones => adopciones.filter(adopcion => adopcion.especie.toLowerCase() === this.especie.toLowerCase()))
+    this.SolicitudAdopcionService.getPetsData().pipe(
+      map(adopciones => adopciones.filter(adopcion => adopcion.especieMascota.toLowerCase() === this.especie.toLowerCase()))
     ).subscribe(filteredAdopciones => {
       this.filteredAdopciones = filteredAdopciones;
     });
-  }
+  } */
 
+  /*
   filterPerro() {
     this.especie = "perro";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
-      map(adopciones => adopciones.filter(adopcion => adopcion.especie.toLowerCase() === this.especie.toLowerCase()))
+    this.SolicitudAdopcionService.getPetsData().pipe(
+      map(adopciones => adopciones.filter(adopcion => adopcion.especieMascota.toLowerCase() === this.especie.toLowerCase()))
     ).subscribe(filteredAdopciones => {
       this.filteredAdopciones = filteredAdopciones;
     });
-  }
+  } */
 
+  /*
   clearFilter() {
     this.ngOnInit();
-  }
+  } */
+
+  /*
 
   sortAdopcionesByAge(order: 'asc' | 'desc'): void {
     this.filteredAdopciones.sort((a: any, b: any) => {
@@ -139,4 +170,5 @@ export class CardsadopcionComponent implements OnInit {
       }
     });
   }
+  */
 }
