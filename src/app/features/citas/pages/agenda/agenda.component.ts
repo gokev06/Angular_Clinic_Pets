@@ -39,10 +39,6 @@ export class AgendaComponent implements OnInit {
 
   loadAppointments(): void {
     this.appointmentService.getAppointments2().subscribe(
-      (data) => {
-        this.citas = data[0]; // Asegúrate de que accedes al primer elemento del array, que contiene las citas
-        this.initializeCitasMap();
-      },
       (error) => {
         console.error('Error fetching appointments:', error);
       }
