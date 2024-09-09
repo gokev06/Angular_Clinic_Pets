@@ -1,11 +1,12 @@
 <div class="container">
   <h2>Horarios para {{ selectedDateFormatted }}</h2>
+  <button *ngIf="showDeactivateButton" (click)="toggleDisableDay()">Desactivar día</button>
   <ul>
     <li 
       *ngFor="let horario of horarios" 
-      [ngClass]="{'occupied': isHorarioOccupied(horario), 'selected': horario === selectedHorario}"
-      (click)="!isHorarioOccupied(horario) && selectHorario(horario)"
-      [ngStyle]="{'pointer-events': isHorarioOccupied(horario) ? 'none' : 'auto'}">
+      [ngClass]="{'occupied': isHorarioOccupied(horario), 'disabled': isHorarioDisabled(horario), 'selected': horario === selectedHorario}"
+      (click)="!isHorarioOccupied(horario) && !isHorarioDisabled(horario) && selectHorario(horario)"
+      [ngStyle]="{'pointer-events': isHorarioOccupied(horario) || isHorarioDisabled(horario) ? 'none' : 'auto'}">
       {{ horario }}
     </li>
   </ul>

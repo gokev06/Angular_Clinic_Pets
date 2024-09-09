@@ -56,6 +56,12 @@ export class CarritoModalComponent  implements OnInit{
     }
   }
 
+  finalizarCompra(): void {
+    this.productoService.getDataProductCart().subscribe(data => {
+      this.productoService.setCarrito(data); // Guardar los datos del carrito en el servicio
+      this.router.navigate(['/pago-compra']); // Redirigir a la página de pago
+    });
+  }
 
    disminuirCantidad(producto: DataProduct): void {
     console.log('Disminuyendo cantidad para:', producto);

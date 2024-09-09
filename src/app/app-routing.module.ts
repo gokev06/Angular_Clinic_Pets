@@ -28,7 +28,7 @@ import { InfoProductoTiendaComponent } from './features/tienda/pages/info-produc
 import { GestionDeHorariosComponent } from './features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 import { UsuariosComponent } from './features/usuarios/usuarios.component';
 import { TiendaAdminComponent } from './features/tienda/pages/tienda-admin/tienda-admin.component';
-
+import { PagoCompraComponent } from './features/tienda/pages/pago-compra/pago-compra.component';
 
 //rutas de las ventanas
 const routes: Routes = [
@@ -62,7 +62,8 @@ const routes: Routes = [
   {path: 'tienda-producto', component: TiendaProductoComponent},
   {path: 'gestion-veterinarios', component:UsuariosComponent},
   {path: 'tienda-admin',component:TiendaAdminComponent, canActivate: [authGuard]},
-  {path: "ver-adopcion",component: SolicitudAdopcionComponent }
+  {path: "ver-adopcion",component: SolicitudAdopcionComponent },
+  {path: "pago-compra", component: PagoCompraComponent},
 ];
 
 @NgModule({

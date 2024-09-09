@@ -1,0 +1,28 @@
+<section>
+    <div class="container">
+      <h2>Detalles de Compra</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre del Producto</th>
+            <th>Precio por Unidad</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <td>{{ producto.nombreProducto }}</td>
+            <td>{{ producto.precioUnitario}}</td>
+            <td>{{ producto.cantidad }}</td>
+            <td>{{ producto.precioUnitario * producto.cantidad}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="total">
+        <h3>Total: {{ precioTotal}}</h3>
+      </div>
+      <button (click)="comprar()">Comprar</button>
+    </div>
+  </section>
+  
