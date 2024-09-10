@@ -1,6 +1,9 @@
 <div class="profil" (click)="toggleModal()">
   <img class="perfil" src="../../../../../assets/images/imgcitas/Pdefecto.jpg" alt="">
-  <!--<h1 class="titulo">{{username}}</h1>-->
+  <div class="user">
+    <h3>{{user.nombre}}</h3>
+    <h5>{{user.rol}}</h5>
+  </div>
 </div>
 <app-modal-perfil *ngIf="isModalOpen" (close)="closeModal()"></app-modal-perfil>
   
