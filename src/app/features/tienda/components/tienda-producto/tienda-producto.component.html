@@ -9,26 +9,23 @@
       </ul>
     </nav>
     <div class="contenedor-imagen"
-         (mouseenter)="activarZoom()"
-         (mouseleave)="desactivarZoom()"
-         (mousemove)="moverImagen($event)">
-      <img src="{{ data[0].imagen }}"
-           alt="Imagen para Zoom"
-           [ngStyle]="{
-             'transform': zoomActivo ? 'scale(1.2) translate(' + posX + '%, ' + posY + '%)' : 'scale(1) translate(0, 0)'
-           }">
-    </div>
+     (mouseenter)="activarZoom()"
+     (mouseleave)="desactivarZoom()"
+     (mousemove)="moverImagen($event)">
+  <img src="{{ data[0].imagen }}"
+       alt="Imagen para Zoom"
+       [ngStyle]="{
+         'transform': zoomActivo ? 'scale(1.2) translate(' + posX + '%, ' + posY + '%)' : 'scale(1) translate(0, 0)'
+       }">
+</div>
+
   </div>
 
   <div class="partedos">
     <div class="center">
-      <h1>Producto: {{data[0].nombreProducto}}</h1>
+      <h1>{{data[0].nombreProducto}} - {{data[0].seleccionTallaPresentacion}}</h1>
      </div>
     <section>
-      <div >
-        <h2 class="data__categoria">Categoria: {{data[0].categoria}}</h2>
-        <h3 class="data__peso">Cont Net: {{data[0].seleccionTallaPresentacion}}</h3>
-      </div>
 
 
       <!----
@@ -45,7 +42,7 @@
 
       -->
       <h1>Stock Disponible: {{ data[0].stock}}</h1>
-      <h1>Precio Producto: {{ data[0].precio | currency:'COP':'symbol':'1.0-0' }} </h1>
+      <h1>Precio: {{ data[0].precio | currency:'COP':'symbol':'1.0-0' }} </h1>
 
       <!-- Nuevos botones -->
       <div class="botones-adicionales">
@@ -104,8 +101,7 @@
               </div>
               <div class="info-producto">
                 <h3>{{ item.nombreProducto }}</h3>
-                <p>{{ item.precio | currency:'COP':'symbol':'1.0-0' }}</p>
-                <p>Categoría: {{ item.categoria }}</p>
+                <p>Precio: {{ item.precio | currency:'COP':'symbol':'1.0-0' }}</p>
               </div>
             </div>
           </div>
