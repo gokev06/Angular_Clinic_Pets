@@ -1,30 +1,33 @@
 .padre{
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .contenedor-imagen {
-  width: 400px;
-  height: 500px;
-  overflow: hidden;
-  border: 2px solid #ddd;
-  margin: 0 auto;
-  position: relative;
+  width: 400px; /* Ancho fijo para el contenedor */
+  height: 500px; /* Altura fija para el contenedor */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga del contenedor */
+  border: 2px solid #ddd; /* Borde alrededor del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  position: relative; /* Necesario para posicionar la imagen correctamente */
+  display: flex; /* Para centrar la imagen si es más pequeña que el contenedor */
+  align-items: center; /* Alinea la imagen verticalmente en el centro */
+  justify-content: center; /* Alinea la imagen horizontalmente en el centro */
 }
 
-
 .contenedor-imagen img {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.3s ease;
-  object-fit: cover;
-  object-position: center;
+  width: 90%; /* La imagen ocupa el 100% del ancho del contenedor */
+  height: 80%; /* La imagen ocupa el 100% de la altura del contenedor */
+  transition: transform 0.3s ease; /* Transición suave para el zoom */
+  object-fit: cover; /* La imagen cubre el contenedor sin distorsionarse */
+  object-position: center; /* Centra la imagen dentro del contenedor */
 }
 
 .contenedor-imagen:hover {
-  cursor: zoom-in;
+  cursor: zoom-in; /* Cambia el cursor al pasar el mouse sobre el contenedor */
 }
+
 .breadcrumb-container {
   font-family: Arial, sans-serif;
   font-size: 11px;
@@ -86,13 +89,16 @@
   }
 
 .partedos section {
-  margin-top: 50px;
+  margin-top: 100px;
   
 }
 .partedos{
-  margin-top: 65px;
-  width: 370px;
+  margin-top: 80px;
+  width: 50%;
 
+}
+.parteuno{
+  width: 50%;
 }
 .botones {
   display: flex;
@@ -124,7 +130,7 @@ h1 {
   text-align: left;
   margin-left: 25px;
   margin-top: 50px;
-  font-weight: 700;
+    font-weight: 700;
 }
  h3 {
   font: 400 16px / 28px Roboto, sans-serif;
@@ -132,7 +138,7 @@ h1 {
   margin: 0 0 16px;
   width: 300px;
   margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 100px;
 }
 .botones-adicionales h3{
   font: 400 16px / 28px Roboto, sans-serif;
@@ -274,8 +280,7 @@ input[type="text"] {
 
 
   h2 {
-    margin-top: 70px;
-    margin-left: 20px;
+    margin-top: 5px;  
   }
 
 //link
@@ -308,8 +313,8 @@ a:visited {
 //crad
 
 .card {
-  width: 135px;
-  height: 230px;
+  width: 210px;
+  height: 260px;
  font-size: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -323,7 +328,7 @@ a:visited {
 .card h3{
   margin-left: 0px;
     font-size: 12px;
-    margin-top: -15px;
+    margin-top: 0px;
 }
 
 
@@ -397,10 +402,12 @@ a:visited {
   }
 
   .card img {
-    width: 100%;
+    width: 150px;
+    height: 150px;
     border-radius: 8px;
     margin-top: 0;
   }
+ 
 
   @media (min-width: 352px) and (max-width: 480px) {
     .padre{

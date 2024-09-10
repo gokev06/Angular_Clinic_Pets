@@ -13,6 +13,7 @@
       </div>
     </label>
   </div>
+  
 
   <section>
     <section class="cube__form__group">
@@ -81,7 +82,7 @@
       <div class="parte2">
         <div class="input-group">
           <div class="descripcion1">
-            <textarea  id="descripcion" type="text" formControlName="informacion" placeholder="informacion del Producto"></textarea>
+            <textarea  id="descripcion" type="text" formControlName="informacion" placeholder="Informacion del Producto"></textarea>
             <div *ngIf="productoForm.get('informacion')?.invalid && productoForm.get('informacion')?.touched" class="error-message">
               La informacion es obligatoria.
             </div>
