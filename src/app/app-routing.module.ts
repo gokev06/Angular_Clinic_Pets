@@ -28,12 +28,14 @@ import { InfoProductoTiendaComponent } from './features/tienda/pages/info-produc
 import { GestionDeHorariosComponent } from './features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 import { UsuariosComponent } from './features/usuarios/usuarios.component';
 import { TiendaAdminComponent } from './features/tienda/pages/tienda-admin/tienda-admin.component';
+import { ActualizarProductosComponent } from './features/tienda/components/actualizar-productos/actualizar-productos.component';
 
 
 //rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
   {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
+  {path: "actualizar-productos", component: ActualizarProductosComponent},
 
 
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario

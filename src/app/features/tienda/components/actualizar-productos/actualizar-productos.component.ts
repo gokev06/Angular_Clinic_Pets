@@ -5,15 +5,16 @@ import { TiendaService} from '../../services/tienda.service';
 import { ProductoService } from '../../services/producto-tienda.service';
 import { ImageUploadService } from '../../../../images-services/image-upload.service';
 import { catchError, of } from 'rxjs';
-
 import Swal from 'sweetalert2';
 
+
 @Component({
-  selector: 'app-agregar-producto',
-  templateUrl: './agregar-producto.component.html',
-  styleUrls: ['./agregar-producto.component.scss']
+  selector: 'app-actualizar-productos',
+  templateUrl: './actualizar-productos.component.html',
+  styleUrls: ['./actualizar-productos.component.scss']
 })
-export class AgregarProductoComponent implements OnInit {
+export class ActualizarProductosComponent implements OnInit{
+
   @Output() datosProductoFormulario = new EventEmitter<any>();
 
   estilos = 'padding: 8px; background-color: #CCC4FF; border-radius: 5px; width: 100%; height:35px; font-size: 15px; border: none; margin-bottom: 5px; color: black';
@@ -40,9 +41,9 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-      this.initForm();
-      this.checkEditMode();
+     //this.viewBtn();
+     this.initForm();
+     this.checkEditMode();
   }
 
   initForm(): void{
@@ -198,6 +199,14 @@ export class AgregarProductoComponent implements OnInit {
   }
 
 
+   viewBtn():void{
+       let editBtn = sessionStorage.getItem('EditProduct');
+       if (editBtn == 'true') {
+         this.viewElement = true;
+       }else{
+        this.viewElement = false;
+       }
+   }
 
    checkEditMode(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
@@ -233,6 +242,7 @@ export class AgregarProductoComponent implements OnInit {
       }
     });
   }
+
 
 
 }
