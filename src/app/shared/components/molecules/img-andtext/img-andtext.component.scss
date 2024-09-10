@@ -13,6 +13,10 @@
     margin-top: 24px;
 }
 
+.tamaño img{
+    border-radius: 15px;
+}
+
 .cjamorada {
     width: 55%;
     height: 233px;
@@ -71,24 +75,29 @@
         padding-left: 0;
         padding-top: 10px;
         flex-direction: row;
-        justify-content: space-around;
+        display: flex;
+        justify-content: space-evenly;
         align-items: center;
     }
 
     .cjamorada {
         width: 400px;
         height: 250px;
+
     }
 
     .cjamorada p {
         font-size: 14px;
         text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
     .tamaño {
         width: 350px;
         height: 250px;
         margin-left: 0;
+        display: flex;
         align-items: center;
         justify-content: center;
     }

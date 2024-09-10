@@ -175,18 +175,138 @@ justify-content: center;
 }}
 
 
-
-
-@media (min-width: 481px) and (max-width: 768px) {
+@media (max-width: 768px) {
+  
   .contenedores {
-      width: 100%;
-      height: 340px;
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Cambio para distribuir mejor las tarjetas */
+    align-items: center;
   }
 
+  .colorC {
+    width: 45%; /* Mantén el 45% para un buen ajuste */
+    margin-bottom: 20px; /* Aumenta el espaciado inferior entre tarjetas */
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .rounded-container {
+    width: 120px; 
+    height: 120px;
+    margin-bottom: 10px;
+  }
+
+  .rounded-container img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .titulos {
+    font-size: 18px; 
+    margin: 10px 0; /* Espaciado superior e inferior ajustado */
+    text-align: center;
+    color: #333;
+  }
+}
+
+
+
+
+
+@media (max-width: 352px) {
+
+  .drawer-toggle{
+    justify-content: center;
+    align-items: center;
+  }
+  .contenedores {
+    flex-direction: column;
+    align-items: stretch; /* Asegura que los elementos se apilen y ocupen todo el ancho */
+    padding: 10px;
+    overflow-y: auto; /* Permite el scroll vertical */
+  }
 
   .colorC {
-      width: 18%;
-      margin-right: 50px; /* Aumenta el margen a la derecha */
+    width: 100%; /* Las tarjetas ocuparán el 100% del ancho */
+    height: auto;
+    padding: 15px;
+    margin-bottom: 15px; /* Espaciado entre las tarjetas */
+  }
+
+  .titulos {
+    font-size: 12px; /* Ajuste del tamaño del texto */
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .rounded-container {
+    width: 80px; /* Tamaño reducido del contenedor redondeado */
+    height: 80px;
+    margin: 0 auto 10px; /* Centrado y con margen inferior */
+  }
+
+  .rounded-container img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+  .drawer-toggle {
+    top: 20px;
+    left: 10px;
+    font-size: 16px;
+  }
+}
+
+
+
+
+@media (max-width: 480ñ) {
+
+  .drawer-toggle{
+    justify-content: center;
+    align-items: center;
+  }
+  .contenedores {
+    flex-direction: column;
+    align-items: stretch; /* Asegura que los elementos se apilen y ocupen todo el ancho */
+    padding: 10px;
+    overflow-y: auto; /* Permite el scroll vertical */
+  }
+
+  .colorC {
+    width: 100%; /* Las tarjetas ocuparán el 100% del ancho */
+    height: auto;
+    padding: 15px;
+    margin-bottom: 15px; /* Espaciado entre las tarjetas */
+  }
+
+  .titulos {
+    font-size: 12px; /* Ajuste del tamaño del texto */
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .rounded-container {
+    width: 80px; /* Tamaño reducido del contenedor redondeado */
+    height: 80px;
+    margin: 0 auto 10px; /* Centrado y con margen inferior */
+  }
+
+  .rounded-container img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+  .drawer-toggle {
+    top: 20px;
+    left: 10px;
+    font-size: 16px;
   }
 }
