@@ -72,32 +72,74 @@ footer {
     font-size: 16px;
 }
 
-/* Responsive para pantallas pequeñas (352px - 480px) */
-@media (min-width: 352px) and (max-width: 480px) {
+
+/* Responsive para pantallas pequeñas (max-width: 480px) */
+@media (max-width: 480px) {
     footer {
-        height: 200px;
-        display: flex;
+        height: auto;
+        flex-direction: column;
         align-items: center;
-        margin-top: 200px;
-        // flex-direction: column;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .direccion {
+        width: 100%;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .iconos {
+        justify-content: center;
     }
 
     .informacion {
-        display: none;
+        display: none; /* Oculta la sección de información en pantallas pequeñas */
+    }
+
+    .direccion p {
+        font-size: 10px;
+    }
+
+    .iconos app-inconphone, 
+    .iconos app-inconmessage, 
+    .iconos app-inconmap {
+        font-size: 14px; /* Ajusta el tamaño de los iconos */
     }
 }
 
 /* Responsive para pantallas medianas (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
     footer {
-        height: 200px;
-        display: flex;
+        height: auto;
+        flex-direction: column;
         align-items: center;
-        // flex-direction: column;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .direccion {
+        width: 100%;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .iconos {
+        justify-content: center;
     }
 
     .informacion {
-        display: none;
+        display: none; /* Oculta la sección de información */
+    }
+
+    .direccion p {
+        font-size: 12px;
+    }
+
+    .iconos app-inconphone, 
+    .iconos app-inconmessage, 
+    .iconos app-inconmap {
+        font-size: 16px;
     }
 }
 
@@ -105,12 +147,69 @@ footer {
 @media (min-width: 769px) and (max-width: 920px) {
     footer {
         height: 200px;
-        display: flex;
         align-items: center;
-        // flex-direction: column;
+        padding: 16px;
+    }
+
+    .direccion {
+        width: 100%;
+        align-items: center;
     }
 
     .informacion {
-        display: none;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 20px;
+    }
+
+    .contactenos, 
+    .importante {
+        width: 40%;
+    }
+
+    .contactenos p,
+    .importante p {
+        font-size: 14px;
+    }
+
+    .contactenos h2,
+    .importante h2 {
+        font-size: 18px;
+    }
+}
+
+/* Pantallas grandes (max-width: 1279px) */
+@media (min-width: 921px) and (max-width: 1279px) {
+    footer {
+        height: 200px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .direccion {
+        width: 50%;
+        padding-left: 20px;
+    }
+
+    .informacion {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contactenos, 
+    .importante {
+        width: 45%;
+    }
+
+    .contactenos p,
+    .importante p {
+        font-size: 14px;
+    }
+
+    .contactenos h2,
+    .importante h2 {
+        font-size: 18px;
     }
 }

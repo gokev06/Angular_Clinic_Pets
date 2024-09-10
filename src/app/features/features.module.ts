@@ -39,6 +39,11 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { GestionVeterinariosComponent } from './usuarios/pages/gestion-veterinarios/gestion-veterinarios.component';
 import { TiendaAdminComponent } from './tienda/pages/tienda-admin/tienda-admin.component';
 import { CardAdminComponent } from './tienda/components/card-admin/card-admin.component';
+import { AdminCardsComponent } from './adopcion/components/admin-cards/admin-cards.component';
+import { AdminAdopcionesComponent } from './adopcion/pages/admin-adopciones/admin-adopciones.component';
+import { AdmiCardsNuevaComponent } from './adopcion/components/admi-cards-nueva/admi-cards-nueva.component';
+import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-header.component';
+
 @NgModule({
   declarations: [
     GestionCitasComponent,
@@ -73,7 +78,12 @@ import { CardAdminComponent } from './tienda/components/card-admin/card-admin.co
     TiendaAdminComponent,
     CardAdminComponent,
    SolicitudAdopcionComponent,
-   CartaSolicitudAdopcionComponent
+   CartaSolicitudAdopcionComponent,
+    AdminCardsComponent,
+    AdminAdopcionesComponent, 
+    AdmiCardsNuevaComponent,
+    AdmiHeaderComponent
+   
   ],
   imports: [
     UsuariosModule,

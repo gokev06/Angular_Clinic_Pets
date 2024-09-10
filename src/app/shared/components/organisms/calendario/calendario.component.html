@@ -14,7 +14,7 @@
         *ngFor="let day of daysInMonth" 
         class="day" 
         [ngClass]="{
-          'disabled': isSunday(day) || isBeforeFirstDay(day) || isDateInPast(day),
+          'disabled': isSunday(day) || isBeforeFirstDay(day) || isDateInPast(day) ,
           'selected': day === selectedDay,
           'outside-month': isOutsideMonth(day),
           'before-first-day': isBeforeFirstDay(day)
@@ -25,11 +25,13 @@
       </div>
     </div>
 
+
     <!-- Modal para seleccionar horarios -->
     <div class="modal" *ngIf="selectedDay">
       <app-horarios 
         [data]="{ date: selectedDay.toISOString() }" 
         (timeSelected)="onTimeSelected($event)"
+        [showDeactivateButton]="showDeactivateButton"
         class="horarios-modal"
       ></app-horarios>
     </div>

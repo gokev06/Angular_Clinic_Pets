@@ -3,6 +3,7 @@ import { AppointmentService } from '../../services/appointment.service';
 import { Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-table-historial',
@@ -63,27 +64,76 @@ export class TableHistorialComponent implements OnInit {
   }
 
   guardarCita(): void {
+    // Verifica que idCita no sea null
     if (this.fechaSeleccionada && this.horaSeleccionada && this.idCita) {
-      const nuevaCita = {
-        fecha: this.formatDate(this.fechaSeleccionada),
-        hora: this.horaSeleccionada,
-        estado: 'Agendada'
-      };
-
-      this.appointmentService.updateAppointment(this.idCita, nuevaCita).subscribe({
-        next: (res: any) => {
-          console.log('Cita actualizada con éxito:', res);
-          this.cerrarModal();
-          this.citaActualizada.emit();  // Emitir evento después de reagendar la cita
-        },
-        error: (error: any) => {
-          console.error('Error al actualizar la cita:', error);
+      Swal.fire({
+        title: '¿Reagendar cita?',
+        text: '¿Estás seguro de que deseas reagendar esta cita?',
+        showCancelButton: true,
+        confirmButtonColor: '#7DFF82',
+        cancelButtonColor: '#F57171',
+        confirmButtonText: 'Sí, reagendar',
+        cancelButtonText: 'No, cancelar',
+        imageUrl: '../../../../../assets/images/imgcitas/huellas.png',
+        imageWidth: 200,
+        imageHeight: 200
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const nuevaCita = {
+            fecha: this.fechaSeleccionada ? this.formatDate(this.fechaSeleccionada) : '',  // Verifica fecha
+            hora: this.horaSeleccionada || '',  // Verifica hora
+            estado: 'Agendada'
+          };
+  
+          // Asegúrate de que this.idCita sea una cadena no nula antes de hacer la petición
+          if (this.idCita) {
+            this.appointmentService.updateAppointment(this.idCita, nuevaCita).subscribe({
+              next: (res: any) => {
+                console.log('Cita actualizada con éxito:', res);
+  
+                Swal.fire({
+                  title: '¡Cita reagendada!',
+                  text: 'La cita ha sido reagendada exitosamente.',
+                  imageUrl: '../../../../../assets/images/imgcitas/confirmar.png',
+                  imageWidth: 200,
+                  imageHeight: 200,
+                  confirmButtonColor: '#7DFF82',
+                });
+  
+                this.cerrarModal();
+                this.citaActualizada.emit();  // Emitir evento después de reagendar la cita
+              },
+              error: (error: any) => {
+                console.error('Error al actualizar la cita:', error);
+                Swal.fire({
+                  title: '¡Error!',
+                  text: 'Ocurrió un error al intentar reagendar la cita.',
+                  icon: 'error',
+                  confirmButtonColor: '#F57171',
+                });
+              }
+            });
+          }
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire({
+            title: 'Cancelado',
+            text: 'La cita no fue reagendada.',
+            icon: 'info',
+            confirmButtonColor: '#7DFF82',
+          });
         }
       });
     } else {
+      Swal.fire({
+        title: '¡Hubo un problema!',
+        text: 'Debes seleccionar la fecha, hora, y el ID de la cita antes de guardar.',
+        icon: 'warning',
+        confirmButtonColor: 'rgba(209, 0, 0, 0.47)',
+      });
       console.error('Fecha, hora, y idCita deben ser seleccionadas antes de guardar.');
     }
   }
+  
 
   formatDate(date: Date): string {
     const offset = date.getTimezoneOffset();

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +29,6 @@ export class TiendaService {
     }
     return this.http.put(`${this.apiUrl_1}/updateProduct/${productId}`, productData, { headers });
   }
+
 
 }
