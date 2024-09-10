@@ -37,13 +37,23 @@ section {
     font-family: "Playwrite ES Deco", cursive;
 }
 
-p {
+.message_password{
+    padding: 0px;
+    font-size: 12px;
+    margin: 0;
+}
+
+.p {
     margin-top: 20px;
 }
 
 a {
     text-decoration: none;
     color: #000000; /* Se cambia para evitar el uso de la función 'blue' no estándar */
+}
+
+app-input{
+    height: 50px;
 }
 
 .imagen::before {

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AppointmentRegisterService } from './service/appointment-register.service';
 import { passwordValidator } from '../../validators/contraseña-validator';
 import { matchPasswordValidator } from '../../validators/confirmar-contraseña';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +13,7 @@ import { matchPasswordValidator } from '../../validators/confirmar-contraseña';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
-  estilos = "border-top: none; border-right: none; border-bottom: 2px solid rgb(181, 235, 246); border-left: none; border-image: initial; height: 30px; margin-top: 16px; padding: 0px 8px; width: 200px; margin-bottom: 10px";
+  estilos = "border-top: none; border-right: none; border-bottom: 2px solid rgb(181, 235, 246); border-left: none; border-image: initial; height: 30px; margin-top: 8px; padding: 0px 8px; width: 200px; margin-bottom: 10px";
   registerForm!: FormGroup;
   hasAttemptedSubmit = false;
   errorMessage: string = '';
@@ -21,7 +22,8 @@ export class RegistroComponent implements OnInit {
     private fb: NonNullableFormBuilder,
     private http: HttpClient,
     private router: Router,
-    private appointmentRegisterService: AppointmentRegisterService
+    private appointmentRegisterService: AppointmentRegisterService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +39,10 @@ export class RegistroComponent implements OnInit {
       validators: matchPasswordValidator('contrasenia', 'confirmarContrasenia')
     });
   }
-
+  showSuccess(): void {
+    this.toastr.success('Registro exitoso', 'Exito');
+    toastClass: 'toast toast-success' // Aplica una clase personalizada
+  }
   async onSubmit() {
     this.hasAttemptedSubmit = true;
 
@@ -74,6 +79,7 @@ export class RegistroComponent implements OnInit {
       } else {
         const data = await response.json();
         console.log('Registro exitoso:', data);
+        this.showSuccess()
         this.router.navigate(['login']);
       }
     } catch (error: any) {
