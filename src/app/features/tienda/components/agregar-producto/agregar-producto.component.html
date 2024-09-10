@@ -41,10 +41,10 @@
 
         <select formControlName="categoria" class="categoria">
           <option value="">Categoría</option>
-          <option value="alimentos">Alimento</option>
-          <option value="medicamento">Medicamento</option>
-          <option value="juguete">Juguete</option>
-          <option value="accesorios">accesorios</option>
+          <option value="Alimentos">Alimento</option>
+          <option value="Medicamento">Medicamento</option>
+          <option value="Juguete">Juguete</option>
+          <option value="Accesorios">accesorios</option>
           <option value="Otros">Otros</option>
         </select>
         <div *ngIf="productoForm.get('categoria')?.invalid && productoForm.get('categoria')?.touched" class="error-message">
