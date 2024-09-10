@@ -9,7 +9,7 @@
                 <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="" (click)="closemodal()">
             </div>
         </div>
-        <section *ngIf="allData.length <= 0 " >
+        <section class="section" *ngIf="allData.length <= 0 " >
             <div class="vacio">
                 <h1>Vaya...</h1>
                 <img src="../../../../../assets/images/gato.png" alt="">
@@ -18,7 +18,7 @@
             
               </div>
         </section>
-        <section *ngIf="allData.length > 0 ">
+        <section  *ngIf="allData.length > 0 ">
         <div class="centrar">
             <div class="tabla" *ngFor="let producto of allData">
                 <div class="info">
