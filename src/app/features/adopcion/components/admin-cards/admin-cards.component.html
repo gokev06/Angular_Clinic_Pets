@@ -10,9 +10,8 @@
 <section *ngIf="adopciones.length > 0" class="background">
     <div class="container-cards">
         <div *ngFor="let adopcion of filteredAdopciones" class="cartas">
-            <app-admi-cards-nueva
+            <app-admi-cards-nueva>
                 [adopcion]="adopcion"
-                (eliminar)="handleEliminar($event)">
             </app-admi-cards-nueva>
         </div>
     </div>
@@ -73,3 +72,7 @@
         <p>Utiliza palabras más genéricas o menos palabras.</p>
     </div>
 </section>
+
+<!--
+(eliminar)="handleEliminar($event)">
+-->
