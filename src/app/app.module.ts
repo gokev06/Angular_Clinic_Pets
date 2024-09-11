@@ -13,6 +13,7 @@ import { CalendarioComponent } from './shared/components/organisms/calendario/ca
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { environment } from '../environments/environment';
 //import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(localeEs, 'es');
@@ -38,7 +39,8 @@ registerLocaleData(localeEs, 'es');
   ],
   providers: [
     provideAnimationsAsync(),
-    {provide: LOCALE_ID, useValue: 'es'}
+    {provide: LOCALE_ID, useValue: 'es'},
+    { provide: 'API_URL', useValue: environment.apiUrl }
   ],
   bootstrap: [AppComponent]
 

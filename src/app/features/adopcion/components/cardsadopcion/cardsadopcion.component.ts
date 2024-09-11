@@ -52,9 +52,10 @@ export class CardsadopcionComponent implements OnInit {
 
   ruta(IdAdopcionMascota: number ){
     let idPet = IdAdopcionMascota.toString();
-    
-    sessionStorage.setItem('IdPet', idPet)
+    console.log(idPet);
 
+
+    sessionStorage.setItem('IdPet', idPet)
     this.router.navigate(['info-adopcion'])
   }
 

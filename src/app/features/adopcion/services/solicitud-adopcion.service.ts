@@ -39,6 +39,22 @@ export interface Adopciones{
   historia: string;
 }
 
+export interface AdopcionesInfo{
+  IdAdopcionMascota: number;
+  IdUsuario: string;
+  imagenMascota: string;
+  nombreMascota: string;
+  edadMascota: number;
+  especieMascota: string;
+  razaMascota: string;
+  sexo: string;
+  esterilizacionMascota: string;
+  estadoVacunacionMascota: string;
+  numeroTelefono: string;
+  ubicacion: string;
+  historia: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,6 +65,32 @@ export class SolicitudAdopcionService {
   private apiUrl_2 = 'http://localhost:10101';
 
   constructor( private http: HttpClient) { }
+
+  getPetIdInfo(IdAdopcionMascota: string): Observable <AdopcionesInfo[]>{
+    const token: string | null = localStorage.getItem(`userToken`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get<any>(`${this.apiUrl_2}/uploadPetId/${IdAdopcionMascota}`, {headers}).pipe(
+      map((Response) => Response.Result.map((item: any) => ({
+        IdAdopcionMascota: item.IdAdopcionMascota,
+        IdUsuario: item.IdUsuario,
+        imagenMascota: item.imagenMascota,
+        nombreMascota: item.nombreMascota,
+        edadMascota: item.edadMascota,
+        especieMascota: item.especieMascota,
+        razaMascota: item.razaMascota,
+        sexo: item.sexo,
+        esterilizacionMascota: item.esterilizacionMascota,
+        estadoVacunacionMascota: item.estadoVacunacionMascota,
+        numeroTelefono: item.numeroTelefono,
+        ubicacion: item.ubicacion,
+        historia: item.historia
+      })))
+    )
+  }
 
   getAdopciones(): Observable<adopcion[]> {
     return this.http.get<adopcion[]>(this.apiurl);
