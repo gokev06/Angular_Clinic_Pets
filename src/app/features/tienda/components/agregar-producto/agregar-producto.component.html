@@ -13,6 +13,7 @@
       </div>
     </label>
   </div>
+  
 
   <section>
     <section class="cube__form__group">
@@ -40,10 +41,10 @@
 
         <select formControlName="categoria" class="categoria">
           <option value="">Categoría</option>
-          <option value="alimentos">Alimento</option>
-          <option value="medicamento">Medicamento</option>
-          <option value="juguete">Juguete</option>
-          <option value="accesorios">accesorios</option>
+          <option value="Alimentos">Alimento</option>
+          <option value="Medicamento">Medicamento</option>
+          <option value="Juguete">Juguete</option>
+          <option value="Accesorios">accesorios</option>
           <option value="Otros">Otros</option>
         </select>
         <div *ngIf="productoForm.get('categoria')?.invalid && productoForm.get('categoria')?.touched" class="error-message">
@@ -54,7 +55,8 @@
         <div>
           <app-input id="cantidad" formControlName="seleccionTallaPresentacion" [estilos]="estilos" holder="Unidad de medida "></app-input>
           <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched" class="error-message">
-            La unidad de medida es obligatoria.
+            la unidad es obligatoria
+            
           </div>
         </div>
 
@@ -68,10 +70,11 @@
       <div class="parte2">
         <div class="input-group">
           <div class="descripcion1">
-            <input id="descripcion" type="text" formControlName="descripcion" placeholder="Descripción del Producto"/>
+            <textarea id="descripcion" formControlName="descripcion" placeholder="Descripción del Producto"></textarea>
             <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error-message">
               La descripción es obligatoria.
             </div>
+            
           </div>
         </div>
       </div>
@@ -79,7 +82,7 @@
       <div class="parte2">
         <div class="input-group">
           <div class="descripcion1">
-            <input id="descripcion" type="text" formControlName="informacion" placeholder="informacion del Producto"/>
+            <textarea  id="descripcion" type="text" formControlName="informacion" placeholder="Informacion del Producto"></textarea>
             <div *ngIf="productoForm.get('informacion')?.invalid && productoForm.get('informacion')?.touched" class="error-message">
               La informacion es obligatoria.
             </div>

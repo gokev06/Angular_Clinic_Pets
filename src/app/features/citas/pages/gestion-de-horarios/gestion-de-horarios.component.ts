@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./gestion-de-horarios.component.scss'] 
 })
 export class GestionDeHorariosComponent {
+  showDeactivateButton = true;
 
 }

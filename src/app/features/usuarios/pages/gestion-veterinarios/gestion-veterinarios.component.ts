@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersManagementService } from '../../services/users-management.service';
+import { AppointmentRegisterService } from '../../../registro/service/appointment-register.service';
 
 @Component({
   selector: 'app-gestion-veterinarios',
@@ -8,9 +9,12 @@ import { UsersManagementService } from '../../services/users-management.service'
 })
 export class GestionVeterinariosComponent implements OnInit {
   citas: any[] = [];
-  isModalOpen = false; // Variable para controlar el estado del modal
+  isModalOpen = false;
 
-  constructor(private usersManagementService: UsersManagementService) {}
+  constructor(
+    private usersManagementService: UsersManagementService,
+    private appointmentRegisterService: AppointmentRegisterService
+  ) {}
 
   ngOnInit(): void {
     this.usersManagementService.getVeterinarios().subscribe(res => {
@@ -38,6 +42,7 @@ export class GestionVeterinariosComponent implements OnInit {
 
   openModal(): void {
     this.isModalOpen = true;
+    this.appointmentRegisterService.setRegistroType('veterinarian'); // Establecer tipo de registro
   }
 
   closeModal(): void {

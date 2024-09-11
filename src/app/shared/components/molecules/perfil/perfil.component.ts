@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-perfil',
@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class PerfilComponent {
   username: string = "kevin Mamaguevo"
   isModalOpen = false;
+
+  @Input() user : any = {
+    nombre: "Kevin",
+    rol: "Usuario"
+  }
 
   toggleModal() {
     this.isModalOpen = !this.isModalOpen;

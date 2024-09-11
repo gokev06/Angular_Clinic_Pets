@@ -1,8 +1,14 @@
 <div class="header">
-    <app-logo></app-logo>
- <div class="titles">
-    <app-home class="hola"></app-home>
-    <app-titulo  [ruta]="ruta" [title]="title" class="a" [estilo]="'color:white ;'"></app-titulo>
-</div>
+    <div class="logo">
+        <app-logo></app-logo>
+        <h1>Clinic-Pets</h1>
+    </div>
+
     <app-perfil></app-perfil>
+</div>
+<div class="titles">
+    <app-home class="hola"></app-home>
+    <app-titulo  [ruta]="'/citas'" [title]="'Citas'" class="a" [estilo]="'color:black ;'"></app-titulo>
+    <app-titulo  [ruta]="'/adopciones'" [title]="'Adopciones'" class="a" [estilo]="'color:black ;'"></app-titulo>
+    <app-titulo  [ruta]="'/tienda'" [title]="'Tienda'" class="aa" [estilo]="'color:black'"></app-titulo>
 </div>

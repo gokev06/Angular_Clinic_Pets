@@ -1,36 +1,35 @@
 <section>
-    <div class="table-container">
-      <button class="btn-open-modal" (click)="openModal()">Crear Veterinario</button>
-      <table class="clients-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Veterinario</th>
-            <th>Estado</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cita of citas" class="client">
-            <td class="text3">{{ cita.IdVeterinario }}</td>
-            <td class="text1">{{ cita.nombreVeterinario }}</td>
-            <td class="text2">{{ cita.estadoVet }}</td>
-            <td class="text3">
-              <button (click)="toggleStatus(cita.IdVeterinario, cita.estadoVet)">
-                {{ cita.estadoVet === 'Activo' ? 'Desactivar' : 'Activar' }}
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-  
-      <!-- Modal -->
-      <div class="modal" [ngClass]="{ 'is-active': isModalOpen }">
-        <div class="modal-content">
-          <button class="modal-close" (click)="closeModal()">X</button>
-          <app-registro></app-registro>
-        </div>
+  <div class="table-container">
+    <button class="btn-open-modal" (click)="openModal()">Crear Veterinario</button>
+    <table class="clients-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Veterinario</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas" class="client">
+          <td class="text3">{{ cita.IdVeterinario }}</td>
+          <td class="text1">{{ cita.nombreVeterinario }}</td>
+          <td class="text2">{{ cita.estadoVet }}</td>
+          <td class="text3">
+            <button (click)="toggleStatus(cita.IdVeterinario, cita.estadoVet)">
+              {{ cita.estadoVet === 'Activo' ? 'Desactivar' : 'Activar' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal" [ngClass]="{ 'is-active': isModalOpen }">
+      <div class="modal-content">
+        <button class="modal-close" (click)="closeModal()">X</button>
+        <app-registro></app-registro>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>

@@ -8,7 +8,6 @@ import { AppointmentService } from '../../services/appointment.service';
   styleUrls: ['./agenda.component.scss']
 })
 export class AgendaComponent implements OnInit {
-
   viewData: Date = new Date();
   daysInMonth: Date[] = [];
   horas: string[] = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
@@ -40,8 +39,9 @@ export class AgendaComponent implements OnInit {
   loadAppointments(): void {
     this.appointmentService.getAppointments2().subscribe(
       (data) => {
-        this.citas = data[0]; // Asegúrate de que accedes al primer elemento del array, que contiene las citas
-        this.initializeCitasMap();
+        console.log('Datos recibidos en AgendaComponent:', data); // Verifica los datos recibidos
+        this.citas = data[0]; // Asigna las citas recibidas al atributo citas
+        this.initializeCitasMap(); // Llama a initializeCitasMap después de cargar las citas
       },
       (error) => {
         console.error('Error fetching appointments:', error);

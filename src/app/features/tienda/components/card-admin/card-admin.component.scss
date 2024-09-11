@@ -1,79 +1,88 @@
 .principal{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-
-  }
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 
-  .card {
-    box-sizing: border-box;
-    width: 270px; /* Ajusta el ancho según sea necesario */
-    height: 420px; /* Ajusta la altura según sea necesario */
-    margin: 16px; /* Espacio entre tarjetas */
-    border: 1px solid #cfcfcf;
-    border-radius: 4px;
-    padding: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-  }
-
-    .logo img {
-      width: 50px;
-      height: auto;
-    }
-
-    .imagen-principal img {
-      width: 100%;
-      height:  60%;
-      margin-top: 16px;
-    }
+.card {
+  width: 270px; /* Ancho fijo */
+  height: 420px; /* Alto fijo */
+  margin: 16px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* Evita desbordamientos */
+}
 
 
-    .info-producto h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 8px 0;
-    }
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
 
-    .info-producto p {
-      margin: 4px 0;
-    }
 
-    .botones {
-        display: flex;
-        justify-content: center; /* Alinea los botones al inicio */
-        gap: 8px; /* Añade espacio entre los botones */
-        margin-top: 10px;
+.imagen-principal {
+  width: 100%;
+  height: 200px; /* Altura fija para las imágenes */
+  overflow: hidden; /* Evita desbordamientos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        button {
-          padding: 5px 10px;
-          font-size: 14px;
-          cursor: pointer;
-          border: none;
-          border-radius: 4px;
+.imagen-principal img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+}
 
-          &.btn-editar {
-            background-color: #A5D9FF; /* Verde */
-            color: black;
-          }
+.info-producto {
+  width: 100%;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye uniformemente la información */
+}
 
-          .btn-editar img{
-            border: none;
-          }
+.info-producto h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 8px 0;
+}
 
-          &.btn-eliminar {
-            background-color: #CCC4FF;
-            color: black;
-          }
+.info-producto p {
+  margin: 4px 0;
+}
 
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-      }
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-editar {
+  background-color: #A5D9FF;
+}
+
+.btn-eliminar {
+  background-color: #CCC4FF;
+}
+
+button:hover {
+  opacity: 0.8;
+}
