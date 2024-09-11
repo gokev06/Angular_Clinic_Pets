@@ -40,7 +40,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-       //this.viewBtn();
+
       this.initForm();
       this.checkEditMode();
   }
@@ -198,14 +198,6 @@ export class AgregarProductoComponent implements OnInit {
   }
 
 
-   viewBtn():void{
-       let editBtn = sessionStorage.getItem('EditProduct');
-       if (editBtn == 'true') {
-         this.viewElement = true;
-       }else{
-        this.viewElement = false;
-       }
-   }
 
    checkEditMode(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
