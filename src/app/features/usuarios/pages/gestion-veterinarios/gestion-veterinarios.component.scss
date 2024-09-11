@@ -76,9 +76,12 @@ section {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 170%; /* Ajusta el tamaño según sea necesario */
-
+  width: 50%; /* Ajusta el tamaño según sea necesario */
+  height: 90vh;
   position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .modal-close {
@@ -96,16 +99,122 @@ section {
 .btn-open-modal {
   margin-bottom: 20px;
   padding: 10px 20px;
-  background-color: #6200ea;
-  color: #fff;
+  background-color: #CCC4FF;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .btn-open-modal:hover {
-  background-color: #3700b3;
+  background-color: #bbb1fc;
 }
+
+.btn{
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #CCC4FF;
+}
+
+
+.formulario {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 4px solid #CCC4FF;
+  border-radius: 10%;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.formulario_2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.formulario_2 h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #4A90E2, #9013FE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px;
+}
+
+h1:hover {
+  color: #4A90E2;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.reset-link {
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 11px;
+  color: inherit;
+}
+
+.reset-link .highlight {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.reset-link .highlight:hover {
+  text-decoration: underline;
+}
+
+.button {
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: rgba(172, 165, 214, 0.47);
+  margin-top: 10px;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #458ba0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  color: #ffffff;
+}
+
+.button:active {
+  background-color: #454ea0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transform: translateY(2px);
+}
+
+.typing-effect {
+  display: none;
+}
+
+.contenedor-formulario {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
 
 
 @media (max-width: 1279px) {

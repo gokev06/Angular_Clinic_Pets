@@ -4,7 +4,7 @@
     <table class="clients-table">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Documento</th>
           <th>Veterinario</th>
           <th>Estado</th>
           <th>Acción</th>
@@ -16,7 +16,7 @@
           <td class="text1">{{ cita.nombreVeterinario }}</td>
           <td class="text2">{{ cita.estadoVet }}</td>
           <td class="text3">
-            <button (click)="toggleStatus(cita.IdVeterinario, cita.estadoVet)">
+            <button (click)="toggleStatus(cita.IdVeterinario, cita.estadoVet)" class="btn">
               {{ cita.estadoVet === 'Activo' ? 'Desactivar' : 'Activar' }}
             </button>
           </td>
@@ -28,7 +28,117 @@
     <div class="modal" [ngClass]="{ 'is-active': isModalOpen }">
       <div class="modal-content">
         <button class="modal-close" (click)="closeModal()">X</button>
-        <app-registro></app-registro>
+        <div class="contenedor-formulario">
+          <div class="formulario">
+            <form class="formulario_2" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <h1>REGISTRAR VETERINARIO</h1>
+      
+              <app-input
+                  [text]="'text'"
+                  [holder]="'Numero de Documento'"
+                  formControlName="numeroDeDocumento"
+                  [id]="'documento'"
+                  [estilos]="estilos">
+              </app-input>
+      
+              <div *ngIf="registerForm.get('numeroDeDocumento')?.errors && (registerForm.get('numeroDeDocumento')?.dirty || hasAttemptedSubmit)">
+                <p class="message_password" *ngIf="registerForm.get('numeroDeDocumento')?.hasError('pattern')">El documento debe contener solo números.</p>
+                <p class="message_password" *ngIf="registerForm.get('numeroDeDocumento')?.hasError('minlength') || registerForm.get('numeroDeDocumento')?.hasError('maxlength')">El documento debe tener exactamente 10 caracteres.</p>
+              </div>
+      
+              <app-input
+                  [text]="'text'"
+                  [holder]="'Nombre'"
+                  formControlName="nombre"
+                  [id]="'Nombre'"
+                  [estilos]="estilos">
+              </app-input>
+      
+              <div *ngIf="registerForm.get('nombre')?.errors && (registerForm.get('nombre')?.dirty || hasAttemptedSubmit)">
+                <p class="message_password" *ngIf="registerForm.get('nombre')?.hasError('required')">Debe llenar el campo</p>
+              </div>
+      
+              <app-input
+                  [text]="'text'"
+                  [holder]="'Apellido'"
+                  formControlName="apellido"
+                  [id]="'apellido'"
+                  [estilos]="estilos">
+              </app-input>
+      
+              <div *ngIf="registerForm.get('apellido')?.errors && (registerForm.get('apellido')?.dirty || hasAttemptedSubmit)">
+                <p class="message_password" *ngIf="registerForm.get('apellido')?.hasError('required')">Debe llenar el campo</p>
+              </div>
+      
+              <app-input
+                  [text]="'text'"
+                  [holder]="'Telefono'"
+                  formControlName="numeroDeTelefono"
+                  [id]="'telefono'"
+                  [estilos]="estilos">
+              </app-input>
+      
+              <div *ngIf="registerForm.get('numeroDeTelefono')?.errors && (registerForm.get('numeroDeTelefono')?.dirty || hasAttemptedSubmit)">
+                <p class="message_password" *ngIf="registerForm.get('numeroDeTelefono')?.hasError('pattern')">El teléfono debe contener solo números.</p>
+                <p class="message_password" *ngIf="registerForm.get('numeroDeTelefono')?.hasError('minlength') || registerForm.get('numeroDeTelefono')?.hasError('maxlength')">El teléfono debe tener entre 10 y 15 caracteres.</p>
+              </div>
+      
+              <app-input
+                  [text]="'text'"
+                  [holder]="'Email'"
+                  formControlName="email"
+                  [id]="'email'"
+                  [estilos]="estilos">
+              </app-input>
+      
+              <div *ngIf="registerForm.get('email')?.errors && (registerForm.get('email')?.dirty || hasAttemptedSubmit)">
+                <p class="message_password" *ngIf="registerForm.get('email')?.hasError('email')">Debe ingresar un correo valido</p>
+              </div>
+      
+              <app-input
+                  [text]="'password'"
+                  [holder]="'Contraseña'"
+                  formControlName="contrasenia"
+                  [id]="'contraseña'"
+                  [estilos]="estilos">
+              </app-input>
+      
+              <div *ngIf="registerForm.get('contrasenia')?.errors && (registerForm.get('contrasenia')?.dirty || hasAttemptedSubmit)">
+                <p class="message_password" *ngIf="registerForm.get('contrasenia')?.hasError('minlength') || registerForm.get('contrasenia')?.hasError('maxlength') || registerForm.get('contrasenia')?.hasError('pattern')">
+                  ¡Necesitas entre 8 y 15 caracteres, al menos una mayúscula, una minúscula y un número!
+                </p>
+              </div>
+      
+              <app-input
+                  [text]="'password'"
+                  [holder]="'Confirmar Contraseña'"
+                  formControlName="confirmarContrasenia"
+                  [id]="'confirmar'"
+                  [estilos]="estilos">
+              </app-input>
+      
+              <div *ngIf="registerForm.hasError('passwordMismatch') && (registerForm.get('contrasenia')?.dirty || registerForm.get('confirmarContrasenia')?.dirty || hasAttemptedSubmit)">
+                <p class="message_password">Confirmar contraseña no es igual a contraseña</p>
+              </div>
+      
+              <!-- Mensaje de error si algún campo está vacío y el formulario ha sido enviado -->
+              <div *ngIf="hasAttemptedSubmit && registerForm.invalid">
+                <p class="message_password">Todos los campos son obligatorios y deben ser válidos.</p>
+              </div>
+      
+      
+              <div class="btn-button-submit">
+                <button type="submit" [disabled]="registerForm.invalid" class="button">Registrarse</button>
+              </div>
+              <div *ngIf="hasAttemptedSubmit && errorMessage" class="error-message">
+                {{ errorMessage }}
+              </div>
+              <!-- Botón para iniciar sesión con Google (actualmente comentado) -->
+              <!-- <button class="g-signin2" (click)="loginWithGoogle()">Iniciar sesión con Google</button>-->
+      
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -86,7 +86,6 @@ import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-head
    
   ],
   imports: [
-    UsuariosModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
