@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { DisabledHorariosService } from '../calendario/service/disabled-horarios.service';
 
 @Component({
   selector: 'app-calendario',
@@ -10,15 +11,18 @@ export class CalendarioComponent implements OnInit {
   daysInMonth: Date[] = [];
   selectedDay: Date | null = null;
   dayNames: string[] = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-  today: Date = new Date(); // Añadido para comparar fechas
+  today: Date = new Date();
 
   @Output() dateSelected = new EventEmitter<Date>();
-  @Output() timeSelected = new EventEmitter<string>(); 
+  @Output() timeSelected = new EventEmitter<string>();
+  @Input() showDeactivateButton: boolean = false;
 
-  constructor() {}
+  constructor(private disabledHorariosService: DisabledHorariosService) {}
   
   ngOnInit(): void {
     this.generateDaysInMonth(this.viewData);
+    this.disabledHorariosService.loadDisabledHorarios();
+    this.disabledHorariosService.loadDisabledDays();
   }
 
   generateDaysInMonth(date: Date): void {
@@ -40,29 +44,21 @@ export class CalendarioComponent implements OnInit {
   }
 
   selectDay(day: Date): void {
-    //console.log('date selected', this.dateSelected);
-    //console.log('day', day);
-    
     if (this.isDateInPast(day)) {
       return;
     }
   
     if (!this.isOutsideMonth(day) && !this.isBeforeFirstDay(day) && !this.isSunday(day)) {
-      // Ajustar la fecha para eliminar la información de tiempo
       this.selectedDay = new Date(day.getFullYear(), day.getMonth(), day.getDate());
-      //console.log('Selected Day:', this.selectedDay);
-  
-      // Emitir la fecha en formato 'YYYY-MM-DD'
       const formattedDate = this.selectedDay.toISOString().split('T')[0];
-      this.dateSelected.emit(this.selectedDay); // Emitir la fecha como Date
+      this.dateSelected.emit(this.selectedDay);
     }
   }
-  
 
   isDateInPast(day: Date): boolean {
-    const today = new Date(); // Crear una nueva instancia para evitar modificar `this.today`
-    today.setHours(0, 0, 0, 0); // Establecer la hora a medianoche
-    return day.getTime() < today.getTime(); // Comparar los valores de tiempo
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return day.getTime() < today.getTime();
   }
 
   isSunday(day: Date): boolean {
@@ -89,7 +85,7 @@ export class CalendarioComponent implements OnInit {
     return day.getFullYear() === 1970;
   }
 
-  onTimeSelected(time: string): void { 
+  onTimeSelected(time: string): void {
     this.timeSelected.emit(time);
   }
 }

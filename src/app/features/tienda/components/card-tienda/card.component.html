@@ -10,7 +10,7 @@
       <p hidden >Id: {{producto.IdProducto}}</p>
       <h3>{{ producto.nombreProducto }}</h3>
       <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
-      <p>Categoría: {{ producto.categoria }}</p>
+      <p>Categoria: {{ producto.categoria }}</p>
       <div class="btn_info">
         <button class="btn__ver__info" type="button" (click)=" redirectToInfoProduct(producto.IdProducto)" >Ver Producto</button>
       </div>

@@ -84,3 +84,93 @@ textarea{
     background-color: rgba(250, 60, 60, 0.47);
 }
 
+
+/* Pantallas grandes (max-width: 1279px) */
+@media screen and (max-width: 1279px) {
+    .border {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .infopropietario,
+    .infomascota {
+        width: 45%; /* Coloca los divs uno al lado del otro */
+        padding: 15px;
+    }
+
+    .infoveterinario {
+        width: 90%; /* La información del veterinario ocupa el ancho completo */
+        padding: 15px;
+    }
+
+    .btnsubmit {
+        width: 90%;
+        margin-top: 20px;
+        justify-content: space-around;
+    }
+}
+
+/* Pantallas medianas (max-width: 920px) */
+@media screen and (max-width: 920px) {
+    .infopropietario,
+    .infomascota,
+    .infoveterinario {
+        width: 60%; /* Todos los divs ocupan el 100% */
+        padding: 15px 15px;
+    }
+
+
+    .btnsubmit {
+        width: 100%;
+    }
+
+    .boton, .botonc {
+        margin-bottom: 10px;
+    }
+}
+
+/* Pantallas medianas-pequeñas (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .texto {
+        flex-direction: column; /* Coloca las áreas de texto en columna */
+        align-items: center;
+    }
+
+    .div {
+        width: 100%;
+        padding: 0; /* Ajusta el ancho de las divs de las áreas de texto */
+    }
+
+    textarea {
+        width: 90%; /* Ajusta el ancho de los textarea */
+    }
+}
+
+/* Pantallas pequeñas (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .infopropietario,
+    .infomascota,
+    .infoveterinario {
+        width: 100%; /* Todos los divs ocupan el 100% */
+    }
+
+    textarea {
+        font-size: 14px; /* Ajusta el tamaño de fuente en textarea */
+        height: 80px; /* Ajusta la altura del textarea */
+    }
+
+    select {
+        height: 25px; /* Reduce la altura de los select */
+        width: 300px; /* Los select ocupan todo el ancho */
+    }
+
+    .boton, .botonc {
+        padding: 8px 20px;
+        font-size: 14px; /* Reduce el tamaño de los botones */
+    }
+
+    .btnsubmit {
+        width: 100%;
+    }
+
+}

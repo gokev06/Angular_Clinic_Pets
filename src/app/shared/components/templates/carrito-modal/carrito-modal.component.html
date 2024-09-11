@@ -9,6 +9,16 @@
                 <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="" (click)="closemodal()">
             </div>
         </div>
+        <section class="section" *ngIf="allData.length <= 0 " >
+            <div class="vacio">
+                <h1>Vaya...</h1>
+                <img src="../../../../../assets/images/gato.png" alt="">
+                <h2>Parece que el carrito esta vacio</h2>
+                <h3>Agrega productos de nuestra tienda al carrito.</h3>
+            
+              </div>
+        </section>
+        <section  *ngIf="allData.length > 0 ">
         <div class="centrar">
             <div class="tabla" *ngFor="let producto of allData">
                 <div class="info">
@@ -43,7 +53,5 @@
      <!-- carrito.component.html -->
 <div class="carrito-actions">
     <button type="button" (click)="eliminarProducto()"  class="btn btn-danger">Vaciar Carrito</button>
-    <button  class="btn btn-success">Finalizar Compra</button>
-  </div>
-  </div>
+    <button class="btn btn-success" (click)="finalizarCompra()">Finalizar Compra</button>
 </div>

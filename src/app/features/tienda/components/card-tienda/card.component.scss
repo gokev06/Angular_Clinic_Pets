@@ -1,77 +1,98 @@
-.principal{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-
+/* Estilos generales para el contenedor principal */
+.principal {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+ gap: 20px;
 }
 
-
+/* Estilos para cada card */
 .card {
-  width: 270px; /* Ancho fijo */
-  height: 420px; /* Alto fijo */
-  margin: 16px;
-  border: 1px solid #cfcfcf;
-  border-radius: 4px;
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  width: 250px; /* Ancho fijo para las cards */
+  height: 410px; /* Altura fija para las cards */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow: hidden; /* Evita desbordamientos */
-  cursor: pointer;
 }
 
-
+/* Efecto de hover para las cards */
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos para el logo */
+.logo {
+  padding: 10px; /* Espacio interior */
+}
+
+/* Estilos para la imagen principal */
 .imagen-principal {
-  width: 100%;
-  height: 200px; /* Altura fija para las imágenes */
-  overflow: hidden; /* Evita desbordamientos */
+  flex: 0 0 auto; /* Evita que el contenedor de la imagen se estire */
+  height: 180px; /* Altura fija para el contenedor de la imagen */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #CCC4FF;
+  overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
 }
 
 .imagen-principal img {
   max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+  max-height: 90%;
+  object-fit: contain; /* Ajusta la imagen para que se ajuste al contenedor sin cortarse */
 }
 
+/* Estilos para la información del producto */
+.info-producto {
+  padding: 15px; /* Espacio interior */
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Permite que la sección ocupe el espacio disponible */
+  justify-content: space-between; /* Asegura que el contenido se distribuya uniformemente */
+}
 
+/* Estilos para los elementos de texto dentro de la información del producto */
+.info-producto h3 {
+  margin: 0 0 10px; /* Margen inferior */
+  font-size: 1.2em; /* Tamaño de fuente ajustado */
+  color: #333;
+  font-weight: 600; /* Negrita para el nombre del producto */
+}
 
-  .info-producto h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 8px 0;
-  }
+.info-producto p {
+  margin: 6px 0; /* Margen vertical */
+  font-size: 1em; /* Tamaño de fuente ajustado */
+  color: #555;
+  line-height: 1.4; /* Mayor espacio entre líneas para mejor legibilidad */
+}
 
-  .info-producto p {
-    margin: 4px 0;
-  }
+.info-producto p:first-of-type {
+  font-weight: 700; /* Negrita para el precio */
+}
 
-  .btn_info{
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-  }
+/* Estilos para el botón de ver información */
+.btn_info {
+  margin-top: auto; /* Empuja el botón al final del contenedor de información */
+}
 
-  .btn__ver__info{
-    padding: 5% 10% 5% 10%;
-    border: 1px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #CCC4FF;
-    color: black;
-  }
+.btn__ver__info {
+  background-color: #CCC4FF;
+  color: black;
+  border: none;
+  border-radius: 8px; /* Esquinas del botón más redondeadas */
+  padding: 10px 15px; /* Tamaño del botón ajustado */
+  font-size: 16px; /* Tamaño de fuente ajustado */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-  .btn__ver__info:hover{
-    border: 3px;
-    background-color: #ada1fc;
-  }
-
+.btn__ver__info:hover {
+  background-color: rgba(204, 196, 255, 0.48);
+  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}

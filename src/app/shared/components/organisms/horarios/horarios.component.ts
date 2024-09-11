@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { AppointmentService } from '../../../../features/citas/services/appointment.service';
+import { DisabledHorariosService } from '../calendario/service/disabled-horarios.service';
 
 @Component({
   selector: 'app-horarios',
@@ -8,60 +9,67 @@ import { AppointmentService } from '../../../../features/citas/services/appointm
 })
 export class HorariosComponent implements OnInit, OnChanges {
   @Input() data!: { date: string };
+  @Input() showDeactivateButton: boolean = false;
   @Output() timeSelected = new EventEmitter<string>();
   horarios: string[] = [];
   selectedHorario: string | null = null;
-  occupiedHorarios: string[] = []; // Array para almacenar los horarios ocupados
+  occupiedHorarios: string[] = [];
+  selectedDateFormatted: string = '';
 
-  selectedDateFormatted: string = ''; // Variable para almacenar la fecha formateada
-
-  constructor(private appointmentService: AppointmentService) {}
+  constructor(private appointmentService: AppointmentService, private disabledHorariosService: DisabledHorariosService) {}
 
   ngOnInit(): void {
     this.generateHorarios();
     this.loadOccupiedHorarios();
+    this.updateDisabledHorarios();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {
       this.generateHorarios();
-      this.loadOccupiedHorarios(); // Cargar los horarios ocupados cuando cambie la fecha
-      this.formatSelectedDate(); // Formatear la fecha cuando cambie
+      this.loadOccupiedHorarios();
+      this.formatSelectedDate();
+      this.updateDisabledHorarios();
     }
   }
 
   generateHorarios(): void {
-    //const allHorarios = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM'];
-    const allHorarios = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '13:00 PM', '14:00 PM', '15:00 PM'];
-
+    const allHorarios = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM'];
     this.horarios = this.data.date.toLowerCase() === 'sábado' ? allHorarios.slice(0, 3) : allHorarios;
   }
 
   loadOccupiedHorarios(): void {
     const token = localStorage.getItem('userToken');
-    
-    // Crear una nueva instancia de Date con la fecha pasada desde @Input(), ajustada a medianoche en la zona horaria local
     const localDate = new Date(this.data.date);
-  
-    // Obtener la fecha en formato 'YYYY-MM-DD' sin alterar la fecha original
     const year = localDate.getFullYear();
-    const month = String(localDate.getMonth() + 1).padStart(2, '0'); // Mes es 0-based
+    const month = String(localDate.getMonth() + 1).padStart(2, '0');
     const day = String(localDate.getDate()).padStart(2, '0');
     const formattedDate = `${year}-${month}-${day}`;
   
-    //console.log('Formatted Date:', formattedDate);
-  
     this.appointmentService.getAppointmentsByDate(formattedDate, token).subscribe(
       (appointments: any[]) => {
-        //console.log('Appointments:', appointments);
-  
         this.occupiedHorarios = appointments.map(app => this.formatTime(app.hora));
-        //console.log('Occupied Horarios:', this.occupiedHorarios);
       },
       error => {
         console.error('Error fetching appointments:', error);
       }
     );
+  }
+
+  updateDisabledHorarios(): void {
+    this.disabledHorariosService.loadDisabledHorarios();
+    this.disabledHorariosService.loadDisabledDays();
+
+    if (this.disabledHorariosService.getDisabledDaysLocal().has(this.data.date)) {
+      this.horarios = []; // Ocultar horarios si el día está desactivado
+    } else {
+      this.horarios = this.horarios.map(horario => {
+        if (this.disabledHorariosService.getDisabledHorarios().has(horario.trim())) {
+          return `${horario} (Desactivado)`;
+        }
+        return horario;
+      });
+    }
   }
 
   formatTime(time: string): string {
@@ -79,7 +87,7 @@ export class HorariosComponent implements OnInit, OnChanges {
   }
 
   selectHorario(horario: string): void {
-    if (this.isHorarioOccupied(horario)) {
+    if (this.isHorarioOccupied(horario) || this.isHorarioDisabled(horario) || this.horarios.length === 0) {
       return; 
     }
     this.selectedHorario = this.selectedHorario === horario ? null : horario;
@@ -90,5 +98,29 @@ export class HorariosComponent implements OnInit, OnChanges {
 
   isHorarioOccupied(horario: string): boolean {
     return this.occupiedHorarios.includes(horario.trim());
+  }
+
+  isHorarioDisabled(horario: string): boolean {
+    return this.disabledHorariosService.getDisabledHorarios().has(horario.trim());
+  }
+
+  toggleDisableDay(): void {
+    if (!this.showDeactivateButton) return;
+
+    const date = this.data.date;
+
+    if (this.disabledHorariosService.getDisabledDaysLocal().has(date)) {
+      this.disabledHorariosService.removeDisabledDay(date);
+      this.horarios.forEach(horario => this.disabledHorariosService.removeDisabledHorario(horario));
+    } else {
+      this.disabledHorariosService.addDisabledDay(date);
+      this.horarios.forEach(horario => {
+        if (!this.isHorarioOccupied(horario)) {
+          this.disabledHorariosService.addDisabledHorario(horario);
+        }
+      });
+    }
+
+    this.updateDisabledHorarios(); // Actualizar la visualización de horarios desactivados
   }
 }

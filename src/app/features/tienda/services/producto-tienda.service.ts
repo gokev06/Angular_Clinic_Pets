@@ -47,6 +47,7 @@ export interface productInfo {
 export class ProductoService {
 
   private apiUrl_1 = 'http://localhost:10101';
+  private carrito: DataProduct[] = []; // Añadir un array para almacenar el carrito
 
 
   constructor(private http: HttpClient) { }
@@ -194,7 +195,14 @@ export class ProductoService {
   };
 
 
+  setCarrito(productos: DataProduct[]): void {
+    this.carrito = productos;
+  }
 
+  // Método para obtener el carrito
+  getCarrito(): DataProduct[] {
+    return this.carrito;
+  }
 }
 
 

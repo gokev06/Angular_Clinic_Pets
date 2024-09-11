@@ -7,10 +7,10 @@ form {
   background-color: rgba(191, 224, 255, 0.19);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 30px;
+  margin-top: 12px;
 
 div {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
 label {
       font-size: 14px;
@@ -81,7 +81,7 @@ label {
         width: 40%;
         padding: 10px;
         background-color: rgba(87, 250, 60, 0.5);
-        color: white;
+        color: black;
         border: none;
         border-radius: 5px;
         font-size: 16px;
@@ -98,19 +98,7 @@ label {
         height: 100px;
       }
       
-      #descripcion {
-        width: 280px;
-        height: 120px;
-        background-color: #CCC4FF;
-        border-radius: 15px;
-        border: none;
-        padding: 10px;
-        text-align: start;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        resize: none;
-        box-sizing: border-box;
-      }
+     
       
       .container-input {
         display: flex;
@@ -219,6 +207,8 @@ label {
 section{
   width: 100%;
   display: flex;
+  justify-content: right;
+  margin-bottom: 12px;
 }
 
 .parte1{
@@ -246,10 +236,10 @@ button {
 width: 40%;
 padding: 10px;
 background-color:rgba(87, 250, 60, 0.5);
-color: white;
+color: black;
 border: none;
 border-radius: 5px;
-font-size: 16px;
+font-size: 15px;
 cursor: pointer;
 
 &:disabled {
@@ -264,18 +254,25 @@ cursor: pointer;
   height: 100px;
 
 };
+
+.descripcion1 ::placeholder{
+  color: black;
+  font-size: 15px;
+}
+
 #descripcion {
   width: 280px;
-  height: 120px;
+  height: 110px;
+  margin-top: 0px;
   background-color: #CCC4FF;
-  border-radius: 15px;
+  border-radius: 5px;
   border: none;
-  padding: 10px; /* Espacio interno para el texto */
+  padding: 10px;
   text-align: start;
-  overflow: hidden; /* Evitar que el texto se desborde */
-  text-overflow: ellipsis; /* Mostrar '...' si el texto es muy largo */
-  resize: none; /* Desactivar el redimensionado si fuera un textarea */
-  box-sizing: border-box; /* Incluye el padding en el tamaño total */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  resize: none;
+  box-sizing: border-box;
 }
 
 
@@ -331,7 +328,7 @@ cursor: pointer;
   width: 40%;
   padding: 10px;
   background-color: rgb(250, 60, 60,0.47);
- color: white;
+ color: black;
 border: none;
 border-radius: 5px;
 font-size: 16px;
@@ -375,6 +372,58 @@ cursor: pointer;
    gap: 30px;
 }
 
+/* Asegúrate de que el contenedor se adapte al contenido */
+.container-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Ajusta el tamaño del contenedor de la vista previa */
+.image-preview {
+  width: 300px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  overflow: hidden; /* Asegura que la imagen no se desborde */
+}
+
+/* Asegúrate de que la imagen de vista previa se ajuste al contenedor */
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ajusta la imagen para que se ajuste completamente dentro del contenedor */
+}
+
+/* Opcional: si usas la imagen como fondo */
+#image-preview {
+  background-size: contain; /* Asegura que la imagen de fondo se ajuste completamente */
+  background-repeat: no-repeat;
+  background-position: center; /* Centra la imagen de fondo */
+}
+
+.image-preview p {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.image-preview:hover {
+  border-color: #666;
+}
 
 
 

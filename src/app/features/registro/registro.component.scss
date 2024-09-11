@@ -37,13 +37,23 @@ section {
     font-family: "Playwrite ES Deco", cursive;
 }
 
-p {
+.message_password{
+    padding: 0px;
+    font-size: 12px;
+    margin: 0;
+}
+
+.p {
     margin-top: 20px;
 }
 
 a {
     text-decoration: none;
     color: #000000; /* Se cambia para evitar el uso de la función 'blue' no estándar */
+}
+
+app-input{
+    height: 50px;
 }
 
 .imagen::before {
@@ -54,6 +64,11 @@ a {
     left: 0;
     width: 60%;
     height: 100%;
+}
+
+
+.typing-effect{
+    display: none;
 }
 
 .contenedor-formulario {
@@ -153,159 +168,81 @@ h1:hover {
 }
 
 /* Puntos de quiebre para dispositivos móviles y tabletas */
+@media (max-width: 1279px){
+    .imagen{
+        width: 50%;
+    }
+    section{
+        justify-content: space-between;
+    }
+
+    .contenedor-formulario{
+        margin-right: 40px;
+    }
+}
 
 /* Móviles pequeños (320px - 480px) */
-@media (max-width: 480px) {
-    section {
-        flex-direction: column;
-    }
-
-    .imagen {
-        width: 100%;
-        height: 50vh; /* Ajusta la altura de la imagen en dispositivos móviles pequeños */
-    }
-
-    .imagen::before {
-        width: 100%;
-        height: 50vh;
-    }
-
-    .contenedor-formulario {
+@media (max-width: 920px) {
+    /* Estilos para pantallas de escritorio medianas */
+    section{
         width: 100%;
         height: auto;
-        margin: 10px 0;
-    }
-
-    .formulario {
-        width: 90%;
-        max-width: none;
-    }
-
-    .reset-link {
-        font-size: 10px; /* Tamaño del texto reducido */
-    }
-}
-
-/* Tabletas (481px - 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
-    }
+     }
 
-    .imagen {
-        width: 100%;
-        height: 50vh; /* Ajusta la altura para tabletas */
-    }
-
-    .imagen::before {
-        width: 100%;
-        height: 50vh;
-    }
-
-    .contenedor-formulario {
-        width: 100%;
-        height: auto;
-    }
-
-    .formulario {
-        width: 90%;
-        max-width: 350px; /* Ajusta el ancho máximo */
-    }
-
-    .reset-link {
-        font-size: 12px; /* Tamaño del texto ligeramente mayor */
-    }
+.imagen::before {
+    width: 100%;
+    height: 100%;
 }
-
-/* Pantallas de escritorio pequeñas (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    section {
-        flex-direction: row;
-    }
-
-    .imagen {
-        width: 50%;
-    }
-
-    .imagen::before {
-        width: 50%;
-        height: 100%;
-    }
-
-    .contenedor-formulario {
-        width: 50%;
-        height: 100vh;
-    }
-
-    .formulario {
-        width: 80%;
-        max-width: 350px;
-    }
-
-    .reset-link {
-        font-size: 13px; /* Tamaño del texto para pantallas medianas */
-    }
+.imagen {
+    width: 100%;
+    height: 100;
 }
-
-/* Pantallas de escritorio medianas (1025px - 1280px) */
-@media (min-width: 1025px) and (max-width: 1280px) {
-    section {
-        flex-direction: row;
-    }
-
-    .imagen {
-        width: 50%;
-    }
-
-    .imagen::before {
-        width: 50%;
-        height: 100%;
-    }
-
-    .contenedor-formulario {
-        width: 50%;
-        height: 100vh;
-    }
-
-    .formulario {
-        width: 80%;
-        max-width: 350px;
-    }
-
-    .reset-link {
-        font-size: 14px; /* Tamaño del texto para pantallas grandes */
-    }
+.contenedor-formulario {
+    width: 80%;
+    height: auto;
+    margin-bottom: 30px;
 }
-
-/* Pantallas de escritorio grandes (1281px en adelante) */
-@media (min-width: 1281px) {
-    section {
-        flex-direction: row;
-    }
-
-    .imagen {
-        width: 60%;
-    }
-
-    .imagen::before {
-        width: 60%;
-        height: 100%;
-    }
-
-    .contenedor-formulario {
-        width: 40%;
-        height: 100vh;
-    }
-
-    .formulario {
-        width: 80%;
-        max-width: 400px;
-    }
+.typing-effect{
+    display: block;
 }
+.imagen[_ngcontent-ng-c37286177] {
+    width: 100%;
+    height: 90vh;
+}
+.typing-effect {
+    font-size: 18px; /* Ajusta el tamaño de la fuente según prefieras */
+    font-weight: normal; /* Cambia a 'normal' para una fuente normal */
+    color: #333;
+    line-height: 30px; /* Alinea el texto verticalmente dentro del contenedor */
+    white-space: nowrap;
+    margin-top: 20px;
+    height: 80px;
+    overflow: hidden;
+    border-right: 4px solid transparent; /* Usa 'transparent' para ocultar el cursor al final */
+    animation: typing 4s steps(40, end) forwards; /* Agrega 'forwards' para mantener el texto visible después de la animación */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    line-height: 1.2; /* Altura de la línea */
+    background: linear-gradient(90deg, #4A90E2, #9013FE); /* Degradado de fondo */
+    -webkit-background-clip: text; /* Clip del fondo para el texto (solo WebKit) */
+    -webkit-text-fill-color: transparent; /* Relleno de color transparente */
 
-/* Estilos mensajes de error en el formulario */
-.message_password {
-   font-size: 10px;
-   margin: 0;
-   color: red;
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+.formulario{
+    width: 300px;
+    height: 400px;
+    border: none;
+    box-shadow: none; 
+}
+.formulario_2 h1{
+    display: none;
+}
 }

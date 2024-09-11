@@ -8,6 +8,7 @@ import { CardComponent } from './components/card-tienda/card.component';
 import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.component';
 import { TiendaAdminComponent } from './pages/tienda-admin/tienda-admin.component';
 import { CardAdminComponent } from './components/card-admin/card-admin.component';
+import { PagoCompraComponent } from './pages/pago-compra/pago-compra.component';
 
 @NgModule({
   declarations: [
@@ -15,16 +16,20 @@ import { CardAdminComponent } from './components/card-admin/card-admin.component
     CardComponent,
     HeaderTiendaComponent,
     TiendaAdminComponent,
-    CardAdminComponent
+    CardAdminComponent,
+    PagoCompraComponent,
+    CommonModule
   ],
   imports: [
     CommonModule,
     TiendaRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    CommonModule,
   ],
   exports:[
+    CommonModule
   ]
 })
 export class TiendaModule { }
