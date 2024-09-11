@@ -12,7 +12,7 @@
           <p>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
           <p>Categoría: {{ producto.categoria }}</p>
           <div class="botones">
-            <button  type="button" routerLink="'/actualizar-productos"    class="btn-editar" >    <img src="../../../../../assets/images/imghome/editar1.png" alt=""></button>
+            <button  (click)="redirectToEditProduct(producto.IdProducto)"    class="btn-editar" >    <img src="../../../../../assets/images/imghome/editar1.png" alt=""></button>
             <button type="button" (click)="onProductDelete(producto.IdProducto)" class="btn-eliminar"><img src="../../../../../assets/images/imghome/eliminar.png" alt=""></button>
           </div>
         </div>

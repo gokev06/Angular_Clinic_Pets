@@ -8,7 +8,7 @@
   import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.component';
   import { TiendaAdminComponent } from './pages/tienda-admin/tienda-admin.component';
   import { CardAdminComponent } from './components/card-admin/card-admin.component';
-  import { ActualizarProductosComponent } from './components/actualizar-productos/actualizar-productos.component';
+  import { FeaturesModule } from "../features.module";
 
   @NgModule({
     declarations: [
@@ -17,15 +17,16 @@
       HeaderTiendaComponent,
       TiendaAdminComponent,
       CardAdminComponent,
-      ActualizarProductosComponent
+
     ],
     imports: [
-      CommonModule,
-      TiendaRoutingModule,
-      ReactiveFormsModule,
-      FormsModule,
-      SharedModule
-    ],
+    CommonModule,
+    TiendaRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule,
+    FeaturesModule
+],
     exports:[
     ]
   })
