@@ -16,8 +16,13 @@ export class AdmiCardsNuevaComponent implements OnInit {
 
   ngOnInit() {}
 
-  ruta() {
-    this.router.navigate(['info-adopcion']);
+  ruta(IdAdopcionMascota: number ){
+    let idPet = IdAdopcionMascota.toString();
+    console.log(idPet);
+
+
+    sessionStorage.setItem('IdPet', idPet)
+    this.router.navigate(['info-adopcion'])
   }
 
   /*

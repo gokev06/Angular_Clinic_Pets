@@ -6,7 +6,7 @@
     </div>
 </div>
 
-    <img [src]="adopcion.ImagenMascota" (click)="ruta()" alt="Imagen de adopción">
+    <img [src]="adopcion.ImagenMascota" (click)="ruta(adopcion.IdAdopcionMascota)" alt="Imagen de adopción">
     <h2>{{adopcion.nombreMascota}}</h2>
     <div class="contacto">
       <div class="info1">
