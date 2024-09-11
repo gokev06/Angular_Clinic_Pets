@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
-import { adopcion } from '../../services/solicitud-adopcion.service'; 
+import { adopcion } from '../../services/solicitud-adopcion.service';
 import { Router } from '@angular/router';
 
 @Component({

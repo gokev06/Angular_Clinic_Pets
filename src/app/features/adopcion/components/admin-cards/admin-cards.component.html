@@ -1,17 +1,17 @@
-<app-admi-header></app-admi-header>
+<app-admi-header (search)="onSearch($event)"></app-admi-header>
 
 <section class="emptyState" *ngIf="adopciones.length <= 0">
     <!--<p id="ono">¡Oh no!</p>
     <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
-    <p id="noTienesClientes">Aún no tienes clientes</p> 
+    <p id="noTienesClientes">Aún no tienes clientes</p>
     COLOCAR ESTADO VACIO-->
 </section>
 
-<section *ngIf="filteredAdopciones.length > 0" class="background">
+<section *ngIf="adopciones.length > 0" class="background">
     <div class="container-cards">
         <div *ngFor="let adopcion of filteredAdopciones" class="cartas">
-            <app-admi-cards-nueva 
-                [adopcion]="adopcion" 
+            <app-admi-cards-nueva
+                [adopcion]="adopcion"
                 (eliminar)="handleEliminar($event)">
             </app-admi-cards-nueva>
         </div>
@@ -20,44 +20,44 @@
     <div class="filtro">
         <h1>Filtrar Por</h1>
 
-        <div class="borrar" (click)="clearFilter()">
+        <div class="borrar" (click)="clearFilters()">
             <h2>Borrar Filtros</h2>
             <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="">
         </div>
-        
+
         <div class="contenedor-filtro">
-            <div (click)="FiltroNombre()" class="title-nombre">
+            <div  class="title-nombre">
                 <h3>Nombre</h3>
                 <img src="../../../../../assets/icons/mas.png" alt="">
             </div>
-            <div class="filtro_nombre" *ngIf="FilterNombre">
+            <div class="filtro_nombre" >
                 <div class="contain">
-                    <input type="radio" id="az" name="order" (change)="sortAsc()">
+                    <input type="radio" id="az" name="order" (click)="sortName('az')" [checked]="currentSort === 'az'">
                     <label for="az">A-Z</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="za" name="order" (change)="sortDesc()">
+                    <input type="radio" id="za" name="order" (click)="sortName('za')" [checked]="currentSort === 'za'">
                     <label for="za">Z-A</label>
                 </div>
             </div>
         </div>
 
         <div class="contenedor-filtro">
-            <div (click)="FiltroEspecie()" class="title-nombre">
+            <div  class="title-nombre">
                 <h3>Especie</h3>
                 <img src="../../../../../assets/icons/mas.png" alt="">
             </div>
-            <div class="filtro_nombre" *ngIf="FilterEspecie">
+            <div class="filtro_nombre">
                 <div class="contain">
-                    <input type="radio" id="perro" name="order" (change)="filterPerro()">
+                    <input type="radio" id="perro" name="order" (click)="filterSpecies('perro')" [checked]="currentSpecies === 'perro'">
                     <label for="perro">Perro</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="gato" name="order" (change)="filterGatos()">
+                    <input type="radio" id="gato" name="order" (click)="filterSpecies('gato')" [checked]="currentSpecies === 'gato'">
                     <label for="gato">Gato</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="todos" name="order" (change)="clearFilter()">
+                    <input type="radio" id="todos" name="order" (click)="filterSpecies('todos')" [checked]="currentSpecies === 'todos'" >
                     <label for="todos">Todos</label>
                 </div>
             </div>
