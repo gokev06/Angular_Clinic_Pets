@@ -1,84 +1,77 @@
-<app-headeradopcion ></app-headeradopcion>
+<app-headeradopcion (search)="onSearch($event)"></app-headeradopcion>
 
 <section class="emptyState" *ngIf="adopciones.length <= 0">
-    <!--<p id="ono">¡Oh no!</p>
-    <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
-    <p id="noTienesClientes">Aún no tienes clientes</p>
-    COLOCAR ESTADO VACIO-->
+    <!-- Contenido del estado vacío -->
 </section>
+
 <section *ngIf="adopciones.length > 0" class="background">
     <div class="container-cards">
-    <div *ngFor="let adopcion of filteredAdopciones" class="cartas">
-      <div class="card" routerLink="['../pages/info-adopcion']">
-
-        <img [src]="adopcion.ImagenMascota" (click)="ruta()" alt="">
-        <!--IMAGEN-->
-        <h2>{{adopcion.nombreMascota}}</h2>
-        <div class="contacto">
-            <div class="info1">
-                <img src="../../../../../assets/icons/ubicacion.png" alt="">
-                <h5>{{ adopcion.ubicacion }}</h5>
-            </div>
-            <div class="info2">
-                <img src="../../../../../assets/icons/telefono.png" alt="">
-                <h5>{{ adopcion.numeroTelefono }}</h5>
+        <div *ngFor="let adopcion of filteredAdopciones" class="cartas">
+            <div class="card" (click)="ruta(adopcion.IdAdopcionMascota)">
+                <img [src]="adopcion.ImagenMascota" alt="">
+                <h2>{{adopcion.nombreMascota}}</h2>
+                <p hidden>{{adopcion.IdAdopcionMascota}}</p>
+                <div class="contacto">
+                    <div class="info1">
+                        <img src="../../../../../assets/icons/ubicacion.png" alt="">
+                        <h5>{{ adopcion.ubicacion }}</h5>
+                    </div>
+                    <div class="info2">
+                        <img src="../../../../../assets/icons/telefono.png" alt="">
+                        <h5>{{ adopcion.numeroTelefono }}</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-</div>
 
     <div class="filtro">
         <h1>Filtrar Por</h1>
 
-        <div class="borrar" >
+        <div class="borrar" (click)="clearFilters()">
             <h2>Borrar Filtros</h2>
             <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="">
         </div>
 
         <div class="contenedor-filtro">
-            <div  class="title-nombre">
-                <h3 >Nombre</h3>
-                    <img src="../../../../../assets/icons/mas.png" alt="">
+            <div class="title-nombre">
+                <h3>Nombre</h3>
+                <img src="../../../../../assets/icons/mas.png" alt="">
             </div>
-            <div class="filtro_nombre" >
+            <div class="filtro_nombre">
                 <div class="contain">
-                    <input type="radio" id="az" name="order" >
+                    <input type="radio" id="az" name="order" (click)="sortName('az')" [checked]="currentSort === 'az'">
                     <label for="az">A-Z</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="za" name="order" >
+                    <input type="radio" id="za" name="order" (click)="sortName('za')" [checked]="currentSort === 'za'">
                     <label for="za">Z-A</label>
                 </div>
             </div>
         </div>
         <div class="contenedor-filtro">
-            <div  class="title-nombre">
-                <h3 >Especie</h3>
+            <div class="title-nombre">
+                <h3>Especie</h3>
                 <img src="../../../../../assets/icons/mas.png" alt="">
             </div>
-            <div class="filtro_nombre" >
+            <div class="filtro_nombre">
                 <div class="contain">
-                    <input type="radio" id="az" name="order" >
-                    <label for="az">Perro</label>
+                    <input type="radio" id="perro" name="species" (click)="filterSpecies('perro')" [checked]="currentSpecies === 'perro'">
+                    <label for="perro">Perro</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="za" name="order" >
-                    <label for="za">Gato</label>
+                    <input type="radio" id="gato" name="species" (click)="filterSpecies('gato')" [checked]="currentSpecies === 'gato'">
+                    <label for="gato">Gato</label>
                 </div>
                 <div class="contain">
-                    <input type="radio" id="za" name="order">
-                    <label for="za">Todos</label>
+                    <input type="radio" id="todos" name="species" (click)="filterSpecies('todos')" [checked]="currentSpecies === 'todos'">
+                    <label for="todos">Todos</label>
                 </div>
             </div>
         </div>
-
-
     </div>
 </section>
-<!--
-<section  *ngIf="filteredAdopciones.length > 0"  class="emptyState" >
-    <p>No se encontraron resultados.</p>
-  </section>
--->
 
+<section *ngIf="filteredAdopciones.length === 0 && adopciones.length > 0" class="emptyState">
+    <p>No se encontraron resultados.</p>
+</section>

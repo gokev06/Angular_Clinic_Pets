@@ -31,15 +31,17 @@ import { UsuariosComponent } from './features/usuarios/usuarios.component';
 import { TiendaAdminComponent } from './features/tienda/pages/tienda-admin/tienda-admin.component';
 import { PagoCompraComponent } from './features/tienda/pages/pago-compra/pago-compra.component';
 
+
 //rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
   {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
 
 
+
   { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
- {path: "register", component: RegistroComponent}, // ingreso al registro
+  {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
   {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
 

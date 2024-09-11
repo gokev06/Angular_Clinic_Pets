@@ -1,46 +1,45 @@
-<app-header [ruta]="'/Adopción'" [title]="'Nueva Adopcion'"></app-header>
+<app-header routerLink="/adopcion" [title]="'info adopcion'"></app-header>
 <section>
-  
+
 <div class="info-b">
   <div class="imagenes">
-    <h1>TAMARA</h1>
-    <img src="../../../../../assets/images/imghome/tamara.avif" alt="Tamara">
-    
+    <h1>{{dataPets?.nombreMascota}}</h1>
+    <img src="{{dataPets?.imagenMascota}}" alt="{{dataPets?.nombreMascota}}">
+
     <button (click)="openWhatsApp()" class="btn-whatsapp">
       <img src="../../../../../assets/icons/wp.png" alt="WhatsApp" class="whatsapp-icon">
       Contactar por WhatsApp
   </button>
-  
+
   </div>
 
-  <div class="info-c"> 
+  <div class="info-c">
     <ul class="botones">
       <li><button (click)="mostrarInformacion()">Información</button></li>
       <li><button (click)="mostrarHistoria()">Historia</button></li>
-      
+
     </ul>
 
-  
+
     <div class="informacion">
       <div class="informacion1" [class.oculto]="!mostrarInfo">
-        <h5><strong>Edad: </strong>{{adopcion.edad}}</h5>
-        <h5><strong>Sexo: </strong>{{adopcion.sexo}}</h5>
-        <h5><strong>Especie: </strong>{{adopcion.especie}}</h5>
-        <h5><strong>Raza: </strong>{{adopcion.raza}}</h5>
-        <h5><strong>Vacunado: </strong>{{adopcion.vacunacion}}</h5>
-        <h5><strong>Esterilizado: </strong>{{adopcion.estirilizacion}}</h5>
+        <h5><strong>Edad: </strong>{{dataPets?.edadMascota}}</h5>
+        <h5><strong>Sexo: </strong>{{dataPets?.sexo}}</h5>
+        <h5><strong>Especie: </strong>{{dataPets?.especieMascota}}</h5>
+        <h5><strong>Raza: </strong>{{dataPets?.razaMascota}}</h5>
+        <h5><strong>Vacunado: </strong>{{dataPets?.estadoVacunacionMascota}}</h5>
+        <h5><strong>Esterilizado: </strong>{{dataPets?.esterilizacionMascota}}</h5>
       </div>
 
       <div class="historia" [class.oculto]="mostrarInfo">
         <p>
-          Tamara es una hermosa gatita de pelaje negro con manchas blancas, que desde pequeña ha sido curiosa y juguetona. Nació en una pequeña granja, donde disfrutaba explorando cada rincón y observando el mundo que la rodeaba.
-          Un día, mientras exploraba más allá de su hogar, fue encontrada por una mujer amable que sintió una conexión especial al verla. Tamara, con su carácter dulce y aventurero, ronroneó suavemente, como si supiera que había encontrado a alguien especial.
-          Ahora, Tamara busca una familia que le brinde el amor y el hogar que se merece. ¿Podrías ser tú quien le dé ese lugar especial?
+          {{dataPets?.historia}}
         </p>
       </div>
     </div>
-  </div> 
-
+  </div>
 
   </div>
 </section>
+
+

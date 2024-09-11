@@ -1,22 +1,24 @@
 <!-- admi-cards-nueva.component.html -->
 <div class="card">
     <div class="centrar">
-    <div class="botonequis" (click)="eliminarElemento($event)">
+    <div class="botonequis" >
       ✖
     </div>
 </div>
-  
-    <img [src]="adopcion.image" (click)="ruta()" alt="Imagen de adopción">
-    <h2>{{adopcion.nombre}}</h2>
+
+    <img [src]="adopcion.ImagenMascota" (click)="ruta(adopcion.IdAdopcionMascota)" alt="Imagen de adopción">
+    <h2>{{adopcion.nombreMascota}}</h2>
     <div class="contacto">
       <div class="info1">
         <img src="../../../../../assets/icons/ubicacion.png" alt="Ubicación">
-        <h5>{{ adopcion.ciudad }}</h5>
+        <h5>{{ adopcion.ubicacion }}</h5>
       </div>
       <div class="info2">
         <img src="../../../../../assets/icons/telefono.png" alt="Teléfono">
-        <h5>{{ adopcion.telefono }}</h5>
+        <h5>{{ adopcion.numeroTelefono }}</h5>
       </div>
     </div>
   </div>
-  
+<!--
+  (click)="eliminarElemento($event)"
+  -->
