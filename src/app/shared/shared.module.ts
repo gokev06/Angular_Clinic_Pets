@@ -40,6 +40,7 @@ import { BtnregistroComponent } from './components/molecules/btnregistro/btnregi
 import { ModalEditarPerfilComponent } from './components/templates/modal-editar-perfil/modal-editar-perfil.component';
 import { ScopedTableHistorialComponent } from '../features/citas/components/scoped-table-historial/scoped-table-historial.component';
 import { CarritoModalComponent } from './components/templates/carrito-modal/carrito-modal.component';
+import { ChatBotComponent } from './components/templates/chat-bot/chat-bot.component';
 
 import { PagoTarjetaComponent } from './components/organisms/pago-tarjeta/pago-tarjeta.component';
 import { PagoCitaComponent } from '../features/citas/pages/pago-cita/pago-cita.component';
@@ -89,6 +90,7 @@ registerLocaleData(localeEs, 'es');
     ModalEditarPerfilComponent,
     PagesHistorialComponent,
     ScopedTableHistorialComponent,
+    ChatBotComponent,
 
     PagoTarjetaComponent,
     PagoinfocitaComponent,
@@ -146,7 +148,8 @@ registerLocaleData(localeEs, 'es');
     GestionDeHorariosComponent,
     BtnregistroComponent,
     ModalVerAdopcionComponent,
-    CarritoModalComponent
+    CarritoModalComponent,
+    ChatBotComponent
   ]
 })
 export class SharedModule { }

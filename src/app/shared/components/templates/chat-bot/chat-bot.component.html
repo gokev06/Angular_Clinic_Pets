@@ -1,0 +1,23 @@
+<div class="chatbot-container">
+    <button class="chatbot-toggle" (click)="toggleChat()">
+      <img src="../../../../../assets/images/imghome/chat.png" alt="">
+    </button>
+    <div class="chatbot-window" *ngIf="isChatOpen">
+      <div class="chatbot-header">
+        <h2>TAMVET</h2>
+        <button class="close-btn" (click)="toggleChat()">x</button>
+      </div>
+      <div class="chatbot-body">
+        <div class="bot-message">
+          <img src="../../../../../assets/images/imghome/chat.png" alt="Bot">
+          <p>¡Hola! ¿En qué puedo ayudarte hoy?</p>
+        </div>
+        <!-- Aquí se agregarán los mensajes del chat -->
+      </div>
+      <div class="chatbot-footer">
+        <input type="text" placeholder="Escribe un mensaje..." />
+        <button>Enviar</button>
+      </div>
+    </div>
+  </div>
+  
