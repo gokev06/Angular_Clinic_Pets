@@ -1,16 +1,28 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-headeradopcion',
   templateUrl: './headeradopcion.component.html',
   styleUrl: './headeradopcion.component.scss'
 })
-export class HeaderadopcionComponent {
+export class HeaderadopcionComponent  implements OnInit{
 
-  @Output() filterEvent = new EventEmitter<string>();
   searchTerm: string = '';
 
+
+  @Output() search = new EventEmitter <string>();
+
+
+  constructor(){}
+
+  ngOnInit(): void {
+
+  }
+
+
   onSearch() {
-    this.filterEvent.emit(this.searchTerm.toLowerCase());
-}
+    this.search.emit(this.searchTerm);
+    console.log(this.searchTerm);
+
+  }
 }

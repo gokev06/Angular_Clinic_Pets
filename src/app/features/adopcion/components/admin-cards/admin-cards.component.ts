@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SolicitudAdopcionService, adopcion } from '../../services/solicitud-adopcion.service';
+import { SolicitudAdopcionService, adopcion, Adopciones } from '../../services/solicitud-adopcion.service';
+import { Router } from '@angular/router';
+
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -8,118 +10,142 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./admin-cards.component.scss']
 })
 export class AdminCardsComponent implements OnInit {
-  adopciones: adopcion[] = [];
-  filteredAdopciones: adopcion[] = [];
+  searchTerm: string = '';
+  adopciones: Adopciones[] = [];
+  filteredAdopciones: Adopciones[] = [];
+
+
   currentSlide: number = 0;
   slideWidth: number = 300; // Ancho de cada tarjeta (ajústalo según tus necesidades)
 
-  sexo: string = "";
-  especie: string = "";
+  currentSort: 'az' | 'za' | '' = '';
+  currentSpecies: 'perro' | 'gato' | 'todos' = 'todos';
 
-  FilterNombre: Boolean = false;
-  FilterEspecie: Boolean = false;
-  FilterEdad: boolean = false;
-  FilterSexo: boolean = false;
-
-  constructor(private SolicitudAdopcionService: SolicitudAdopcionService) {}
+  constructor(private SolicitudAdopcionService: SolicitudAdopcionService, private router: Router) {}
 
   ngOnInit() {
-    this.SolicitudAdopcionService.getAdopciones().subscribe(data => {
-      this.adopciones = data;
-      this.filteredAdopciones = data;
-    });
+    this.loadAdopciones();
+
   }
 
-  // Aplicar filtro de búsqueda
-  applyFilter(searchTerm: string) {
-    if (!searchTerm) {
+  loadAdopciones() {
+    this.SolicitudAdopcionService.getPetsData().subscribe(
+      (data: any) => {
+        console.log("Datos recibidos de la API:", data);
+        if (data && data.Result && Array.isArray(data.Result)) {
+          this.adopciones = data.Result;
+           //this.filteredAdopciones = data.Result;
+           this.applyFilters();
+          console.log("Número de adopciones:", this.adopciones.length);
+        } else {
+          console.error("La respuesta de la API no tiene el formato esperado");
+          this.adopciones = [];
+          this.filteredAdopciones = [];
+        }
+      },
+      (error) => {
+        console.error("Error al obtener datos:", error);
+      }
+    );
+  }
+
+  ruta(IdAdopcionMascota: number ){
+    let idPet = IdAdopcionMascota.toString();
+    console.log(idPet);
+
+
+    sessionStorage.setItem('IdPet', idPet)
+    this.router.navigate(['info-adopcion'])
+  }
+
+  onSearch(term: string) {
+    this.searchTerm = term;
+    this.applyFilters();
+  }
+
+  /*
+  onSearch(term: string) {
+    this.searchTerm = term;
+    this.filterAdopciones();
+  } */
+
+
+  /*
+  filterAdopciones() {
+    if (!this.searchTerm) {
       this.filteredAdopciones = this.adopciones;
     } else {
-      searchTerm = searchTerm.toLowerCase();
       this.filteredAdopciones = this.adopciones.filter(adopcion =>
-        adopcion.nombre.toLowerCase().includes(searchTerm) ||
-        adopcion.raza.toLowerCase().includes(searchTerm) ||
-        adopcion.ciudad.toLowerCase().includes(searchTerm)
+        adopcion.nombreMascota.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        adopcion.ubicacion.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
+    }
+  } */
+
+  sortName(order: 'az' | 'za') {
+    this.currentSort = order;
+    this.applyFilters();
+  }
+
+  filterSpecies(species: 'perro' | 'gato' | 'todos') {
+    this.currentSpecies = species;
+    this.applyFilters();
+  }
+
+
+   // Carrusel - Obtener el estilo de transformación para desplazar las tarjetas
+  getTransformStyle(): string {
+    return `translateX(-${this.currentSlide * (this.slideWidth + 20)}px)`; // 20 es el margen derecho en el CSS
+  }
+
+   // Carrusel - Desplazar a la tarjeta anterior
+   prevSlide(): void {
+    if (this.currentSlide > 0) {
+      this.currentSlide--;
     }
   }
 
-  // Manejar eliminación de adopción
-  handleEliminar(adopcion: adopcion) {
-    this.filteredAdopciones = this.filteredAdopciones.filter(a => a.id !== adopcion.id);
-    this.adopciones = this.adopciones.filter(a => a.id !== adopcion.id);
-  }
+    // Carrusel - Desplazar a la siguiente tarjeta
+    nextSlide(): void {
+      if (this.currentSlide < this.filteredAdopciones.length - 1) {
+        this.currentSlide++;
+      }
+    }
 
-  // Métodos de filtro
-  FiltroNombre() {
-    this.FilterNombre = !this.FilterNombre;
-  }
+    clearFilters() {
+      this.searchTerm = '';
+      this.currentSort = '';
+      this.currentSpecies = 'todos';
+      this.applyFilters();
+    }
 
-  FiltroEspecie() {
-    this.FilterEspecie = !this.FilterEspecie;
-  }
 
-  FiltroEdad() {
-    this.FilterEdad = !this.FilterEdad;
-  }
+    applyFilters() {
+      let result = this.adopciones;
 
-  FiltroSexo() {
-    this.FilterSexo = !this.FilterSexo;
-  }
+      // Aplicar búsqueda
+      if (this.searchTerm) {
+        result = result.filter(adopcion =>
+          adopcion.nombreMascota.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          adopcion.ubicacion.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      }
 
-  FiltroHembra() {
-    this.sexo = "hembra";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
-      map(adopciones => adopciones.filter(adopcion => adopcion.sexo.toLowerCase() === this.sexo.toLowerCase()))
-    ).subscribe(filteredAdopciones => {
-      this.filteredAdopciones = filteredAdopciones;
-    });
-  }
+      // Aplicar filtro de especie
+      if (this.currentSpecies !== 'todos') {
+        result = result.filter(adopcion =>
+          adopcion.especieMascota.toLowerCase() === this.currentSpecies
+        );
+      }
 
-  FiltroMacho() {
-    this.sexo = "macho";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
-      map(adopciones => adopciones.filter(adopcion => adopcion.sexo.toLowerCase() === this.sexo.toLowerCase()))
-    ).subscribe(filteredAdopciones => {
-      this.filteredAdopciones = filteredAdopciones;
-    });
-  }
+      // Aplicar ordenamiento
+      if (this.currentSort === 'az') {
+        result.sort((a, b) => a.nombreMascota.localeCompare(b.nombreMascota));
+      } else if (this.currentSort === 'za') {
+        result.sort((a, b) => b.nombreMascota.localeCompare(a.nombreMascota));
+      }
 
-  sortAsc() {
-    this.filteredAdopciones.sort((a: any, b: any) => a.nombre.localeCompare(b.nombre));
-  }
+      this.filteredAdopciones = result;
+    }
 
-  sortDesc() {
-    this.filteredAdopciones.sort((a: any, b: any) => b.nombre.localeCompare(a.nombre));
-  }
-
-  filterGatos() {
-    this.especie = "gato";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
-      map(adopciones => adopciones.filter(adopcion => adopcion.especie.toLowerCase() === this.especie.toLowerCase()))
-    ).subscribe(filteredAdopciones => {
-      this.filteredAdopciones = filteredAdopciones;
-    });
-  }
-
-  filterPerro() {
-    this.especie = "perro";
-    this.SolicitudAdopcionService.getAdopciones().pipe(
-      map(adopciones => adopciones.filter(adopcion => adopcion.especie.toLowerCase() === this.especie.toLowerCase()))
-    ).subscribe(filteredAdopciones => {
-      this.filteredAdopciones = filteredAdopciones;
-    });
-  }
-
-  clearFilter() {
-    this.ngOnInit();
-  }
-
-  sortAdopcionesByAge(order: 'asc' | 'desc'): void {
-    this.filteredAdopciones.sort((a: any, b: any) => {
-      const ageA = parseInt(a.edad);
-      const ageB = parseInt(b.edad);
-      return order === 'asc' ? ageA - ageB : ageB - ageA;
-    });
-  }
 }

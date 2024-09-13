@@ -6,13 +6,13 @@
     <h2>Parece que no haz agendado una cita</h2>
     <h3>Agenda tu cita para que puedas tener un historial.</h3>
 
-    <button class="volver" routerLink="/citas">Volver</button>
+    <button class="volver" routerLink="/home-vet">Volver</button>
   </div>
 </section>
 <section *ngIf="citas.length > 0 " class="background">
-  <app-table-historial 
-    [citas]="citas"  
-    (citaEliminada)="onCitaEliminada($event)" 
+  <app-table-historial
+    [citas]="citas"
+    (citaEliminada)="onCitaEliminada($event)"
     (citaActualizada)="onCitaActualizada()">
   </app-table-historial>
 </section>
