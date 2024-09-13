@@ -314,7 +314,7 @@ a:visited {
 
 .card {
   width: 210px;
-  height: 260px;
+  height: 300px;
  font-size: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -329,6 +329,8 @@ a:visited {
   margin-left: 0px;
     font-size: 12px;
     margin-top: 0px;
+    width: 140px;
+    height: 60px;
 }
 
 
@@ -402,14 +404,25 @@ a:visited {
   }
 
   .card img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 8px;
     margin-top: 0;
   }
+  .btn__ver__info{
+    width: 120px;
+    font-size: 10px;
+    background-color: #CCC4FF;
+    color: black;
+    border: none;
+  }
+  .btn__ver__info:hover{
+    background-color: rgba(204, 196, 255, 0.38);
+    border: none;
+  }
  
 
-  @media (min-width: 352px) and (max-width: 480px) {
+  @media (max-width: 480px) {
     .padre{
       width: 100%;
       height: auto;
@@ -417,15 +430,33 @@ a:visited {
       flex-direction: column;
 
     }
+    
+    .parteuno{
+      width: 100%;
+    }
+    .partedos[_ngcontent-ng-c1872338009] {
+      margin-top: 80px;
+       width: 100%; 
+  }
+  .partedos section {
+    margin-top: 15px;
+}
     .carousel-container {
       margin-bottom: 30px;
     }
     .contenedor-imagen {
-      width: 90%;
+      width: 75%;
       height: 400px;
 
     }
-
+    .contenedor-imagen img {
+      width: 90%;
+      height: 90%;
+    }
+    
+    .center {
+      margin-left: 0;
+  }
   .center h1{
     margin-top: -65px;
     width: 90%;
@@ -447,16 +478,16 @@ h3 {
 h1 {
   display: flex;
   justify-content: center;
+  margin-right: 0px;
+  margin-left: 0;
+  font-size: 20px;
 }
 .botones-adicionales{
-  display: flex;
-  justify-content: center;
+width: 100%;
 }
 .botones-carro{
   display: flex;
   justify-content: center;
-
-  margin-left: 220px;
 }
 .agregarAlCarrito {
   width: 150px;
@@ -491,7 +522,9 @@ input{
 .botones-adicionales h3{
 display: flex;
 justify-content: center;
-margin-left: 330px;
+width: 100%;
+margin-left: 0;
+margin-right: 0;
 }
 .cantidad[_ngcontent-ng-c3624827601] {
   padding-bottom: 20px;
@@ -524,10 +557,6 @@ h6 {
 
   }
   @media (min-width: 481px) and (max-width: 768px) {
-    .abuelo{
-      height: auto;
-      width: 100%;
-    }
     .padre{
       width: 100%;
       height: auto;
@@ -535,54 +564,71 @@ h6 {
       flex-direction: column;
 
     }
-    .contenedor-imagen {
-      width: 400px;
-      height: auto;
+    
+    .parteuno{
+      width: 100%;
+    }
+    .partedos[_ngcontent-ng-c1872338009] {
+      margin-top: 80px;
+       width: 100%; 
   }
-    .contenedor-imagen img{
-      width: 90%;
+    
+  .partedos section {
+    margin-top: 15px;
+}
+    .carousel-container {
+      margin-bottom: 30px;
+    }
+    .contenedor-imagen {
+      width: 75%;
       height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
     }
 
-    .center h1 {
-      margin-top: -65px;
-      width: 90%;
-      margin-left: 50px;
+    .center {
+      margin-left: 0;
+  }
+  .center h1{
+    margin-top: -65px;
+    width: 90%;
+    margin-left: 25px;
+    font-size: 20px;
+    margin-top: -70px;
   }
 
+  .botones{
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
+    display: flex;
+    justify-content: center;
+    margin-right: 0px;
+    margin-left: 0;
+    font-size: 20px;
+  }
+  .botones-adicionales{
+  width: 100%;
+  }
 
-.botones{
-  display: flex;
-  justify-content: center;
-}
-h1 {
-  display: flex;
-  justify-content: center;
-  margin-left: 0;
-}
-.botones-adicionales{
-  display: flex;
-  justify-content: center;
-}
-.botones-adicionales h3 {
-text-align: center;
-margin-right: 0;
-  margin-top: 130px;
-  margin-left: 230px;
-}
-.botones-carro {
-  display: flex;
-  justify-content: center;
-  margin-left: 270px;
-}
-.agregarAlCarrito {
-  width: 160px;
-  height: 40px;
-  font-size: 13px;
-}
+    .botones-adicionales h3{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      }
+      .botones-carro{
+        display: flex;
+        justify-content: center;
+      }
+      .agregarAlCarrito {
+        width: 150px;
+        font-size: 12px;
+        margin-right: 40px;
+        margin-left: 0;
+      }
+
 .quemado {
   display: flex;
  flex-direction: column;
@@ -595,7 +641,7 @@ padding-left: 0;
 
 .contenedor-imagen img {
   width: 100%;
-  height: 415px;
+  height: 90%;
 }
 .fross{
   width: 100%;
@@ -614,14 +660,21 @@ padding-left: 0;
   padding-left: 20px;
 }
 .carousel-container img {
+  width: 100px;
+  height: 100px;
+}
 
-  width: 150px;
-
+.card{
+  width: 130px;
+  height: 270px;
 }
 .card h3{
-
-  margin-right: 10px;
-        margin-top: -60px;
+  width: 135px;
+height: 50px;
+}
+.btn__ver__info{
+  width: 100px;
+  font-size: 8px;
 }
 section h3 {
   text-align: center;
@@ -630,10 +683,7 @@ section h3 {
   margin-left: 0;}
   }
   @media (min-width: 769px) and (max-width: 920px) {
-    .abuelo{
-      height: auto;
-      width: 100%;
-    }
+
     .padre{
       width: 100%;
       height: auto;
@@ -641,9 +691,18 @@ section h3 {
       flex-direction: column;
 
     }
+    .parteuno[_ngcontent-ng-c1872338009] {
+      width: 100%;
+  }
+  .partedos[_ngcontent-ng-c1872338009][_ngcontent-ng-c1872338009] {
+    margin-top: 80px;
+    width: 100%;
+}
     .contenedor-imagen {
       width: 400px;
       height: auto;
+      display: flex;
+      justify-content: center;
   }
     .contenedor-imagen img{
       width: 90%;
@@ -656,7 +715,6 @@ section h3 {
     .center h1 {
       margin-top: -65px;
       width: 90%;
-      margin-left: 50px;
   }
   .contenedor-imagen img {
     width: 100%;
@@ -678,6 +736,7 @@ section h3 {
   }
   .botones-adicionales {
     margin-right:0 ;
+    width: 100%;
 }
 
 .botones-adicionales h3{
@@ -687,12 +746,13 @@ section h3 {
   margin-left: 0%;
 }
 .partedos section {
-  margin-top: -75px;
+  margin-top: -20px;
 }
 h1 {
   display: flex;
   justify-content: center;
   margin-left: 0;
+  margin-top: 50px;
 }
 
   .tabs {
@@ -718,7 +778,7 @@ section h3 {
   padding-left: 40px;
 }
 .card h3{
-  margin-top: -70px;
+  margin-top: 0;
 }
 
 .data__categoria{
