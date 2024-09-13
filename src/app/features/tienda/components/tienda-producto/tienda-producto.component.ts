@@ -200,4 +200,17 @@ export class TiendaProductoComponent implements OnInit {
 
   nextSlide() {
     this.showSlide(this.currentIndex + 1);
-  }}
+  }
+
+  redirectToInfoProduct(idProduct: string) {
+    sessionStorage.setItem('ProductId', idProduct);
+    console.log(sessionStorage.getItem('ProductId'));
+    
+    // Redirige al usuario a la página de información del producto
+    this.callProductId();
+    this.callAllProduct();
+    this.idProducto = sessionStorage.getItem('ProductId');
+    
+  }
+
+}
