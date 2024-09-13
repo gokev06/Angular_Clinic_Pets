@@ -41,7 +41,7 @@
       </div>
 
       -->
-      <h1>Stock Disponible: {{ data[0].stock}}</h1>
+      <h1>Cantidad Disponible: {{ data[0].stock}}</h1>
       <h1>Precio: {{ data[0].precio | currency:'COP':'symbol':'1.0-0' }} </h1>
 
       <!-- Nuevos botones -->
@@ -100,8 +100,12 @@
                 <img [src]="item.imagen" alt="{{ item.nombreProducto }}">
               </div>
               <div class="info-producto">
+                <h3 hidden>{{item.IdProducto}}</h3>
                 <h3>{{ item.nombreProducto }}</h3>
                 <p>Precio: {{ item.precio | currency:'COP':'symbol':'1.0-0' }}</p>
+                <div class="btn_info">
+                  <button class="btn__ver__info" type="button" (click)="redirectToInfoProduct(item.IdProducto)" >Ver Producto</button>
+                </div>
               </div>
             </div>
           </div>
