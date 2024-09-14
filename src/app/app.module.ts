@@ -13,6 +13,7 @@ import { CalendarioComponent } from './shared/components/organisms/calendario/ca
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { DownloadHistorialComponent } from './shared/components/templates/download-historial/download-historial.component';
 //import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(localeEs, 'es');
@@ -20,7 +21,7 @@ registerLocaleData(localeEs, 'es');
 @NgModule({
   declarations: [
     AppComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-pages-historial',
@@ -53,5 +54,23 @@ export class PagesHistorialComponent implements OnInit {
 
   onCitaActualizada(): void {
     this.fetchAppointments();  // Refresca la lista de citas
+  }
+
+  onDownloadHistorial(idCita: string): void {
+    console.log('Descargar historial', idCita);
+    
+    this.appointmentService.downloadHistorial(idCita).subscribe(
+      (response: Blob) => {
+        // Verifica si la respuesta es un Blob
+        if (response instanceof Blob) {
+          saveAs(response, `downloadHistorial${idCita}.pdf`);
+        } else {
+          console.error('La respuesta no es un Blob');
+        }
+      },
+      error => {
+        console.error('Error al descargar el historial:', error);
+      }
+    );
   }
 }

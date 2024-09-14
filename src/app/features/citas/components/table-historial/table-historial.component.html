@@ -42,7 +42,15 @@
           </ng-template>
         </td>
         <td>{{ cita.precio }}</td>
-       
+        <td>
+          <img src="/src/assets/icons/descargas-removebg-preview.png" alt=""  class="download"
+              *ngIf="cita.estado === 'Agendada'" 
+              (click)="downloadHistorial(cita.id)"
+              style="cursor: pointer; width: 32px; height: 32px;" />
+          <!-- <button *ngIf="cita.estado === 'Agendada'" (click)="downloadHistorial(cita.id)">
+            Descargar Historial
+          </button> -->
+        </td>
       </tr>
     </tbody>
   </table>

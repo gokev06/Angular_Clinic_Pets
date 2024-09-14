@@ -49,6 +49,7 @@ import { AlertacitaComponent } from './components/templates/alertacita/alertacit
 import { AlertacancelarcitaComponent } from './components/templates/alertacancelarcita/alertacancelarcita.component';
 import { GestionDeHorariosComponent } from '../features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 import { ModalVerAdopcionComponent } from './components/templates/modal-ver-adopcion/modal-ver-adopcion.component';
+import { DownloadHistorialComponent } from './components/templates/download-historial/download-historial.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -96,7 +97,8 @@ registerLocaleData(localeEs, 'es');
     AlertacancelarcitaComponent,
     GestionDeHorariosComponent,
     ModalVerAdopcionComponent,
-    CarritoModalComponent
+    CarritoModalComponent,
+    DownloadHistorialComponent
   ],
   imports: [
     CommonModule,

@@ -74,7 +74,7 @@ export class AgendaComponent implements OnInit {
         const formattedHour = `${hour}:${minutes} ${period}`;
 
         const nombreUsuario = cita.nombreUsuario;
-  
+        const IdCita = cita.IdCita;
         console.log('Fecha formateada:', formattedFecha);
         console.log('Hora formateada:', formattedHour);
         console.log('Nombre de usuario:', nombreUsuario);
@@ -89,13 +89,14 @@ export class AgendaComponent implements OnInit {
     });
   }
 
-  getCitaForDayAndHour(day: Date, hora: string): string | null {
+  getCitaForDayAndHour(day: Date, hora: string): any | null {
     const year = day.getFullYear();
     const month = String(day.getMonth() + 1).padStart(2, '0');
     const dayOfMonth = String(day.getDate()).padStart(2, '0');
     const formattedFecha = `${year}-${month}-${dayOfMonth}`;
     
-    return this.citasMap.get(formattedFecha)?.get(hora) || null;
+    // Encuentra la cita correspondiente en la lista de citas
+    return this.citas.find(cita => cita.fecha === formattedFecha && cita.hora === hora) || null;
   }
   
   nextMonth(): void {
@@ -133,7 +134,7 @@ export class AgendaComponent implements OnInit {
     return (dayDifference % 2 === 0) && !this.isCurrentDay(day);
   }
 
-  navigateToHistorial(): void {
-    this.router.navigate(['crear-historial']);
+  navigateToHistorial(IdCita: string): void {
+    this.router.navigate(['crear-historial'], { queryParams: { idCita: IdCita } });
   }
 }

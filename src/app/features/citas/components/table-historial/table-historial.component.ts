@@ -14,6 +14,7 @@ export class TableHistorialComponent implements OnInit {
   @Input() citas: any[] = [];
   @Output() citaEliminada = new EventEmitter<string>();
   @Output() citaActualizada = new EventEmitter<void>();  // Evento para actualizar la tabla
+  @Output() descargarHistorial = new EventEmitter<string>();
 
   mostrarCalendario: boolean = false;
   citaAReagendar: any = null;
@@ -24,6 +25,10 @@ export class TableHistorialComponent implements OnInit {
   constructor(private appointmentService: AppointmentService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  downloadHistorial(idCita: string): void {
+    this.descargarHistorial.emit(idCita);
+  }
 
   onFechaSeleccionada(fecha: Date): void {
     this.fechaSeleccionada = fecha;
