@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 
  export interface adopcion{
   id?: number;
@@ -39,6 +39,22 @@ export interface Adopciones{
   historia: string;
 }
 
+export interface AdopcionesVerify{
+  IdAdopcionMascota: number;
+  IdUsuario: string;
+  imagenMascota: string;
+  nombreMascota: string;
+  edadMascota: number;
+  especieMascota: string;
+  razaMascota: string;
+  sexo: string;
+  esterilizacionMascota: string;
+  estadoVacunacionMascota: string;
+  numeroTelefono: string;
+  ubicacion: string;
+  historia: string;
+}
+
 export interface AdopcionesInfo{
   IdAdopcionMascota: number;
   IdUsuario: string;
@@ -65,6 +81,50 @@ export class SolicitudAdopcionService {
   private apiUrl_2 = 'http://localhost:10101';
 
   constructor( private http: HttpClient) { }
+
+  deletePet(IdAdopcionMascota: string): Observable <any>{
+    const token: string | null = localStorage.getItem(`userToken`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<any>(`${this.apiUrl_2}/deletePet/${IdAdopcionMascota}`, {headers}).pipe(
+      catchError((error) => {
+        console.error('Error en la eliminacion de la mascota', error);
+        return throwError(() => new Error(error.message || 'Error desconocido'));
+      })
+    )
+  }
+
+  deletePetVerify(IdAdopcionMascota: string): Observable <any>{
+    const token: string | null = localStorage.getItem(`userToken`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<any>(`${this.apiUrl_2}/deletePetVerify/${IdAdopcionMascota}`, {headers}).pipe(
+      catchError((error) => {
+        console.error('Error en la eliminacion de la mascota', error);
+        return throwError(() => new Error(error.message || 'Error desconocido'));
+      })
+    )
+  }
+
+  updatePetVerify(IdAdopcionMascota: string): Observable <any>{
+    const token: string | null = localStorage.getItem(`userToken`);
+    console.log('token', token);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<any>(`${this.apiUrl_2}/updatePetVerify/${IdAdopcionMascota}`, {headers}).pipe(
+      catchError((error) => {
+        console.error('Error en la actualizacion de la mascota', error);
+        return throwError(() => new Error(error.message || 'Error desconocido'));
+      })
+    )
+  }
 
   getPetIdInfo(IdAdopcionMascota: string): Observable <AdopcionesInfo[]>{
     const token: string | null = localStorage.getItem(`userToken`);
@@ -124,6 +184,27 @@ export class SolicitudAdopcionService {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
     return this.http.get <any>(`${this.apiUrl_1}/askPetsData`, {headers})
+  }
+
+  callPetsVerify(): Observable<AdopcionesVerify[]> {
+    const token: string | null = localStorage.getItem('userToken');
+    let headers = new HttpHeaders();
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.get<any>(`${this.apiUrl_2}/callPetVerify`, { headers }).pipe(
+      map(response => {
+        // Asegúrate de que la respuesta sea un array
+        if (Array.isArray(response)) {
+          return response as AdopcionesVerify[];
+        } else if (response && response.Result && Array.isArray(response.Result)) {
+          return response.Result as AdopcionesVerify[];
+        } else {
+          console.error('La respuesta de la API no es un array:', response);
+          return [];
+        }
+      })
+    );
   }
 
 

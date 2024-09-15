@@ -10,7 +10,7 @@
 <section *ngIf="adopciones.length > 0" class="background">
     <div class="container-cards">
         <div *ngFor="let adopcion of filteredAdopciones" class="cartas">
-            <app-admi-cards-nueva [adopcion]="adopcion"></app-admi-cards-nueva>
+            <app-admi-cards-nueva [adopcion]="adopcion"  (eliminar)="reloadAdopciones()"></app-admi-cards-nueva>
         </div>
     </div>
 

@@ -3,21 +3,19 @@
 
   <div class="img">
        <!-- <img id="miImagen" src="" alt="Imagen del formulario">-->
-    <img src="../../../../../assets/images/imghome/coco 2.png" alt="">
-  </div>    
+    <img [src]="datos.imagenMascota" alt="datos.nombreMascota">
+  </div>
       <div class="texto">
-        <p nombre="text1" >{{datos.correo}}</p>
-        <p nombre="text2">{{datos.nombre}}</p>
+        <p nombre="text2" >Nombre:{{datos.nombreMascota}}</p>
+        <p nombre="text1">Telefono: {{datos.numeroTelefono}}</p>
+        <p nombre="text1">Ubicacion: {{datos.ubicacion}}</p>
       </div>
 
       <div class="botones">
         <button class="ver" (click)="openModal()">ver </button>
-        <app-modal-ver-adopcion  *ngIf="modalVerAdopcion" (close)="Closemodalveradopcion()"></app-modal-ver-adopcion>
-
-        <!-- Incluir el componente modal -->
-       
-        <button class="aceptar" (click)="AlertaAceptar()">aceptar</button>
-        <button class="cancelar">Rechazar</button>
+        <app-modal-ver-adopcion  *ngIf="modalVerAdopcion" (close)="Closemodalveradopcion()" [datos]="datos"></app-modal-ver-adopcion>
+        <button class="aceptar" (click)="updatePetVerify(datos.IdAdopcionMascota)">aceptar</button>
+        <button class="cancelar" (click)="deletePet(datos.IdAdopcionMascota)">Rechazar</button>
       </div>
 </div>
 

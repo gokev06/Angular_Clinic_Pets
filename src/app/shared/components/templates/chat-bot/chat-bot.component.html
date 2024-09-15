@@ -1,0 +1,29 @@
+<div class="chatbot-container">
+  <button class="chatbot-toggle" (click)="toggleChat()">
+    <img src="../../../../../assets/images/imghome/chat.png" alt="Chat">
+  </button>
+  <div class="chatbot-window" *ngIf="isChatOpen">
+    <div class="chatbot-header">
+      <h2>TAMVET</h2>
+      <button class="close-btn" (click)="toggleChat()">x</button>
+    </div>
+    <div class="chatbot-body">
+      <div *ngFor="let message of messages"
+           [ngClass]="{'bot-message': message.role === 'model', 'user-message': message.role === 'user'}">
+        <img *ngIf="message.role === 'model'" src="../../../../../assets/images/imghome/chat.png" alt="Bot">
+        <p>{{ message.parts }}</p>
+      </div>
+      <div *ngIf="isLoading" class="bot-message">
+        <img src="../../../../../assets/images/imghome/chat.png" alt="Bot">
+        <p>Escribiendo...</p>
+      </div>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text"
+             [(ngModel)]="userInput"
+             (keyup.enter)="sendMessage()"
+             placeholder="Escribe un mensaje..." />
+      <button (click)="sendMessage()" [disabled]="isLoading">Enviar</button>
+    </div>
+  </div>
+</div>
