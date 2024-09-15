@@ -421,7 +421,10 @@ a:visited {
     border: none;
   }
  
-
+@media (max-width: 300px){
+  
+  
+}
   @media (max-width: 480px) {
     .padre{
       width: 100%;
@@ -434,7 +437,7 @@ a:visited {
     .parteuno{
       width: 100%;
     }
-    .partedos[_ngcontent-ng-c1872338009] {
+    .partedos {
       margin-top: 80px;
        width: 100%; 
   }
@@ -487,12 +490,15 @@ width: 100%;
 }
 .botones-carro{
   display: flex;
-  justify-content: center;
+        justify-content: center;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
 }
 .agregarAlCarrito {
   width: 150px;
   font-size: 12px;
-  margin-right: 40px;
+  margin-right: 0px;
   margin-left: 0;
 }
 .btn-cantidad2{
@@ -518,6 +524,7 @@ input{
   justify-content: center;
   flex-direction: column;
   margin-bottom: 20px;
+  width: 100%;
 }
 .botones-adicionales h3{
 display: flex;
@@ -526,20 +533,20 @@ width: 100%;
 margin-left: 0;
 margin-right: 0;
 }
-.cantidad[_ngcontent-ng-c3624827601] {
+.cantidad {
   padding-bottom: 20px;
-  margin-right: 35px;
+ 
 }
-.tabs[_ngcontent-ng-c3624827601] {
+.tabs {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   padding-left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
-.tabs{
-padding-left: 0;
-width: 100%;
-}
+
 .tab-content {
   width: 350px;
   height: 100px;
@@ -553,6 +560,18 @@ h6 {
 .datos{
 
   display: none;
+}
+.tab-content{
+  width: 100%;
+}
+.fross{
+  width: 100%;
+}
+p{
+  width: 100%;
+}
+.tabs button {
+  width: 50%;
 }
 
   }
@@ -568,7 +587,7 @@ h6 {
     .parteuno{
       width: 100%;
     }
-    .partedos[_ngcontent-ng-c1872338009] {
+    .partedos {
       margin-top: 80px;
        width: 100%; 
   }
@@ -691,12 +710,12 @@ section h3 {
       flex-direction: column;
 
     }
-    .parteuno[_ngcontent-ng-c1872338009] {
+    .parteuno {
       width: 100%;
   }
-  .partedos[_ngcontent-ng-c1872338009][_ngcontent-ng-c1872338009] {
+  .partedos {
     margin-top: 80px;
-    width: 100%;
+   width: 100%;
 }
     .contenedor-imagen {
       width: 400px;
@@ -800,6 +819,7 @@ section h3 {
       width: 100%;
       height: 415px;
     }
+    
     .fross{
       width: 50%;
     }
@@ -817,20 +837,26 @@ section h3 {
     width: 50%;
   }
   .partedos{
-    margin-top: 45px;
+    margin-top: 100px;
   }
   .partedos section {
     margin-top: 50px;
     width:460px;
 
 }
+h1{
+  margin-left: 0;
+  margin-right: 0;
+}
 .botones-adicionales {
   margin-left: 0;
   margin-right: 0;
 }
 .botones-adicionales h3{
-  margin-right: 100px;
-  margin-left: -160px;
+  display: flex;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 0;
 }
   .partedos{
 
@@ -845,7 +871,12 @@ section h3 {
 }
 .card{
   width: 145px;
+  margin-left: 5px;
 
+}
+.center h1{
+  width: 49%;
+  margin-left: 0;
 }
 
   }
