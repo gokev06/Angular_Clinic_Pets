@@ -19,7 +19,7 @@ export class FormularioAdopcionComponent implements OnInit {
   loginForm: FormGroup;
   selectedImage: string | ArrayBuffer | null = '';
   tempImageFile: File | null = null;  // Nueva variable para almacenar temporalmente el archivo de imagen
-  imageUrl: string | null = null;  
+  imageUrl: string | null = null;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private solicitudService: SolicitudAdopcionService) {
     this.loginForm = this.formBuilder.group({});
@@ -96,7 +96,7 @@ export class FormularioAdopcionComponent implements OnInit {
       confirmButtonText: 'Aceptar'
     });
   }
-  
+
 
 
   onSubmit(): void {
@@ -165,7 +165,7 @@ export class FormularioAdopcionComponent implements OnInit {
                     this.applyCustomStylesToPublishedAlert();
                   }
                 }).then(() => {
-                  this.router.navigate(['/home']);
+                  this.router.navigate(['/adopcion']);
                 });
 
               }
@@ -251,5 +251,5 @@ export class FormularioAdopcionComponent implements OnInit {
     const valid = /^[0-9]+$/.test(value);
     return valid ? null : { 'telefonoInvalid': true };
   }
-  
+
 }
