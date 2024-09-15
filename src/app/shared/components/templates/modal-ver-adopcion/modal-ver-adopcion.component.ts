@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { AdopcionesVerify } from '../../../../features/adopcion/services/solicitud-adopcion.service';
 
 @Component({
   selector: 'app-modal-ver-adopcion',
@@ -6,8 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './modal-ver-adopcion.component.scss'
 })
 export class ModalVerAdopcionComponent {
-  
-  @Output() close = new EventEmitter<void>();
+@Input() datos!: AdopcionesVerify;
+@Output() close = new EventEmitter<void>();
+
   closemodaladopcion(){
     this.close.emit();
   }

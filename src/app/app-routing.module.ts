@@ -67,7 +67,8 @@ const routes: Routes = [
   {path: 'tienda-admin',component:TiendaAdminComponent, canActivate: [authGuard]},
   {path: "ver-adopcion",component: SolicitudAdopcionComponent },
   {path: "pago-compra", component: PagoCompraComponent},
-  {path:"admin-adopciones", component: AdminAdopcionesComponent}
+  {path:"admin-adopciones", component: AdminAdopcionesComponent},
+  {path: "solicitud_adopcion", component: SolicitudAdopcionComponent},
 ];
 
 @NgModule({

@@ -2,7 +2,6 @@
 
 
 <section>
-<app-carta-solicitud-adopcion></app-carta-solicitud-adopcion>
-<app-carta-solicitud-adopcion></app-carta-solicitud-adopcion>
+<app-carta-solicitud-adopcion *ngFor="let adopcion of adopciones" [datos]="adopcion"></app-carta-solicitud-adopcion>
 </section>
 
