@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 
  export interface adopcion{
   id?: number;
@@ -65,6 +65,20 @@ export class SolicitudAdopcionService {
   private apiUrl_2 = 'http://localhost:10101';
 
   constructor( private http: HttpClient) { }
+
+  deletePet(IdAdopcionMascota: string): Observable <any>{
+    const token: string | null = localStorage.getItem(`userToken`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<any>(`${this.apiUrl_2}/deletePet/${IdAdopcionMascota}`, {headers}).pipe(
+      catchError((error) => {
+        console.error('Error en la eliminacion de la mascota', error);
+        return throwError(() => new Error(error.message || 'Error desconocido'));
+      })
+    )
+  }
 
   getPetIdInfo(IdAdopcionMascota: string): Observable <AdopcionesInfo[]>{
     const token: string | null = localStorage.getItem(`userToken`);
