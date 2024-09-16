@@ -31,7 +31,7 @@ export class AdmiHeaderComponent implements OnInit{
 
 
   navigateToNotifications(): void {
-    this.router.navigate(['/nueva-adopcion']); // Redirige a la ruta deseada
+    this.router.navigate(['/ver-adopcion']); // Redirige a la ruta deseada
   }
 
 

@@ -9,6 +9,7 @@
     left: 0;
     right: 0;
     background-color: #00000073;
+    z-index: 1000;
 }
 
 /* Encabezado del modal */
@@ -35,7 +36,7 @@
 .formulario {
     display: flex;  
     width: 100%; /* Asegura que el formulario use todo el ancho del modal */
-    border: 1px solid rgba(204, 196, 255, 1);
+    border: 1px solid rgb(158, 131, 194);
     flex-direction: column;
     border-radius: 20px;
     padding: 20px;
@@ -114,7 +115,9 @@
     height: 100px; /* Ajuste para pantallas pequeñas */
     border-radius: 50%;
     margin: 10px 0;
+
 }
+
 
 /* Fondo para imagen de vista previa */
 #a {
@@ -126,6 +129,7 @@
     width: 100px; /* Ajuste para pantallas pequeñas */
     height: 100px; /* Ajuste para pantallas pequeñas */
     border-radius: 50%;
+    border: 2px solid  rgb(158, 131, 194);
 }
 
 /* Validar sección */

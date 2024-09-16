@@ -28,6 +28,10 @@ export class AdminCardsComponent implements OnInit {
 
   }
 
+  reloadAdopciones() {
+    this.loadAdopciones(); // Llamar a la función para recargar las adopciones
+  }
+
   loadAdopciones() {
     this.SolicitudAdopcionService.getPetsData().subscribe(
       (data: any) => {

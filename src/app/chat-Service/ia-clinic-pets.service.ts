@@ -1,6 +1,6 @@
 import { Injectable, Inject, Optional } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface ChatMessage {
@@ -19,7 +19,7 @@ export interface ChatHistory {
 export class IAClinicPetsService {
 
   private baseURL: string;
-
+  private apiUrl_1 = 'http://localhost:10101';
 
 
   constructor(
@@ -30,11 +30,21 @@ export class IAClinicPetsService {
   }
 
   sendMessage(question: string, history: ChatMessage[]): Observable<ChatHistory> {
-    return this.http.post<ChatHistory>(`${this.baseURL}/chat`, {
-      question,
-      history
-    });
-  }
+    return this.http.post<ChatHistory>(`${this.apiUrl_1}/chat`, {
+        question,
+        history
+    }).pipe(
+        catchError(error => {
+            console.error('Error en la solicitud HTTP:', error);
+            if (error.error instanceof ErrorEvent) {
+                console.error('Error del lado del cliente:', error.error.message);
+            } else {
+                console.error(`El backend devolvió el código ${error.status}, el cuerpo era:`, error.error);
+            }
+            throw error;
+        })
+    );
+}
 
 
 }

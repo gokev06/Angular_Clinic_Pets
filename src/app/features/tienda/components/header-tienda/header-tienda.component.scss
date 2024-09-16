@@ -14,6 +14,7 @@ app-header-home {
     height: 90px;
     background-color: #CCC4FF;
     padding: 0 44px;
+    border-bottom: 3px solid white;
   }
 
 
@@ -52,17 +53,10 @@ app-header-home {
     align-items: center;
   }
 
-  .a {
-    border-left: 1.5px solid black;
-    padding: 0 12px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-  }
 
 
 .car{
-    width: 280px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -80,19 +74,20 @@ app-header-home {
 
 .btn__add__Product{
   border-radius: 8px;
-  padding: 10px;
+  text-align: center;
   margin-right: 20px;
-  background-color: #6254bd;
-  color:white;
-  border: 2px rgb(154, 178, 255) ;
+  background-color: #CCC4FF;
+  color:black;
+  border: 3px solid  white ;
   cursor: pointer;
-  width: 200px;
+  width: 100px;
   height: 50px;
 }
 
 .btn__add__Product:hover {
-  background-color: rgb(126, 148, 255); /* Color más claro o diferente cuando el cursor está encima */
-  border: 2px rgb(126, 148, 255) solid;
+  background-color: white; /* Color más claro o diferente cuando el cursor está encima */
+  color: black;
+  border: 2px #CCC4FF solid;
 }
 
 .btn__add__Product:active {
@@ -100,5 +95,35 @@ app-header-home {
   border: 2px rgb(124, 148, 215) solid;
   transform: scale(0.98); /* Efecto de reducción al presionar */
 }
+
+
+.title {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #ded8ff;
+  padding: 0 50px;
+  box-shadow: 10px 0 20px #CCC4FF ;
+}
+
+.title a {
+  padding: 0 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+.hola, .a, .aa {
+  padding: 0 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+}
+
 
 

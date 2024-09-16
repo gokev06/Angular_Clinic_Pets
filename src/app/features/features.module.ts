@@ -43,6 +43,7 @@ import { AdminCardsComponent } from './adopcion/components/admin-cards/admin-car
 import { AdminAdopcionesComponent } from './adopcion/pages/admin-adopciones/admin-adopciones.component';
 import { AdmiCardsNuevaComponent } from './adopcion/components/admi-cards-nueva/admi-cards-nueva.component';
 import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-header.component';
+import { HeaderAdminAdopcionComponent } from './adopcion/components/header-admin-adopcion/header-admin-adopcion.component';
 
 @NgModule({
   declarations: [
@@ -82,8 +83,8 @@ import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-head
     AdminCardsComponent,
     AdminAdopcionesComponent, 
     AdmiCardsNuevaComponent,
-    AdmiHeaderComponent
-   
+    AdmiHeaderComponent,
+    HeaderAdminAdopcionComponent,
   ],
   imports: [
     CommonModule,
@@ -113,7 +114,7 @@ import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-head
     TiendaProductoComponent,
     InfoProductoTiendaComponent,
 
-
+    HeaderAdminAdopcionComponent,
   ]
 })
 export class FeaturesModule {}

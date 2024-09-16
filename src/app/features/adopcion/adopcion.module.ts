@@ -16,6 +16,7 @@ import { AdmiHeaderComponent } from './components/admi-header/admi-header.compon
 import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
 import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
 import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud-adopcion.component';
+import { HeaderAdminAdopcionComponent } from './components/header-admin-adopcion/header-admin-adopcion.component';
 
 
 
@@ -29,6 +30,7 @@ import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud
      AdminCardsComponent,
      AdmiCardsNuevaComponent,
      AdmiHeaderComponent,
+     HeaderAdminAdopcionComponent,
      
 
   ],
