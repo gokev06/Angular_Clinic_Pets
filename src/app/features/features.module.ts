@@ -43,6 +43,7 @@ import { AdminCardsComponent } from './adopcion/components/admin-cards/admin-car
 import { AdminAdopcionesComponent } from './adopcion/pages/admin-adopciones/admin-adopciones.component';
 import { AdmiCardsNuevaComponent } from './adopcion/components/admi-cards-nueva/admi-cards-nueva.component';
 import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-header.component';
+import { PagoTarjetaComponent } from '../shared/components/organisms/pago-tarjeta/pago-tarjeta.component';
 
 @NgModule({
   declarations: [
@@ -82,10 +83,10 @@ import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-head
     AdminCardsComponent,
     AdminAdopcionesComponent, 
     AdmiCardsNuevaComponent,
-    AdmiHeaderComponent
-   
+    AdmiHeaderComponent,
   ],
   imports: [
+    
     UsuariosModule,
     CommonModule,
     FormsModule,
@@ -112,8 +113,7 @@ import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-head
     AgregarProductoComponent,
     TablaCitasComponent,
     TiendaProductoComponent,
-    InfoProductoTiendaComponent,
-
+    InfoProductoTiendaComponent
 
   ]
 })

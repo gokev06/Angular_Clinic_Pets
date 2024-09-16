@@ -1,39 +1,43 @@
 <section>
-    <div class="marco">
-      <div class="tarjeta">
-        <h2>Tarjeta de crédito</h2>
-        <img src="../../../../../assets/icons/americaexpress.png" alt="America Express">
-        <img src="../../../../../assets/icons/visa.png" alt="Visa">
-        <img src="../../../../../assets/icons/tarjeta.png" alt="Tarjeta">
-      </div>
-      <div class="numerotarjeta input-container">
-        <label for="Numero" class="label">Numero</label>
-        <img [src]="imageSrc" class="input-icon" alt="Icono de tarjeta"> 
-        <input id="Numero" (input)="onInputChange($event)" text="number" placeholder="Numero de tarjeta" class="a" >
+  <div class="marco">
+    <div class="tarjeta">
+      <h2>Tarjeta de crédito</h2>
+      <img src="../../../../../assets/icons/americaexpress.png" alt="America Express">
+      <img src="../../../../../assets/icons/visa.png" alt="Visa">
+      <img src="../../../../../assets/icons/tarjeta.png" alt="Tarjeta">
+    </div>
+    <div class="numerotarjeta input-container">
+      <label for="Numero" class="label">Numero</label>
+      <img [src]="imageSrc" class="input-icon" alt="Icono de tarjeta"> 
+      <input id="Numero" (input)="onInputChange($event)" type="number" placeholder="Numero de tarjeta" class="a">
 
-        <label for="'Nombre y apellido'" class="label">Nombre y apellido</label>
-        <input id="Nombre y apellido" text="'text'" placeholder="Nombre y apellido" class="a" >
+      <label for="Nombre y apellido" class="label">Nombre y apellido</label>
+      <input id="Nombre y apellido" type="text" placeholder="Nombre y apellido" class="a">
+    </div>
+    <div class="campo">
+      <div class="hola">
+        <label for="Fecha vencimiento" class="label">Fecha Vencimiento</label>
+        <input type="text" [(ngModel)]="fechaVencimiento" (input)="formatearFecha()" placeholder="MM/AAAA" class="fechavencimiento">
       </div>
-      <div class="campo">
-        <div  class="hola">
-        <label for="'Fecha vencimiento'" class="label">Fecha Vencimiento</label>
-        <input  type="text" [(ngModel)]="fechaVencimiento" (input)="formatearFecha()" placeholder="MM/AAAA" class="fechavencimiento">
-    </div>
-    <div class="hola">
-        <label for="'Código de seguridad'" class="label">Codigo de seguridad</label>
-        <input type="password" [(ngModel)]="cvv" placeholder="CVV" maxlength="4" minlength="3" pattern="[0-9]*" autocomplete="off"class="cvv-input">
-    </div>
-      </div>
-      <div class="campo3">
-        <div class="hola2">
-        <label for="'Tipo'" class="label">Tipo</label>
-        <select [(ngModel)]="tipoDocumento" (change)="onTipoDocumentoChange()"><option value="cc">CC</option><option value="nit">NIT</option><option value="pasaporte">CE</option></select>
-    </div>
-    <div class="hola1">
-        <label for="'Documento del titular'" class="label">Documento de titular</label>
-        <input id="'Numero Documento'" text="'number'" placeholder="Numero de Documento" class="ntitular">
+      <div class="hola">
+        <label for="Código de seguridad" class="label">Código de seguridad</label>
+        <input type="password" [(ngModel)]="cvv" placeholder="CVV" maxlength="4" minlength="3" pattern="[0-9]*" autocomplete="off" class="cvv-input">
       </div>
     </div>
+    <div class="campo3">
+      <div class="hola2">
+        <label for="Tipo" class="label">Tipo</label>
+        <select [(ngModel)]="tipoDocumento" (change)="onTipoDocumentoChange()">
+          <option value="cc">CC</option>
+          <option value="nit">NIT</option>
+          <option value="pasaporte">CE</option>
+        </select>
+      </div>
+      <div class="hola1">
+        <label for="Documento del titular" class="label">Documento de titular</label>
+        <input id="Numero Documento" type="number" placeholder="Numero de Documento" class="ntitular">
+      </div>
     </div>
-  </section> 
-  
+    <button (click)="submitPayment()">Pagar</button>
+  </div>
+</section>

@@ -11,61 +11,55 @@
         </div>
       </label>
     </div>
-    
+  
     <section>
       <section class="cube__form__group">
         <div class="parte1">
-          <div>
-            <app-input 
-              id="nombreMascota" 
-              formControlName="nombreMascota" 
-              [estilos]="estilos" 
-              holder="Nombre de la mascota">
-            </app-input>
-            <div *ngIf="petsForm.get('nombreMascota')?.invalid && petsForm.get('nombreMascota')?.touched" class="error-message">
-              El nombre es obligatorio.
-            </div>
+          <app-input 
+            id="nombreMascota" 
+            formControlName="nombreMascota" 
+            [estilos]="estilos" 
+            holder="Nombre de la mascota">
+          </app-input>
+          <div *ngIf="petsForm.get('nombreMascota')?.invalid && petsForm.get('nombreMascota')?.touched" class="error-message">
+            El nombre es obligatorio.
           </div>
         </div>
       </section>
     </section>
-    
+  
     <section>
       <section class="cube__form__group">
         <div class="parte1">
-          <div>
-            <app-input 
-              id="infoMascota" 
-              formControlName="infoMascota" 
-              [estilos]="estilos" 
-              holder="Información sobre la mascota">
-            </app-input>
-            <div *ngIf="petsForm.get('infoMascota')?.invalid && petsForm.get('infoMascota')?.touched" class="error-message">
-              La información es obligatoria y no debe exceder los 600 caracteres.
-            </div>
+          <app-input 
+            id="infoMascota" 
+            formControlName="infoMascota" 
+            [estilos]="estilos" 
+            holder="Información sobre la mascota">
+          </app-input>
+          <div *ngIf="petsForm.get('infoMascota')?.invalid && petsForm.get('infoMascota')?.touched" class="error-message">
+            La información es obligatoria y no debe exceder los 600 caracteres.
           </div>
         </div>
       </section>
     </section>
-    
+  
     <section>
       <section class="cube__form__group">
         <div class="parte1">
-          <div>
-            <app-input 
-              id="contacto" 
-              formControlName="numeroTelefono" 
-              [estilos]="estilos" 
-              holder="Contacto">
-            </app-input>
-            <div *ngIf="petsForm.get('numeroTelefono')?.invalid && petsForm.get('numeroTelefono')?.touched" class="error-message">
-              El contacto es obligatorio.
-            </div>
+          <app-input 
+            id="contacto" 
+            formControlName="numeroTelefono" 
+            [estilos]="estilos" 
+            holder="Contacto">
+          </app-input>
+          <div *ngIf="petsForm.get('numeroTelefono')?.invalid && petsForm.get('numeroTelefono')?.touched" class="error-message">
+            El contacto es obligatorio.
           </div>
         </div>
       </section>
     </section>
-    
+  
     <div class="edit_btn botones">
       <button class="cancelar" type="button" (click)="onCancel()">Cancelar</button>
       <button [class.actualizar]="isEditMode" type="submit">
@@ -73,3 +67,4 @@
       </button>
     </div>
   </form>
+  

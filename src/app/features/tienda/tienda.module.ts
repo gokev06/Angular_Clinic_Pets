@@ -9,6 +9,7 @@ import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.
 import { TiendaAdminComponent } from './pages/tienda-admin/tienda-admin.component';
 import { CardAdminComponent } from './components/card-admin/card-admin.component';
 import { PagoCompraComponent } from './pages/pago-compra/pago-compra.component';
+import { PagoTarjetaComponent } from '../../shared/components/organisms/pago-tarjeta/pago-tarjeta.component';
 
 @NgModule({
   declarations: [

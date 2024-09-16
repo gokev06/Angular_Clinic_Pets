@@ -72,10 +72,10 @@ export class SubirLostPetsComponent implements OnInit {
     
 
     const formData = new FormData();
-  formData.append('nombreMascota', this.petsForm.get('nombreMascota')?.value || '');
-  formData.append('infoMascota', this.petsForm.get('infoMascota')?.value || '');
-  formData.append('numeroTelefono', this.petsForm.get('numeroTelefono')?.value || '');
-  formData.append('IdUsuario', this.IdUsuario || '');
+    formData.append('nombreMascota', this.petsForm.get('nombreMascota')?.value || '');
+    formData.append('infoMascota', this.petsForm.get('infoMascota')?.value || '');
+    formData.append('numeroTelefono', this.petsForm.get('numeroTelefono')?.value || '');
+    formData.append('IdUsuario', this.IdUsuario || '');
 
   if (this.selectedImage) {
       formData.append('imagenMascota', this.selectedImage, this.selectedImage.name);  
@@ -86,7 +86,9 @@ console.log('Datos enviados:', formData); // Esto es para debugging, pero no imp
 
     this.publicacionService.publicarMascota(formData).subscribe({
       next: () => {
-        Swal.fire('Publicación exitosa', 'Tu publicación ha sido enviada con éxito.', 'success');
+        Swal.fire('Publicación exitosa', 'Tu publicación ha sido enviada con éxito.', 'success').then(() => {
+          this.router.navigate(['/lost-pets']); // Redirige a /lost-pets después del éxito
+        });        
         this.petsForm.reset();
         this.selectedImage = null;
         this.selectedImagePreview = null;
@@ -102,5 +104,7 @@ console.log('Datos enviados:', formData); // Esto es para debugging, pero no imp
     this.petsForm.reset();
     this.selectedImage = null;
     this.selectedImagePreview = null;
+    this.router.navigate(['/lost-pets']);
+
   }
 }

@@ -53,6 +53,7 @@ import { DownloadHistorialComponent } from './components/templates/download-hist
 import { PagoFormComponent } from './components/templates/pago-form/pago-form.component';
 import { SubirLostPetsComponent } from './components/organisms/formulario-lostPets/subir-lost-pets/subir-lost-pets.component';
 import { LostPetsComponent } from '../features/wanted/lost-pets/lost-pets.component';
+import { PagoCompraComponent } from '../features/tienda/pages/pago-compra/pago-compra.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -104,7 +105,8 @@ registerLocaleData(localeEs, 'es');
     DownloadHistorialComponent,
     PagoFormComponent,
     SubirLostPetsComponent,
-    LostPetsComponent
+    LostPetsComponent,
+    PagoCompraComponent
   ],
   imports: [
     CommonModule,
@@ -155,7 +157,8 @@ registerLocaleData(localeEs, 'es');
     BtnregistroComponent,
     ModalVerAdopcionComponent,
     CarritoModalComponent,
-    LostPetsComponent
+    LostPetsComponent,
+    PagoCompraComponent
   ]
 })
 export class SharedModule { }

@@ -1,3 +1,4 @@
+<!-- Factura y botón de compra -->
 <section>
   <div class="container">
     <h2>Detalles de Compra</h2>
@@ -13,15 +14,24 @@
       <tbody>
         <tr *ngFor="let producto of productos">
           <td>{{ producto.nombreProducto }}</td>
-          <td>{{ producto.precioUnitario}}</td>
+          <td>{{ producto.precioUnitario }}</td>
           <td>{{ producto.cantidad }}</td>
-          <td>{{ producto.precioUnitario * producto.cantidad}}</td>
+          <td>{{ producto.precioUnitario * producto.cantidad }}</td>
         </tr>
       </tbody>
     </table>
     <div class="total">
-      <h3>Total: {{ precioTotal}}</h3>
+      <h3>Total: {{ precioTotal }}</h3>
     </div>
-    <button (click)="comprar()">Comprar</button>
+    <button (click)="openPayment()">Comprar</button>
   </div>
 </section>
+
+<!-- Componente de pago con tarjeta -->
+<div id="payment-overlay" class="payment-overlay" [ngClass]="{'show': isPaymentOpen}">
+  
+  <div class="payment-content">
+    <span class="close" (click)="closePayment()">&times;</span>
+    <app-pago-tarjeta (onSubmit)="handlePayment()"></app-pago-tarjeta>
+  </div>
+</div>

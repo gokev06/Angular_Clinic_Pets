@@ -1,30 +1,109 @@
-.card-container {
+/* Estilos para el botón "Nueva publicación" */
+.nueva-publicacion-btn {
+    display: inline-block; /* Asegura que el botón se comporte como un bloque en línea */
+    padding: 0.75rem 1.5rem; /* Padding para hacer el botón más grande */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #8e44ad; /* Color de fondo morado */
+    color: #fff; /* Texto blanco para contraste */
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Alineación del texto */
+    cursor: pointer; /* Cursor de puntero para indicar que es clickeable */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves para el color y la transformación */
+  }
+  
+  .nueva-publicacion-btn:hover {
+    background-color: #732d91; /* Color más oscuro al pasar el mouse sobre el botón */
+  }
+  
+  .nueva-publicacion-btn:active {
+    transform: scale(0.98); /* Efecto de presionar el botón */
+  }
+  
+  .nueva-publicacion-btn:focus {
+    outline: none; /* Elimina el contorno predeterminado al enfocar el botón */
+  }
+  
+  /* Estilos generales */
+  .card-container {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: column; /* Coloca las tarjetas en una columna */
+    gap: 2rem; /* Espacio entre las tarjetas */
+    background-color: #f5f5f5; /* Fondo gris muy claro */
+    padding: 2rem; /* Padding alrededor del contenedor */
   }
   
   .card {
     display: flex;
+    flex-direction: column; /* Contenedor principal en columna */
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px; /* Bordes más redondeados */
     overflow: hidden;
+    background-color: #fff; /* Fondo blanco para las tarjetas */
+    border: 4px solid #8e44ad; /* Bordes morados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    max-width: 1200px; /* Establece un ancho máximo para las tarjetas */
+    margin: 0 auto; /* Centra las tarjetas en el contenedor */
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: row; /* Imágenes y contenido en una fila */
+    padding: 1.5rem; /* Padding dentro de la tarjeta */
   }
   
   .card-img {
-    width: 150px;
-    height: auto;
+    width: 150px; /* Ancho fijo para la imagen */
+    height: auto; /* Mantiene la relación de aspecto */
+    border-radius: 8px;
   }
   
   .card-body {
     flex: 1;
-    padding: 1rem;
+    padding: 1.5rem; /* Padding dentro de la tarjeta */
+    background-color: #fff;
   }
   
   .card-footer {
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
+    padding: 1.5rem; /* Padding dentro del pie de la tarjeta */
+    background-color: #eae1f2; /* Fondo morado claro */
+    border-top: 1px solid #8e44ad; /* Borde superior morado */
+  }
+  
+  .card-footer input {
+    color: #333; /* Color del texto del input */
+    background-color: #f3e8ff; /* Fondo del input con un tono morado claro */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: calc(100% - 60px); /* Ajustar el ancho del input */
+    margin-right: 1rem;
+  }
+  
+  .card-footer i {
+    color: #8e44ad; /* Color del ícono morado */
+    font-size: 1.5rem; /* Tamaño del ícono */
+    cursor: pointer; /* Cursor de puntero para indicar que es clickeable */
+  }
+  
+  .card-footer i:hover {
+    color: #732d91; /* Color del ícono cuando se pasa el mouse sobre él */
+  }
+  
+  .card-footer button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #8e44ad; /* Color de fondo morado para el botón */
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem; /* Tamaño del texto del botón */
+  }
+  
+  .card-footer button:hover {
+    background-color: #732d91; /* Color de fondo del botón al pasar el mouse */
   }
   
   .modal {
@@ -41,16 +120,17 @@
   
   .modal-content {
     background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    margin: 10% auto;
+    padding: 1.5rem; /* Padding dentro del modal */
+    border: 1px solid #ddd;
+    width: 70%; /* Ajusta el ancho del modal */
     max-height: 80%;
     overflow-y: auto;
+    border-radius: 8px; /* Bordes más redondeados */
   }
   
   .close {
-    color: #aaa;
+    color: #8e44ad; /* Color del ícono de cerrar morado */
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -58,23 +138,41 @@
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: #732d91; /* Color del ícono de cerrar cuando se pasa el mouse sobre él */
     text-decoration: none;
     cursor: pointer;
   }
   
   .comments-container {
-    max-height: 300px; /* Ajusta según tus necesidades */
-    overflow-y: auto;
+    max-height: none; /* Elimina la altura máxima */
+    overflow-y: auto; /* Mantiene el scroll vertical en caso de que sea necesario */
+    padding-right: 1rem; /* Espacio adicional para evitar que el contenido se esconda detrás de la barra de desplazamiento */
   }
   
   .modal-footer {
     padding: 10px;
     text-align: right;
   }
-
+  
   .modal.show {
     display: block !important;
   }
   
+  .comment-morado {
+    background-color: #8e44ad; /* Color morado para los comentarios */
+    color: #fff; /* Texto blanco para contraste */
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word; /* Asegura que el texto largo se ajuste al contenedor */
+  }
+  
+  .comment-azul {
+    background-color: #9fc9f8ab; /* Un morado más suave para los comentarios alternos */
+    color: #fff; /* Texto blanco para contraste */
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word; /* Asegura que el texto largo se ajuste al contenedor */
+  }
   

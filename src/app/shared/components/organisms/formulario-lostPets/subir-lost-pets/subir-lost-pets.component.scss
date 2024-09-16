@@ -1,0 +1,118 @@
+/* Estilos generales para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Contenedor para los inputs */
+  .container-input {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el input de archivo */
+  #file-6 {
+    display: none; /* Ocultamos el input real */
+  }
+  
+  /* Estilos para el label del input de archivo */
+  .fondo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px; /* Ajusta la altura deseada */
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Estilos para la vista previa de la imagen */
+  .image-preview {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Estilos para la imagen cuando no hay imagen seleccionada */
+  .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+  }
+  
+  /* Estilos para el texto cuando no hay imagen */
+  .image-preview p {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    line-height: 200px; /* Ajusta a la altura del contenedor */
+  }
+  
+  /* Estilos para los inputs personalizados */
+  app-input {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px; /* Espacio entre inputs */
+  }
+  
+  /* Estilos para los inputs en general */
+  input[type="text"],
+  input[type="file"] {
+    width: 100%; /* Aseguramos que los inputs ocupen todo el ancho disponible */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los botones */
+  .botones {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Asegura que los botones ocupen el ancho completo */
+    max-width: 400px; /* Limita el ancho máximo de los botones */
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .cancelar {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  /* Estilos para el mensaje de error */
+  .error-message {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
