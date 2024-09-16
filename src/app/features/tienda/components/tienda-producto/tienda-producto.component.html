@@ -39,7 +39,11 @@
       </div>
 
       -->
-      <h1>Cantidad Disponible: {{ data[0].stock}}</h1>
+      <h1 class="cantidad">Cantidad Disponible:        
+          <b class="product-soldOut" *ngIf="soldOut"> Producto Agotado</b>
+        <div *ngIf="soldOut == false"  class="product-soldOut">
+           {{ data[0].stock}}
+        </div> </h1>
       <h1>Precio: {{ data[0].precio | currency:'COP':'symbol':'1.0-0' }} </h1>
 
       <!-- Nuevos botones -->
@@ -54,9 +58,6 @@
 
           <button type="button" (click)="addProductCart()"  class="agregarAlCarrito">Agregar al carrito</button>
         </div>
-      </div>
-      <div *ngIf="soldOut"  class="product-soldOut">
-        <b class="product-soldOut" >Producto Agotado</b>
       </div>
     </section>
   </div>

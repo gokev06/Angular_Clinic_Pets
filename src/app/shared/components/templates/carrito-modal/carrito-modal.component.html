@@ -21,21 +21,12 @@
         <section  *ngIf="allData.length > 0 ">
         <div class="centrar">
             <div class="tabla" *ngFor="let producto of allData">
-                <div class="info">
-                    <div class="info1">
-                        <h1>Articulo</h1>
-                    </div>
-
-                    <div class="info2">
-                        <h1>Cantidad</h1>
-                        <h1>Subtotal</h1>
-                    </div>
-                </div>
                 <div class="mocapi">
                     <div class="imagen-principal">
                         <img [src]="producto.imagen" alt="">
+                        <div class="nombre">
                         <p>{{producto.nombreProducto}}</p>
-
+                    </div>
                     </div>
 
                     <div class="producto">
@@ -44,9 +35,13 @@
                             <span class="quantity">{{ producto.cantidad }}</span>
                             <button class="quantity-button" (click)="aumentarCantidad(producto)">+</button>
                           </div>
+                          <div class="precio">
                           <p>{{ producto.precioUnitario * producto.cantidad | currency:'COP':'symbol':'1.0-0'}}</p>
-
+                        </div>
+                         
                     </div>
+                    <img class="eliminar" src="../../../../../assets/icons/basura.png" alt="Eliminar">
+
                 </div>
             </div>
         </div>

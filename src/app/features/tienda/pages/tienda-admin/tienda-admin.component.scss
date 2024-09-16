@@ -1,23 +1,28 @@
-  .principal{
-    width: 98%;
-    width: auto;
-    margin-top: 25px;
-  
-  }
+.search-container{
+  width: 100%;
+   height: 60px;
+background-color: #CCC4FF;
+display: flex;
+justify-content: center;
+align-items: center;
+}
 
-  .wrap {
-    width: 100%;
-    height: 70%; /* Ajusta la altura según sea necesario */
-    display: flex;
-    justify-content: space-evenly; /* Distribuye el espacio entre las tarjetas */
-    align-items: flex-start; /* Alinea las tarjetas al inicio del contenedor */
-    margin-top: 50px;
-  
-  }
-  
-  
-  
-  
-  .cards{
-    width: 90%;
-  }
+
+
+
+.peppa{
+width: 100%;
+height: 70%; /* Ajusta la altura según sea necesario */
+display: flex;
+justify-content: space-evenly; /* Distribuye el espacio entre las tarjetas */
+align-items: flex-start; /* Alinea las tarjetas al inicio del contenedor */
+margin-top: 50px;
+
+}
+
+
+
+
+.cards{
+width: 90%;
+}
