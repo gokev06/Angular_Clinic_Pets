@@ -1,0 +1,18 @@
+<div class="header">
+  <app-logo></app-logo>
+  <div class="titles">
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Buscar"
+        [(ngModel)]="busqueda"
+        (input)="buscarProductos()"
+        class="search-input"/>
+      <img src="../../../../../assets/icons/buscar.png" alt="Buscar" class="search-icon"/> <!-- Imagen de búsqueda -->
+    </div>
+  </div>
+  <div class="car">
+    <app-perfil></app-perfil>
+    <button (click)="crearProducto()" class="create-product-btn">Crear Producto</button>
+  </div>
+</div>
