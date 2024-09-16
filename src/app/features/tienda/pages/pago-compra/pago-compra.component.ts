@@ -42,14 +42,8 @@ export class PagoCompraComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then(result => {
       if (result.isConfirmed) {
-        // Aquí puedes realizar la lógica real para procesar el pago
-        Swal.fire(
-          'Compra Confirmada',
-          'Tu compra ha sido realizada con éxito.',
-          'success'
-        ).then(() => {
-          this.router.navigate(['/']); // Redirige al usuario a la página principal o al destino deseado
-        });
+        // Redirige al formulario de pago
+        this.router.navigate(['/pago-form']);
       }
     });
   }

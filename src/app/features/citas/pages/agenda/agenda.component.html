@@ -29,8 +29,11 @@
       <div class="hora-name">{{hora}}</div>
       <div *ngFor="let day of daysInMonth" [ngClass]="{'current-day': isCurrentDay(day), 'alternate-color': isAlternateColor(day)}" class="day-name">
         <ng-container *ngIf="getCitaForDayAndHour(day, hora) as cita">
-          <a (click)="navigateToHistorial(cita.IdCita)">{{ cita.nombreUsuario }}</a>
+          <a (click)="navigateToHistorial(cita.idCita)" href="javascript:void(0);">{{ cita.nombreUsuario }}
+            <!-- <pre>{{ getCitaForDayAndHour(day, hora) | json }}</pre> -->
+          </a>
         </ng-container>
+        
       </div>
     </div>
   </div>

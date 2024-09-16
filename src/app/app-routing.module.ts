@@ -30,7 +30,9 @@ import { GestionDeHorariosComponent } from './features/citas/pages/gestion-de-ho
 import { UsuariosComponent } from './features/usuarios/usuarios.component';
 import { TiendaAdminComponent } from './features/tienda/pages/tienda-admin/tienda-admin.component';
 import { PagoCompraComponent } from './features/tienda/pages/pago-compra/pago-compra.component';
-
+import { PagoFormComponent } from './shared/components/templates/pago-form/pago-form.component';
+import { LostPetsComponent } from './features/wanted/lost-pets/lost-pets.component';
+import { SubirLostPetsComponent } from './shared/components/organisms/formulario-lostPets/subir-lost-pets/subir-lost-pets.component';
 //rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
@@ -65,8 +67,11 @@ const routes: Routes = [
   {path: 'tienda-admin',component:TiendaAdminComponent, canActivate: [authGuard]},
   {path: "ver-adopcion",component: SolicitudAdopcionComponent },
   {path: "pago-compra", component: PagoCompraComponent},
+  {path: "pago-form", component: PagoFormComponent},
   {path:"admin-adopciones", component: AdminAdopcionesComponent},
-  {path: "solicitudes_adopcion", component: SolicitudAdopcionComponent}
+  {path: "solicitudes_adopcion", component: SolicitudAdopcionComponent},
+  {path: "lost-pets", component: LostPetsComponent},
+  {path: "subir-lost-pets", component: SubirLostPetsComponent},
 ];
 
 @NgModule({

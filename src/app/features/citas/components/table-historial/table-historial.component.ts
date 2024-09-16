@@ -28,6 +28,8 @@ export class TableHistorialComponent implements OnInit {
 
   downloadHistorial(idCita: string): void {
     this.descargarHistorial.emit(idCita);
+    console.log('idCita de table', idCita);
+    
   }
 
   onFechaSeleccionada(fecha: Date): void {
@@ -155,7 +157,7 @@ export class TableHistorialComponent implements OnInit {
   }
 
   cancelAppointment(idCita: string): void {
-    const estadoCancelado = 'Cancelado';
+    const estadoCancelado = 'Cancelada';
 
     this.appointmentService.updateAppointmentStatus(idCita, estadoCancelado).subscribe({
       next: (res: any) => {

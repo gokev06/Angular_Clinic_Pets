@@ -50,6 +50,9 @@ import { AlertacancelarcitaComponent } from './components/templates/alertacancel
 import { GestionDeHorariosComponent } from '../features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 import { ModalVerAdopcionComponent } from './components/templates/modal-ver-adopcion/modal-ver-adopcion.component';
 import { DownloadHistorialComponent } from './components/templates/download-historial/download-historial.component';
+import { PagoFormComponent } from './components/templates/pago-form/pago-form.component';
+import { SubirLostPetsComponent } from './components/organisms/formulario-lostPets/subir-lost-pets/subir-lost-pets.component';
+import { LostPetsComponent } from '../features/wanted/lost-pets/lost-pets.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -98,7 +101,10 @@ registerLocaleData(localeEs, 'es');
     GestionDeHorariosComponent,
     ModalVerAdopcionComponent,
     CarritoModalComponent,
-    DownloadHistorialComponent
+    DownloadHistorialComponent,
+    PagoFormComponent,
+    SubirLostPetsComponent,
+    LostPetsComponent
   ],
   imports: [
     CommonModule,
@@ -148,7 +154,8 @@ registerLocaleData(localeEs, 'es');
     GestionDeHorariosComponent,
     BtnregistroComponent,
     ModalVerAdopcionComponent,
-    CarritoModalComponent
+    CarritoModalComponent,
+    LostPetsComponent
   ]
 })
 export class SharedModule { }

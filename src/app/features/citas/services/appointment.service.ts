@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AppointmentService {
-  private apiUrl = 'http://localhost:10101/';
+  private apiUrl = 'http://localhost:10101/schedule';
   private apiUrl_1 = 'http://localhost:10101';
 
   constructor(private http: HttpClient) {}
@@ -83,7 +83,7 @@ export class AppointmentService {
     if (token) {
         headers = headers.set('Authorization', `Bearer ${token}`);
     }
-    return this.http.put(`${this.apiUrl_1}/cancelAppointment/${idCita}`, { estado }, { headers });
+    return this.http.put(`${this.apiUrl_1}/updateAppointment/${idCita}`, { estado }, { headers });
   }
 
   getAppointments2(): Observable<any[]> {
