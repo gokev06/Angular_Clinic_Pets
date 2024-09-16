@@ -181,7 +181,7 @@ export class AgregarProductoComponent implements OnInit {
                   imageHeight: 100,
                   imageAlt: 'Descripción de la imagen'
                 }).then(() => {
-                  this.router.navigate(['/home-admin']);
+                  this.router.navigate(['/tienda-admin']);
                 });
               }
             });

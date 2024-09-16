@@ -6,15 +6,15 @@
         <img src="../../../../../assets/icons/eliminar (1) 1.png" alt="" (click)="closemodaladopcion()">
     </div>
     <div class="img">
-      <img src="../../../../../assets/images/imghome/coco 2.png" alt="">
-    </div> 
+      <img [src]="datos.imagenMascota" [alt]="datos.nombreMascota">
+    </div>
     <div class="informacion">
-    <p>Nombre: COCO</p>
-    <p>Edad: 6 años</p>
-    <p>Sexo: Macho</p>
-    <p>Raza:</p>
-    <p>Vacunado: si</p>
-    <p>Esterelizado: si</p>
+    <p>Nombre: {{datos.nombreMascota}}</p>
+    <p>Edad: {{datos.edadMascota}} años</p>
+    <p>Sexo: {{datos.sexo}}</p>
+    <p>Raza: {{datos.especieMascota}}</p>
+    <p>Vacunado: {{datos.estadoVacunacionMascota}}</p>
+    <p>Esterelizado: {{datos.esterilizacionMascota}}</p>
   </div>
     </div>
   </div>

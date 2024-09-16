@@ -23,16 +23,9 @@ import { HeaderAdminAdopcionComponent } from './components/header-admin-adopcion
 
 @NgModule({
   declarations: [
-    HeaderadopcionComponent,
-     CardsadopcionComponent,
      CardsComponent,
-     AdminAdopcionesComponent,
      AdminCardsComponent,
      AdmiCardsNuevaComponent,
-     AdmiHeaderComponent,
-     HeaderAdminAdopcionComponent,
-     
-
   ],
   imports: [
     FormsModule,
@@ -43,8 +36,6 @@ import { HeaderAdminAdopcionComponent } from './components/header-admin-adopcion
 
   ],
    exports:[
-    HeaderadopcionComponent,
-     CardsadopcionComponent,
      CardsComponent,
      SharedModule
 

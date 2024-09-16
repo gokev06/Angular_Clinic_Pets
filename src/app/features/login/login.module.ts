@@ -10,7 +10,6 @@ import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
-    LoginComponent
   ],
   imports: [
     CommonModule,

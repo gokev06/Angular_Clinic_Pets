@@ -45,6 +45,9 @@ import { AdmiCardsNuevaComponent } from './adopcion/components/admi-cards-nueva/
 import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-header.component';
 import { HeaderAdminAdopcionComponent } from './adopcion/components/header-admin-adopcion/header-admin-adopcion.component';
 
+import { InventarioComponent } from './tienda/pages/inventario/inventario.component';
+import { InventarioDatosComponent } from './tienda/components/inventario-datos/inventario-datos.component';
+import {  HeaderInventarioComponent } from './tienda/components/header-inventario/header-inventario.component';
 @NgModule({
   declarations: [
     GestionCitasComponent,
@@ -81,10 +84,13 @@ import { HeaderAdminAdopcionComponent } from './adopcion/components/header-admin
    SolicitudAdopcionComponent,
    CartaSolicitudAdopcionComponent,
     AdminCardsComponent,
-    AdminAdopcionesComponent, 
+    AdminAdopcionesComponent,
     AdmiCardsNuevaComponent,
     AdmiHeaderComponent,
     HeaderAdminAdopcionComponent,
+    InventarioComponent,
+    HeaderInventarioComponent,
+    InventarioDatosComponent
   ],
   imports: [
     CommonModule,

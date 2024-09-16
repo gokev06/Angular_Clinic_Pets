@@ -9,6 +9,8 @@ import { HeaderTiendaComponent } from './components/header-tienda/header-tienda.
 import { TiendaAdminComponent } from './pages/tienda-admin/tienda-admin.component';
 import { CardAdminComponent } from './components/card-admin/card-admin.component';
 import { PagoCompraComponent } from './pages/pago-compra/pago-compra.component';
+import { InventarioComponent } from './pages/inventario/inventario.component';
+import { HeaderInventarioComponent } from './components/header-inventario/header-inventario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,6 @@ import { PagoCompraComponent } from './pages/pago-compra/pago-compra.component';
     TiendaAdminComponent,
     CardAdminComponent,
     PagoCompraComponent,
-    CommonModule
   ],
   imports: [
     CommonModule,

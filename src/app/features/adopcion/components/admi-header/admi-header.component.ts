@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AdmiHeaderComponent implements OnInit{
 
-  notificationCount: number = 2; // Cambia este valor según el número de notificaciones
+  notificationCount: number = 1; // Cambia este valor según el número de notificaciones
 
   constructor(private router: Router) {}
 
@@ -31,7 +31,7 @@ export class AdmiHeaderComponent implements OnInit{
 
 
   navigateToNotifications(): void {
-    this.router.navigate(['/ver-adopcion']); // Redirige a la ruta deseada
+    this.router.navigate(['/solicitud_adopcion']); // Redirige a la ruta deseada
   }
 
 
