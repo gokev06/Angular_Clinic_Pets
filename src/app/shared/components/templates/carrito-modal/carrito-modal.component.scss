@@ -77,7 +77,10 @@
 display: flex;
 align-items: center;
 margin-top: 15px;
+font-size: 20px;
+
 }
+
 .mocapi{
     display: flex;
     justify-content: space-around;
@@ -107,12 +110,13 @@ margin-top: 15px;
 .info1{
     margin-top: 20px;
 }
+
 .info2 , .producto{
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
-    width: 300px;
+    width: 50%;
 }
 
 
@@ -122,7 +126,7 @@ margin-top: 15px;
 }
 
 .mocapi{
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .imagen-principal , .info1 h1 {
@@ -134,9 +138,9 @@ width: 300px;
     padding-left: 15px;
 }
 .imagen-principal img{
-    width: 120px;
+    width: 100px;
     height: 100px;
-    padding: 10px;
+    padding: 5px;
 
 
 }
@@ -199,7 +203,6 @@ width: 300px;
   }
 
   .delete-button {
-    background-color: #FF4C4C;
     color: white;
     border: none;
     padding: 5px;
@@ -207,4 +210,171 @@ width: 300px;
     border-radius: 5px;
     font-size: 16px;
 }
+.eliminar {
+    width: 25px;
+    height: 20px;
+    margin-left: 17px;
+}
 
+
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;}
+    
+    }
+    .centrar{
+        width: 100%;
+    }
+    .centrar{
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+}
+.info2, .producto {
+    display: flex;
+    justify-content: space-evenly;
+}
+    .tabla{
+        width: 90%;
+    }
+    h1 {
+        padding-left: 15px;
+        font-size: 20px;
+    }
+    .quantity-button {
+        width: 20px;
+        height: 20px;
+        background-color: #CCC4FF;
+        color: #000000;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    .producto {
+        width: 40%;
+        margin-top: 0;
+    }
+    .precio p {
+        font-size: 13px;
+    }
+    .quantity {
+        font-size: 15px;
+    }
+    .imagen-principal img {
+        width: 30%;
+        height: 30%;
+    }
+    .nombre{
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+    }
+        @media (max-width: 650px) {
+            .centrar{
+                margin-top: -30px;
+            }
+            .carro{
+                width: 55px;
+                height: 55px;
+            }
+            .info1 h1 {
+                width: 155px;
+                font-size: 15px;
+            }
+            h1{
+                font-size: 15px;
+            }
+            .nombre{
+                font-size: 10px;
+                width: 120px;
+            }
+            .imagen-principal img {
+                width: 65px;
+                padding: 5px;
+            }
+            .quantity {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .producto {
+                width: 80%; 
+                margin-top: 0;
+            }
+            .precio p {
+                width: 60px;
+            }
+            .btn-danger {
+                width: 151px;
+                
+            }
+        }
+    /* Media queries para pantallas muy pequeñas */
+    @media (max-width: 480px) {
+        .info {
+            height: 20px;
+        }
+        h1 {
+            font-size: 11px;
+        }
+        .info1 h1 {
+            width: 130px;
+            font-size: 11px;
+            padding: 0;
+        }
+        .nombre{
+            font-size: 8px;
+            width: 70px;
+        }
+        .quantity-button {
+            width: 0px;
+            height: 0px;
+            font-size: 10px;
+        }
+        .producto{
+            width: 100%;
+        }
+        .precio p {
+            width: 70%;
+            font-size: 8px;
+        }
+        .btn-danger {
+        width: 110px;
+        height: 30px;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-success {
+        width: 110px;
+        height: 30px;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+    }
+    .eliminar{
+    width: 15px;
+    height: 11px;
+    margin-left: 0;
+    margin-right: 15px;
+    
+    }
+    .precio {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+    .carro {
+        width: 40px;
+        height: 40px;
+    }
+}
+    
+      
+    
+    
