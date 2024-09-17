@@ -45,8 +45,11 @@
     font-size: 11px;
     height: 15px;
     width: 60px;
+    height: 20px;
   }
-
+  .user h5{
+    font-size: 10px;
+  }
 }
 /* Responsivo */
 @media (max-width: 768px) {
@@ -56,43 +59,7 @@
     padding: 0px 5px;
   }
   .user {
-    height: 40px;
-    padding: 0 8px;
-  }
-  .user h3 {
-    font-size: 11px;
-    height: 15px;
-    width: 60px;
-  }
-
- 
-
-
-  .user h5{
-    font-size: 12px;
-  }
-
-  .perfil {
-    width: 35px;
     height: 35px;
-  }
-
-  .titulo {
-    font-size: 18px;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .profil {
-    width: 100px;
-    height: 45px;
-    padding: 0 10px;
-  }
-
-  .user {
-    height: 35px;
-    padding: 0 6px;
   }
 
  
@@ -100,14 +67,45 @@
   .user h5{
     font-size: 10px;
   }
-
   .perfil {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
+}
+.user h3 {
+  font-size: 11px;
+  height: 15px;
+}
+
+  .titulo {
+    font-size: 16px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .profil {
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+  }
+
+  .user {
+    height: 35px;
+  }
+
+ 
+
+  .user h5{
+    font-size: 8px;
+  }
+  .perfil {
+    width: 21px;
+    height: 21px;
 }
 .user h3 {
   font-size: 10px;
-  height: 20px;
+  height: 15px;
 
   .titulo {
     font-size: 16px;
