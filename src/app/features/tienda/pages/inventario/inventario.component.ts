@@ -14,6 +14,7 @@ export class InventarioComponent {
   categoriaSeleccionada: string = 'Todos'; // Inicialmente, muestra todos los productos
 
   constructor(private productoService: ProductoService) {}
+  
 
   ngOnInit(): void {
    this.cargarProductos();
