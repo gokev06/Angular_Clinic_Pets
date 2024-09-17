@@ -1,3 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ES+Deco&display=swap');
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  background-color: #CCC4FF;
+  padding: 0 30px;
+  border-bottom: 3px solid white;
+}
+
+.logo h1 {
+  font-size: 24px;
+  margin: 0;
+  font-family: "Playwrite ES Deco", cursive;
+}
+
+h2{
+    text-align: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.titles {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #ded8ff;
+  padding: 0 50px;
+  box-shadow: 10px 0 20px #CCC4FF ;
+}
+
+.titles a {
+  padding: 0 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+.hola, .a, .aa {
+  padding: 0 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 15px;
+  }
+
+
+  .hola, .a, .aa {
+    padding: 0 10px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 60px;
+    padding: 0 10px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .hola, .a, .aa {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+.vacio{
+  width: 60%;
+  border: 4px solid #CCC4FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #CCC4FF;
+  padding: 20px;
+}
+
+.vacio img{
+  width: 200px;
+  height: 200px;
+}
+
+.vacio h1{
+  font-size: 25px;
+}
+
 card {
   background-color: whitesmoke;
   display: flex;
@@ -53,9 +164,11 @@ strong{
 
 .info1 h5{
   margin: 0 0 0 0;
+  padding: 0 10px;
 }
 .info2 h5{
   margin: 0 0 0 0;
+  padding: 0 10px;
 }
 
 .info1{
@@ -122,6 +235,9 @@ section {
 .cartas {
     width: 20%;
     margin-left: 1%;
+    border: 2px solid #E9E1FE;
+    border-radius: 15px;
+    height: 342px;
 }
 
 h3 {

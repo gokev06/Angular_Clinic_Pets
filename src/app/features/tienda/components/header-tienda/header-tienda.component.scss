@@ -25,13 +25,6 @@ app-header-home {
     
 }
 
-  .titles {
-    width: 350px;
-    height: 40px; // Asegúrate de que la altura coincida con la del input de búsqueda
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
   .search-input {
     padding: 8px;
@@ -46,7 +39,6 @@ app-header-home {
 
 
   .hola {
-
     padding: 0 12px;
     height: 40px;
     display: flex;

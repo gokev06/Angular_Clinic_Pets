@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './admi-header.component.html',
   styleUrl: './admi-header.component.scss'
 })
-export class AdmiHeaderComponent implements OnInit{
+export class  AdmiHeaderComponent implements OnInit{
 
   notificationCount: number = 1; // Cambia este valor según el número de notificaciones
 

@@ -15,6 +15,7 @@ export class HeaderTiendaComponent implements OnInit {
   allData: DataResponse[] = [];
   userRol: string | null = null;
   viewCartBtn: boolean = false;
+  viewuser : boolean = false;
 
    @Output() search = new EventEmitter<string>();
 
@@ -37,7 +38,9 @@ export class HeaderTiendaComponent implements OnInit {
    rolSeleccionado(): void{
     this.userRol = sessionStorage.getItem('userRole');
     if (this.userRol == 'usuario') {
-       this.viewCartBtn = true
+       this.viewCartBtn = true;
+       this.viewuser= true
+
     }
   }
 
