@@ -33,17 +33,20 @@ import { PagoCompraComponent } from './features/tienda/pages/pago-compra/pago-co
 import { InventarioComponent } from './features/tienda/pages/inventario/inventario.component';
 
 
+import { PagoFormComponent } from './shared/components/templates/pago-form/pago-form.component';
+import { LostPetsComponent } from './features/wanted/lost-pets/lost-pets.component';
+import { SubirLostPetsComponent } from './shared/components/organisms/formulario-lostPets/subir-lost-pets/subir-lost-pets.component';
 //rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
   {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
-  { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
+  { path: "home" , component: PagehomeComponent}, //canActivate: [authGuard]}, // ventana home de usuario
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
   {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
-  {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
+  {path: "home-admin", component: PagesHomeAdminComponent},// canActivate: [authGuard]},
 
-  {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
+  {path: "home-vet", component: PagesHomeVetComponent},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
   {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
@@ -67,7 +70,11 @@ const routes: Routes = [
   {path: "pago-compra", component: PagoCompraComponent},
   {path:"admin-adopciones", component: AdminAdopcionesComponent},
   {path: "solicitud_adopcion", component: SolicitudAdopcionComponent},
-  {path: 'inventario', component: InventarioComponent }
+  {path: 'inventario', component: InventarioComponent },
+  {path: "pago-form", component: PagoFormComponent},
+  {path: "solicitudes_adopcion", component: SolicitudAdopcionComponent},
+  {path: "lost-pets", component: LostPetsComponent},
+  {path: "subir-lost-pets", component: SubirLostPetsComponent},
 ];
 
 @NgModule({

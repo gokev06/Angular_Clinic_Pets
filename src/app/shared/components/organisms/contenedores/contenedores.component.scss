@@ -7,10 +7,9 @@
   padding-bottom: 36px;
 }
 
-.drawer-toggle{
+.drawer-toggle {
   display: none;
 }
-
 
 .colorC {
   width: 18%;
@@ -70,126 +69,286 @@ nav {
   text-decoration: none;
 }
 
-@media (min-width: 352px) and (max-width: 480px) {
+@media (max-width: 352px) {
   .contenedores {
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 50%; /* Ajusta el menú a la mitad de la pantalla */
-      background-color: #333;
-      z-index: 1000;
-      transition: left 0.3s ease;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    background-color: #333;
+    z-index: 1000;
+    transition: left 0.3s ease;
   }
 
   .contenedores.open {
-      left: 0;
-      height: 100%;
-      width: 50%; /* Mantiene el ancho del menú en la mitad de la pantalla */
+    left: 0;
+    height: 100%;
+    width: 50%;
   }
 
   .colorC {
-      width: 100%;
-      margin: 0;
-      padding: 15px;
-      border-bottom: 1px solid #444;
-      height: 90px;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    height: 90px;
   }
 
   .colorC .titulos {
-      color: white;
-      font-size: 14px;
+    color: white;
+    font-size: 14px;
   }
 
   .rounded-container {
-      border: none;
-      background-color: transparent;
-      margin-top: -60px;
+    border: none;
+    background-color: transparent;
+    margin-top: -60px;
   }
 
   .rounded-container img {
-      width: 30px;
-      height: 30px;
+    width: 30px;
+    height: 30px;
   }
 
   .drawer-toggle {
-      position: fixed;
-      top: 38px;
-      left: 10px;
-      background-color: transparent;
-      color: black;
-      border: none;
-      padding: 10px;
-      z-index: 1001;
-      cursor: pointer;
-      font-size: 18px;
-      width: 38px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    position: fixed;
+    top: 38px;
+    left: 10px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 10px;
+    z-index: 1001;
+    cursor: pointer;
+    font-size: 18px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .titulos {
-      font-size: 10px !important;
-      cursor: pointer;
-      text-decoration: none;
-      display: flex;
-      justify-content: center;
-      color: #9588E4;
-      margin-bottom: 175px;
+    font-size: 10px !important;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    color: #9588E4;
+    margin-bottom: 175px;
   }
 
   .contenedores.open .drawer-toggle {
-      font-size: 16px;
-      width: 20px;
-      height: 20px;
-      padding: 5px;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+  }
+
+  /* Establecer tamaño fijo para los botones del menú */
+  .menu-button {
+    width: 100%;
+    height: 50px;
+    background-color: #444;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-button:hover {
+    background-color: #555;
+  }
+}
+
+@media (min-width: 352px) and (max-width: 480px) {
+  .contenedores {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    background-color: #333;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .contenedores.open {
+    left: 0;
+    height: 100%;
+    width: 50%;
+  }
+
+  .colorC {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    height: 90px;
+  }
+
+  .colorC .titulos {
+    color: white;
+    font-size: 14px;
+  }
+
+  .rounded-container {
+    border: none;
+    background-color: transparent;
+    margin-top: -60px;
+  }
+
+  .rounded-container img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .drawer-toggle {
+    position: fixed;
+    top: 38px;
+    left: 10px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 10px;
+    z-index: 1001;
+    cursor: pointer;
+    font-size: 18px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titulos {
+    font-size: 10px !important;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    color: #9588E4;
+    margin-bottom: 175px;
+  }
+
+  .contenedores.open .drawer-toggle {
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+  }
+
+  /* Tamaño fijo para botones del menú en pantallas medianas */
+  .menu-button {
+    width: 100%;
+    height: 50px;
+    background-color: #444;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-button:hover {
+    background-color: #555;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
   .contenedores {
-      width: 100%;
-      height: 340px;
+    flex-direction: row; /* Asegura que los elementos se alineen en fila */
+    justify-content: center; /* Centra los contenedores en el eje horizontal */
+    padding: 20px; /* Añade algo de padding para evitar que se vean muy apretados */
+    gap: 57px; /* Añade un espacio entre los contenedores */
+    width: 100%;
+    height: 250px;
   }
 
   .colorC {
-      width: 18%;
-      margin-right: 50px; /* Aumenta el margen a la derecha */
-  }
-}
-
-@media (min-width: 769px) and (max-width: 920px) {
-  .contenedores {
-      width: 100%;
-      height: 320px;
-      padding-bottom: 36px;
-      align-items: center;
-      justify-content: center;
-  }
-
-  .colorC {
-      width: 22%; /* Ajusta el ancho si es necesario */
-      margin-right: 50px; /* Aumenta el margen a la derecha */
-  }
-
-  .position {
-      align-items: center;
-      justify-content: center;
+    width: 20%; /* Ajuste proporcional para pantallas medianas */
+    height: auto; /* Permite que el contenido ajuste su altura */
   }
 
   .rounded-container {
-      width: 200px; /* Tamaño fijo */
-      height: 200px; /* Tamaño fijo */
-      margin: 0 88px;
+    width: 130px; /* Ajuste para que los contenedores sean más grandes en pantallas medianas */
+    height: 130px;
+    margin: 0 30px; /* Añade un margen horizontal para separarlos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
   }
 
   .rounded-container img {
-      width: 50px; /* Tamaño fijo */
-      height: 50px; /* Tamaño fijo */
+    width: 60%; /* Ajusta el tamaño de la imagen dentro del contenedor */
+    height: 60%;
   }
 
+  /* Ajusta el tamaño de los títulos en pantallas medianas */
   .titulos {
-      font-size: 24px;
+    font-size: 16px; /* Aumenta el tamaño del texto */
+    text-align: center;
+    color: #9588E4;
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 20px; /* Añade un espacio superior para que el menú no esté tan cerca de los elementos superiores */
   }
 }
+
+
+
+@media (min-width: 769px) and (max-width: 920px) {
+  .contenedores {
+    flex-direction: row; /* Asegura que los elementos se alineen en fila */
+    justify-content: center; /* Centra los contenedores en el eje horizontal */
+    padding: 20px; /* Añade algo de padding para evitar que se vean muy apretados */
+    gap: 57px; /* Añade un espacio entre los contenedores */
+    width: 100%;
+    height: 250px;
+  }
+
+  .colorC {
+    width: 20%; /* Ajuste proporcional para pantallas medianas */
+    height: auto; /* Permite que el contenido ajuste su altura */
+  }
+
+  .rounded-container {
+    width: 130px; /* Ajuste para que los contenedores sean más grandes en pantallas medianas */
+    height: 130px;
+    margin: 0 30px; /* Añade un margen horizontal para separarlos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .rounded-container img {
+    width: 60%; /* Ajusta el tamaño de la imagen dentro del contenedor */
+    height: 60%;
+  }
+
+  /* Ajusta el tamaño de los títulos en pantallas medianas */
+  .titulos {
+    font-size: 16px; /* Aumenta el tamaño del texto */
+    text-align: center;
+    color: #9588E4;
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 20px; /* Añade un espacio superior para que el menú no esté tan cerca de los elementos superiores */
+  }
+}
+
+

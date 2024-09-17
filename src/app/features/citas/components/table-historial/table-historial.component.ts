@@ -14,6 +14,7 @@ export class TableHistorialComponent implements OnInit {
   @Input() citas: any[] = [];
   @Output() citaEliminada = new EventEmitter<string>();
   @Output() citaActualizada = new EventEmitter<void>();  // Evento para actualizar la tabla
+  @Output() descargarHistorial = new EventEmitter<string>();
 
   mostrarCalendario: boolean = false;
   citaAReagendar: any = null;
@@ -23,7 +24,16 @@ export class TableHistorialComponent implements OnInit {
 
   constructor(private appointmentService: AppointmentService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.citas);
+    
+  }
+
+  downloadHistorial(idCita: string): void {
+    this.descargarHistorial.emit(idCita);
+    console.log('idCita de table', idCita);
+    
+  }
 
   onFechaSeleccionada(fecha: Date): void {
     this.fechaSeleccionada = fecha;
@@ -150,7 +160,7 @@ export class TableHistorialComponent implements OnInit {
   }
 
   cancelAppointment(idCita: string): void {
-    const estadoCancelado = 'Cancelado';
+    const estadoCancelado = 'Cancelada';
 
     this.appointmentService.updateAppointmentStatus(idCita, estadoCancelado).subscribe({
       next: (res: any) => {

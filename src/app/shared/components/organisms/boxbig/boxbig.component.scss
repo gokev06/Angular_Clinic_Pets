@@ -16,17 +16,27 @@
     padding-top: 28px;
 }
 
+@media (max-width: 352px){
+    .caja1 { 
+        display: none;
+    }
+
+    .cajas{
+        width: 100%;
+        height: 400px;
+    }
+}
+
 /* Responsive para pantallas pequeñas (352px - 480px) */
 @media (min-width: 352px) and (max-width: 480px) {
     .box {
         width: 100%;
-        height: 313px;
-        display: flex;
         flex-direction: column;
     }
 
     .cajas {
         width: 100%;
+        height: 400px;
     }
 
     .caja1 {
@@ -69,4 +79,21 @@
         width: 100%; 
         padding-top: 28px;
     }
+}
+
+
+@media (max-width: 980px){
+    .box {
+        width: 100%;
+      
+    }
+
+    .cajas {
+        width: 0%;
+        display: none;
+    }
+
+    .caja1 {
+        width: 100%; 
+        padding-top: 28px;}
 }

@@ -16,21 +16,17 @@ import { AdmiHeaderComponent } from './components/admi-header/admi-header.compon
 import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.component';
 import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
 import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud-adopcion.component';
+import { HeaderAdminAdopcionComponent } from './components/header-admin-adopcion/header-admin-adopcion.component';
+import { HeaderUserComponent } from './components/header-user/header-user.component';
 
 
 
 
 @NgModule({
   declarations: [
-    HeaderadopcionComponent,
-     CardsadopcionComponent,
      CardsComponent,
-     AdminAdopcionesComponent,
      AdminCardsComponent,
      AdmiCardsNuevaComponent,
-     AdmiHeaderComponent,
-     
-
   ],
   imports: [
     FormsModule,
@@ -41,8 +37,6 @@ import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud
 
   ],
    exports:[
-    HeaderadopcionComponent,
-     CardsadopcionComponent,
      CardsComponent,
      SharedModule
 

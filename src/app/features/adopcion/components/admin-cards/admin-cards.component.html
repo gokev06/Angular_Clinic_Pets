@@ -1,10 +1,13 @@
-<app-admi-header (search)="onSearch($event)"></app-admi-header>
+
 
 <section class="emptyState" *ngIf="adopciones.length <= 0">
-    <!--<p id="ono">¡Oh no!</p>
-    <img src="../../../../../assets/images/chaplanitoclientes.jpeg" alt="">
-    <p id="noTienesClientes">Aún no tienes clientes</p>
-    COLOCAR ESTADO VACIO-->
+    <div class="vacio">
+        <h1>Vaya...</h1>
+        <img src="../../../../../assets/images/gato.png" alt="">
+        <h2>Parece que no hay adopciones para mostrar</h2>
+        <h3>Añade nuevas solicitudes de adopciones para que aparezcan aqui.</h3>
+    
+      </div>
 </section>
 
 <section *ngIf="adopciones.length > 0" class="background">
@@ -62,7 +65,7 @@
     </div>
 </section>
 
-<section *ngIf="filteredAdopciones.length === 0" class="emptyState">
+<section *ngIf="adopciones.length > 0 && filteredAdopciones.length === 0 " class="emptyState">
     <div class="estado-vacio">
         <h1>No hay resultados que coincidan con tu búsqueda.</h1>
         <img src="../../../../../assets/icons/muelin (1) (1).gif" alt="">

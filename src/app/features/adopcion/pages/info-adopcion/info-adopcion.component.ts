@@ -8,15 +8,26 @@ import { adopcion, SolicitudAdopcionService, AdopcionesInfo } from '../../servic
 })
 export class InfoAdopcionComponent implements OnInit{
   dataPets: AdopcionesInfo | null = null;
-
+  userRol: string | null = null;
 
 
   mostrarInfo: boolean = true;  // Mostrar información por defecto
+
+  viewuser: boolean = false;
 
   constructor(private solicitudAdopciones: SolicitudAdopcionService) {}
 
   ngOnInit(): void {
     this.callPetId();
+    this.rolSeleccionado();
+  }
+
+  rolSeleccionado(): void{
+    this.userRol = sessionStorage.getItem('userRole');
+    if (this.userRol == 'usuario') {
+       this.viewuser= true
+
+    }
   }
 
   callPetId():void{

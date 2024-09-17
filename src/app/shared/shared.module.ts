@@ -50,6 +50,14 @@ import { AlertacitaComponent } from './components/templates/alertacita/alertacit
 import { AlertacancelarcitaComponent } from './components/templates/alertacancelarcita/alertacancelarcita.component';
 import { GestionDeHorariosComponent } from '../features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 import { ModalVerAdopcionComponent } from './components/templates/modal-ver-adopcion/modal-ver-adopcion.component';
+import { EstadoCargaComponent } from './components/templates/estado-carga/estado-carga.component';
+import { HeaderVetComponent } from './components/organisms/header-vet/header-vet.component';
+import { HeaderAdminComponent } from './components/organisms/header-admin/header-admin.component';
+import { DownloadHistorialComponent } from './components/templates/download-historial/download-historial.component';
+import { PagoFormComponent } from './components/templates/pago-form/pago-form.component';
+import { SubirLostPetsComponent } from './components/organisms/formulario-lostPets/subir-lost-pets/subir-lost-pets.component';
+import { LostPetsComponent } from '../features/wanted/lost-pets/lost-pets.component';
+import { PagoCompraComponent } from '../features/tienda/pages/pago-compra/pago-compra.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -98,7 +106,16 @@ registerLocaleData(localeEs, 'es');
     AlertacancelarcitaComponent,
     GestionDeHorariosComponent,
     ModalVerAdopcionComponent,
-    CarritoModalComponent
+    CarritoModalComponent,
+    EstadoCargaComponent,
+    CarritoModalComponent,
+    HeaderVetComponent,
+    HeaderAdminComponent,
+    DownloadHistorialComponent,
+    PagoFormComponent,
+    SubirLostPetsComponent,
+    LostPetsComponent,
+    PagoCompraComponent
   ],
   imports: [
     CommonModule,
@@ -149,7 +166,12 @@ registerLocaleData(localeEs, 'es');
     BtnregistroComponent,
     ModalVerAdopcionComponent,
     CarritoModalComponent,
-    ChatBotComponent
+    HeaderVetComponent,
+    HeaderAdminComponent,
+    ChatBotComponent,
+    EstadoCargaComponent,
+    LostPetsComponent,
+    PagoCompraComponent
   ]
 })
 export class SharedModule { }

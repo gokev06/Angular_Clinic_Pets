@@ -1,92 +1,84 @@
-/* Estilo para la sección principal */
-section {
-  width: 100%;
-  height: 100%;
-  padding-top: 100px; /* Espacio superior para desplazar el contenido hacia abajo */
-}
-
-/* Estilo para el contenedor */
 .container {
-  border-radius: 10px;
-  border: 1px solid #E0DBFF; /* Borde de color morado claro */
-  width: 100%;
-  max-width: 800px; /* Limita el ancho máximo del contenedor */
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
-  padding: 20px; /* Espacio interno alrededor del contenido */
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff; /* Fondo blanco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
-/* Estilo para el título */
-h2 {
-  font-size: 32px;
-  cursor: pointer;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  color: #3c3858; /* Color gris oscuro para el texto */
-  margin-bottom: 20px; /* Espacio inferior del título */
-}
-
-/* Estilo para la tabla */
 table {
   width: 100%;
-  border-collapse: collapse; /* Elimina el espacio entre bordes de celdas */
-  margin-bottom: 20px; /* Espacio inferior de la tabla */
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-table thead {
-  background-color: #E0DBFF; /* Fondo morado claro para el encabezado */
-  color: #3c3858; /* Color gris oscuro para el texto */
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
-table th, table td {
-  padding: 12px; /* Espacio interno en celdas */
-  text-align: left; /* Alineación del texto a la izquierda */
-  border-bottom: 1px solid #ddd; /* Borde inferior para las celdas */
+th {
+  background-color: #f4f4f4;
 }
 
-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Fondo gris claro para filas pares */
-}
-
-table tbody tr:hover {
-  background-color: #f1f1f1; /* Fondo gris más oscuro al pasar el cursor */
-}
-
-/* Estilo para el total */
 .total {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px; /* Espacio superior */
+  text-align: right;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
-.botoncenter{
-  display: flex;
-  justify-content: center;
-}
-/* Estilo para el botón */
+
 button {
-  background-color: #CCC4FF; /* Fondo morado claro */
-  color: #607175; /* Color del texto */
   padding: 10px 20px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
+  background-color: #3085d6;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 20px; /* Espacio superior */
-  font-size: 16px; /* Tamaño de fuente */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones para efectos de hover y active */
-  width: 200px;
 }
 
-/* Efecto hover para el botón */
 button:hover {
-  background-color: #B7A5FF; /* Fondo morado ligeramente más claro */
+  background-color: #2874d3;
 }
 
-/* Efecto active para el botón */
-button:active {
-  background-color: #9F8EFF; /* Fondo morado más oscuro al hacer clic */
-  transform: scale(0.98); /* Reducción de tamaño al hacer clic */
+.payment-overlay {
+  display: none;
+  
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+
+.payment-overlay.show {
+  display: block; 
+}
+
+.payment-content {
+  background-color: #fff;
+  margin: 50px auto; 
+  padding: 10px;
+  border: 1px solid #888;
+  width: 600px; 
+  max-height: 86%;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -17,6 +17,7 @@ export class RegistroComponent implements OnInit {
   registerForm!: FormGroup;
   hasAttemptedSubmit = false;
   errorMessage: string = '';
+  isLoading : boolean = false
 
   constructor(
     private fb: NonNullableFormBuilder,
@@ -55,8 +56,9 @@ export class RegistroComponent implements OnInit {
 
     const userData = this.registerForm.value;
     const registerUrl = this.appointmentRegisterService.getRegistroUrl(); // Obtener URL desde el servicio
-
+    this.isLoading = true
     try {
+      this.isLoading = false
       const response = await fetch(registerUrl, {
         method: 'POST',
         headers: {
@@ -66,10 +68,12 @@ export class RegistroComponent implements OnInit {
       });
 
       if (!response.ok) {
+        this.isLoading = false
         const errorBody = await response.json();
         console.error('Error details', errorBody);
 
         if (errorBody.errors && Array.isArray(errorBody.errors)) {
+          this.isLoading = false
           errorBody.errors.forEach((error: any) => {
             console.error(`${error.path}: ${error.msg}`);
           });
@@ -77,12 +81,14 @@ export class RegistroComponent implements OnInit {
           throw new Error('Error desconocido en el servidor');
         }
       } else {
+        this.isLoading = false
         const data = await response.json();
         console.log('Registro exitoso:', data);
         this.showSuccess()
         this.router.navigate(['login']);
       }
     } catch (error: any) {
+      this.isLoading = false;
       console.error('Error en el registro:', error.message || 'Error desconocido');
     }
   }

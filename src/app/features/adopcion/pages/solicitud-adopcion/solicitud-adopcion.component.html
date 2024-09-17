@@ -1,7 +1,15 @@
-<app-header [ruta]="'/Solicitud-Adopcion'" [title]="'Solicitud-Adopcion'"></app-header>
+<app-header-admin></app-header-admin>
+<section class="section" *ngIf="adopciones.length <= 0">
+    <div class="vacio">
+        <h1>Vaya...</h1>
+        <img src="../../../../../assets/images/gato.png" alt="">
+        <h2>Parece que no hay solicitudes para mostrar</h2>
+        <h3>Vuelve mas tarde para mirar si ya hay una solicitud nueva.</h3>
+    
+      </div>
+</section>
 
-
-<section>
+<section *ngIf="adopciones.length > 0">
 <app-carta-solicitud-adopcion *ngFor="let adopcion of adopciones" [datos]="adopcion"></app-carta-solicitud-adopcion>
 </section>
 

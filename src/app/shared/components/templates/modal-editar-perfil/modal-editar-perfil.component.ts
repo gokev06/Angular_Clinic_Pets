@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 export class ModalEditarPerfilComponent  implements OnInit{
   @Output() perfil = new EventEmitter<any>();
 
-  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 10px; padding: 0px 8px; width: 90%; margin-bottom: 10px; background: rgba(204, 196, 255, 1)";
+  estilos = "border:none; border-radius:10px ;height: 30px; margin-top: 10px; padding: 0px 8px; width: 90%; margin-bottom: 10px; background: #f0f0f0 ; border: 2px solid  rgb(158, 131, 194)";
 
     // Evento para cerrar el modal de edición
   @Output() closeedit = new EventEmitter<void>();
