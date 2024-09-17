@@ -16,7 +16,8 @@ export class PerfilComponent implements OnInit {
 
   @Input() user : any = {
     nombre: "Kevin",
-    rol: "Usuario"
+    rol: "Usuario",
+    imagenPerfil: "../../../../../assets/images/imgcitas/Pdefecto.jpg"
   }
 
   constructor(private http: HttpClient){}
@@ -59,6 +60,7 @@ export class PerfilComponent implements OnInit {
             if (response.status === 'success' && response.data) {
               this.user.nombre = response.data.nombreUsuario
               this.user.rol = response.data.rol
+              this.user.imagenPerfil = response.data.imagenPerfil
             }
           },
           error: (error: any) => {
