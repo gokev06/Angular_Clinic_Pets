@@ -12,6 +12,10 @@
     height: 249px;
 }
 
+img{
+    border-radius: 15px;
+}
+
 .pricipalbox {
     width: 65%;
     height: 157px;
@@ -70,6 +74,15 @@ img{
     display: block;
 }
 
+@media (max-width: 351px) {
+    .tamaño {
+     
+        display: none; /* Manteniendo display: none */
+   
+    }
+
+}
+
 /* Diseño para pantallas pequeñas (352px - 480px) */
 @media (min-width: 352px) and (max-width: 480px) {
     .tamaño {
@@ -110,7 +123,6 @@ img{
 /* Diseño para pantallas medianas (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
     .tamaño {
-     
         display: none; /* Manteniendo display: none */
         padding-left: 0;
     }
@@ -152,7 +164,7 @@ img{
 @media (min-width: 769px) and (max-width: 920px) {
     .tamaño {
         width: 90%;
-        margin-left: 10px;
+        margin-left: 35px;
         justify-content: center;
         display: flex;
         align-items: center;
@@ -167,6 +179,7 @@ img{
     .pricipalbox {
         width: 80%;
         height: 157px;
+        margin-left: 10px;
     }
 
     .content {

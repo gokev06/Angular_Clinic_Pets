@@ -23,7 +23,10 @@ export class TableHistorialComponent implements OnInit {
 
   constructor(private appointmentService: AppointmentService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.citas);
+    
+  }
 
   onFechaSeleccionada(fecha: Date): void {
     this.fechaSeleccionada = fecha;

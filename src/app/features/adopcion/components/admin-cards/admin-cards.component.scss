@@ -9,11 +9,14 @@ section {
     padding: 0 5px;
 }
 
+
 .container-cards {
     width: 85%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;  // Alinea al inicio cuando haya una carta sola
     flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;  // Espacio entre las cartas
 }
 
 
@@ -208,10 +211,10 @@ h2 {
     }
 }
 
-/*
+
 @media  (max-width: 768px) {
     .filtro {
-        width: 20%; /* Reducir el ancho del filtro para pantallas más pequeñas 
+        width: 20%;  
     }
 
     .cartas {
@@ -258,4 +261,3 @@ h2 {
         width: 100%; 
     }
 }
-*/

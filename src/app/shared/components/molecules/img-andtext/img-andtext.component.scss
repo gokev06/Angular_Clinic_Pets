@@ -2,19 +2,27 @@
     width: 100%;
     height: 400px;
     display: flex;
-    padding-left: 72px;
-    padding-bottom: 90px;
+    padding-bottom: 100px;
+    /* Alineación por defecto para pantallas grandes */
+    align-items: center;
 }
 
 .tamaño {
     width: 45%;
     height: 350px;
+    display: flex;
+    align-items: center;
     margin-left: 56px;
     margin-top: 24px;
 }
 
 img{
     border-radius: 15px;
+}
+
+.tamaño img {
+    border-radius: 15px;
+    width: 70%; /* Asegura que la imagen no se desborde */
 }
 
 .cjamorada {
@@ -28,24 +36,106 @@ img{
 }
 
 .cjamorada p {
-    font-size: 16px;
+    font-size: 14px;
 }
+
 /* Diseño para pantallas pequeñas (hasta 480px) */
-@media (max-width: 480px) {
+@media (max-width: 352px) {
     .cajagrande {
-        height: auto;
         flex-direction: column;
         align-items: center;
         padding-left: 0;
+        width: 100%;
+        padding-bottom: 20px;
+        height: 300px;
     }
 
     .cjamorada {
-        width: 300px;
-        height: 200px;
-        margin-right: 0;
-        margin-top: 45px;
-        align-items: center;
+        width: 80%;
+        height: auto;
+        margin-top: 20px;
+        padding: 12px;
     }
+
+    .cjamorada p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .tamaño {
+        width: 90%;
+        height: auto;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tamaño img {
+        width: 100%;
+        max-width: 150px;
+        height: 250px; /* Tamaño máximo para pantallas pequeñas */
+    }
+}
+
+/* Diseño para pantallas entre 353px y 480px */
+@media (min-width: 353px) and (max-width: 480px) {
+    .cajagrande {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+        width: 100%;
+        padding-bottom: 30px;
+        margin-bottom: 100px;
+        height: auto; /* Ajuste para que se adapte al contenido */
+    }
+
+    .cjamorada {
+        width: 85%; /* Un poco más ancho para estas pantallas */
+        height: auto;
+        margin-top: 20px;
+        padding: 14px; /* Aumenta un poco el padding */
+        border-radius: 10px;
+    }
+
+    .cjamorada p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .tamaño {
+        width: 85%; /* Un poco más reducido para mejorar el responsive */
+        height: auto;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tamaño img {
+        width: 100%;
+        max-width: 200px; /* Tamaño máximo para imágenes en este rango de pantalla */
+        height: auto; /* Deja que la altura sea automática */
+    }
+}
+ 
+
+/* Diseño para pantallas medianas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+     .cajagrande {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 10px;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .cjamorada {
+        width: 40%;
+        height: auto;
+        margin-top: 20px;
+        padding: 12px;
+    }
+
+    
 
     .cjamorada p {
         font-size: 12px;
@@ -53,85 +143,44 @@ img{
     }
 
     .tamaño {
-        width: 300px;
-        height: 200px;
+        width: 48%;
+        height: auto;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        margin-top: 40px;
-    }
-
-    .tamaño img {
-        width: 180px;
-        margin: 0 auto;
-    }
-}
-
-/* Diseño para pantallas medianas (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-    .cajagrande {
-        width: 100%;
-        padding-left: 0;
-        padding-top: 10px;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .cjamorada {
-        width: 400px;
-        height: 250px;
-    }
-
-    .cjamorada p {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .tamaño {
-        width: 350px;
-        height: 250px;
         margin-left: 0;
-        align-items: center;
         justify-content: center;
     }
 
     .tamaño img {
-        width: 200px;
+        width: 50%;
+        max-width: 300px;
     }
 }
-
 
 /* Diseño para pantallas grandes (769px - 920px) */
 @media (min-width: 769px) and (max-width: 920px) {
     .cajagrande {
-        width: 100%;
         padding-left: 0;
-        padding-top: 10px;
         margin-right: 20px;
-        align-items: center;
+        justify-content: space-around;
     }
 
     .cjamorada {
-        width: 500px; /* Tamaño fijo */
-        height: 300px; /* Tamaño fijo */
+        width: 50%;
+        height: auto;
     }
 
     .cjamorada p {
-        font-size: 14px;
+        font-size: 16px;
         text-align: center;
     }
 
     .tamaño {
-        width: 400px; /* Tamaño fijo */
-        height: 300px; /* Tamaño fijo */
-        margin-left: 20px;
-        align-items: center;
-        justify-content: center;
+        width: 45%;
+        height: auto;
     }
 
     .tamaño img {
-        width: 250px; /* Tamaño fijo */
+        width: 100%;
+        max-width: 350px;
     }
 }

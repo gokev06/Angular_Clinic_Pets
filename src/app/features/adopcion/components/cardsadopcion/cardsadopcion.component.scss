@@ -109,17 +109,20 @@ h2{
   font-size: 25px;
 }
 
-card {
-  background-color: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 15px;
-  margin-bottom: 100px;
-  cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  /*border: 1px solid #ccc;  Borde gris claro */
-}
+
+
+
+.container-cards {
+    width: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* Si hay solo una carta, alinearla al inicio */
+    &.una-carta {
+      justify-content: flex-start;
+    }
+  }
 
 
 h2{
@@ -238,6 +241,7 @@ section {
     border: 2px solid #E9E1FE;
     border-radius: 15px;
     height: 342px;
+    box-shadow: 10px 10px 20px #E9E1FE;
 }
 
 h3 {
