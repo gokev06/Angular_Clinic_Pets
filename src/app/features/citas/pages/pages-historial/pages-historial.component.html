@@ -10,9 +10,10 @@
   </div>
 </section>
 <section *ngIf="citas.length > 0 " class="background">
-  <app-table-historial
-    [citas]="citas"
-    (citaEliminada)="onCitaEliminada($event)"
-    (citaActualizada)="onCitaActualizada()">
+  <app-table-historial 
+    [citas]="citas"  
+    (citaEliminada)="onCitaEliminada($event)" 
+    (citaActualizada)="onCitaActualizada()"
+    (descargarHistorial)="onDownloadHistorial($event)">
   </app-table-historial>
 </section>

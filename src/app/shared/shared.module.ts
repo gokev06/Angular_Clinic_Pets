@@ -53,6 +53,11 @@ import { ModalVerAdopcionComponent } from './components/templates/modal-ver-adop
 import { EstadoCargaComponent } from './components/templates/estado-carga/estado-carga.component';
 import { HeaderVetComponent } from './components/organisms/header-vet/header-vet.component';
 import { HeaderAdminComponent } from './components/organisms/header-admin/header-admin.component';
+import { DownloadHistorialComponent } from './components/templates/download-historial/download-historial.component';
+import { PagoFormComponent } from './components/templates/pago-form/pago-form.component';
+import { SubirLostPetsComponent } from './components/organisms/formulario-lostPets/subir-lost-pets/subir-lost-pets.component';
+import { LostPetsComponent } from '../features/wanted/lost-pets/lost-pets.component';
+import { PagoCompraComponent } from '../features/tienda/pages/pago-compra/pago-compra.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -105,7 +110,12 @@ registerLocaleData(localeEs, 'es');
     EstadoCargaComponent,
     CarritoModalComponent,
     HeaderVetComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent,
+    DownloadHistorialComponent,
+    PagoFormComponent,
+    SubirLostPetsComponent,
+    LostPetsComponent,
+    PagoCompraComponent
   ],
   imports: [
     CommonModule,
@@ -159,7 +169,9 @@ registerLocaleData(localeEs, 'es');
     HeaderVetComponent,
     HeaderAdminComponent,
     ChatBotComponent,
-    EstadoCargaComponent
+    EstadoCargaComponent,
+    LostPetsComponent,
+    PagoCompraComponent
   ]
 })
 export class SharedModule { }

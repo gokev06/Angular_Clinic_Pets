@@ -1,4 +1,10 @@
-<app-header routerLink="/adopcion" [title]="'info adopcion'"></app-header>
+<div *ngIf="viewuser">
+  <app-header></app-header>
+</div>
+<div *ngIf="viewuser== false">
+  <app-header-admin></app-header-admin>
+</div>
+
 <section>
 
 <div class="info-b">

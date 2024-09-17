@@ -17,6 +17,7 @@ import { NuevaadopcionComponent } from './pages/nuevaadopcion/nuevaadopcion.comp
 import { CartaSolicitudAdopcionComponent } from './components/carta-solicitud-adopcion/carta-solicitud-adopcion.component';
 import { SolicitudAdopcionComponent } from './pages/solicitud-adopcion/solicitud-adopcion.component';
 import { HeaderAdminAdopcionComponent } from './components/header-admin-adopcion/header-admin-adopcion.component';
+import { HeaderUserComponent } from './components/header-user/header-user.component';
 
 
 

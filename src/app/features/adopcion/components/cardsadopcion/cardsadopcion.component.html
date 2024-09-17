@@ -1,7 +1,31 @@
-<app-headeradopcion (search)="onSearch($event)"></app-headeradopcion>
+
+<div class="header">
+    <div class="logo">
+        <app-logo></app-logo>
+        <h1>Clinic-Pets</h1>
+    </div>
+
+    <app-headeradopcion (search)="onSearch($event)"></app-headeradopcion>
+
+    <app-perfil></app-perfil>
+</div>
+<div class="titles">
+    <app-titulo  [ruta]="'/home'" [title]="'Home'" class="a" [estilo]="'color:black ;'"></app-titulo>
+    <app-titulo  [ruta]="'/citas'" [title]="'Citas'" class="a" [estilo]="'color:black ;'"></app-titulo>
+    <app-titulo  [ruta]="'/adopcion'" [title]="'Adopciones'" class="a" [estilo]="'color:black ;'"></app-titulo>
+    <app-titulo  [ruta]="'/tienda'" [title]="'Tienda'" class="aa" [estilo]="'color:black'"></app-titulo>
+</div>
+
 
 <section class="emptyState" *ngIf="adopciones.length <= 0">
     <!-- Contenido del estado vacío -->
+    <div class="vacio">
+        <h1>Vaya...</h1>
+        <img src="../../../../../assets/images/gato.png" alt="">
+        <h2>Parece que no hay adopciones para mostrar</h2>
+        <h3>Añade nuevas solicitudes de adopciones para que aparezcan aqui.</h3>
+    
+      </div>
 </section>
 
 <section *ngIf="adopciones.length > 0" class="background">

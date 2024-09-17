@@ -33,6 +33,9 @@ import { PagoCompraComponent } from './features/tienda/pages/pago-compra/pago-co
 import { InventarioComponent } from './features/tienda/pages/inventario/inventario.component';
 
 
+import { PagoFormComponent } from './shared/components/templates/pago-form/pago-form.component';
+import { LostPetsComponent } from './features/wanted/lost-pets/lost-pets.component';
+import { SubirLostPetsComponent } from './shared/components/organisms/formulario-lostPets/subir-lost-pets/subir-lost-pets.component';
 //rutas de las ventanas
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
@@ -55,7 +58,6 @@ const routes: Routes = [
   {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
-  {path: "consul-historial",component:PagesHistorialComponent },  // ni idea
   {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent, canActivate: [authGuard]},
@@ -67,7 +69,11 @@ const routes: Routes = [
   {path: "pago-compra", component: PagoCompraComponent},
   {path:"admin-adopciones", component: AdminAdopcionesComponent},
   {path: "solicitud_adopcion", component: SolicitudAdopcionComponent},
-  {path: 'inventario', component: InventarioComponent }
+  {path: 'inventario', component: InventarioComponent },
+  {path: "pago-form", component: PagoFormComponent},
+  {path: "solicitudes_adopcion", component: SolicitudAdopcionComponent},
+  {path: "lost-pets", component: LostPetsComponent},
+  {path: "subir-lost-pets", component: SubirLostPetsComponent},
 ];
 
 @NgModule({
