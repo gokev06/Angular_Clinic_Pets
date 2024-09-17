@@ -102,7 +102,7 @@ registerLocaleData(localeEs, 'es');
     GestionDeHorariosComponent,
     ModalVerAdopcionComponent,
     CarritoModalComponent,
-    EstadoCargaComponent
+    EstadoCargaComponent,
     CarritoModalComponent,
     HeaderVetComponent,
     HeaderAdminComponent
