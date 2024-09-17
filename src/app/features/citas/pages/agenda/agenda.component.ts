@@ -58,21 +58,20 @@ export class AgendaComponent implements OnInit {
         console.error('Fecha o hora no definida para cita:', cita);
         return;
       }
-
+  
       try {
         const fechaLocal = new Date(cita.fecha);
-
         const year = fechaLocal.getFullYear();
         const month = String(fechaLocal.getMonth() + 1).padStart(2, '0');
         const day = String(fechaLocal.getDate()).padStart(2, '0');
         const formattedFecha = `${year}-${month}-${day}`;
-
+  
         const [hours, minutes] = cita.hora.split(':');
         let hour = parseInt(hours, 10);
         const period = hour >= 12 ? 'PM' : 'AM';
         hour = hour % 12 || 12;
         const formattedHour = `${hour}:${minutes} ${period}`;
-
+  
         const nombreUsuario = cita.nombreUsuario;
   
         console.log('Fecha formateada:', formattedFecha);
@@ -82,21 +81,38 @@ export class AgendaComponent implements OnInit {
         if (!this.citasMap.has(formattedFecha)) {
           this.citasMap.set(formattedFecha, new Map());
         }
-        this.citasMap.get(formattedFecha)?.set(formattedHour, nombreUsuario);
+        
+        // Guarda tanto el nombre de usuario como el IdCita
+        const citaDetalles: any = {
+          nombreUsuario: nombreUsuario,
+          idCita: cita.IdCita // Usa 'IdCita' en lugar de 'idCita'
+        };
+  
+        this.citasMap.get(formattedFecha)?.set(formattedHour, citaDetalles);
+  
       } catch (error) {
         console.error('Error al procesar la fecha:', error);
       }
     });
+  
+    // Verifica el contenido de citasMap
+    console.log('CitasMap:', this.citasMap);
   }
-
-  getCitaForDayAndHour(day: Date, hora: string): string | null {
+  
+  
+  getCitaForDayAndHour(day: Date, hora: string): any | null {
     const year = day.getFullYear();
     const month = String(day.getMonth() + 1).padStart(2, '0');
     const dayOfMonth = String(day.getDate()).padStart(2, '0');
     const formattedFecha = `${year}-${month}-${dayOfMonth}`;
     
-    return this.citasMap.get(formattedFecha)?.get(hora) || null;
+    const citaDetalles = this.citasMap.get(formattedFecha)?.get(hora) || null;
+    console.log('Cita para', formattedFecha, hora, ':', citaDetalles);
+    return citaDetalles;
   }
+  
+  
+  
   
   nextMonth(): void {
     this.viewData = new Date(this.viewData.getFullYear(), this.viewData.getMonth() + 1, this.viewData.getDate());
@@ -133,7 +149,13 @@ export class AgendaComponent implements OnInit {
     return (dayDifference % 2 === 0) && !this.isCurrentDay(day);
   }
 
-  navigateToHistorial(): void {
-    this.router.navigate(['crear-historial']);
+  navigateToHistorial(IdCita: string): void {
+    console.log('Id cita:', IdCita); // Verifica aquí el valor de IdCita
+    if (IdCita) {
+      this.router.navigate(['crear-historial'], { queryParams: { idCita: IdCita } });
+    } else {
+      console.error('El IdCita es undefined o null');
+    }
   }
+  
 }

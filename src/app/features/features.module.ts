@@ -43,6 +43,7 @@ import { AdminCardsComponent } from './adopcion/components/admin-cards/admin-car
 import { AdminAdopcionesComponent } from './adopcion/pages/admin-adopciones/admin-adopciones.component';
 import { AdmiCardsNuevaComponent } from './adopcion/components/admi-cards-nueva/admi-cards-nueva.component';
 import { AdmiHeaderComponent } from './adopcion/components/admi-header/admi-header.component';
+import { PagoTarjetaComponent } from '../shared/components/organisms/pago-tarjeta/pago-tarjeta.component';
 
 import { InventarioComponent } from './tienda/pages/inventario/inventario.component';
 import { InventarioDatosComponent } from './tienda/components/inventario-datos/inventario-datos.component';
@@ -92,6 +93,7 @@ import {  HeaderInventarioComponent } from './tienda/components/header-inventari
 
   ],
   imports: [
+    
     UsuariosModule,
     CommonModule,
     FormsModule,
@@ -118,8 +120,7 @@ import {  HeaderInventarioComponent } from './tienda/components/header-inventari
     AgregarProductoComponent,
     TablaCitasComponent,
     TiendaProductoComponent,
-    InfoProductoTiendaComponent,
-
+    InfoProductoTiendaComponent
 
   ]
 })

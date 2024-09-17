@@ -13,7 +13,8 @@ import Swal from 'sweetalert2';
 export class TableHistorialComponent implements OnInit {
   @Input() citas: any[] = [];
   @Output() citaEliminada = new EventEmitter<string>();
-  @Output() citaActualizada = new EventEmitter<void>();  // Evento para actualizar la tabla
+  @Output() citaActualizada = new EventEmitter<void>();
+  @Output() descargarHistorial = new EventEmitter<string>();
 
   mostrarCalendario: boolean = false;
   citaAReagendar: any = null;
@@ -24,6 +25,11 @@ export class TableHistorialComponent implements OnInit {
   constructor(private appointmentService: AppointmentService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  downloadHistorial(idCita: string): void {
+    this.descargarHistorial.emit(idCita);
+    console.log('idCita de table', idCita);
+  }
 
   onFechaSeleccionada(fecha: Date): void {
     this.fechaSeleccionada = fecha;
@@ -56,7 +62,6 @@ export class TableHistorialComponent implements OnInit {
       this.citaAReagendar = cita;
       this.idCita = cita.id;
     } else if (nuevoEstado === 'Cancelar') {
-
       this.cancelAppointment(cita.id);
       cita.estado = 'Cancelada';
       this.citaActualizada.emit();  // Emitir evento después de cancelar la cita
@@ -64,8 +69,46 @@ export class TableHistorialComponent implements OnInit {
   }
 
   guardarCita(): void {
-    // Verifica que idCita no sea null
     if (this.fechaSeleccionada && this.horaSeleccionada && this.idCita) {
+      // Obtener la cita original
+      const citaOriginal = this.citas.find(cita => cita.id === this.idCita);
+      if (!citaOriginal) {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'No se encontró la cita original.',
+          icon: 'error',
+          confirmButtonColor: '#F57171',
+        });
+        return;
+      }
+  
+      const fechaOriginal = new Date(citaOriginal.fecha);
+      const fechaSeleccionada = new Date(this.fechaSeleccionada);
+      const hoy = new Date();
+      const esHoy = fechaOriginal.toDateString() === hoy.toDateString();
+  
+      if (esHoy) {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'No se puede reagendar una cita agendada para hoy a otro día.',
+          icon: 'error',
+          confirmButtonColor: '#F57171',
+        });
+        return;
+      }
+  
+      // Validar si la nueva fecha es válida (hasta un día antes de la fecha original)
+      const diferenciaDias = Math.ceil((fechaOriginal.getTime() - fechaSeleccionada.getTime()) / (1000 * 60 * 60 * 24));
+      if (diferenciaDias < 1) {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'Solo puedes reagendar la cita hasta un día antes de la fecha original.',
+          icon: 'error',
+          confirmButtonColor: '#F57171',
+        });
+        return;
+      }
+  
       Swal.fire({
         title: '¿Reagendar cita?',
         text: '¿Estás seguro de que deseas reagendar esta cita?',
@@ -80,17 +123,15 @@ export class TableHistorialComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           const nuevaCita = {
-            fecha: this.fechaSeleccionada ? this.formatDate(this.fechaSeleccionada) : '',  // Verifica fecha
-            hora: this.horaSeleccionada || '',  // Verifica hora
+            fecha: this.fechaSeleccionada ? this.formatDate(this.fechaSeleccionada) : '',
+            hora: this.horaSeleccionada || '',
             estado: 'Agendada'
           };
   
-          // Asegúrate de que this.idCita sea una cadena no nula antes de hacer la petición
           if (this.idCita) {
             this.appointmentService.updateAppointment(this.idCita, nuevaCita).subscribe({
               next: (res: any) => {
                 console.log('Cita actualizada con éxito:', res);
-  
                 Swal.fire({
                   title: '¡Cita reagendada!',
                   text: 'La cita ha sido reagendada exitosamente.',
@@ -99,7 +140,6 @@ export class TableHistorialComponent implements OnInit {
                   imageHeight: 200,
                   confirmButtonColor: '#7DFF82',
                 });
-  
                 this.cerrarModal();
                 this.citaActualizada.emit();  // Emitir evento después de reagendar la cita
               },
@@ -134,13 +174,12 @@ export class TableHistorialComponent implements OnInit {
     }
   }
   
-
   formatDate(date: Date): string {
     const offset = date.getTimezoneOffset();
     const adjustedDate = new Date(date.getTime() - (offset * 60 * 1000));
     return adjustedDate.toISOString().split('T')[0];
   }
-
+  
   cerrarModal(): void {
     this.mostrarCalendario = false;
     this.citaAReagendar = null;
@@ -148,9 +187,10 @@ export class TableHistorialComponent implements OnInit {
     this.horaSeleccionada = null;
     this.idCita = null;
   }
+  
 
   cancelAppointment(idCita: string): void {
-    const estadoCancelado = 'Cancelado';
+    const estadoCancelado = 'Cancelada';
 
     this.appointmentService.updateAppointmentStatus(idCita, estadoCancelado).subscribe({
       next: (res: any) => {
@@ -163,23 +203,3 @@ export class TableHistorialComponent implements OnInit {
     });
   }
 }
-
-
-
-
-    /**
-     * 
-     * 
-     * .pipe(
-      tap( res => {
-        console.log('escucha el pipe: ');
-        
-        console.log('Cita eliminada con exito:', res);
-        this.citaEliminada.emit(idCita);
-      }),
-      catchError(error => {
-        console.error('Error al eliminar la cita:', error);
-        return of(null);
-      })
-    ).subscribe();
-     */

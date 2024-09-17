@@ -90,4 +90,19 @@ export class AppointmentService {
     return this.http.get<any[]>(`${this.apiUrl_1}/appointments`);
   }
 
+  downloadHistorial(idCita: string): Observable<any> {
+    console.log('Llamada al servicio downloadHistorial con ID:', idCita); // Verifica la llamada al servicio
+
+    return this.http.get(`${this.apiUrl_1}/downloadHistorial/${idCita},`, {responseType: 'blob'})
+  }
+
+  sendIdsToBackend(idCita: string, idUsuario: string, token?: string | null): Observable<any> {
+    let headers = new HttpHeaders();
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.post(`${this.apiUrl_1}/sendIds`, { idCita, idUsuario }, { headers });
+  }
+
+
 }

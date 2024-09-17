@@ -11,6 +11,7 @@ import { CardAdminComponent } from './components/card-admin/card-admin.component
 import { PagoCompraComponent } from './pages/pago-compra/pago-compra.component';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { HeaderInventarioComponent } from './components/header-inventario/header-inventario.component';
+import { PagoTarjetaComponent } from '../../shared/components/organisms/pago-tarjeta/pago-tarjeta.component';
 
 @NgModule({
   declarations: [

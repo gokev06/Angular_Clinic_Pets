@@ -6,39 +6,41 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DisabledHorariosService {
-  private apiUrl = 'tu-api-url/desactive'; // Reemplaza con la URL de tu API
-  private readonly disabledHorariosKey = 'disabledHorarios';
-  private readonly disabledDaysKey = 'disabledDays';
-
+  private apiUrl = 'http://localhost:10101/desactive'; 
   private disabledHorarios: Set<string> = new Set();
   private disabledDays: Set<string> = new Set();
-
   constructor(private http: HttpClient) { 
     this.loadDisabledHorarios();
     this.loadDisabledDays();
   }
 
-  // Desactivar un día
   desactivateDay(date: string): Observable<any> {
-    return this.http.post(this.apiUrl, { dias: date }, this.getHttpOptions());
+    console.log('Fecha enviada', date);
+    return this.http.post(`${this.apiUrl}/desactivateDay`, { date }, this.getHttpOptions());
   }
 
-  // Desactivar una hora
+  activateDay(date: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/activateDay?date=${date}`, this.getHttpOptions());
+  }
+
   desactivateTime(date: string, time: string): Observable<any> {
-    return this.http.post(this.apiUrl, { dias: date, horas: time }, this.getHttpOptions());
+    console.log('Fecha y hora enviadas', date, time);
+    return this.http.post(`${this.apiUrl}/desactivateTime`, { date, time }, this.getHttpOptions());
   }
 
-  // Consultar días desactivados
+  activateTime(date: string, time: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/activateTime?date=${date}&time=${time}`, this.getHttpOptions());
+  }
+
   getDisabledDays(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/days`, this.getHttpOptions());
+    return this.http.get(`${this.apiUrl}/getDisabledDays`, this.getHttpOptions());
   }
 
-  // Consultar horas desactivadas
   getDisabledTimes(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/times`, this.getHttpOptions());
+    return this.http.get(`${this.apiUrl}/getDisabledTimes`, this.getHttpOptions());
   }
 
-  private getHttpOptions() {
+  getHttpOptions() {
     const token = localStorage.getItem('userToken');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
