@@ -4,6 +4,7 @@ import { from } from 'rxjs';
 import { catchError, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -71,25 +72,55 @@ export class CardAdminComponent implements OnInit, OnChanges {
     this.filterData(); // Llamar a filterData después de aplicar el filtro de categoría
   }
 
-  onProductDelete(productoId: string): void{
-    console.log('Eliminando producto:', productoId);
-      this.productService.deleteProduct(productoId).pipe(
-        tap(() => {
-          console.log('Producto eliminado con éxito');
-          this.allData = this.allData.filter( product => product.IdProducto !== productoId);
-          this.applyCategoryFilter();
-
-        }),
-        catchError( (error) => {
-          console.error('Error al eliminar el producto', error);
-          return of (null)
-        }),
-        finalize(() => {
-          console.log('Operación de eliminación finalizada');
-        })
-      ).subscribe();
+  onProductDelete(productoId: string): void {
+    Swal.fire({
+      title: '¿Eliminar producto?',
+      text: '¿Estás seguro de que deseas eliminar este producto? Esta acción no se puede deshacer.',
+      showCancelButton: true,
+      confirmButtonColor: '#7DFF82',
+      cancelButtonColor: '#F57171',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'No, cancelar',
+      imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de confirmación
+      imageWidth: 200,
+      imageHeight: 200
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log('Eliminando producto:', productoId);
+        this.productService.deleteProduct(productoId).pipe(
+          tap(() => {
+            Swal.fire({
+              title: '¡Producto eliminado!',
+              text: 'El producto ha sido eliminado exitosamente.',
+              imageUrl: '../../../../../assets/images/imgcitas/confirmar.png', // Imagen de éxito
+              imageWidth: 200,
+              imageHeight: 200,
+              confirmButtonColor: '#7DFF82'
+            });
+            this.allData = this.allData.filter(product => product.IdProducto !== productoId);
+            this.applyCategoryFilter();
+          }),
+          catchError((error) => {
+            console.error('Error al eliminar el producto', error);
+            Swal.fire({
+              title: '¡Error!',
+              text: 'Ocurrió un error al intentar eliminar el producto.',
+              imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de error
+              imageWidth: 200,
+              imageHeight: 200,
+              icon: 'error',
+              confirmButtonColor: '#F57171'
+            });
+            return of(null);
+          }),
+          finalize(() => {
+            console.log('Operación de eliminación finalizada');
+          })
+        ).subscribe();
+      }
+    });
   }
-
+    
   redirectToEditProduct(productoId: string) {
     this.router.navigate(['/editar-producto', productoId]);
   }

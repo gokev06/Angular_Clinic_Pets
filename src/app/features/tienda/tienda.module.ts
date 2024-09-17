@@ -20,9 +20,6 @@ import { HeaderInventarioComponent } from './components/header-inventario/header
     TiendaAdminComponent,
     CardAdminComponent,
     PagoCompraComponent,
-    CommonModule,
-    InventarioComponent,
-    HeaderInventarioComponent
   ],
   imports: [
     CommonModule,

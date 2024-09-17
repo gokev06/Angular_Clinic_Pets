@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppointmentService } from '../../services/appointment.service';
 
 @Component({
   selector: 'app-agenda',
   templateUrl: './agenda.component.html',
-  styleUrls: ['./agenda.component.scss']
+  styleUrl: './agenda.component.scss'
 })
-export class AgendaComponent implements OnInit {
-  viewData: Date = new Date();
+export class AgendaComponent implements OnInit{
+
+  viewData : Date = new Date();
   daysInMonth: Date[] = [];
   horas: string[] = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
   citas: any[] = [];
@@ -25,23 +26,23 @@ export class AgendaComponent implements OnInit {
     const year = date.getFullYear();
     const month = date.getMonth();
     const dayOfWeek = date.getDay(); // Día de la semana actual
+    
+     // Calcula el primer día de la semana actual (Domingo)
+     const startOfWeek = new Date(year, month, date.getDate() - dayOfWeek);
 
-    // Calcula el primer día de la semana actual (Domingo)
-    const startOfWeek = new Date(year, month, date.getDate() - dayOfWeek);
-
-    // Genera los 7 días de la semana
+      // Genera los 7 días de la semana
     this.daysInMonth = [];
     for (let i = 0; i < 7; i++) {
       this.daysInMonth.push(new Date(startOfWeek.getFullYear(), startOfWeek.getMonth(), startOfWeek.getDate() + i));
     }
+
   }
 
   loadAppointments(): void {
     this.appointmentService.getAppointments2().subscribe(
       (data) => {
-        console.log('Datos recibidos en AgendaComponent:', data); // Verifica los datos recibidos
-        this.citas = data[0]; // Asigna las citas recibidas al atributo citas
-        this.initializeCitasMap(); // Llama a initializeCitasMap después de cargar las citas
+        this.citas = data[0]; // Asegúrate de que accedes al primer elemento del array, que contiene las citas
+        this.initializeCitasMap();
       },
       (error) => {
         console.error('Error fetching appointments:', error);
@@ -49,10 +50,11 @@ export class AgendaComponent implements OnInit {
     );
   }
 
+
   initializeCitasMap(): void {
     this.citasMap.clear();
     console.log('Citas recibidas:', this.citas); // Verifica los datos recibidos
-    
+
     this.citas.forEach(cita => {
       if (!cita.fecha || !cita.hora) {
         console.error('Fecha o hora no definida para cita:', cita);
@@ -74,11 +76,11 @@ export class AgendaComponent implements OnInit {
         const formattedHour = `${hour}:${minutes} ${period}`;
 
         const nombreUsuario = cita.nombreUsuario;
-  
+
         console.log('Fecha formateada:', formattedFecha);
         console.log('Hora formateada:', formattedHour);
         console.log('Nombre de usuario:', nombreUsuario);
-  
+
         if (!this.citasMap.has(formattedFecha)) {
           this.citasMap.set(formattedFecha, new Map());
         }
@@ -94,10 +96,11 @@ export class AgendaComponent implements OnInit {
     const month = String(day.getMonth() + 1).padStart(2, '0');
     const dayOfMonth = String(day.getDate()).padStart(2, '0');
     const formattedFecha = `${year}-${month}-${dayOfMonth}`;
-    
+
     return this.citasMap.get(formattedFecha)?.get(hora) || null;
   }
-  
+
+
   nextMonth(): void {
     this.viewData = new Date(this.viewData.getFullYear(), this.viewData.getMonth() + 1, this.viewData.getDate());
     this.generateDaysOfWeek(this.viewData);
@@ -136,4 +139,6 @@ export class AgendaComponent implements OnInit {
   navigateToHistorial(): void {
     this.router.navigate(['crear-historial']);
   }
+
+
 }

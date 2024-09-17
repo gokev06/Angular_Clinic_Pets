@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AdmiHeaderComponent implements OnInit{
 
-  notificationCount: number = 2; // Cambia este valor según el número de notificaciones
+  notificationCount: number = 1; // Cambia este valor según el número de notificaciones
 
   constructor(private router: Router) {}
 

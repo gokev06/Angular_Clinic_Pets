@@ -51,6 +51,8 @@ import { AlertacancelarcitaComponent } from './components/templates/alertacancel
 import { GestionDeHorariosComponent } from '../features/citas/pages/gestion-de-horarios/gestion-de-horarios.component';
 import { ModalVerAdopcionComponent } from './components/templates/modal-ver-adopcion/modal-ver-adopcion.component';
 import { EstadoCargaComponent } from './components/templates/estado-carga/estado-carga.component';
+import { HeaderVetComponent } from './components/organisms/header-vet/header-vet.component';
+import { HeaderAdminComponent } from './components/organisms/header-admin/header-admin.component';
 registerLocaleData(localeEs, 'es');
 
 
@@ -101,6 +103,9 @@ registerLocaleData(localeEs, 'es');
     ModalVerAdopcionComponent,
     CarritoModalComponent,
     EstadoCargaComponent
+    CarritoModalComponent,
+    HeaderVetComponent,
+    HeaderAdminComponent
   ],
   imports: [
     CommonModule,
@@ -151,6 +156,8 @@ registerLocaleData(localeEs, 'es');
     BtnregistroComponent,
     ModalVerAdopcionComponent,
     CarritoModalComponent,
+    HeaderVetComponent,
+    HeaderAdminComponent,
     ChatBotComponent
   ]
 })

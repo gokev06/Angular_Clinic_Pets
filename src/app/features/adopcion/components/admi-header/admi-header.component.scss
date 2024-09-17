@@ -36,7 +36,7 @@ a, button {
 
 .search-icon {
     position: absolute;
-    left: 37%; /* Alineación del ícono del buscador */
+    left: 18%; /* Alineación del ícono del buscador */
     font-size: 20px;
     pointer-events: none;
     color: #000;
@@ -82,7 +82,7 @@ img {
   font-size: 13px;
   border: 2px solid #000;
   border-radius: 20px;
-  width: 100%; /* Asegura que el campo de búsqueda ocupe todo el ancho del contenedor */
+  width: 70%; /* Asegura que el campo de búsqueda ocupe todo el ancho del contenedor */
   max-width: 400px; /* Limita el tamaño máximo del campo de búsqueda */
 }
 

@@ -45,6 +45,12 @@ export interface productInfo {
   providedIn: 'root'
 })
 export class ProductoService {
+  deleteAllCards() {
+    throw new Error('Method not implemented.');
+  }
+  eliminarProductoCarrito(IdUsuarioProducto: string) {
+    throw new Error('Method not implemented.');
+  }
 
   private apiUrl_1 = 'http://localhost:10101';
   private carrito: DataProduct[] = []; // Añadir un array para almacenar el carrito

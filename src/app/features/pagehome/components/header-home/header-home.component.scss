@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ES+Deco&display=swap');
+
 header {
     width: 100%;
     height: 90px;
@@ -22,6 +24,12 @@ header {
 
 app-perfil {
     padding: 0 24px;
+}
+
+h1{
+    font-size: 28px;
+    margin-top: 20px;
+    font-family: "Playwrite ES Deco", cursive;
 }
 
 

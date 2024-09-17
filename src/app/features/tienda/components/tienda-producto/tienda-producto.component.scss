@@ -460,6 +460,10 @@ a:visited {
     .center {
       margin-left: 0;
   }
+
+  .cantidad{
+    display: flex;
+  }
   .center h1{
     margin-top: -65px;
     width: 90%;
@@ -484,6 +488,7 @@ h1 {
   margin-right: 0px;
   margin-left: 0;
   font-size: 20px;
+  margin-top: 0;
 }
 .botones-adicionales{
 width: 100%;
@@ -535,6 +540,8 @@ margin-right: 0;
 }
 .cantidad {
   padding-bottom: 20px;
+  font-size: 16px;
+
  
 }
 .tabs {
@@ -763,6 +770,7 @@ section h3 {
   justify-content: center;
   margin-right: 0%;
   margin-left: 0%;
+  margin-top: 110px;
 }
 .partedos section {
   margin-top: -20px;
@@ -771,7 +779,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin-left: 0;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
   .tabs {
@@ -805,12 +813,6 @@ section h3 {
   margin-left: 15%;
 }
 
-.product-soldOut{
-  text-align: center;
-  color: red;
-  font-size: 1em;
-  font-weight: bold;
-}
 
 
   }
@@ -837,7 +839,7 @@ section h3 {
     width: 50%;
   }
   .partedos{
-    margin-top: 100px;
+    margin-top: 75px;
   }
   .partedos section {
     margin-top: 50px;
@@ -878,5 +880,9 @@ h1{
   width: 49%;
   margin-left: 0;
 }
-
+.cantidad[_ngcontent-ng-c2109808955] {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
   }
