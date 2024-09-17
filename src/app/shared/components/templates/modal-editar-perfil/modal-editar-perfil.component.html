@@ -10,23 +10,23 @@
             </div >
             <div class="texto">
               <div class="container-input">
-                <input 
-                  type="file" 
-                  name="file-6" 
-                  id="file-6" 
-                  class="inputfile inputfile-6" 
-                  data-multiple-caption="{count} archivos seleccionados" 
-                  (change)="onFileChange($event)" 
+                <input
+                  type="file"
+                  name="file-6"
+                  id="file-6"
+                  class="inputfile inputfile-6"
+                  data-multiple-caption="{count} archivos seleccionados"
+                  (change)="onFileChange($event)"
                   [ngClass]="{'is-invalid': !selectedImage && callDataUser.touched}"
                 />
                 <label for="file-6">
                   <div class="fondo">
-                    <div class="image-preview" 
+                    <div class="image-preview"
                       [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
-                      <img src="../../../../../assets/images/imgcitas/Pdefecto.jpg" alt="" *ngIf="!selectedImage">
+                      <img [src]=" selectedImage || '../../../../../assets/images/imgcitas/Pdefecto.jpg' " alt="Profile Image" *ngIf="!selectedImage">
                       <p class="p" *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
-                    </div>            
-                  </div>              
+                    </div>
+                  </div>
                 </label>
               </div>
             </div>
@@ -35,7 +35,7 @@
           <div class="formulario">
 
 
-            <h4 class="Title-form"> Nombre:  
+            <h4 class="Title-form"> Nombre:
                <div class="validar" *ngIf="callDataUser.get('nombreUsuario')?.errors && callDataUser.get('nombreUsuario')?.dirty">
                 <p *ngIf="callDataUser.get('nombreUsuario')?.hasError('required')">Rellene el campo nombre</p>
                 </div>
@@ -47,15 +47,15 @@
                 </div>
             </h4>
             <app-input [text]="'text'" [holder]="'apellido'" class="input-form" formControlName="apellidoUsuario" [id]="'apellido'" [estilos]="estilos"></app-input>
-           <!-- <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input> --> 
+           <!-- <app-input [text]="'text'" [holder]="'numero de documento'" formControlName="numeroDeDocumento" [id]="'documento'" [estilos]="estilos"></app-input> -->
            <h4 class="Title-form">Telefono:
             <div class="validar" *ngIf="callDataUser.get('telefonoUsuario')?.errors && callDataUser.get('telefonoUsuario')?.dirty">
               <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('required')">Rellene el campo teléfono</p>
               <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('pattern')">El teléfono debe contener solo números</p>
               <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('minlength')">Mínimo 10 caracteres en teléfono</p>
-              <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('maxlength')">Máximo 10 caracteres en teléfono</p>    
+              <p *ngIf="callDataUser.get('telefonoUsuario')?.hasError('maxlength')">Máximo 10 caracteres en teléfono</p>
             </div>
-          </h4> 
+          </h4>
             <app-input [text]="'text'" [holder]="'numero de telefono'" class="input-form" formControlName="telefonoUsuario" [id]="'telefono'" [estilos]="estilos"></app-input>
 
             <h4 class="Title-form">Email:
@@ -65,38 +65,31 @@
               </div>
             </h4>
             <app-input [text]="'text'" [holder]="'email'" class="input-form" formControlName="correoUsuario" [id]="'email'" [estilos]="estilos"></app-input>
-           <!--<app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input>--> 
+           <!--<app-input [text]="'password'" [holder]="'confirmar contraseña'" formControlName="confirmarContrasenia" [id]="'confirmar'" [estilos]="estilos"></app-input>-->
 
-                         
+
            <div class="btn-button-submit">
             <button type="submit" [disabled]="callDataUser.invalid" class="button">Actualizar datos</button>
             <a class="button" id="a" (click)="closemodaledit()">Cancelar</a>
           </div>
-        
 
-        
 
-        
-              <!--  
-                
+
+
+
+              <!--
+
                <div *ngIf="callDataUser.get('numeroDeDocumento')?.errors && callDataUser.get('numeroDeDocumento')?.dirty">
                 <p *ngIf="callDataUser.get('numeroDeDocumento')?.hasError('required')">Rellene el campo Documento</p>
                 <p *ngIf="callDataUser.get('numeroDeDocumento')?.hasError('minlength')">Minimo 10 caracteres en Documento</p>
-                <p *ngIf="callDataUser.get('numeroDeDocumento')?.hasError('maxlength')">maximo 10 caracteres en Documento</p>    
+                <p *ngIf="callDataUser.get('numeroDeDocumento')?.hasError('maxlength')">maximo 10 caracteres en Documento</p>
               </div>
 
               -->
 
-
-             
-        
-
-        
-
             </div>
-        
-        </form> 
+
+        </form>
 
     </div>
 </div>
-  

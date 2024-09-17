@@ -1,6 +1,4 @@
-
 <div class="inventario">
-  <!-- Tabla de Inventario -->
   <div class="tabla">
     <div class="fila encabezado">
       <div class="celda">Imagen</div>
@@ -11,50 +9,47 @@
       <div class="celda">Acciones</div>
     </div>
 
-    <!---
-        <div class="fila" *ngFor="let producto of productos">
+    <div class="fila" *ngFor="let producto of productos">
       <div class="celda imagen">
         <ng-container *ngIf="producto === productoEditado; else mostrarImagen">
-          <input type="file" #fileInput (change)="onImageChange($event, producto)" style="display: none;" />
-          <img [src]="producto.imagenPreview || producto.imagen" alt="{{ producto.nombre }}" (click)="triggerFileInputClick()" />
+          <input type="file" #fileInput (change)="onImageChange($event)" style="display: none;" accept="image/*" />
+          <img [src]="producto.imagen" alt="{{ producto.nombreProducto }}" (click)="triggerFileInputClick()" />
+          <div *ngIf="cargandoImagen">Cargando imagen...</div>
         </ng-container>
         <ng-template #mostrarImagen>
-          <img [src]="producto.imagen" alt="{{ producto.nombre }}" (click)="triggerFileInputClick()" />
+          <img [src]="producto.imagen" alt="{{ producto.nombreProducto }}" />
         </ng-template>
       </div>
       <div class="celda">
         <ng-container *ngIf="producto === productoEditado; else mostrarNombre">
-          <input [(ngModel)]="producto.nombre" name="nombre" />
+          <input [(ngModel)]="productoEditado.nombreProducto" name="nombreProducto" />
         </ng-container>
-        <ng-template #mostrarNombre>{{ producto.nombre }}</ng-template>
+        <ng-template #mostrarNombre>{{ producto.nombreProducto }}</ng-template>
       </div>
       <div class="celda">
         <ng-container *ngIf="producto === productoEditado; else mostrarCategoria">
-          <input [(ngModel)]="producto.categoria" name="categoria" />
+          <input [(ngModel)]="productoEditado.categoria" name="categoria" />
         </ng-container>
         <ng-template #mostrarCategoria>{{ producto.categoria }}</ng-template>
       </div>
       <div class="celda">
         <ng-container *ngIf="producto === productoEditado; else mostrarPrecio">
-          <input [(ngModel)]="producto.precio" name="precio" type="number" step="0.01" />
+          <input [(ngModel)]="productoEditado.precio" name="precio" type="number" step="0.01" />
         </ng-container>
         <ng-template #mostrarPrecio>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</ng-template>
       </div>
       <div class="celda">
-        <ng-container *ngIf="producto === productoEditado; else mostrarCantidad">
-          <input [(ngModel)]="producto.cantidad" name="cantidad" type="number" />
+        <ng-container *ngIf="producto === productoEditado; else mostrarStock">
+          <input [(ngModel)]="productoEditado.stock" name="stock" type="number" />
         </ng-container>
-        <ng-template #mostrarCantidad>{{ producto.cantidad }}</ng-template>
+        <ng-template #mostrarStock>{{ producto.stock }}</ng-template>
       </div>
       <div class="celda">
-        <button *ngIf="producto !== productoEditado" class="btn-editar" (click)="editarProducto(producto)">Editar</button>
+        <button *ngIf="producto !== productoEditado" class="btn-editar" (click)="redirectToEditProduct(producto.IdProducto)">Editar</button>
         <button *ngIf="producto === productoEditado" class="btn-guardar" (click)="guardarCambios()">Guardar</button>
         <button *ngIf="producto === productoEditado" class="btn-cancelar" (click)="cancelarEdicion()">Cancelar</button>
         <button class="btn-eliminar" (click)="eliminarProducto(producto)">Eliminar</button>
       </div>
     </div>
-
-    -->
-
   </div>
 </div>

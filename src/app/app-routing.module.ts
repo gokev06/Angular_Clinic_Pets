@@ -55,7 +55,7 @@ const routes: Routes = [
   {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
-  {path: "consul-historial",component:PagesHistorialComponent },  // ni idea
+  {path: "consul-historial",component:TablaCitasComponent },  // ni idea
   {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent, canActivate: [authGuard]},

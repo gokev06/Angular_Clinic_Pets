@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {  EventEmitter, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { ImageUploadService } from '../../../../images-services/image-upload.service';
 import Swal from 'sweetalert2';
 
 // Definición del componente Angular
@@ -20,36 +21,41 @@ export class ModalEditarPerfilComponent  implements OnInit{
   @Output() closeedit = new EventEmitter<void>();
 
 
+
       // Método para emitir el evento de cierre del modal
   closemodaledit(): void {
     this.closeedit.emit();
   }
 
-   
+
   callDataUser!: FormGroup;
 
   // Constructor del componente
-  constructor(private fb: FormBuilder, private http: HttpClient){
-    
+  constructor(private fb: FormBuilder, private http: HttpClient,  private imageUploadService: ImageUploadService){
+
 
   }
   selectedImage: string | ArrayBuffer | null = '';
+  imageFile: File | null = null;
+
 
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
-    const reader = new FileReader();
+
+
 
     if (file) {
-      reader.onload = () => {
-        this.selectedImage = reader.result;
-      
-       this.perfil.emit({
-         ...this.callDataUser.value,
-         imagen: this.selectedImage
-        });
-      };
-      reader.readAsDataURL(file);
+     this.imageFile =file;
+     const reader = new FileReader();
+     reader.onload = () => {
+      this.selectedImage = reader.result;
+      this.perfil.emit({
+        ...this.callDataUser.value,
+        imagen: this.selectedImage
+      });
+     };
+     reader.readAsDataURL(file);
     }
   }
 
@@ -112,7 +118,11 @@ export class ModalEditarPerfilComponent  implements OnInit{
             telefonoUsuario: response.data.telefonoUsuario,
             correoUsuario: response.data.correoUsuario
 
-          })
+          });
+
+          if (response.data.imagenPerfil) {
+             this.selectedImage = response.data.imagenPerfil;
+          }
         }
       },
       error: (error) => {
@@ -153,28 +163,50 @@ export class ModalEditarPerfilComponent  implements OnInit{
             console.error('No se encontró el token');
             return;
           }
-  
+
           // Configura los headers para la petición HTTP
           const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  
+
           // Prepara los datos del formulario para enviar
           const formData = this.callDataUser.value;
-  
+
+
           const updateData = {
             nombre: formData.nombreUsuario,
             apellido: formData.apellidoUsuario,
             numeroDeTelefono: formData.telefonoUsuario,
-            email: formData.correoUsuario
+            email: formData.correoUsuario,
+            imagenPerfil: formData.imagen
           };
-  
+
+
+
           try {
+           // console.log('this.imageFile', this.imageFile);
+           // console.log('this.selectedImage', this.selectedImage);
+
+
+            if (this.imageFile ) {
+              console.log('funciona');
+
+              const imageResponse = await firstValueFrom(this.imageUploadService.uploadImage(this.imageFile));
+              console.log('imageResponse', imageResponse.url);
+
+              updateData.imagenPerfil =  imageResponse.url
+          } else {
+             updateData.imagenPerfil = this.selectedImage;
+          }
+
+          console.log('updateData:', updateData);
+
+
             // Realiza una petición PUT para actualizar el perfil del usuario
             const response = await firstValueFrom(
               this.http.put('http://localhost:10101/editar-perfil', updateData, { headers })
             );
-  
+
             console.log('Perfil actualizado:', response);
-  
+
             Swal.fire({
               title: '¡Perfil actualizado!',
               text: 'Tu perfil ha sido actualizado exitosamente.',
@@ -183,10 +215,10 @@ export class ModalEditarPerfilComponent  implements OnInit{
               imageHeight: 200,
               confirmButtonColor: '#7DFF82',
             });
-  
+
             // Cierra el modal después de actualizar exitosamente
             this.closemodaledit();
-  
+
           } catch (error) {
             console.error('Error al actualizar el perfil:', error);
             Swal.fire({
@@ -211,12 +243,12 @@ export class ModalEditarPerfilComponent  implements OnInit{
           confirmButton: 'botonC',
         }
       });
-  
+
       // Marca todos los campos del formulario como tocados para mostrar errores de validación
       Object.values(this.callDataUser.controls).forEach(control => {
         control.markAsTouched();
       });
     }
   }
-  
+
 }

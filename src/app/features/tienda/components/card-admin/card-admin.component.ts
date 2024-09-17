@@ -91,6 +91,7 @@ export class CardAdminComponent implements OnInit, OnChanges {
   }
 
   redirectToEditProduct(productoId: string) {
+    sessionStorage.setItem('adminInventario', 'false')
     this.router.navigate(['/editar-producto', productoId]);
   }
 
