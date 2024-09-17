@@ -90,4 +90,10 @@ export class AppointmentService {
     return this.http.get<any[]>(`${this.apiUrl_1}/appointments`);
   }
 
+  downloadHistorial(idCita: string): Observable<any> {
+    console.log('Llamada al servicio downloadHistorial con ID:', idCita); // Verifica la llamada al servicio
+
+    return this.http.get(`${this.apiUrl_1}/downloadHistorial/${idCita},`, {responseType: 'blob'})
+  }
+
 }

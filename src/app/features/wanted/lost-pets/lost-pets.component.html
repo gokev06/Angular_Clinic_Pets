@@ -1,0 +1,38 @@
+<app-header [ruta]="'/citas'" [title]="'Citas'"></app-header>
+
+<button class="nueva-publicacion-btn" (click)="navigateToUpload()">Nueva publicación</button>
+
+<div class="card-container">
+  <div *ngFor="let mascota of mascotas" class="card">
+    <div class="card-content">
+      <img [src]="mascota.imagenMascota" alt="Imagen de {{ mascota.nombreMascota }}" class="card-img">
+      <div class="card-body">
+        <h3><b>Nombre:</b> {{ mascota.nombreMascota }}</h3>
+        <p><b>Información:</b> {{ mascota.infoMascota }}</p>
+        <p><b>Contacto:</b> {{ mascota.numeroTelefono }}</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <input type="text" [(ngModel)]="nuevoComentario[mascota.IdBuscarMascota]" placeholder="Comentar">
+      <button (click)="comentar(mascota.IdBuscarMascota)">Enviar</button>
+      <button (click)="verComentarios(mascota.IdBuscarMascota)">Ver comentarios</button>
+    </div>
+    <!-- Modal para comentarios -->
+    <div id="modal-{{mascota.IdBuscarMascota}}" class="modal">
+      <div class="modal-content">
+        <span class="close" (click)="closeModal(mascota.IdBuscarMascota)">&times;</span>
+        <h2>Comentarios</h2>
+        <div class="comments-container" *ngIf="comentarios[mascota.IdBuscarMascota]">
+          <div *ngFor="let comentario of comentarios[mascota.IdBuscarMascota]; let i = index">
+            <p [ngClass]="{'comment-morado': i % 2 === 0, 'comment-azul': i % 2 === 1}">
+              {{ comentario.comentario }}
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="closeModal(mascota.IdBuscarMascota)">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
