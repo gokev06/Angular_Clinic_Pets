@@ -2,8 +2,7 @@
     width: 100%;
     height: 400px;
     display: flex;
-    padding-left: 72px;
-    padding-bottom: 90px;
+    padding-bottom: 100px;
     /* Alineación por defecto para pantallas grandes */
     align-items: center;
 }
@@ -11,13 +10,15 @@
 .tamaño {
     width: 45%;
     height: 350px;
+    display: flex;
+    align-items: center;
     margin-left: 56px;
     margin-top: 24px;
 }
 
 .tamaño img {
     border-radius: 15px;
-    max-width: 100%; /* Asegura que la imagen no se desborde */
+    width: 70%; /* Asegura que la imagen no se desborde */
 }
 
 .cjamorada {
@@ -31,7 +32,7 @@
 }
 
 .cjamorada p {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /* Diseño para pantallas pequeñas (hasta 480px) */
@@ -46,7 +47,7 @@
     }
 
     .cjamorada {
-        width: 90%;
+        width: 80%;
         height: auto;
         margin-top: 20px;
         padding: 12px;
@@ -72,18 +73,24 @@
     }
 }
 
-/* Diseño para pantallas medianas (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
+/* Diseño para pantallas entre 353px y 480px */
+@media (min-width: 353px) and (max-width: 480px) {
     .cajagrande {
+        flex-direction: column;
+        align-items: center;
         padding-left: 0;
-        padding-top: 10px;
-        flex-direction: row;
-        justify-content: space-between;
+        width: 100%;
+        padding-bottom: 30px;
+        margin-bottom: 100px;
+        height: auto; /* Ajuste para que se adapte al contenido */
     }
 
     .cjamorada {
-        width: 48%;
+        width: 85%; /* Un poco más ancho para estas pantallas */
         height: auto;
+        margin-top: 20px;
+        padding: 14px; /* Aumenta un poco el padding */
+        border-radius: 10px;
     }
 
     .cjamorada p {
@@ -92,14 +99,55 @@
     }
 
     .tamaño {
-        width: 48%;
+        width: 85%; /* Un poco más reducido para mejorar el responsive */
         height: auto;
+        margin: 20px 0;
         display: flex;
         justify-content: center;
     }
 
     .tamaño img {
         width: 100%;
+        max-width: 200px; /* Tamaño máximo para imágenes en este rango de pantalla */
+        height: auto; /* Deja que la altura sea automática */
+    }
+}
+ 
+
+/* Diseño para pantallas medianas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+     .cajagrande {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 10px;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .cjamorada {
+        width: 40%;
+        height: auto;
+        margin-top: 20px;
+        padding: 12px;
+    }
+
+    
+
+    .cjamorada p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .tamaño {
+        width: 48%;
+        height: auto;
+        display: flex;
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .tamaño img {
+        width: 50%;
         max-width: 300px;
     }
 }

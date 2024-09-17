@@ -37,11 +37,11 @@ import { InventarioComponent } from './features/tienda/pages/inventario/inventar
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
   {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
-  { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, // ventana home de usuario
+  { path: "home" , component: PagehomeComponent}, //canActivate: [authGuard]}, // ventana home de usuario
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
   {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
-  {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},
+  {path: "home-admin", component: PagesHomeAdminComponent},// canActivate: [authGuard]},
 
   {path: "home-vet", component: PagesHomeVetComponent},
   { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},

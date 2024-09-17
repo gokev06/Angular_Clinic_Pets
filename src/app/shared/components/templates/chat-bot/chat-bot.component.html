@@ -10,9 +10,21 @@
     <div class="chatbot-body">
       <div *ngFor="let message of messages"
            [ngClass]="{'bot-message': message.role === 'model', 'user-message': message.role === 'user'}">
-        <img *ngIf="message.role === 'model'" src="../../../../../assets/images/imghome/chat.png" alt="Bot">
-        <p>{{ message.parts }}</p>
+           
+        <!-- Mensaje del chatbot -->
+        <div *ngIf="message.role === 'model'" class="bot-response">
+          <img src="../../../../../assets/images/imghome/chat.png" alt="Bot">
+          <p>{{ message.parts }}</p>
+        </div>
+        
+        <!-- Mensaje del usuario -->
+        <div *ngIf="message.role === 'user'" class="user-response">
+          <p>{{ message.parts }}</p>
+        </div>
+        
       </div>
+      
+      <!-- Indicador de carga (Escribiendo...) -->
       <div *ngIf="isLoading" class="bot-message">
         <img src="../../../../../assets/images/imghome/chat.png" alt="Bot">
         <p>Escribiendo...</p>

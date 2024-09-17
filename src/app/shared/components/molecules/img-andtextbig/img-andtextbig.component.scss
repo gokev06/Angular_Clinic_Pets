@@ -72,38 +72,11 @@ img{
 
 @media (max-width: 351px) {
     .tamaño {
-        width: 100%;
+     
         display: none; /* Manteniendo display: none */
-        flex-direction: column;
-        padding-left: 0;
+   
     }
 
-    .lucas {
-        margin-right: 0;
-        width: 100%;
-        height: auto;
-    }
-
-    .img-text {
-        width: 200px;
-    }
-
-    .img-text img {
-        width: 100%;
-        height: auto;
-    }
-
-    .pricipalbox {
-        width: 90%;
-        height: auto;
-        margin-top: 10px;
-    }
-
-    .text_adoptame p {
-        width: 100%;
-        font-size: 14px;
-        line-height: 1.4; /* Ajuste de interlineado para pantallas pequeñas */
-    } 
 }
 
 /* Diseño para pantallas pequeñas (352px - 480px) */
@@ -146,7 +119,6 @@ img{
 /* Diseño para pantallas medianas (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
     .tamaño {
-     
         display: none; /* Manteniendo display: none */
         padding-left: 0;
     }
@@ -188,7 +160,7 @@ img{
 @media (min-width: 769px) and (max-width: 920px) {
     .tamaño {
         width: 90%;
-        margin-left: 10px;
+        margin-left: 35px;
         justify-content: center;
         display: flex;
         align-items: center;
@@ -203,6 +175,7 @@ img{
     .pricipalbox {
         width: 80%;
         height: 157px;
+        margin-left: 10px;
     }
 
     .content {
