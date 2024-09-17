@@ -13,3 +13,16 @@ button{
     cursor: pointer;
     color: white;
 }
+
+
+
+@media (max-width:352px) {
+   div{
+    width: 120px;}
+
+    button{
+        padding: 8px 16px;
+        border-radius: 10px;
+        
+    }
+}

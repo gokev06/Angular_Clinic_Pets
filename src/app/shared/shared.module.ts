@@ -158,7 +158,8 @@ registerLocaleData(localeEs, 'es');
     CarritoModalComponent,
     HeaderVetComponent,
     HeaderAdminComponent,
-    ChatBotComponent
+    ChatBotComponent,
+    EstadoCargaComponent
   ]
 })
 export class SharedModule { }
