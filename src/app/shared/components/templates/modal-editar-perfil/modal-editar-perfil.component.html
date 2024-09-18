@@ -71,6 +71,11 @@
            <div class="btn-button-submit">
             <button type="submit" [disabled]="callDataUser.invalid" class="button">Actualizar datos</button>
             <a class="button" id="a" (click)="closemodaledit()">Cancelar</a>
+            <div *ngIf="loading" class="loading-spinner">
+              <!-- Agrega aquí tu componente o estilo de spinner de carga -->
+              <app-estado-carga></app-estado-carga>
+            </div>
+
           </div>
 
 
