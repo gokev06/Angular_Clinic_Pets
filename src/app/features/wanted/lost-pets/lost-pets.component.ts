@@ -12,12 +12,15 @@ export class LostPetsComponent implements OnInit {
   comentarios: { [key: number]: any[] } = {}; // Objeto para almacenar los comentarios por IdBuscarMascota
   nuevoComentario: { [key: number]: string } = {};
 
-  IdUsuario: any = '1036888888'; // ID del usuario actual
+  IdUsuario: any = '1091202566'; // ID del usuario actual
+selectedImage: any;
 
   constructor(private lostPetsService: LostPetsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.IdUsuario = localStorage.getItem('userToken');
+    //this.IdUsuario = localStorage.getItem('userToken');
+    this.IdUsuario = '1091202566';
+
     console.log('IdUsuario' , this.IdUsuario);
     
     this.loadMascotas();  

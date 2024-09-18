@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./subir-lost-pets.component.scss']
 })
 export class SubirLostPetsComponent implements OnInit {
-  estilos = 'padding: 8px; background-color: #CCC4FF; border-radius: 5px; width: 100%; height:35px; font-size: 15px; border: none; margin-bottom: 5px; color: black';
+  estilos = 'padding: 8px; background-color: #CCC4FF; border-radius: 5px; width: 300px; height:35px; font-size: 15px; border: none; margin-bottom: 5px; color: black';
 
   petsForm!: FormGroup;
   selectedImage: File | null = null;
   selectedImagePreview: string | ArrayBuffer | null = null;
 
   isEditMode: boolean = false;
-  IdUsuario: string = '1036888888';
+  IdUsuario: string = '1091202566';
 
   constructor(
     private formBuilder: FormBuilder,
