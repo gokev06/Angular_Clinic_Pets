@@ -16,7 +16,7 @@ export class HorariosComponent implements OnInit, OnChanges {
   occupiedHorarios: string[] = [];
   selectedDateFormatted: string = '';
 
-  constructor(private appointmentService: AppointmentService, private disabledHorariosService: DisabledHorariosService) {}
+  constructor(private appointmentService: AppointmentService, public disabledHorariosService: DisabledHorariosService) {}
 
   ngOnInit(): void {
     this.generateHorarios();
@@ -110,17 +110,26 @@ export class HorariosComponent implements OnInit, OnChanges {
     const date = this.data.date;
 
     if (this.disabledHorariosService.getDisabledDaysLocal().has(date)) {
-      this.disabledHorariosService.removeDisabledDay(date);
-      this.horarios.forEach(horario => this.disabledHorariosService.removeDisabledHorario(horario));
+        // Activar el día
+        this.disabledHorariosService.removeDisabledDay(date).subscribe(() => {
+            this.horarios.forEach(horario => this.disabledHorariosService.removeDisabledHorario(horario));
+            this.updateDisabledHorarios();
+        }, error => {
+            console.error('Error al activar el día:', error);
+        });
     } else {
-      this.disabledHorariosService.addDisabledDay(date);
-      this.horarios.forEach(horario => {
-        if (!this.isHorarioOccupied(horario)) {
-          this.disabledHorariosService.addDisabledHorario(horario);
-        }
-      });
+        // Desactivar el día
+        this.disabledHorariosService.addDisabledDay(date).subscribe(() => {
+            this.horarios.forEach(horario => {
+                if (!this.isHorarioOccupied(horario)) {
+                    this.disabledHorariosService.addDisabledHorario(horario);
+                }
+            });
+            this.updateDisabledHorarios();
+        }, error => {
+            console.error('Error al desactivar el día:', error);
+        });
     }
-
-    this.updateDisabledHorarios(); // Actualizar la visualización de horarios desactivados
-  }
 }
+
+}  

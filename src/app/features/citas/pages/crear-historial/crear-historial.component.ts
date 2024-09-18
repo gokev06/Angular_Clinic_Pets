@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppointmentService } from '../../services/appointment.service';
-import { catchError } from 'rxjs';
-import { of } from 'rxjs';
+import { catchError, of } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -12,12 +11,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./crear-historial.component.scss']
 })
 export class CrearHistorialComponent implements OnInit {
-
   Formhistorial: FormGroup;
   idCita: string = '';
+  IdUsuario: string | null = '';
 
-  estilos: string = "border:none ; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
-  style: string = "border:none ; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
+  estilos: string = "border:none; border-bottom:2px solid #B5EBF6; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
+  style: string = "border:none; border-bottom:2px solid #CCC4FF; margin-top: 16px; height: 30px; width: 300px; padding: 0 8px";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,10 +28,16 @@ export class CrearHistorialComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Extraer el idCita de los parámetros de consulta
     this.route.queryParams.subscribe(params => {
-      this.idCita = params['idCita'] || ''; // Obtener el idCita de los parámetros de consulta
-      this.initializeForm();
+      this.idCita = params['idCita'] || '';
+      this.IdUsuario = localStorage.getItem('userToken');
+
+      if (this.idCita && this.IdUsuario) {
+        this.initializeForm(); // Inicializa el formulario primero
+        this.sendIdsToBackend(this.idCita, this.IdUsuario);
+      } else {
+        this.initializeForm(); // Si no hay idCita o IdUsuario, inicializa el formulario vacío
+      }
     });
   }
 
@@ -57,11 +62,59 @@ export class CrearHistorialComponent implements OnInit {
       diagnostico: ['', Validators.required],
       tratamiento: ['', Validators.required],
       examen: ['', Validators.required],
-      idCita: [this.idCita], // Establecer el valor de idCita en el formulario
+      idCita: [this.idCita],
+      IdUsuario: [this.IdUsuario],
     });
   }
 
+  sendIdsToBackend(idCita: string, idUsuario: string): void {
+    const token = localStorage.getItem('userToken');
+    this.appointmentService.sendIdsToBackend(idCita, idUsuario, token)
+      .subscribe(response => {
+        console.log('Respuesta del backend:', response);
+        if (response && response.Result) {
+          const citaData = response.Result.citaData[0];
+          const veterinarioData = response.Result.veterinarioData[0];
+
+          this.Formhistorial.patchValue({
+            IdUsuario: citaData.IdUsuario,
+            nombre: citaData.nombreUsuario,
+            telefono: citaData.numeroTelefonoUsuario,
+            direccion: citaData.direccion,
+            email: citaData.correousuario,
+            nombreMascota: citaData.nombreMascota,
+            edad: citaData.edadMascota,
+            estadovacunacion: '', // Inicializa vacío o agrega lógica para el valor correcto
+            especie: citaData.especie,
+            raza: citaData.raza,
+            tipocita: '', // Inicializa vacío o agrega lógica para el valor correcto
+            nombreveterinario: veterinarioData.nombreVeterinario,
+            especialidad: '', // Inicializa vacío o agrega lógica para el valor correcto
+            especialidadmedica: '', // Inicializa vacío o agrega lógica para el valor correcto
+            telefonovet: veterinarioData.telefonoVeterinario,
+            emailvet: veterinarioData.correoVeterinario,
+            motivoconsulta: citaData.motivoConsulta,
+            diagnostico: '',
+            tratamiento: '',
+            examen: ''
+          });
+        }
+      }, error => {
+        console.error('Error al enviar los IDs:', error);
+      });
+  }
+
   onSubmit() {
+    console.log('Estado del formulario:', this.Formhistorial.valid);
+    console.log('Errores del formulario:', this.Formhistorial.errors);
+    console.log('Estado de cada campo:', this.Formhistorial.controls);
+
+    for (const control in this.Formhistorial.controls) {
+      if (this.Formhistorial.controls[control].invalid) {
+        console.log(`Campo ${control} es inválido:`, this.Formhistorial.controls[control].errors);
+      }
+    }
+
     if (this.Formhistorial.valid) {
       Swal.fire({
         title: '¿Crear historial médico?',
@@ -98,7 +151,6 @@ export class CrearHistorialComponent implements OnInit {
                   icon: 'success',
                   confirmButtonColor: '#7DFF82',
                 });
-                console.log('Historial creado con éxito:', response);
                 this.router.navigate(['/home-vet']);
               }
             });
@@ -111,7 +163,6 @@ export class CrearHistorialComponent implements OnInit {
         icon: 'warning',
         confirmButtonColor: '#F57171',
       });
-      console.log('error: ', this.Formhistorial.errors);
     }
   }
 }
