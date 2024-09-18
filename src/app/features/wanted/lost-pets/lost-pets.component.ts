@@ -21,8 +21,28 @@ export class LostPetsComponent implements OnInit {
     console.log('IdUsuario' , this.IdUsuario);
     
     this.loadMascotas();  
+    this.rolSeleccionado();
   }
 
+  
+  viewuser: boolean = false;
+  viewvet: boolean = false;
+  viewadmin: boolean = false;
+  userRol: string | null = null;
+
+  rolSeleccionado(): void{
+    this.userRol = sessionStorage.getItem('userRole');
+    if (this.userRol == 'usuario') {
+       this.viewuser= true
+
+    }if (this.userRol == 'veterinario') {
+      this.viewvet= true
+
+   }if (this.userRol == 'administrador') {
+    this.viewadmin= true
+
+ }
+  }
 
 
   loadMascotas(): void {
