@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Horarios para {{ selectedDateFormatted }}</h2>
   <button *ngIf="showDeactivateButton" (click)="toggleDisableDay()">
-    {{ disabledHorariosService.getDisabledDaysLocal().has(data.date) ? 'Activar Día' : 'Desactivar Día' }}
+    {{ isDayDisabled ? 'Activar día' : 'Desactivar día' }}
   </button>
   <ul>
     <li 

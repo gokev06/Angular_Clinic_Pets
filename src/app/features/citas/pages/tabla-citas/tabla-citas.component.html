@@ -1,10 +1,3 @@
-<app-header-vet></app-header-vet>
-<section class="estadovacio" *ngIf="citas.length <= 0 ">
-  <div class="vacio">
-    <img src="../../../../../assets/images/gato.png" alt="">
-    <h2>Parece que no hay citas para mostrar</h2>
-  </div>
-</section>
 <section class="section" *ngIf="citas.length > 0 ">
   <div class="table-container">
     <table class="clients-table">
@@ -28,7 +21,9 @@
           <td class="text5">{{ cita.especie }}</td>
           <td class="text6">{{ cita.precio }}</td>
           <td class="download">
-            <img src="../../../../../assets/icons/descargas (5) 3.png"   (click)="downloadFile(cita.descarga, 'cita_' + cita.nombre + '.png')" alt="">
+            <img src="../../../../../assets/icons/descargas (5) 3.png" 
+                 (click)="onDownloadCita(cita.IdCita)" 
+                 alt="">
           </td>
         </tr>
       </tbody>

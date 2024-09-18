@@ -15,13 +15,17 @@ export class HorariosComponent implements OnInit, OnChanges {
   selectedHorario: string | null = null;
   occupiedHorarios: string[] = [];
   selectedDateFormatted: string = '';
+  isDayDisabled: boolean = false;  // Nueva propiedad para saber si el día está desactivado
 
-  constructor(private appointmentService: AppointmentService, public disabledHorariosService: DisabledHorariosService) {}
+  constructor(private appointmentService: AppointmentService, private disabledHorariosService: DisabledHorariosService) {}
 
   ngOnInit(): void {
     this.generateHorarios();
     this.loadOccupiedHorarios();
+    this.formatSelectedDate();
     this.updateDisabledHorarios();
+    this.checkIfDayIsDisabled();  // Verificar si el día está desactivado al cargar el componente
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -30,6 +34,8 @@ export class HorariosComponent implements OnInit, OnChanges {
       this.loadOccupiedHorarios();
       this.formatSelectedDate();
       this.updateDisabledHorarios();
+      this.checkIfDayIsDisabled();  // Verificar si el día está desactivado al cambiar la fecha
+
     }
   }
 
@@ -44,8 +50,8 @@ export class HorariosComponent implements OnInit, OnChanges {
     const year = localDate.getFullYear();
     const month = String(localDate.getMonth() + 1).padStart(2, '0');
     const day = String(localDate.getDate()).padStart(2, '0');
-    const formattedDate = `${year}-${month}-${day}`;
-  
+    const formattedDate = `${year}-${month}-${day}`; // Formato adecuado yyyy-MM-dd
+    
     this.appointmentService.getAppointmentsByDate(formattedDate, token).subscribe(
       (appointments: any[]) => {
         this.occupiedHorarios = appointments.map(app => this.formatTime(app.hora));
@@ -55,6 +61,7 @@ export class HorariosComponent implements OnInit, OnChanges {
       }
     );
   }
+  
 
   updateDisabledHorarios(): void {
     this.disabledHorariosService.loadDisabledHorarios();
@@ -104,32 +111,27 @@ export class HorariosComponent implements OnInit, OnChanges {
     return this.disabledHorariosService.getDisabledHorarios().has(horario.trim());
   }
 
+  checkIfDayIsDisabled(): void {
+    this.isDayDisabled = this.disabledHorariosService.getDisabledDaysLocal().has(this.data.date);
+  }
   toggleDisableDay(): void {
-    if (!this.showDeactivateButton) return;
-
     const date = this.data.date;
-
-    if (this.disabledHorariosService.getDisabledDaysLocal().has(date)) {
-        // Activar el día
-        this.disabledHorariosService.removeDisabledDay(date).subscribe(() => {
-            this.horarios.forEach(horario => this.disabledHorariosService.removeDisabledHorario(horario));
-            this.updateDisabledHorarios();
-        }, error => {
-            console.error('Error al activar el día:', error);
-        });
+  
+    if (this.isDayDisabled) {
+      // Si el día está desactivado, lo activamos
+      this.disabledHorariosService.removeDisabledDay(date);  // Activa el día
+      this.horarios.forEach(horario => this.disabledHorariosService.removeDisabledHorario(horario));  // Activa los horarios
     } else {
-        // Desactivar el día
-        this.disabledHorariosService.addDisabledDay(date).subscribe(() => {
-            this.horarios.forEach(horario => {
-                if (!this.isHorarioOccupied(horario)) {
-                    this.disabledHorariosService.addDisabledHorario(horario);
-                }
-            });
-            this.updateDisabledHorarios();
-        }, error => {
-            console.error('Error al desactivar el día:', error);
-        });
+      // Si el día no está desactivado, lo desactivamos
+      this.disabledHorariosService.addDisabledDay(date);  // Desactiva el día
+      this.horarios.forEach(horario => {
+        if (!this.isHorarioOccupied(horario)) {
+          this.disabledHorariosService.addDisabledHorario(horario);  // Desactiva los horarios
+        }
+      });
     }
+  
+    this.updateDisabledHorarios();  // Actualiza los horarios desactivados
+    this.isDayDisabled = !this.isDayDisabled;  // Cambiamos el estado del día
+  }
 }
-
-}  
