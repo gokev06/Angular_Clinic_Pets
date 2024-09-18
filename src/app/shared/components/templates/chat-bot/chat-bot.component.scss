@@ -4,7 +4,7 @@
   right: 30px;
 
   .chatbot-toggle {
-    background-color: rgba(204, 196, 255, 0.2); // Color translúcido
+    background-color: rgba(249, 248, 253, 0.2); // Color translúcido
     border: none;
     border-radius: 50%;
     width: 60px;
@@ -17,16 +17,20 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-    .chatbot-window {
 
-      width: 300px;
-      height: 400px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+  .chatbot-toggle img{
+    width: 100px;
+    height: 100px;
+  }
+  .chatbot-window {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 
     .chatbot-header {
       background-color: #CCC4FF;
@@ -60,8 +64,8 @@
       background-color: #f9f9f9;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
 
+      /* Mensajes del bot a la izquierda */
       .bot-message {
         display: flex;
         align-items: center;
@@ -84,27 +88,24 @@
         }
       }
 
-      
+      /* Mensajes del usuario a la derecha */
       .user-response {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 10px;
-      
+        width: 100%; // Asegura que ocupe todo el ancho disponible
+
         p {
           margin: 0;
-          padding: 10px;
-          background-color: #007bff; // Color azul para el mensaje del usuario
-          color: white;
+          padding: 8px;
+          background-color: rgba(191, 224, 255, 0.19);
+          color: black;
           border-radius: 5px;
-          max-width: 70%; // Limita el ancho máximo del mensaje
-  
+          max-width: 70%;
           white-space: pre-wrap; // Permite que el texto ajuste de manera automática
-          text-align: left; // Alinea el texto a la izquierda dentro del contenedor
-        
+          text-align: right; // Alinea el texto a la derecha dentro del contenedor
         }
       }
-      
-      
     }
 
     .chatbot-footer {

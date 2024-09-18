@@ -169,6 +169,7 @@ registerLocaleData(localeEs, 'es');
     HeaderVetComponent,
     HeaderAdminComponent,
     ChatBotComponent,
+    EstadoCargaComponent,
     LostPetsComponent,
     PagoCompraComponent
   ]

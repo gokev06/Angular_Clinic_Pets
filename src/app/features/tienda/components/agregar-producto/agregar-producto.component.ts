@@ -24,6 +24,7 @@ export class AgregarProductoComponent implements OnInit {
   tempImageFile: File | null = null;  // Nueva variable para almacenar temporalmente el archivo de imagen
   imageUrl: string | null = null;
   isEditMode: boolean = false;
+  inventarioAdmin: string | null = "false";
   productId: string | null = null;
 
   constructor(
@@ -43,6 +44,18 @@ export class AgregarProductoComponent implements OnInit {
 
       this.initForm();
       this.checkEditMode();
+      this.checkInventarioAdmin();
+
+  }
+
+  checkInventarioAdmin(){
+    const valueInventario: any = sessionStorage.getItem('adminInventario');
+    if (valueInventario == 'true') {
+      return this.inventarioAdmin = valueInventario;
+    } else {
+      return this.inventarioAdmin = 'false';
+    }
+
   }
 
   initForm(): void{
@@ -181,7 +194,14 @@ export class AgregarProductoComponent implements OnInit {
                   imageHeight: 100,
                   imageAlt: 'Descripción de la imagen'
                 }).then(() => {
-                  this.router.navigate(['/tienda-admin']);
+
+
+                  if (this.inventarioAdmin == 'true') {
+                     this.router.navigate(['/inventario']);
+                  }else{
+                     this.router.navigate(['/tienda-admin']);
+                  }
+
                 });
               }
             });

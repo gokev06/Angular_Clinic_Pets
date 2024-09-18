@@ -7,13 +7,5 @@ import { Subject } from 'rxjs';
   styleUrl: './estado-carga.component.scss'
 })
 export class EstadoCargaComponent {private modalStatus = new Subject<boolean>();
-  modalStatus$ = this.modalStatus.asObservable();
-
-  openModal() {
-    this.modalStatus.next(true);
-  }
-
-  closeModal() {
-    this.modalStatus.next(false);
-  }
+  
 }

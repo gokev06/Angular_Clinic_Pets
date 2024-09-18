@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header-inventario',
   templateUrl: './header-inventario.component.html',
@@ -8,11 +9,9 @@ export class HeaderInventarioComponent {
   busqueda: string = '';
 
   @Output() buscar = new EventEmitter<string>();
+  constructor(private router: Router){}
 
   buscarProductos(): void {
     this.buscar.emit(this.busqueda.trim()); // Emitir el término de búsqueda
-  }
-  crearProducto() {
-    // Lógica para crear un nuevo producto
   }
 }

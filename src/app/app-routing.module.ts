@@ -47,7 +47,7 @@ const routes: Routes = [
   {path: "home-admin", component: PagesHomeAdminComponent},// canActivate: [authGuard]},
 
   {path: "home-vet", component: PagesHomeVetComponent},
-  { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
+  { path: 'historial', component: PagesHistorialComponent}, //canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
   {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
   {path: 'editar-producto/:id', component: AgregarProductoComponent},
@@ -58,6 +58,7 @@ const routes: Routes = [
   {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
+  {path: "consul-historial",component:TablaCitasComponent },  // ni idea
   {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent, canActivate: [authGuard]},
