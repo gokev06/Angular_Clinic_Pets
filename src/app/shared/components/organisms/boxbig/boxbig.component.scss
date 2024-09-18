@@ -17,63 +17,21 @@
 }
 
 
-@media (max-width: 352px){
-    .box {
-        width: 100%;
-        height: 320px; 
-        flex-direction: column;
-    }
 
-    .caja1 { 
-        display: none;
-    }
 
-    .cajas{
-        width: 100%;
-        height: 400px;
+@media (max-width:1279px) {
+    .box{
+        width: 98%;
     }
-}
-
-/* Responsive para pantallas pequeñas (352px - 480px) */
-@media (min-width: 352px) and (max-width: 480px) {
-    .box {
-        width: 100%;
-        height: 320px; 
-        flex-direction: column;
-    }
-
-    .cajas {
-        width: 100%;
-        height: 400px;
-    }
-
     .caja1 {
-        width: 100%;
-        padding-top: 20px;
-        display: none;
+        width: 60%;
+        height: 339px;
+        padding-top: 16px;
     }
 }
-
-/* Responsive para pantallas medianas (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-    .box {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .cajas {
-        width: 100%;
-    }
-
-    .caja1 {
-        width: 100%;
-        padding-top: 24px;
-    }
-}
-
+ 
 /* Responsive para pantallas grandes (769px - 920px) */
-@media (min-width: 769px) and (max-width: 920px) {
+@media  (max-width: 920px) {
     .box {
         width: 100%;
       
@@ -91,18 +49,45 @@
 }
 
 
-@media (max-width: 980px){
+/* Responsive para pantallas medianas (481px - 768px) */
+@media   (max-width: 768px) {
     .box {
         width: 100%;
-      
+        display: flex;
+        flex-direction: column;
     }
 
     .cajas {
-        width: 0%;
-        display: none;
+        width: 100%;
+        display: flex;
     }
 
     .caja1 {
-        width: 100%; 
-        padding-top: 28px;}
+        width: 100%;
+        padding-top: 24px;
+        display: none;
+    }
 }
+
+
+/* Responsive para pantallas pequeñas (352px - 480px) */
+@media  (max-width: 480px) {
+    .box {
+        width: 100%;
+        height: auto; 
+        flex-direction: column;
+    }
+
+    .cajas {
+        width: 100%;
+        height: 400px;
+  
+    }
+
+    .caja1 {
+        width: 100%;
+        padding-top: 20px;
+    
+    }
+}
+
