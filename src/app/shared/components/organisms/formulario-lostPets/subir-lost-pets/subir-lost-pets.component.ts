@@ -4,6 +4,8 @@ import { LostPetsService } from '../../../../../features/wanted/service/lost-pet
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ImageUploadService } from '../../../../../images-services/image-upload.service';
+
 
 @Component({
   selector: 'app-subir-lost-pets',
@@ -24,7 +26,8 @@ export class SubirLostPetsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private publicacionService: LostPetsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private imageUploadService: ImageUploadService
   ) {}
 
   ngOnInit(): void {
@@ -65,34 +68,40 @@ export class SubirLostPetsComponent implements OnInit {
       return;
     }
 
-    const debugObject = {
-      nombreMascota: this.petsForm.get('nombreMascota')?.value || '',
-      infoMascota: this.petsForm.get('infoMascota')?.value || '',
-      numeroTelefono: this.petsForm.get('numeroTelefono')?.value || '',
-      IdUsuario: this.IdUsuario,
-      imagenMascota: this.selectedImage ? this.selectedImage.name : 'No image selected'
-    };
+    if (this.selectedImage) {
+      this.imageUploadService.uploadImage(this.selectedImage).subscribe({
+        next: (response) => {
+          const imageUrl = response.url; // Asumiendo que la API devuelve la URL en la propiedad 'url'
+          console.log('imageUrl', imageUrl);
 
-    console.log('Datos para debug:', debugObject);
-
-
-    const formData = new FormData();
-    formData.append('nombreMascota', this.petsForm.get('nombreMascota')?.value || '');
-    formData.append('infoMascota', this.petsForm.get('infoMascota')?.value || '');
-    formData.append('numeroTelefono', this.petsForm.get('numeroTelefono')?.value || '');
-    formData.append('IdUsuario', this.IdUsuario);
-
-  if (this.selectedImage) {
-      formData.append('imagenMascota', this.selectedImage, this.selectedImage.name);
+          this.savePetWithImage(imageUrl);
+        },
+        error: (error) => {
+          console.error('Error al subir la imagen:', error);
+          Swal.fire('Error', 'Hubo un problema al subir la imagen.', 'error');
+        }
+      });
+    } else {
+      this.savePetWithImage('');
+    }
   }
 
-console.log('Datos enviados:', formData); // Esto es para debugging, pero no imprimirá los datos de FormData como esperas
+  savePetWithImage(imageUrl: string): void {
+    console.log('imprimo imageUrl', imageUrl);
 
+    const petData: any = {
+      nombreMascota: this.petsForm.get('nombreMascota')?.value,
+      infoMascota: this.petsForm.get('infoMascota')?.value,
+      numeroTelefono: this.petsForm.get('numeroTelefono')?.value,
+      IdUsuario: this.IdUsuario,
+      imagenMascota: imageUrl
+    };
+    
 
-    this.publicacionService.publicarMascota(formData).subscribe({
+    this.publicacionService.publicarMascota(petData).subscribe({
       next: () => {
         Swal.fire('Publicación exitosa', 'Tu publicación ha sido enviada con éxito.', 'success').then(() => {
-          this.router.navigate(['/lost-pets']); // Redirige a /lost-pets después del éxito
+          this.router.navigate(['/lost-pets']);
         });
         this.petsForm.reset();
         this.selectedImage = null;

@@ -74,49 +74,94 @@ img{
     display: block;
 }
 
-@media (max-width: 351px) {
-    .tamaño {
-     
-        display: none; /* Manteniendo display: none */
-   
-    }
+
+
+@media (max-width:1279px) {
+.tamaño {
+    width: 92%;
+    margin-left: 35px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
+
+.tamaño img{
+      width: 147px;
+}
+
+.lucas {
+    width: 174px;
+    height: 249px;
+}
+
+.pricipalbox {
+    width: 80%;
+    height: 157px;
+    margin-left: 10px;
+}
+
+.content {
+    margin-left: 10px;
+}
+
+.pricipalbox img {
+    width: 30%;
+}
+
+.text_adoptame p {
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.5; /* Ajuste de interlineado para pantallas grandes */
+}
+
+.img-text {
+    display: none;
+}
+
 
 }
 
-/* Diseño para pantallas pequeñas (352px - 480px) */
-@media (min-width: 352px) and (max-width: 480px) {
+
+
+/* Diseño para pantallas grandes (769px - 920px) */
+@media  (max-width: 920px) {
     .tamaño {
-        width: 70%;
-        display: none; /* Manteniendo display: none */
-        flex-direction: column;
+        width: 90%;
+        margin-left: 35px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
         padding-left: 0;
     }
 
     .lucas {
-        margin-right: 0;
-        width: 100%;
-        height: auto;
-    }
-
-    .img-text {
-        width: 200px;
-    }
-
-    .img-text img {
-        width: 100%;
-        height: auto;
+        width: 174px;
+        height: 249px;
     }
 
     .pricipalbox {
-        width: 90%;
-        height: auto;
-        margin-top: 10px;
+        width: 80%;
+        height: 157px;
+        margin-left: 10px;
+    }
+
+    .content {
+        margin-left: 10px;
+    }
+
+    .pricipalbox img {
+        width: 30%;
     }
 
     .text_adoptame p {
         width: 100%;
-        font-size: 14px;
-        line-height: 1.4; /* Ajuste de interlineado para pantallas pequeñas */
+        font-size: 16px;
+        line-height: 1.5; /* Ajuste de interlineado para pantallas grandes */
+    }
+
+    .img-text {
+        display: none;
     }
 }
 
@@ -160,43 +205,51 @@ img{
     }
 }
 
-/* Diseño para pantallas grandes (769px - 920px) */
-@media (min-width: 769px) and (max-width: 920px) {
+
+/* Diseño para pantallas pequeñas (352px - 480px) */
+@media (min-width: 352px) and (max-width: 480px) {
     .tamaño {
-        width: 90%;
-        margin-left: 35px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
+        width: 70%;
+        display: none; /* Manteniendo display: none */
+        flex-direction: column;
         padding-left: 0;
     }
 
     .lucas {
-        width: 174px;
-        height: 249px;
+        margin-right: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .img-text {
+        width: 200px;
+    }
+
+    .img-text img {
+        width: 100%;
+        height: auto;
     }
 
     .pricipalbox {
-        width: 80%;
-        height: 157px;
-        margin-left: 10px;
-    }
-
-    .content {
-        margin-left: 10px;
-    }
-
-    .pricipalbox img {
-        width: 30%;
+        width: 90%;
+        height: auto;
+        margin-top: 10px;
     }
 
     .text_adoptame p {
         width: 100%;
-        font-size: 16px;
-        line-height: 1.5; /* Ajuste de interlineado para pantallas grandes */
+        font-size: 14px;
+        line-height: 1.4; /* Ajuste de interlineado para pantallas pequeñas */
+    }
+}
+
+
+
+@media (max-width: 351px) {
+    .tamaño {
+     
+        display: none; /* Manteniendo display: none */
+   
     }
 
-    .img-text {
-        display: none;
-    }
 }
