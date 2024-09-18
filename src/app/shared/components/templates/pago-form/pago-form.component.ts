@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   styleUrl: './pago-form.component.scss'
 })
 export class PagoFormComponent {
-  tarjetaNumero: string = '';
+  /*tarjetaNumero: string = '';
   tarjetaNombre: string = '';
   tarjetaFechaExpiracion: string = '';
   tarjetaCVV: string = '';
@@ -22,7 +22,8 @@ export class PagoFormComponent {
         icon: 'info',
         allowOutsideClick: false,
         didOpen: () => {
-          Swal.showLoading();
+          Swal.showLoading(null);
+
         }
       });
 
@@ -50,5 +51,5 @@ export class PagoFormComponent {
   // Método para validar el formulario
   validarFormulario(): any {
     return this.tarjetaNumero && this.tarjetaNombre && this.tarjetaFechaExpiracion && this.tarjetaCVV;
-  }
+  }*/
 }

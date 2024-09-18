@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LostPetsService } from '../../../../../features/wanted/service/lost-pets.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-subir-lost-pets',
@@ -17,15 +18,18 @@ export class SubirLostPetsComponent implements OnInit {
   selectedImagePreview: string | ArrayBuffer | null = null;
 
   isEditMode: boolean = false;
-  IdUsuario: string = '1091202566';
+  IdUsuario: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
     private publicacionService: LostPetsService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    console.log('SubirLostPetsComponent inicializado');
+
     this.petsForm = this.formBuilder.group({
       imagenMascota: [''],
       nombreMascota: ['', Validators.required],
@@ -33,13 +37,14 @@ export class SubirLostPetsComponent implements OnInit {
       numeroTelefono: ['', Validators.required]
     });
 
-    // Recupera el IdUsuario desde el estado de navegación
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
-      this.IdUsuario = navigation.extras.state['userId'] || '';
-      console.log('User ID:', this.IdUsuario);
-    }
+    this.route.params.subscribe(params => {
+      this.IdUsuario = params['IdUsuario'] || '';
+      console.log('User ID recibido:', this.IdUsuario); // Verifica aquí
+    });
   }
+
+
+
 
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -64,21 +69,21 @@ export class SubirLostPetsComponent implements OnInit {
       nombreMascota: this.petsForm.get('nombreMascota')?.value || '',
       infoMascota: this.petsForm.get('infoMascota')?.value || '',
       numeroTelefono: this.petsForm.get('numeroTelefono')?.value || '',
-      IdUsuario: this.IdUsuario || '',
+      IdUsuario: this.IdUsuario,
       imagenMascota: this.selectedImage ? this.selectedImage.name : 'No image selected'
     };
-    
+
     console.log('Datos para debug:', debugObject);
-    
+
 
     const formData = new FormData();
     formData.append('nombreMascota', this.petsForm.get('nombreMascota')?.value || '');
     formData.append('infoMascota', this.petsForm.get('infoMascota')?.value || '');
     formData.append('numeroTelefono', this.petsForm.get('numeroTelefono')?.value || '');
-    formData.append('IdUsuario', this.IdUsuario || '');
+    formData.append('IdUsuario', this.IdUsuario);
 
   if (this.selectedImage) {
-      formData.append('imagenMascota', this.selectedImage, this.selectedImage.name);  
+      formData.append('imagenMascota', this.selectedImage, this.selectedImage.name);
   }
 
 console.log('Datos enviados:', formData); // Esto es para debugging, pero no imprimirá los datos de FormData como esperas
@@ -88,7 +93,7 @@ console.log('Datos enviados:', formData); // Esto es para debugging, pero no imp
       next: () => {
         Swal.fire('Publicación exitosa', 'Tu publicación ha sido enviada con éxito.', 'success').then(() => {
           this.router.navigate(['/lost-pets']); // Redirige a /lost-pets después del éxito
-        });        
+        });
         this.petsForm.reset();
         this.selectedImage = null;
         this.selectedImagePreview = null;
