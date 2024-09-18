@@ -24,7 +24,7 @@
                     <div class="image-preview"
                       [ngStyle]="{'background-image': selectedImage ? 'url(' + selectedImage + ')' : 'none'}">
                       <img [src]=" selectedImage || 'https://imagenesclinicpets.blob.core.windows.net/imagenesclinicpetstiendaadopciones/Pdefecto.jpg' " alt="Profile Image" *ngIf="!selectedImage">
-                      <p class="p" *ngIf="!selectedImage">Haz clic para seleccionar una imagen</p>
+                      <p class="p" *ngIf="selectedImage">Haz clic para seleccionar una imagen</p>
                     </div>
                   </div>
                 </label>

@@ -97,50 +97,318 @@ justify-content: center;
 
 
 
-  @media (max-width: 920px) {
+
+
+  @media (max-width: 352px), (max-width: 480px) {
+
     .contenedores {
+      display: flex;
       flex-direction: column;
       position: fixed;
       top: 0;
-      left: -100%;
-      width: 200px;
+      left: -100%; /* Posición inicial del menú fuera de la pantalla */
+      width: 50%; /* Asegura que ocupe todo el ancho de la pantalla */
       background-color: #333;
       z-index: 1000;
-      transition: left 0.3s ease;
+      transition: left 0.3s ease; /* Transición suave al abrir/cerrar */
+      height: 100%; /* Ocupa toda la altura de la pantalla */
+      overflow-y: auto; /* Permite el scroll vertical */
+      padding-top: 100px; /* Espaciado superior */
+      justify-content: center;
+      align-items: center;
     }
-
+  
     .contenedores.open {
-      left: 0;
-      height: 100%;
-      width: 50%; /* Mantiene el ancho del menú en la mitad de la pantalla */
+      left: 0; /* Muestra el menú al abrirlo */
+    }
+  
+    .colorC {
+      width: 100%; /* Ocupa todo el ancho */
+      margin: 0;
+      padding: 15px;
+      border-bottom: 1px solid #444;
+      height: auto;
+      text-align: center;
+    }
+  
+    .colorC .titulos {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+    }
+  
+    .rounded-container {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
+  
+    .drawer-toggle {
+      position: fixed;
+      top: 20px;
+      left: 10px;
+      background-color: transparent;
+      color: black;
+      border: none;
+      z-index: 1001;
+      cursor: pointer;
+      font-size: 16px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .drawer-toggle.open {
+      left: 70%; /* Ajusta la posición cuando el menú está abierto */
+    }
+  
+    .contenedores ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%; /* Asegura que el menú ocupe todo el ancho */
+      text-align: center;
+    }
+  
+    .contenedores li {
+      width: 100%;
+      padding: 15px 20px;
+      border-bottom: 1px solid #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  
+    .contenedores li:last-child {
+      border-bottom: none;
+    }
+  
+    .contenedores li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .contenedores li {
+      margin-bottom: 20px;
+    }
+  
+    .contenedores.open {
+      padding-bottom: 30px;
+    }
   }
 
+
+
+@media (min-width: 480px) and (max-width: 769px) {
+  .contenedores {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%; /* Posición inicial del menú fuera de la pantalla */
+    width: 300px; /* Ancho del menú */
+    background-color: #333;
+    z-index: 1000;
+    transition: left 0.3s ease; /* Transición suave al abrir/cerrar */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    overflow-y: auto; /* Permite desplazamiento vertical si el contenido es largo */
+    padding-top: 100px; /* Espaciado superior para separar del borde superior */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contenedores.open {
+    left: 0; /* Muestra el menú al abrirlo */
+    width: 70%; /* Ajusta el ancho del menú al 70% de la pantalla */
+  }
+
+  .colorC {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    height: 90px;
+    text-align: center; /* Centra el texto del contenedor */
+  }
+
+  .colorC .titulos {
+    color: white;
+    font-size: 16px;
+    text-align: center; /* Centra los títulos */
+  }
+
+  .rounded-container {
+    border: none;
+    height: 150px;
+    background-color: transparent;
+    margin-top: -70px; /* Espaciado superior para separarlo de las letras */
+    display: flex;
+    justify-content: center; /* Centra las imágenes dentro del contenedor */
+    align-items: center;
+  }
+
+  .bigtext {
+    margin-top: -48px;
+    text-align: center; /* Centra el texto grande */
+  }
+
+  .rounded-container img {
+    width: 30px;
+    height: 30px;
+    margin-right: 66px; /* Espacio entre las imágenes */
+  }
+
+  .drawer-toggle {
+    position: fixed;
+    top: 38px;
+    left: 10px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 10px;
+    z-index: 1001;
+    cursor: pointer;
+    font-size: 18px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .drawer-toggle.open {
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+  }
+
+  .titulos {
+    font-size: 14px !important;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    color: #9588E4;
+    margin-bottom: 10px; /* Ajusta el margen inferior para separar el texto de las imágenes */
+    text-align: center; /* Asegura que el texto esté centrado */
+  }
+
+  .contenedores ul {
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Elimina viñetas */
+    width: 100%; /* Asegura que el menú ocupe todo el ancho disponible */
+    text-align: center; /* Centra todo el texto en los elementos de lista */
+  }
+
+  .contenedores li {
+    width: 100%; /* Cada elemento de la lista ocupará todo el ancho */
+    padding: 15px 20px; /* Espaciado alrededor de los elementos */
+    border-bottom: 1px solid #444; /* Línea divisoria entre los elementos */
+    display: flex;
+    justify-content: center; /* Alinea el contenido al centro */
+    flex-direction: column; /* Organiza el contenido de forma vertical */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto en cada lista */
+  }
+
+  .contenedores li:last-child {
+    border-bottom: none; /* Elimina la línea del último elemento */
+  }
+
+  .contenedores li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    text-align: center; /* Centra el texto dentro de los enlaces */
+  }
+
+  .contenedores.open .drawer-toggle {
+    left: 70%; /* Ajusta el botón para cerrar al 70% del ancho */
+  }
+
+  .contenedores li {
+    margin-bottom: 20px; /* Espaciado adicional entre los elementos */
+  }
+
+  .contenedores.open {
+    padding-bottom: 30px; /* Añade un espacio al final del menú */
+  }
+}
+
+
+
+  @media (min-width: 769px) and (max-width: 920px) {
+    .contenedores {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -100%; /* Posición inicial del menú fuera de la pantalla */
+      width: 300px; /* Ancho del menú */
+      background-color: #333;
+      z-index: 1000;
+      transition: left 0.3s ease; /* Transición suave al abrir/cerrar */
+      height: 100%; /* Ocupa toda la altura de la pantalla */
+      overflow-y: auto; /* Permite desplazamiento vertical si el contenido es largo */
+      padding-top: 100px; /* Espaciado superior para separar del borde superior */
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .contenedores.open {
+      left: 0; /* Muestra el menú al abrirlo */
+      width: 70%; /* Ajusta el ancho del menú al 70% de la pantalla */
+    }
+  
     .colorC {
       width: 100%;
       margin: 0;
       padding: 15px;
       border-bottom: 1px solid #444;
       height: 90px;
+      text-align: center; /* Centra el texto del contenedor */
     }
-
+  
     .colorC .titulos {
       color: white;
-      font-size: 14px;
-
+      font-size: 16px;
+      text-align: center; /* Centra los títulos */
     }
-
+  
     .rounded-container {
       border: none;
+      height: 150px;
       background-color: transparent;
-      margin-top: -60px;
+      margin-top: -70px; /* Espaciado superior para separarlo de las letras */
+      display: flex;
+      justify-content: center; /* Centra las imágenes dentro del contenedor */
+      align-items: center;
     }
-
+  
+    .bigtext {
+      margin-top: -48px;
+      text-align: center; /* Centra el texto grande */
+    }
+  
     .rounded-container img {
       width: 30px;
       height: 30px;
-
+      margin-right: 66px; /* Espacio entre las imágenes */
     }
-
+  
     .drawer-toggle {
       position: fixed;
       top: 38px;
@@ -156,156 +424,68 @@ justify-content: center;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  
+    .drawer-toggle.open {
+      font-size: 16px;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+    }
+  
+    .titulos {
+      font-size: 14px !important;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      color: #9588E4;
+      margin-bottom: 10px; /* Ajusta el margen inferior para separar el texto de las imágenes */
+      text-align: center; /* Asegura que el texto esté centrado */
+    }
+  
+    .contenedores ul {
+      padding: 0;
+      margin: 0;
+      list-style: none; /* Elimina viñetas */
+      width: 100%; /* Asegura que el menú ocupe todo el ancho disponible */
+      text-align: center; /* Centra todo el texto en los elementos de lista */
+    }
+  
+    .contenedores li {
+      width: 100%; /* Cada elemento de la lista ocupará todo el ancho */
+      padding: 15px 20px; /* Espaciado alrededor de los elementos */
+      border-bottom: 1px solid #444; /* Línea divisoria entre los elementos */
+      display: flex;
+      justify-content: center; /* Alinea el contenido al centro */
+      flex-direction: column; /* Organiza el contenido de forma vertical */
+      align-items: center; /* Centra los elementos horizontalmente */
+      text-align: center; /* Centra el texto en cada lista */
+    }
+  
+    .contenedores li:last-child {
+      border-bottom: none; /* Elimina la línea del último elemento */
+    }
+  
+    .contenedores li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+      width: 100%;
+      text-align: center; /* Centra el texto dentro de los enlaces */
+    }
+  
+    .contenedores.open .drawer-toggle {
+      left: 70%; /* Ajusta el botón para cerrar al 70% del ancho */
+    }
+  
+    .contenedores li {
+      margin-bottom: 20px; /* Espaciado adicional entre los elementos */
+    }
+  
+    .contenedores.open {
+      padding-bottom: 30px; /* Añade un espacio al final del menú */
+    }
   }
-    .titulos{
-    font-size: 10px !important;
-    cursor: pointer;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    color: #9588E4;
-    margin-bottom: 175px;
-  }
-
-  contenedores.open .drawer-toggle {
-    font-size: 16px;
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-}}
-
-@media (min-width:480px)and (max-width: 768px) {
-  .drawer-toggle{
-    justify-content: center;
-    align-items: center;
-  }
-  .contenedores {
-    flex-direction: column;
-    align-items: stretch; /* Asegura que los elementos se apilen y ocupen todo el ancho */
-    padding: 10px;
-    overflow-y: auto; /* Permite el scroll vertical */
-  }
-
-  .colorC {
-    width: 100%; /* Las tarjetas ocuparán el 100% del ancho */
-    height: auto;
-    padding: 15px;
-    margin-bottom: 15px; /* Espaciado entre las tarjetas */
-  }
-
-  .titulos {
-    font-size: 12px; /* Ajuste del tamaño del texto */
-    margin-bottom: 5px;
-    text-align: center;
-  }
-
-  .rounded-container {
-    width: 80px; /* Tamaño reducido del contenedor redondeado */
-    height: 80px;
-    margin: 0 auto 10px; /* Centrado y con margen inferior */
-  }
-
-  .rounded-container img {
-    max-width: 50px;
-    max-height: 50px;
-  }
-
-  .drawer-toggle {
-    top: 20px;
-    left: 10px;
-    font-size: 16px;
-  }
-}
-
-
-
-@media (max-width: 352px) {
-
-  .drawer-toggle{
-    justify-content: center;
-    align-items: center;
-  }
-  .contenedores {
-    flex-direction: column;
-    align-items: stretch; /* Asegura que los elementos se apilen y ocupen todo el ancho */
-    padding: 10px;
-    overflow-y: auto; /* Permite el scroll vertical */
-  }
-
-  .colorC {
-    width: 100%; /* Las tarjetas ocuparán el 100% del ancho */
-    height: auto;
-    padding: 15px;
-    margin-bottom: 15px; /* Espaciado entre las tarjetas */
-  }
-
-  .titulos {
-    font-size: 12px; /* Ajuste del tamaño del texto */
-    margin-bottom: 5px;
-    text-align: center;
-  }
-
-  .rounded-container {
-    width: 80px; /* Tamaño reducido del contenedor redondeado */
-    height: 80px;
-    margin: 0 auto 10px; /* Centrado y con margen inferior */
-  }
-
-  .rounded-container img {
-    max-width: 50px;
-    max-height: 50px;
-  }
-
-  .drawer-toggle {
-    top: 20px;
-    left: 10px;
-    font-size: 16px;
-  }
-}
-
-
-
-
-@media (max-width: 480px) {
-
-  .drawer-toggle{
-    justify-content: center;
-    align-items: center;
-  }
-  .contenedores {
-    flex-direction: column;
-    align-items: stretch; /* Asegura que los elementos se apilen y ocupen todo el ancho */
-    padding: 10px;
-    overflow-y: auto; /* Permite el scroll vertical */
-  }
-
-  .colorC {
-    width: 100%; /* Las tarjetas ocuparán el 100% del ancho */
-    height: auto;
-    padding: 15px;
-    margin-bottom: 15px; /* Espaciado entre las tarjetas */
-  }
-
-  .titulos {
-    font-size: 12px; /* Ajuste del tamaño del texto */
-    margin-bottom: 5px;
-    text-align: center;
-  }
-
-  .rounded-container {
-    width: 80px; /* Tamaño reducido del contenedor redondeado */
-    height: 80px;
-    margin: 0 auto 10px; /* Centrado y con margen inferior */
-  }
-
-  .rounded-container img {
-    max-width: 50px;
-    max-height: 50px;
-  }
-
-  .drawer-toggle {
-    top: 20px;
-    left: 10px;
-    font-size: 16px;
-  }
-}
+  
