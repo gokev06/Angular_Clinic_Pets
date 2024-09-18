@@ -47,7 +47,7 @@ const routes: Routes = [
   {path: "home-admin", component: PagesHomeAdminComponent},// canActivate: [authGuard]},
 
   {path: "home-vet", component: PagesHomeVetComponent},
-  { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]},
+  { path: 'historial', component: PagesHistorialComponent}, //canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
   {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
   {path: 'editar-producto/:id', component: AgregarProductoComponent},

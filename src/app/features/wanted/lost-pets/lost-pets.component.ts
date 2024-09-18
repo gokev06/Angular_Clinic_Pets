@@ -12,17 +12,40 @@ export class LostPetsComponent implements OnInit {
   comentarios: { [key: number]: any[] } = {}; // Objeto para almacenar los comentarios por IdBuscarMascota
   nuevoComentario: { [key: number]: string } = {};
 
-  IdUsuario: any = '1036888888'; // ID del usuario actual
+  IdUsuario: any = '1091202566'; // ID del usuario actual
+selectedImage: any;
 
   constructor(private lostPetsService: LostPetsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.IdUsuario = localStorage.getItem('userToken');
+    //this.IdUsuario = localStorage.getItem('userToken');
+    this.IdUsuario = '1091202566';
+
     console.log('IdUsuario' , this.IdUsuario);
     
     this.loadMascotas();  
+    this.rolSeleccionado();
   }
 
+  
+  viewuser: boolean = false;
+  viewvet: boolean = false;
+  viewadmin: boolean = false;
+  userRol: string | null = null;
+
+  rolSeleccionado(): void{
+    this.userRol = sessionStorage.getItem('userRole');
+    if (this.userRol == 'usuario') {
+       this.viewuser= true
+
+    }if (this.userRol == 'veterinario') {
+      this.viewvet= true
+
+   }if (this.userRol == 'administrador') {
+    this.viewadmin= true
+
+ }
+  }
 
 
   loadMascotas(): void {

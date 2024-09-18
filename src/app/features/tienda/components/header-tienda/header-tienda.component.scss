@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ES+Deco&display=swap');
+
 app-header-home {
   position: relative; /* Asegura que el encabezado esté en una capa superior */
   z-index: 2; /* Ajusta el índice z para que esté encima del carrusel */
@@ -24,6 +26,15 @@ app-header-home {
     padding: 0 24px;
     
 }
+.logo h1 {
+  font-size: 24px;
+  margin: 0;
+  font-family: "Playwrite ES Deco", cursive;
+}
+.logo {
+  display: flex;
+  align-items: center;
+} 
 
 
   .search-input {

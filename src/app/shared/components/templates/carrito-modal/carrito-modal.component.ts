@@ -92,53 +92,64 @@ export class CarritoModalComponent  implements OnInit{
     return this.allData.length > 0 ? this.allData.reduce((total, producto) => total + (producto.precioUnitario * producto.cantidad), 0) : 0;
   }
 
-  eliminarProducto():void{
+  eliminarProducto(): void {
     Swal.fire({
       title: '¿Está seguro?',
       text: "Esta acción vaciará todo su carrito de compras.",
-      icon: 'warning',
+      imageUrl: '../../../../../assets/icons/mascotaamor-tras.gif', // Imagen de advertencia
+      imageWidth: 200,
+      imageHeight: 200,
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#7DFF82', // Color del botón de confirmación
+      cancelButtonColor: '#F57171',  // Color del botón de cancelación
       confirmButtonText: 'Sí, vaciar carrito',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-         this.productoService.deleteProductCart().pipe(
+        this.productoService.deleteProductCart().pipe(
           catchError(error => {
             console.error('Error en el servidor al eliminar el producto', error);
             Swal.fire({
-              title: 'Error en Servidor',
+              title: 'Error en el servidor',
               text: 'Hubo un error al eliminar los productos del carrito.',
-              icon: 'error',
+              imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de error
+              imageWidth: 200,
+              imageHeight: 200,
+              confirmButtonColor: '#F57171', // Color del botón en caso de error
               confirmButtonText: 'OK'
             });
             return of(null);
           })
-         ).subscribe( response => {
+        ).subscribe(response => {
           if (response && response.delete) {
-            console.log('Carrito vaciado con exito', response);
+            console.log('Carrito vaciado con éxito', response);
             Swal.fire({
-              title: ' Su carrito de compras ha sido vaciado con exito ',
-              icon: 'success',
-              confirmButtonText: "OK"
+              title: '¡Su carrito ha sido vaciado con éxito!',
+              imageUrl: '../../../../../assets/images/imgcitas/confirmar.png', // Imagen de éxito
+              imageWidth: 200,
+              imageHeight: 200,
+              confirmButtonColor: '#7DFF82',
+              confirmButtonText: 'OK'
             }).then(() => {
-               this.closemodal();
+              this.closemodal();
             });
-          }else  if (response) {
+          } else if (response) {
             console.log('Hubo un error al vaciar el carrito', response);
             Swal.fire({
-              title:'Error',
-              text: response.message || 'Hubo un error al vaciar el carrito',
-              icon: 'error',
+              title: 'Error',
+              text: response.message || 'Hubo un error al vaciar el carrito.',
+              imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de error
+              imageWidth: 200,
+              imageHeight: 200,
+              confirmButtonColor: '#F57171',
               confirmButtonText: 'OK'
             });
           }
-         });
+        });
       }
     });
   };
-
+  
 
 
   private obtenerStockDisponible(idProducto: string): number {
