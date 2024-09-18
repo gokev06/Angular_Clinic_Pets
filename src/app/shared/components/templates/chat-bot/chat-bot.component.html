@@ -1,10 +1,10 @@
 <div class="chatbot-container">
   <button class="chatbot-toggle" (click)="toggleChat()">
-    <img src="../../../../../assets/images/imghome/chat.png" alt="Chat">
+    <img src="../../../../../assets/images/imghome/chatcat.png" alt="Chat">
   </button>
   <div class="chatbot-window" *ngIf="isChatOpen">
     <div class="chatbot-header">
-      <h2>TAMVET</h2>
+      <h2>MichiX</h2>
       <button class="close-btn" (click)="toggleChat()">x</button>
     </div>
     <div class="chatbot-body">
@@ -13,7 +13,7 @@
            
         <!-- Mensaje del chatbot -->
         <div *ngIf="message.role === 'model'" class="bot-response">
-          <img src="../../../../../assets/images/imghome/chat.png" alt="Bot">
+          <img src="../../../../../assets/images/imghome/chatcat.png" alt="Bot">
           <p>{{ message.parts }}</p>
         </div>
         
