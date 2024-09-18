@@ -96,6 +96,7 @@ export class SubirLostPetsComponent implements OnInit {
       IdUsuario: this.IdUsuario,
       imagenMascota: imageUrl
     };
+    
 
     this.publicacionService.publicarMascota(petData).subscribe({
       next: () => {
