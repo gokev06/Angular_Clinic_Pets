@@ -94,41 +94,54 @@ button:active {
 
 .payment-overlay {
   display: none;
-  
   position: fixed;
-  z-index: 1000;
+  z-index: 900;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: auto;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
 }
 
 .payment-overlay.show {
-  display: block; 
+  display: flex; /* Cambia a flex para centrar el contenido */
 }
 
 .payment-content {
   background-color: #fff;
-  margin: 50px auto; 
-  padding: 10px;
+  margin: 0; /* Elimina margen superior */
+  padding: 20px; /* Espacio interno alrededor del contenido */
   border: 1px solid #888;
   width: 600px; 
   max-height: 86%;
   position: relative;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
+/* Elimina el margen superior del botón dentro del modal */
+.payment-content button {
+  background-color: #CCC4FF; /* Fondo morado claro */
+  color: #607175; /* Color del texto */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  margin-top: 10px; /* Reduce el margen superior */
+  font-size: 16px; /* Tamaño de fuente */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones para efectos de hover y active */
+  width: 200px;
+}
+
+/* Efectos hover y active del botón */
+.payment-content button:hover {
+  background-color: #B7A5FF; /* Fondo morado ligeramente más claro */
+}
+
+.payment-content button:active {
+  background-color: #9F8EFF; /* Fondo morado más oscuro al hacer clic */
+  transform: scale(0.98); /* Reducción de tamaño al hacer clic */
 }

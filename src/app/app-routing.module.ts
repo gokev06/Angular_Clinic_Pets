@@ -54,7 +54,7 @@ const routes: Routes = [
   {path: "gestion-citas", component: GestionCitasComponent}, // incompleto
   {path:"agenda" , component: AgendaComponent}, // se supone que es para veterinario
   {path: "gestion-horaios", component: GestionDeHorariosComponent},
-  {path: "crear-historial" , component: CrearHistorialComponent},//, canActivate: [authGuard]}, // ya esta crear historial
+  {path: "crear-historial" , component: CrearHistorialComponent, canActivate: [authGuard]},//, canActivate: [authGuard]}, // ya esta crear historial
   {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
@@ -74,7 +74,7 @@ const routes: Routes = [
   {path: "pago-form", component: PagoFormComponent},
   {path: "solicitudes_adopcion", component: SolicitudAdopcionComponent},
   {path: "lost-pets", component: LostPetsComponent},
-  {path: "subir-lost-pets", component: SubirLostPetsComponent},
+  { path: 'subir-lost-pets/:IdUsuario', component: SubirLostPetsComponent },
 ];
 
 @NgModule({

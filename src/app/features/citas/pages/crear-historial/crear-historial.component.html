@@ -12,11 +12,12 @@
         <h2>Informacion de la mascota</h2>
         <app-input [text]="'text'" [holder]="'Nombre'" formControlName="nombreMascota" [id]="'nombreMascota'" [estilos]="style"></app-input>
         <app-input [text]="'text'" [holder]="'Edad'" formControlName="edad" [id]="'edad'" [estilos]="style"></app-input>
-        <select id="Estado Vacunacion"  formControlName="estadovacunacion" name="estadovacunacion">
+        <select id="Estado Vacunacion" formControlName="estadovacunacion">
             <option value="" hidden>Estado de Vacunacion</option>
             <option value="En orden">En orden</option>
             <option value="Incompletas">Incompletas</option>
         </select>
+        
         <select id="Especie"  formControlName="especie" name="especie">
             <option value="" hidden>Especie</option>
             <option value="Perro">Perro</option>

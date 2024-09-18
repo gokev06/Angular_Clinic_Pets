@@ -11,19 +11,38 @@ export class LostPetsComponent implements OnInit {
   mascotas: any[] = [];
   comentarios: { [key: number]: any[] } = {}; // Objeto para almacenar los comentarios por IdBuscarMascota
   nuevoComentario: { [key: number]: string } = {};
-
-  IdUsuario: any = ''; // ID del usuario actual
+  
+  IdUsuario: string = ''; 
 
   constructor(private lostPetsService: LostPetsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.IdUsuario = localStorage.getItem('userToken');
-    console.log('IdUsuario' , this.IdUsuario);
-    
+    this.IdUsuario = localStorage.getItem('userToken') || '';
+    console.log('IdUsuario 2', this.IdUsuario);
+
+    this.loadIdUsuario();
     this.loadMascotas();  
   }
 
-
+  loadIdUsuario(): void {
+    this.lostPetsService.obtenerIdUsuario().subscribe({
+      next: (data: any) => {
+        console.log('Datos recibidos del backend:', data); // Para depuración
+        if (data.select && data.Result && data.Result.length > 0) {
+          this.IdUsuario = data.Result[0].id; // Asigna el ID recibido
+          console.log('IdUsuario recibido del backend:', this.IdUsuario);
+        } else {
+          console.error('IdUsuario no recibido o incorrecto:', data);
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener IdUsuario:', err);
+      }
+    });
+  }
+  
+  
+  
 
   loadMascotas(): void {
     this.lostPetsService.obtenerMascotas().subscribe({
@@ -42,12 +61,19 @@ export class LostPetsComponent implements OnInit {
   }
 
   navigateToUpload(): void {
-    this.router.navigate(['/subir-lost-pets'], { state: { IdUsuario: this.IdUsuario } });
+    console.log('Navegando a subir-lost-pets con IdUsuario:', this.IdUsuario); // Verifica aquí
+    if (this.IdUsuario) {
+      this.router.navigate(['/subir-lost-pets', this.IdUsuario]);
+    } else {
+      console.error('IdUsuario no está definido');
+    }
   }
+  
+  
 
   comentar(IdBuscarMascota: number): void {
     const comentario = this.nuevoComentario[IdBuscarMascota];
-    if (comentario) { // Verifica que el comentario no esté vacío
+    if (comentario) {
       this.lostPetsService.enviarComentario(this.IdUsuario, IdBuscarMascota, comentario).subscribe({
         next: (response) => {
           console.log('Comentario enviado:', response);
@@ -62,21 +88,16 @@ export class LostPetsComponent implements OnInit {
       console.error('El comentario está vacío');
     }
   }
-  
-  
 
   verComentarios(IdBuscarMascota: number): void {
+    console.log('Id de la publicacion:', IdBuscarMascota);
+    
     this.lostPetsService.obtenerComentarios(IdBuscarMascota).subscribe({
       next: (data: any) => {
         console.log('Comentarios recibidos:', data);
         if (data && data.Result && Array.isArray(data.Result)) {
           this.comentarios[IdBuscarMascota] = data.Result;
-          const modal = document.getElementById(`modal-${IdBuscarMascota}`);
-          if (modal) {
-            modal.style.display = 'block';
-          } else {
-            console.error('Modal no encontrado');
-          }
+          this.showModal(IdBuscarMascota);
         } else {
           console.error('Los comentarios no son un array o no están presentes:', data);
         }
@@ -86,12 +107,20 @@ export class LostPetsComponent implements OnInit {
       }
     });
   }
-  
+
+  showModal(IdBuscarMascota: number): void {
+    const modal = document.getElementById(`modal-${IdBuscarMascota}`);
+    if (modal) {
+      modal.style.display = 'block';
+    } else {
+      console.error('Modal no encontrado');
+    }
+  }
+
   closeModal(IdBuscarMascota: number): void {
     const modal = document.getElementById(`modal-${IdBuscarMascota}`);
     if (modal) {
       modal.style.display = 'none';
     }
   }
-  
 }

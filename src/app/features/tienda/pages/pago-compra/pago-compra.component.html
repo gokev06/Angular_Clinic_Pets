@@ -24,14 +24,10 @@
       <h3>Total: {{ precioTotal }}</h3>
     </div>
     <button (click)="openPayment()">Comprar</button>
+    
+    <!-- Componente de pago con tarjeta directamente aquí -->
+    <app-pago-tarjeta *ngIf="isPaymentOpen" (onSubmit)="handlePayment()"></app-pago-tarjeta>
+    
+    <button *ngIf="isPaymentOpen" (click)="handlePayment()">Confirmar Pago</button> <!-- Botón de confirmar pago -->
   </div>
 </section>
-
-<!-- Componente de pago con tarjeta -->
-<div id="payment-overlay" class="payment-overlay" [ngClass]="{'show': isPaymentOpen}">
-  
-  <div class="payment-content">
-    <span class="close" (click)="closePayment()">&times;</span>
-    <app-pago-tarjeta (onSubmit)="handlePayment()"></app-pago-tarjeta>
-  </div>
-</div>
