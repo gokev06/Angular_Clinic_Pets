@@ -31,7 +31,7 @@ export class UserServiceService {
 
     this.loadingSubject.next(true);
     return this.http.get<any>('http://localhost:10101/callData', { headers }).pipe(
-      delay(1000),
+      delay(3000),
       map(response => {
         if (response.status === 'success' && response.data) {
           this.userSubject.next(response.data);
@@ -55,10 +55,13 @@ export class UserServiceService {
 
     this.loadingSubject.next(true);
     return this.http.put('http://localhost:10101/editar-perfil', updateData, { headers }).pipe(
+      delay(4000),
       map(response => {
         this.loadUserData().subscribe();
-        this.loadingSubject.next(false);
         return response;
+      }),
+      finalize(() => {
+        this.loadingSubject.next(false);
       })
     );
   }
