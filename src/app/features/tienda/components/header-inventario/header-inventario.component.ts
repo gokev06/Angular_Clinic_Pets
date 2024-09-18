@@ -14,10 +14,4 @@ export class HeaderInventarioComponent {
   buscarProductos(): void {
     this.buscar.emit(this.busqueda.trim()); // Emitir el término de búsqueda
   }
-  crearProducto() {
-    let editarProducto = 'false'
-    sessionStorage.setItem('EditProduct', editarProducto );
-    sessionStorage.setItem('adminInventario', 'true')
-    this.router.navigate(['/subir-producto'])
-  }
 }

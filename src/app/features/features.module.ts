@@ -94,7 +94,7 @@ import {  HeaderInventarioComponent } from './tienda/components/header-inventari
     InventarioDatosComponent
   ],
   imports: [
-    
+
     UsuariosModule,
     CommonModule,
     FormsModule,

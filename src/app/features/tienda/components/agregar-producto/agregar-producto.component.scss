@@ -89,8 +89,8 @@ label {
       }
       
       button:disabled {
-        background-color: rgba(87, 250, 60, 0.8);
-        cursor: not-allowed;
+          background-color: rgba(87, 250, 60, 0.8);
+          cursor: not-allowed;
       }
       
       .descripcion1 {
@@ -426,4 +426,11 @@ cursor: pointer;
 }
 
 
-
+@media(max-width: 480px){
+  section {
+    width: 100%;
+    display: flex;
+     justify-content: start;
+   
+}
+}

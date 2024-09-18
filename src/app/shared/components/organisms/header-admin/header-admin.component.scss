@@ -30,6 +30,7 @@
   background-color: #ded8ff;
   padding: 0 50px;
   box-shadow: 10px 0 20px #CCC4FF ;
+  flex-wrap: wrap;
 }
 
 .titles a {
@@ -65,6 +66,10 @@
     height: 30px;
     font-size: 14px;
   }
+
+  .titles{
+    height: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -80,4 +85,5 @@
   .hola, .a, .aa {
     font-size: 10px;
   }
+  
 }

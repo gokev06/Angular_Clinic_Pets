@@ -14,12 +14,29 @@ export class TablaCitasComponent implements OnInit {
   constructor(private appointmentService: AppointmentService) {}
 
   ngOnInit(): void {
-    this.appointmentService.getAppointments().subscribe(res => {
-      this.citas = res;
-      console.log(this.citas);
-    });    
+    this.fetchAppointments();
   }
 
+  fetchAppointments(): void {
+    this.appointmentService.getAllUserDates().subscribe(
+      (res: any) => {
+        if (res && res.result) {
+          this.citas = res.result.map((cita: any) => ({
+            ...cita,
+            fecha: new Date(cita.fecha).toLocaleDateString('es-ES'),
+            hora: cita.hora || ''
+          }));
+        } else {
+          console.error('La respuesta no tiene el formato esperado:', res);
+        }
+      },
+      error => {
+        console.error('Error al obtener las citas:', error);
+      }
+    );
+  }
+
+  /*
   fetchAppointments(): void {
     this.appointmentService.getAppointments()
       .subscribe(res => {
@@ -30,6 +47,7 @@ export class TablaCitasComponent implements OnInit {
         }));
       });
   }
+      */
 
   downloadFile(url: string, fileName: string): void {
     const link = document.createElement('a');

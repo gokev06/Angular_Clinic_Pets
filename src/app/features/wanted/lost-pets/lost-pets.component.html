@@ -1,7 +1,18 @@
-<app-header [ruta]="'/citas'" [title]="'Citas'"></app-header>
+<div *ngIf="viewuser">
+  <app-header></app-header>
+</div>
+<div *ngIf="viewadmin">
+  <app-header-admin></app-header-admin>
+</div>
+<div *ngIf="viewvet">
+  <app-header-vet></app-header-vet>
+</div>
 
+
+<div class="yo">
 <button class="nueva-publicacion-btn" (click)="navigateToUpload()">Nueva publicación</button>
-
+</div>
+<div class="peppa">
 <div class="card-container">
   <div *ngFor="let mascota of mascotas" class="card">
     <div class="card-content">
@@ -36,3 +47,6 @@
     </div>
   </div>
 </div>
+</div>
+
+<div>hola funciona???</div>

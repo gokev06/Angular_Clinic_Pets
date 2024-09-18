@@ -16,7 +16,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
   user: any = {
     nombre: "Kevin",
     rol: "Usuario",
-    imagenPerfil: "../../../../../assets/images/imgcitas/Pdefecto.jpg"
+    imagenPerfil: "https://imagenesclinicpets.blob.core.windows.net/imagenesclinicpetstiendaadopciones/Pdefecto.jpg"
   };
   isModalOpen = false;
   loading = false;

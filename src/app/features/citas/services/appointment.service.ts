@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -95,5 +95,34 @@ export class AppointmentService {
 
     return this.http.get(`${this.apiUrl_1}/downloadHistorial/${idCita},`, {responseType: 'blob'})
   }
+
+  getAllUserDates(): Observable<any> {
+    const token: string | null =localStorage.getItem('userToken');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${this.apiUrl_1}/callAllDateUser`, {headers});
+  }
+
+
+
+
+
+  sendIdsToBackend(idCita: string, idUsuario: string, token?: string | null): Observable<any> {
+    let headers = new HttpHeaders();
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+
+    let params = new HttpParams()
+      .set('idCita', idCita)
+      .set('idUsuario', idUsuario);
+
+    console.log('Enviando ID:', { idCita, idUsuario });
+
+    return this.http.get(`${this.apiUrl_1}/sendIds`, { headers, params });
+  }
+
 
 }

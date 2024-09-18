@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class DisabledHorariosService {
   private apiUrl = 'http://localhost:10101/desactive'; 
-  private disabledHorarios: Set<string> = new Set();
-  private disabledDays: Set<string> = new Set();
+  disabledHorarios: Set<string> = new Set();
+  disabledDays: Set<string> = new Set();
   constructor(private http: HttpClient) { 
     this.loadDisabledHorarios();
     this.loadDisabledDays();
@@ -20,8 +20,9 @@ export class DisabledHorariosService {
   }
 
   activateDay(date: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/activateDay?date=${date}`, this.getHttpOptions());
-  }
+    return this.http.delete(`${this.apiUrl}/activateDay`, { body: { date }, headers: this.getHttpOptions().headers });
+}
+
 
   desactivateTime(date: string, time: string): Observable<any> {
     console.log('Fecha y hora enviadas', date, time);
@@ -67,15 +68,15 @@ export class DisabledHorariosService {
     this.desactivateTime('', horario).subscribe();
   }
 
-  addDisabledDay(date: string): void {
+  addDisabledDay(date: string): Observable<any> {
     this.disabledDays.add(date);
-    this.desactivateDay(date).subscribe();
-  }
+    return this.desactivateDay(date); // Devolver el Observable
+}
 
-  removeDisabledDay(date: string): void {
+removeDisabledDay(date: string): Observable<any> {
     this.disabledDays.delete(date);
-    this.desactivateDay(date).subscribe();
-  }
+    return this.activateDay(date); // Devolver el Observable
+}
 
   loadDisabledHorarios(): void {
     this.getDisabledTimes().subscribe((times: string[]) => {

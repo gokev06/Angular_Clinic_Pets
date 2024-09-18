@@ -12,13 +12,14 @@ export class CalendarioComponent implements OnInit {
   selectedDay: Date | null = null;
   dayNames: string[] = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
   today: Date = new Date();
+  isDayDisabled: boolean = false; // Estado para verificar si el día está desactivado
 
   @Output() dateSelected = new EventEmitter<Date>();
   @Output() timeSelected = new EventEmitter<string>();
   @Input() showDeactivateButton: boolean = false;
 
   constructor(private disabledHorariosService: DisabledHorariosService) {}
-  
+
   ngOnInit(): void {
     this.generateDaysInMonth(this.viewData);
     this.disabledHorariosService.loadDisabledHorarios();
@@ -33,7 +34,6 @@ export class CalendarioComponent implements OnInit {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     this.daysInMonth = [];
-
     for (let i = 0; i < startingDay; i++) {
       this.daysInMonth.push(new Date(1970, 0, i + 1));
     }
@@ -47,13 +47,38 @@ export class CalendarioComponent implements OnInit {
     if (this.isDateInPast(day)) {
       return;
     }
-  
+
     if (!this.isOutsideMonth(day) && !this.isBeforeFirstDay(day) && !this.isSunday(day)) {
       this.selectedDay = new Date(day.getFullYear(), day.getMonth(), day.getDate());
-      const formattedDate = this.selectedDay.toISOString().split('T')[0];
       this.dateSelected.emit(this.selectedDay);
+      this.loadDisabledDays(); // Cargar el estado del día desactivado
     }
   }
+
+  loadDisabledDays(): void {
+    this.disabledHorariosService.getDisabledDays().subscribe((days: string[]) => {
+      this.isDayDisabled = days.includes(this.selectedDay?.toISOString().split('T')[0] || '');
+      console.log('Estado del día:', this.selectedDay, 'desactivado:', this.isDayDisabled);
+    });
+  }
+  
+
+  toggleDayStatus(day: Date): void {
+    const dateString = day.toISOString().split('T')[0];
+  
+    if (this.isDayDisabled) {
+      this.disabledHorariosService.activateDay(dateString).subscribe(() => {
+        this.isDayDisabled = false;
+        this.loadDisabledDays(); // Actualiza el estado del día
+      });
+    } else {
+      this.disabledHorariosService.desactivateDay(dateString).subscribe(() => {
+        this.isDayDisabled = true;
+        this.loadDisabledDays(); // Actualiza el estado del día
+      });
+    }
+  }
+  
 
   isDateInPast(day: Date): boolean {
     const today = new Date();
