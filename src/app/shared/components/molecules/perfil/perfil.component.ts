@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
-  username: string = "kevin Mamaguevo"
   isModalOpen = false;
 
   @Input() user : any = {

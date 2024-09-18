@@ -20,7 +20,6 @@ import { PagoTarjetaComponent } from '../../shared/components/organisms/pago-tar
     HeaderTiendaComponent,
     TiendaAdminComponent,
     CardAdminComponent,
-    PagoCompraComponent,
   ],
   imports: [
     CommonModule,
