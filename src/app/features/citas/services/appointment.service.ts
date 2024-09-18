@@ -96,4 +96,13 @@ export class AppointmentService {
     return this.http.get(`${this.apiUrl_1}/downloadHistorial/${idCita},`, {responseType: 'blob'})
   }
 
+  getAllUserDates(): Observable<any> {
+    const token: string | null =localStorage.getItem('userToken');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${this.apiUrl_1}/callAllDateUser`, {headers});
+  }
+
 }

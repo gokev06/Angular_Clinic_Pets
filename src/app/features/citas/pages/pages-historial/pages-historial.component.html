@@ -3,16 +3,16 @@
   <div class="vacio">
     <h1>Vaya...</h1>
     <img src="../../../../../assets/images/gato.png" alt="">
-    <h2>Parece que no historial de citas</h2>
+    <h2>Parece que no hay historial de citas</h2>
     <h3>Agenda tu cita para que puedas tener un historial.</h3>
 
-    <button class="volver" routerLink="/home-vet">Volver</button>
+    <button class="volver" routerLink="/home">Volver</button>
   </div>
 </section>
 <section *ngIf="citas.length > 0 " class="background">
-  <app-table-historial 
-    [citas]="citas"  
-    (citaEliminada)="onCitaEliminada($event)" 
+  <app-table-historial
+    [citas]="citas"
+    (citaEliminada)="onCitaEliminada($event)"
     (citaActualizada)="onCitaActualizada()"
     (descargarHistorial)="onDownloadHistorial($event)">
   </app-table-historial>
