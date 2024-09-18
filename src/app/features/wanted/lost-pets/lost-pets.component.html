@@ -9,10 +9,11 @@
 </div>
 
 
-
+<div class="yo">
 <button class="nueva-publicacion-btn" (click)="navigateToUpload()">Nueva publicación</button>
+</div>
 <div class="peppa">
-<div class="card-container">
+<div class="card-container" >
   <div *ngFor="let mascota of mascotas" class="card">
     <div class="card-content">
       <img [src]="mascota.imagenMascota" alt="Imagen de {{ mascota.nombreMascota }}" class="card-img">

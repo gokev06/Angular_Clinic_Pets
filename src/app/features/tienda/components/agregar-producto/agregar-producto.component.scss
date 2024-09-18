@@ -426,4 +426,11 @@ cursor: pointer;
 }
 
 
-
+@media(max-width: 480px){
+  section {
+    width: 100%;
+    display: flex;
+     justify-content: start;
+   
+}
+}

@@ -1,3 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ES+Deco&display=swap');
+
+app-header-home {
+    position: relative; /* Asegura que el encabezado esté en una capa superior */
+    z-index: 2; /* Ajusta el índice z para que esté encima del carrusel */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo translúcido */
+    /* Otros estilos para el encabezado según sea necesario */
+    
+  }  
+  
+  .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90px;
+      background-color: #CCC4FF;
+      padding: 0 44px;
+      border-bottom: 3px solid white;
+    }
+  
+    .hola h1 {
+      font-size: 20px;
+      margin-top: 20px;
+      font-family: "Playwrite ES Deco", cursive;
+  }
+  
+    .hola {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      
+  }
+  
+    .titles {
+      width: 350px;
+      height: 40px; // Asegúrate de que la altura coincida con la del input de búsqueda
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  
+    .search-input {
+      padding: 8px;
+      border: 1.5px solid black;
+      border-radius: 8px;
+      margin-left: 100px;
+      height: 40px;
+      width: 100%;
+  
+    }
+  
+  
+  
+    .hola {
+  
+      padding: 0 12px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+  
+  
+  
+  .car{
+      width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+  
+  }
+  
+  .car img{
+      width: 55px;
+      height: 55px;
+      margin-right: 20px;
+      cursor: pointer;
+  }
+  
+  
+  
+  .btn__add__Product{
+    border-radius: 8px;
+    text-align: center;
+    margin-right: 20px;
+    background-color: #CCC4FF;
+    color:black;
+    border: 3px solid  white ;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+  }
+  
+  .btn__add__Product:hover {
+    background-color: white; /* Color más claro o diferente cuando el cursor está encima */
+    color: black;
+    border: 2px #CCC4FF solid;
+  }
+  
+  .btn__add__Product:active {
+    background-color: rgb(124, 148, 215); /* Color más oscuro para el estado presionado */
+    border: 2px rgb(124, 148, 215) solid;
+    transform: scale(0.98); /* Efecto de reducción al presionar */
+  }
+  
+  
+  .title {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ded8ff;
+    padding: 0 50px;
+    box-shadow: 10px 0 20px #CCC4FF ;
+    flex-wrap: wrap;
+  }
+  
+  .title a {
+    padding: 0 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .hola, .a, .aa {
+    padding: 0 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  
+  
+  
 section {
     margin-top: 60px;
 }
@@ -115,7 +254,7 @@ h2 {
 
 .emptyState {
     margin-top: 50px;
-    width: 100%;
+    width: 85%;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -147,6 +286,11 @@ h2 {
         display: flex;
         flex-direction: column;
         padding-top: 26px;
+    }
+
+    .emptyState{
+        width: 85%;
+        margin-top: 26px;
     }
 
     .filtro {
@@ -188,6 +332,12 @@ h2 {
         padding-top: 50px;
     }
 
+    .emptyState{
+        width: 85%;
+
+        margin-top: 50px;
+    }
+
     .filtro {
         width: 100%;
         flex-direction: column;
@@ -215,6 +365,14 @@ h2 {
 @media  (max-width: 768px) {
     .filtro {
         width: 20%;  
+    }
+
+    .title{
+        height: auto;
+    }
+
+    .header{
+        height: auto;
     }
 
     .cartas {
@@ -261,3 +419,57 @@ h2 {
         width: 100%; 
     }
 }
+
+
+@media (max-width: 1279px) {
+    .title{
+        height: auto;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .background {
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .container-cards {
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+    }
+
+    .emptyState{
+        width: 85%;
+
+        margin-top: 50px;
+    }
+
+    .filtro {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 10px;
+    }
+
+    .cartas {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: -55px; 
+    }
+
+    h2, h3, label, .borrar, .title-nombre, .contain {
+        font-size: 16px; 
+    }
+
+    .borrar img, .title-nombre img {
+        width: 18px;
+        height: 18px;
+    }
+}
+

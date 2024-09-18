@@ -26,6 +26,28 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+
+.emptyState {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.estado-vacio {
+  width: 900px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+}
+
+.estado-vacio img {
+  height: 200px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+
 /* Estilos para el logo */
 .logo {
   padding: 10px; /* Espacio interior */
