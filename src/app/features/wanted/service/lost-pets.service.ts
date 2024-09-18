@@ -20,8 +20,10 @@ export class LostPetsService {
 
   enviarComentario(IdUsuario: string, IdBuscarMascota: number, comentario: string): Observable<any> {
     const body = { IdUsuario, IdBuscarMascota, comentario };
+    console.log('Cuerpo del comentario:', body); // Agrega este log para verificar los datos
     return this.http.post<any>(`${this.apiUrl}/enviarComentario`, body);
   }
+  
 
   // lost-pets.service.ts
 obtenerComentarios(IdBuscarMascota: number): Observable<any> {
