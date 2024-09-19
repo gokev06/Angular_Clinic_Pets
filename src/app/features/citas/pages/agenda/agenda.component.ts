@@ -86,6 +86,8 @@ export class AgendaComponent implements OnInit{
          period = 'PM'
        }
 
+       
+
 
         const formattedHour = `${hour}:${minutes} ${period}`;
 
