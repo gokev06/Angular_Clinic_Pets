@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LostPetsService } from '../service/lost-pets.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lost-pets',
@@ -131,21 +132,51 @@ selectedImage: any;
 
   comentar(IdBuscarMascota: number): void {
     const comentario = this.nuevoComentario[IdBuscarMascota];
+    
     if (comentario) {
       this.lostPetsService.enviarComentario(this.IdUsuario, IdBuscarMascota, comentario).subscribe({
         next: (response) => {
           console.log('Comentario enviado:', response);
           // Limpiar el campo de comentario
           this.nuevoComentario[IdBuscarMascota] = '';
+  
+          Swal.fire({
+            title: 'Comentario enviado',
+            text: 'Tu comentario ha sido enviado con éxito.',
+            imageUrl: '../../../../../assets/images/imgcitas/confirmar.png', // Imagen de confirmación personalizada
+            imageWidth: 200,
+            imageHeight: 200,
+            confirmButtonColor: '#7DFF82', // Color de confirmación personalizado
+            confirmButtonText: 'Aceptar'
+          });
         },
         error: (err) => {
           console.error('Error al enviar comentario:', err);
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un problema al enviar tu comentario.',
+            imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de error personalizada
+            imageWidth: 200,
+            imageHeight: 200,
+            confirmButtonColor: '#F57171', // Color de confirmación para errores
+            confirmButtonText: 'Aceptar'
+          });
         }
       });
     } else {
       console.error('El comentario está vacío');
+      Swal.fire({
+        title: 'Comentario vacío',
+        text: 'No puedes enviar un comentario vacío.',
+        imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de advertencia
+        imageWidth: 200,
+        imageHeight: 200,
+        confirmButtonColor: '#F57171', // Color de confirmación para advertencias
+        confirmButtonText: 'Aceptar'
+      });
     }
   }
+  
 
   verComentarios(IdBuscarMascota: number): void {
     console.log('Id de la publicacion:', IdBuscarMascota);

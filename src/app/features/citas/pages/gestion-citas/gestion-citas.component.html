@@ -27,7 +27,7 @@
     <div *ngFor="let hora of horas" class="hora-row">
       <div class="hora-name">{{hora}}</div>
       <div *ngFor="let day of daysInMonth" [ngClass]="{'current-day': isCurrentDay(day), 'alternate-color': isAlternateColor(day)}" class="day-name">
-        <span (click)="onUserNameClick(day, hora)">
+        <span class="cita" (click)="onUserNameClick(day, hora)">
           {{ getCitaForDayAndHour(day, hora)?.nombreUsuario || '' }}
         </span>
       </div>

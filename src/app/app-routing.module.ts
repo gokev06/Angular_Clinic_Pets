@@ -40,40 +40,40 @@ import { SubirLostPetsComponent } from './shared/components/organisms/formulario
 const routes: Routes = [
   {path :"login",component: LoginComponent}, //ingreso al sistema web
   {path: "citas", component: CitasComponent, canActivate: [authGuard]}, // ventana citas usuario
-  { path: "home" , component: PagehomeComponent}, //canActivate: [authGuard]}, // ventana home de usuario
+  { path: "home" , component: PagehomeComponent, canActivate: [authGuard]}, //}, // ventana home de usuario
   {path: "adopcion", component: AdopcionComponent, canActivate: [authGuard]}, // ventana adopcion de usuario
   {path: "register", component: RegistroComponent}, // ingreso al registro
   {path: "", component: PagesHomeRegisterComponent},
-  {path: "home-admin", component: PagesHomeAdminComponent},// canActivate: [authGuard]},
+  {path: "home-admin", component: PagesHomeAdminComponent, canActivate: [authGuard]},// },
 
-  {path: "home-vet", component: PagesHomeVetComponent},
-  { path: 'historial', component: PagesHistorialComponent}, //canActivate: [authGuard]},
+  {path: "home-vet", component: PagesHomeVetComponent, canActivate: [authGuard]},
+  { path: 'historial', component: PagesHistorialComponent, canActivate: [authGuard]}, //canActivate: [authGuard]},
   {path: 'unauthorized', component: UnauthorizedComponent},
-  {path:'subir-producto',component:AgregarProductoComponent}, // incompleto, pero hago endpoints
+  {path:'subir-producto',component:AgregarProductoComponent}, // completo
   {path: 'editar-producto/:id', component: AgregarProductoComponent},
-  {path: "gestion-citas", component: GestionCitasComponent}, // incompleto
-  {path:"agenda" , component: AgendaComponent}, // se supone que es para veterinario
-  {path: "gestion-horaios", component: GestionDeHorariosComponent},
+  {path: "gestion-citas", component: GestionCitasComponent, canActivate: [authGuard]}, // completo
+  {path:"agenda" , component: AgendaComponent, canActivate: [authGuard]}, // se supone que es para veterinario
+  {path: "gestion-horaios", component: GestionDeHorariosComponent, canActivate: [authGuard]},
   {path: "crear-historial" , component: CrearHistorialComponent, canActivate: [authGuard]},//, canActivate: [authGuard]}, // ya esta crear historial
   {path: "pago-cita", component:PagoCitaComponent}, // se modifica a pago productos
   {path: "nueva-adopcion" , component: PagesNuevaadopcionComponent},  //si esta completa hago endpoints
   {path:"info-adopcion",component:InfoAdopcionComponent}, //  mas o menos, completo
-  {path: "consul-historial",component:TablaCitasComponent },  // ni idea
-  {path: "table-historial",component: TablaCitasComponent}, // ya tengo la idea de como hacerlo
+  {path: "consul-historial",component:TablaCitasComponent },  // consulta el historial en vet
+  {path: "table-historial",component: TablaCitasComponent, canActivate: [authGuard]}, 
   {path: 'unauthozrized', component: UnauthorizedComponent},
   {path:'tienda',component:TiendaComponent, canActivate: [authGuard]},
   {path: 'info-producto', component:InfoProductoTiendaComponent},
   {path: 'tienda-producto', component: TiendaProductoComponent},
-  {path: 'gestion-veterinarios', component:UsuariosComponent},
+  {path: 'gestion-veterinarios', component:UsuariosComponent, canActivate: [authGuard]},
   {path: 'tienda-admin',component:TiendaAdminComponent, canActivate: [authGuard]},
   {path: "ver-adopcion",component: SolicitudAdopcionComponent },
   {path: "pago-compra", component: PagoCompraComponent},
-  {path:"admin-adopciones", component: AdminAdopcionesComponent},
+  {path:"admin-adopciones", component: AdminAdopcionesComponent, canActivate: [authGuard]},
   {path: "solicitud_adopcion", component: SolicitudAdopcionComponent},
-  {path: 'inventario', component: InventarioComponent },
+  {path: 'inventario', component: InventarioComponent, canActivate: [authGuard] },
   {path: "pago-form", component: PagoFormComponent},
   {path: "solicitudes_adopcion", component: SolicitudAdopcionComponent},
-  {path: "lost-pets", component: LostPetsComponent},
+  {path: "lost-pets", component: LostPetsComponent, canActivate: [authGuard]},
   { path: 'subir-lost-pets/:IdUsuario', component: SubirLostPetsComponent },
 ];
 

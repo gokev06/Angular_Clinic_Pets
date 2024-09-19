@@ -8,6 +8,7 @@
     left: 0;
     right: 0;
     background-color: #00000049;
+    z-index: 9999; /* Asegúrate de que este valor sea mayor que el de cualquier otro componente */
 }
 
 
