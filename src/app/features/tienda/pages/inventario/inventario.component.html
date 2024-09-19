@@ -2,6 +2,15 @@
 
 <app-info-t (categoriaSeleccionada)="onCategoriaSeleccionada($event)"></app-info-t>
 
-<div class="principal">
+<div class="principal" *ngIf="productosFiltrados.length > 0">
   <app-inventario-datos  [productos]="productosFiltrados"></app-inventario-datos>
+</div>
+
+<div *ngIf="productosFiltrados.length == 0 " class="emptyState">
+  <div class="estado-vacio">
+    <h1>No hay resultados que coincidan con tu búsqueda.</h1>
+    <img src="../../../../../assets/icons/muelin (1) (1).gif" alt="">
+    <p>Revisa la ortografía de la palabra.</p>
+    <p>Utiliza palabras más genéricas o menos palabras.</p>
+</div>
 </div>

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './header-admin.component.scss'
 })
 export class HeaderAdminComponent {
+  isMenuOpen = false;
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
