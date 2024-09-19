@@ -41,7 +41,6 @@ export class GestionCitasComponent implements OnInit {
   loadAppointments(): void {
     this.appointmentService.getAppointments2().subscribe(
       (data) => {
-        console.log('Datos recibidos:', data); // Agrega esta línea para depurar
         this.citas = data[0];
         this.initializeCitasMap();
       },
@@ -70,9 +69,30 @@ export class GestionCitasComponent implements OnInit {
 
         const [hours, minutes] = cita.hora.split(':');
         let hour = parseInt(hours, 10);
-        const period = hour >= 12 ? 'PM' : 'AM';
+        console.log('hour',hour);
+
+        let period = hour >= 12 ? 'PM' : 'AM';
+        console.log('period', period);
+
         hour = hour % 12 || 12;
+        if (hour == 1 && period == 'AM') {
+           period = 'PM'
+        }else if ( hour == 2 && period == 'AM'){
+           period = 'PM'
+        }else if ( hour == 3 && period == 'AM'){
+          period = 'PM'
+        }else if ( hour == 4 && period == 'AM'){
+          period = 'PM'
+        }else if ( hour == 5 && period == 'AM'){
+          period = 'PM'
+        }
+
+
+        console.log('hour despues de period', hour);
+
         const formattedHour = `${hour}:${minutes} ${period}`;
+        console.log('formattedHour', formattedHour);
+
 
         if (!this.citasMap.has(formattedFecha)) {
           this.citasMap.set(formattedFecha, new Map());
