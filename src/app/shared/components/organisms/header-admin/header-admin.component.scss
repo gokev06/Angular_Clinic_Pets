@@ -52,7 +52,12 @@
 }
 
 
+@media (max-width: 1279px){
 
+  .titles{
+    height: auto;
+  }
+}
 
 
 @media (max-width: 768px) {
@@ -67,14 +72,11 @@
     font-size: 14px;
   }
 
-  .titles{
-    height: auto;
-  }
 }
 
 @media (max-width: 480px) {
   .header {
-    height: 60px;
+    height: 80px;
     padding: 0 10px;
   }
 

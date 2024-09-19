@@ -71,6 +71,12 @@ span {
     display: contents;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
 /* Media Queries para pantallas más pequeñas */
 @media (max-width: 1200px) {
     .calendario {
