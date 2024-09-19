@@ -100,7 +100,16 @@ export class SubirLostPetsComponent implements OnInit {
 
     this.publicacionService.publicarMascota(petData).subscribe({
       next: () => {
-        Swal.fire('Publicación exitosa', 'Tu publicación ha sido enviada con éxito.', 'success').then(() => {
+        Swal.fire({
+          title: 'Publicación exitosa',
+          text: 'Tu publicación ha sido enviada con éxito.',
+          imageUrl: '../../../../../assets/images/imgcitas/confirmar.png', // Imagen de éxito personalizada
+          imageWidth: 200,
+          imageHeight: 200,
+          icon: 'success',
+          confirmButtonColor: '#7DFF82', // Color de confirmación personalizado
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
           this.router.navigate(['/lost-pets']);
         });
         this.petsForm.reset();
@@ -109,7 +118,16 @@ export class SubirLostPetsComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error al enviar la publicación:', err);
-        Swal.fire('Error', 'Hubo un problema al enviar la publicación.', 'error');
+        Swal.fire({
+          title: 'Error',
+          text: 'Hubo un problema al enviar la publicación.',
+          imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de error personalizada
+          imageWidth: 200,
+          imageHeight: 200,
+          icon: 'error',
+          confirmButtonColor: '#F57171', // Color de confirmación para errores
+          confirmButtonText: 'Aceptar'
+        });
       }
     });
   }

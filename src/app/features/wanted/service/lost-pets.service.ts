@@ -19,9 +19,14 @@ export class LostPetsService {
   }
 
   enviarComentario(IdUsuario: string, IdBuscarMascota: number, comentario: string): Observable<any> {
+    const token: string | null = localStorage.getItem('userToken')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
     const body = { IdUsuario, IdBuscarMascota, comentario };
     console.log('Cuerpo del comentario:', body); // Agrega este log para verificar los datos
-    return this.http.post<any>(`${this.apiUrl}/enviarComentario`, body);
+    return this.http.post<any>(`${this.apiUrl}/enviarComentario`, body,{headers});
   }
   
 
