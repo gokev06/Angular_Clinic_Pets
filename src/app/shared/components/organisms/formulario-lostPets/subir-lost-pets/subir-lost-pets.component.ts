@@ -21,6 +21,7 @@ export class SubirLostPetsComponent implements OnInit {
 
   isEditMode: boolean = false;
   IdUsuario: string = '';
+  loading: boolean = false; // Nueva propiedad para controlar el estado de carga
 
   constructor(
     private formBuilder: FormBuilder,
@@ -68,6 +69,8 @@ export class SubirLostPetsComponent implements OnInit {
       return;
     }
 
+    this.loading = true; // Activar el estado de carga
+
     if (this.selectedImage) {
       this.imageUploadService.uploadImage(this.selectedImage).subscribe({
         next: (response) => {
@@ -79,6 +82,7 @@ export class SubirLostPetsComponent implements OnInit {
         error: (error) => {
           console.error('Error al subir la imagen:', error);
           Swal.fire('Error', 'Hubo un problema al subir la imagen.', 'error');
+          this.loading = false; // Desactivar el estado de carga en caso de error
         }
       });
     } else {
@@ -96,10 +100,11 @@ export class SubirLostPetsComponent implements OnInit {
       IdUsuario: this.IdUsuario,
       imagenMascota: imageUrl
     };
-    
+
 
     this.publicacionService.publicarMascota(petData).subscribe({
       next: () => {
+        this.loading = false; // Desactivar el estado de carga
         Swal.fire('Publicación exitosa', 'Tu publicación ha sido enviada con éxito.', 'success').then(() => {
           this.router.navigate(['/lost-pets']);
         });
@@ -108,6 +113,7 @@ export class SubirLostPetsComponent implements OnInit {
         this.selectedImagePreview = null;
       },
       error: (err) => {
+        this.loading = false; // Desactivar el estado de carga en caso de error
         console.error('Error al enviar la publicación:', err);
         Swal.fire('Error', 'Hubo un problema al enviar la publicación.', 'error');
       }

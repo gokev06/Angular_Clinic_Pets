@@ -12,14 +12,14 @@
         </div>
       </label>
     </div>
-  
+
     <section class="peppa">
       <section class="cube__form__group">
         <div class="parte1">
-          <app-input 
-            id="nombreMascota" 
-            formControlName="nombreMascota" 
-            [estilos]="estilos" 
+          <app-input
+            id="nombreMascota"
+            formControlName="nombreMascota"
+            [estilos]="estilos"
             holder="Nombre de la mascota">
           </app-input>
           <div *ngIf="petsForm.get('nombreMascota')?.invalid && petsForm.get('nombreMascota')?.touched" class="error-message">
@@ -28,14 +28,14 @@
         </div>
       </section>
     </section>
-  
+
     <section>
       <section class="cube__form__group">
         <div class="parte1">
-          <app-input 
-            id="infoMascota" 
-            formControlName="infoMascota" 
-            [estilos]="estilos" 
+          <app-input
+            id="infoMascota"
+            formControlName="infoMascota"
+            [estilos]="estilos"
             holder="Información sobre la mascota">
           </app-input>
           <div *ngIf="petsForm.get('infoMascota')?.invalid && petsForm.get('infoMascota')?.touched" class="error-message">
@@ -44,14 +44,14 @@
         </div>
       </section>
     </section>
-  
+
     <section>
       <section class="cube__form__group">
         <div class="parte1">
-          <app-input 
-            id="contacto" 
-            formControlName="numeroTelefono" 
-            [estilos]="estilos" 
+          <app-input
+            id="contacto"
+            formControlName="numeroTelefono"
+            [estilos]="estilos"
             holder="Contacto">
           </app-input>
           <div *ngIf="petsForm.get('numeroTelefono')?.invalid && petsForm.get('numeroTelefono')?.touched" class="error-message">
@@ -60,7 +60,7 @@
         </div>
       </section>
     </section>
-  
+
     <div class="edit_btn botones">
       <button class="cancelar" type="button" (click)="onCancel()">Cancelar</button>
       <button [class.actualizar]="isEditMode" type="submit">
@@ -68,4 +68,7 @@
       </button>
     </div>
   </form>
+  <div *ngIf="loading" class="loading-spinner">
+    <app-estado-carga></app-estado-carga>
+  </div>
 </div>

@@ -53,6 +53,7 @@ export class RegistroComponent implements OnInit {
     }
 
     this.errorMessage = '';
+    this.isLoading = true;
 
     const userData = this.registerForm.value;
     const registerUrl = this.appointmentRegisterService.getRegistroUrl(); // Obtener URL desde el servicio
@@ -68,28 +69,29 @@ export class RegistroComponent implements OnInit {
       });
 
       if (!response.ok) {
-        this.isLoading = false
         const errorBody = await response.json();
         console.error('Error details', errorBody);
 
         if (errorBody.errors && Array.isArray(errorBody.errors)) {
-          this.isLoading = false
           errorBody.errors.forEach((error: any) => {
             console.error(`${error.path}: ${error.msg}`);
           });
         } else {
-          throw new Error('Error desconocido en el servidor');
+          this.errorMessage = 'Error desconocido en el servidor';
+
         }
-      } else {
-        this.isLoading = false
-        const data = await response.json();
-        console.log('Registro exitoso:', data);
-        this.showSuccess()
-        this.router.navigate(['login']);
+        throw new Error('Error desconocido en el servidor');
       }
+
+      const data = await response.json();
+      console.log('Registro exitoso:', data);
+      this.showSuccess()
+      this.router.navigate(['login']);
     } catch (error: any) {
-      this.isLoading = false;
       console.error('Error en el registro:', error.message || 'Error desconocido');
+      this.toastr.error(this.errorMessage || 'Error en el registro', 'Error');
+    }finally{
+      this.isLoading = false;
     }
   }
 }
