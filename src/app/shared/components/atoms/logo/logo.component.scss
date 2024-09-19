@@ -18,9 +18,16 @@ div{
     cursor: pointer;
     justify-content: flex-start;
 }
+@media (max-width: 768px){
+   .logo{
+    width: 50px;
+    height: 35px;
+   }
+    }
 @media (max-width: 480px){
     img, .logo {
-      width: 40px;
-      height: 30px;
+        width: 40px;
+        height: 30px;
+        margin-left: -10px;
     }
   }

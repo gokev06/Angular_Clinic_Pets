@@ -53,7 +53,11 @@ export class HeaderTiendaComponent implements OnInit {
   closeModal() {
     this.isModalOpen = false;
   }
+  isMenuOpen = false;
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
 
 
