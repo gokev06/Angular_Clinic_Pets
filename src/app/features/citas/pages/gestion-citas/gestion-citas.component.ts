@@ -13,10 +13,10 @@ export class GestionCitasComponent implements OnInit {
   horas: string[] = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
   citas: any[] = [];
   citasMap: Map<string, Map<string, any>> = new Map();
-  mostrarCalendario: boolean = false; 
-  citaAReagendar: any = null; 
-  horaSeleccionada: string | null = null; 
-  fechaSeleccionada: Date | null = null; 
+  mostrarCalendario: boolean = false;
+  citaAReagendar: any = null;
+  horaSeleccionada: string | null = null;
+  fechaSeleccionada: Date | null = null;
 
   constructor(private appointmentService: AppointmentService) {}
 
@@ -28,7 +28,7 @@ export class GestionCitasComponent implements OnInit {
   generateDaysOfWeek(date: Date): void {
     const year = date.getFullYear();
     const month = date.getMonth();
-    const dayOfWeek = date.getDay(); 
+    const dayOfWeek = date.getDay();
 
     const startOfWeek = new Date(year, month, date.getDate() - dayOfWeek);
 
@@ -41,6 +41,7 @@ export class GestionCitasComponent implements OnInit {
   loadAppointments(): void {
     this.appointmentService.getAppointments2().subscribe(
       (data) => {
+        console.log('Datos recibidos:', data); // Agrega esta línea para depurar
         this.citas = data[0];
         this.initializeCitasMap();
       },
@@ -66,7 +67,7 @@ export class GestionCitasComponent implements OnInit {
         const month = String(fechaLocal.getMonth() + 1).padStart(2, '0');
         const day = String(fechaLocal.getDate()).padStart(2, '0');
         const formattedFecha = `${year}-${month}-${day}`;
-        
+
         const [hours, minutes] = cita.hora.split(':');
         let hour = parseInt(hours, 10);
         const period = hour >= 12 ? 'PM' : 'AM';
@@ -114,7 +115,7 @@ export class GestionCitasComponent implements OnInit {
 
   reagendarCita(cita: any): void {
     this.citaAReagendar = cita;
-    this.mostrarCalendario = true; 
+    this.mostrarCalendario = true;
   }
 
   guardarCita(): void {
@@ -133,8 +134,8 @@ export class GestionCitasComponent implements OnInit {
         next: (response) => {
           console.log('Respuesta del servidor:', response);
           Swal.fire('Cita reagendada', '', 'success');
-          this.loadAppointments(); 
-          this.cerrarModal(); 
+          this.loadAppointments();
+          this.cerrarModal();
         },
         error: (error) => {
           console.error('Error al reagendar:', error);
@@ -147,10 +148,10 @@ export class GestionCitasComponent implements OnInit {
   }
 
   cerrarModal(): void {
-    this.mostrarCalendario = false; 
-    this.citaAReagendar = null; 
-    this.fechaSeleccionada = null; 
-    this.horaSeleccionada = null; 
+    this.mostrarCalendario = false;
+    this.citaAReagendar = null;
+    this.fechaSeleccionada = null;
+    this.horaSeleccionada = null;
   }
 
   formatDate(date: Date): string {
@@ -196,12 +197,12 @@ export class GestionCitasComponent implements OnInit {
 
   cancelarCita(idCita: number): void {
     console.log('id:', idCita);
-    
+
     this.appointmentService.updateAppointmentStatus(idCita.toString(), 'Cancelada').subscribe({
-      
+
       next: () => {
         Swal.fire('Cita cancelada', '', 'success');
-        this.loadAppointments(); 
+        this.loadAppointments();
       },
       error: () => {
         Swal.fire('Error al cancelar la cita', '', 'error');
