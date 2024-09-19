@@ -19,13 +19,6 @@ app-header-home {
     border-bottom: 3px solid white;
   }
 
-
-  .hola {
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    
-}
 .logo h1 {
   font-size: 24px;
   margin: 0;
@@ -106,6 +99,7 @@ app-header-home {
   background-color: #ded8ff;
   padding: 0 50px;
   box-shadow: 10px 0 20px #CCC4FF ;
+  flex-wrap: wrap;
 }
 
 .title a {
@@ -126,41 +120,24 @@ app-header-home {
   font-weight: 500;
 }
 
-
-
-
-@media (max-width: 768px) {
-
-.car img {
-  width: 50px;
-  height: 50px;
-  margin-right: 0px;
+@media (max-width:1279px) {
+  .title{
+    height: auto;
+  }
 }
-.profil {
-  width: 120px;
-  height: 50px;
-  padding: 0px 5px;
-}
-.user h3 {
-  font-size: 10px;
-  height: 15px;
-}
+
+
+@media (max-width: 920px) {
+
 .search-input {
-  padding: 8px;
-  border: 1.5px solid black;
-  border-radius: 8px;
-  margin-left: 0;
-  height: 40px;
   width: 80%;
 }
-    .header {
-       padding: 0 10px; 
+
+@media (max-width:810px) {
+  .search-input{
+    margin-left: 40px;
   }
-  .hola {
-    padding: 0px 0px;
-    height: 40px;
-    display: flex;
-    align-items: center;
+  
 }
 }
  
@@ -185,6 +162,36 @@ app-header-home {
     cursor: pointer;
     width: 90px;
     height: 50px;
+}
+
+@media (max-width:600px) {
+  .search-input{
+    margin-left: 20px;
+  }
+}
+
+
+@media (max-width:550px) {
+  .header{
+    flex-direction: column;
+    height: auto;
+  }
+
+  .search-input{
+    width: 80%;
+  }
+
+  .titles , .car{
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .car{
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+  }
 }
     }
 /* Media queries para pantallas muy pequeñas */

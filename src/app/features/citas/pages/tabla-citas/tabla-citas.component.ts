@@ -1,14 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-tabla-citas',
   templateUrl: './tabla-citas.component.html',
-  styleUrl: './tabla-citas.component.scss'
+  styleUrls: ['./tabla-citas.component.scss']
 })
 export class TablaCitasComponent implements OnInit {
-
-
   citas: any[] = [];
 
   constructor(private appointmentService: AppointmentService) {}
@@ -36,28 +35,18 @@ export class TablaCitasComponent implements OnInit {
     );
   }
 
-  /*
-  fetchAppointments(): void {
-    this.appointmentService.getAppointments()
-      .subscribe(res => {
-        this.citas = res.map(cita => ({
-          ...cita,
-          fecha: new Date(cita.fecha.toString()).toLocaleDateString('es-ES'), // Convierte a string primitivo
-          hora: cita.hora ? cita.hora : ''
-        }));
-      });
-  }
-      */
-
-  downloadFile(url: string, fileName: string): void {
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = fileName;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  onDownloadCita(idCita: string): void {
+    this.appointmentService.downloadHistorial(idCita).subscribe(
+      (response: Blob) => {
+        if (response instanceof Blob) {
+          saveAs(response, `cita_${idCita}.pdf`); // Cambia la extensión según el tipo de archivo
+        } else {
+          console.error('La respuesta no es un Blob');
+        }
+      },
+      error => {
+        console.error('Error al descargar la cita:', error);
+      }
+    );
   }
 }
-
-
