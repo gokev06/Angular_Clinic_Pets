@@ -7,39 +7,44 @@ import { Observable } from 'rxjs';
 })
 export class DisabledHorariosService {
   private apiUrl = 'http://localhost:10101/desactive'; 
-  disabledHorarios: Set<string> = new Set();
-  disabledDays: Set<string> = new Set();
+  private disabledHorarios: Set<string> = new Set();
+  private disabledDays: Set<string> = new Set();
   constructor(private http: HttpClient) { 
     this.loadDisabledHorarios();
     this.loadDisabledDays();
   }
 
   desactivateDay(date: string): Observable<any> {
-    console.log('Fecha enviada', date);
-    return this.http.post(`${this.apiUrl}/desactivateDay`, { date }, this.getHttpOptions());
+    const fechaSeleccionada = new Date(date);
+    const fechaFormateada = fechaSeleccionada.toISOString().split('T')[0]; // Asegurar formato yyyy-MM-dd
+    return this.http.post(`${this.apiUrl}/desactivateDay`, { date: fechaFormateada }, this.getHttpOptions());
   }
-
+  
+  
   activateDay(date: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/activateDay`, { body: { date }, headers: this.getHttpOptions().headers });
-}
-
-
+    const fechaSeleccionada = new Date(date);
+    const fechaFormateada = fechaSeleccionada.toISOString().split('T')[0]; // Asegurar formato yyyy-MM-dd
+    return this.http.delete(`${this.apiUrl}/activateDay?date=${fechaFormateada}`, this.getHttpOptions());
+  }
+  
+  
   desactivateTime(date: string, time: string): Observable<any> {
     console.log('Fecha y hora enviadas', date, time);
     return this.http.post(`${this.apiUrl}/desactivateTime`, { date, time }, this.getHttpOptions());
   }
-
+  
   activateTime(date: string, time: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/activateTime?date=${date}&time=${time}`, this.getHttpOptions());
   }
-
+  
   getDisabledDays(): Observable<any> {
     return this.http.get(`${this.apiUrl}/getDisabledDays`, this.getHttpOptions());
   }
-
+  
   getDisabledTimes(): Observable<any> {
     return this.http.get(`${this.apiUrl}/getDisabledTimes`, this.getHttpOptions());
   }
+  
 
   getHttpOptions() {
     const token = localStorage.getItem('userToken');
@@ -65,18 +70,19 @@ export class DisabledHorariosService {
 
   removeDisabledHorario(horario: string): void {
     this.disabledHorarios.delete(horario);
-    this.desactivateTime('', horario).subscribe();
+    this.activateTime('', horario).subscribe();  // Debe activar, no desactivar
   }
 
-  addDisabledDay(date: string): Observable<any> {
+  addDisabledDay(date: string): void {
     this.disabledDays.add(date);
-    return this.desactivateDay(date); // Devolver el Observable
-}
+    this.desactivateDay(date).subscribe();
+  }
 
-removeDisabledDay(date: string): Observable<any> {
-    this.disabledDays.delete(date);
-    return this.activateDay(date); // Devolver el Observable
-}
+  removeDisabledDay(date: string): void {
+    this.disabledDays.delete(date);  // Eliminamos el día de la lista de desactivados localmente
+    this.activateDay(date).subscribe();  // Llamada al backend para activar el día
+  }
+  
 
   loadDisabledHorarios(): void {
     this.getDisabledTimes().subscribe((times: string[]) => {

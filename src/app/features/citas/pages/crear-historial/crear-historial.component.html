@@ -28,10 +28,13 @@
           </select>
         <app-input [text]="'text'" [holder]="'Raza'" formControlName="raza" [id]="'raza'" [estilos]="style"></app-input>
         <select id="Tipo de Cita"  formControlName="tipocita" name="tipocita">
-            <option value="" hidden>Tipo De Cita</option>
-            <option value="Revision General">Revision General</option>
-            <option value="Ecografia">Ecografia</option>
-            <option value="Esterilizacion">Esterilizacion</option>
+            <option value="" hidden>Seleccionar tipo de cita</option>
+            <option value="Consulta general">Consulta general</option>
+            <option value="Vacunación">Vacunación</option>
+            <option value="Consulta de Cirugía">Consulta de Cirugía</option>
+            <option value="Consulta de Odontología">Consulta de Odontología</option>
+            <option value="Consulta de Nutrición">Consulta de Nutrición</option>
+            <option value="Chequeo Pre-Adopción">Chequeo Pre-Adopción</option>
         </select>
     </div>
 
@@ -44,6 +47,11 @@
             <option value="Revision General">Revision General</option>
             <option value="Ecografia">Ecografia</option>
             <option value="Esterilizacion">Esterilizacion</option>
+            <option value="Fisioterapia">Fisioterapia</option>
+            <option value="Odontología">Odontología</option>
+            <option value="Anestesiología ">Anestesiología </option>
+            <option value="Oncología ">Oncología </option>
+
         </select>
         <app-input [text]="'text'" [holder]="'Telefono'" formControlName="telefonovet" [id]="'telefonovet'" [estilos]="estilos"></app-input>
         <app-input [text]="'text'" [holder]="'Email'" formControlName="emailvet" [id]="'emailvet'" [estilos]="estilos   "></app-input>

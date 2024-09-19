@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestion-citas',
@@ -11,7 +12,11 @@ export class GestionCitasComponent implements OnInit {
   daysInMonth: Date[] = [];
   horas: string[] = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
   citas: any[] = [];
-  citasMap: Map<string, Map<string, string>> = new Map();
+  citasMap: Map<string, Map<string, any>> = new Map();
+  mostrarCalendario: boolean = false; 
+  citaAReagendar: any = null; 
+  horaSeleccionada: string | null = null; 
+  fechaSeleccionada: Date | null = null; 
 
   constructor(private appointmentService: AppointmentService) {}
 
@@ -23,12 +28,10 @@ export class GestionCitasComponent implements OnInit {
   generateDaysOfWeek(date: Date): void {
     const year = date.getFullYear();
     const month = date.getMonth();
-    const dayOfWeek = date.getDay(); // Día de la semana actual
+    const dayOfWeek = date.getDay(); 
 
-    // Calcula el primer día de la semana actual (Domingo)
     const startOfWeek = new Date(year, month, date.getDate() - dayOfWeek);
 
-    // Genera los 7 días de la semana
     this.daysInMonth = [];
     for (let i = 0; i < 7; i++) {
       this.daysInMonth.push(new Date(startOfWeek.getFullYear(), startOfWeek.getMonth(), startOfWeek.getDate() + i));
@@ -38,75 +41,124 @@ export class GestionCitasComponent implements OnInit {
   loadAppointments(): void {
     this.appointmentService.getAppointments2().subscribe(
       (data) => {
-        this.citas = data[0]; // Asegúrate de que accedes al primer elemento del array, que contiene las citas
+        this.citas = data[0];
         this.initializeCitasMap();
       },
       (error) => {
         console.error('Error fetching appointments:', error);
       }
     );
-}
+  }
 
+  initializeCitasMap(): void {
+    this.citasMap.clear();
+    console.log('Citas recibidas:', this.citas);
 
-initializeCitasMap(): void {
-  this.citasMap.clear();
-  console.log('Citas recibidas:', this.citas); // Verifica los datos recibidos
-  
-  this.citas.forEach(cita => {
-      // Verifica si la fecha y hora están definidos
-      if (!cita.fecha || !cita.hora) {
-          console.error('Fecha o hora no definida para cita:', cita);
-          return; // Salir de la iteración actual si no hay fecha o hora
+    this.citas.forEach(cita => {
+      if (!cita.fecha || !cita.hora || !cita.IdCita) {
+        console.error('Fecha, hora o ID no definido para cita:', cita);
+        return;
       }
 
       try {
-          // Convierte la fecha a un objeto Date, directamente desde el string de UTC
-          const fechaLocal = new Date(cita.fecha);
+        const fechaLocal = new Date(cita.fecha);
+        const year = fechaLocal.getFullYear();
+        const month = String(fechaLocal.getMonth() + 1).padStart(2, '0');
+        const day = String(fechaLocal.getDate()).padStart(2, '0');
+        const formattedFecha = `${year}-${month}-${day}`;
+        
+        const [hours, minutes] = cita.hora.split(':');
+        let hour = parseInt(hours, 10);
+        const period = hour >= 12 ? 'PM' : 'AM';
+        hour = hour % 12 || 12;
+        const formattedHour = `${hour}:${minutes} ${period}`;
 
-          // Extrae los componentes de la fecha y hora
-          const year = fechaLocal.getFullYear();
-          const month = String(fechaLocal.getMonth() + 1).padStart(2, '0');
-          const day = String(fechaLocal.getDate()).padStart(2, '0');
-          const formattedFecha = `${year}-${month}-${day}`;
-
-          // Convierte la hora de la cita a AM/PM
-          const [hours, minutes] = cita.hora.split(':');
-          let hour = parseInt(hours, 10);
-          const period = hour >= 12 ? 'PM' : 'AM';
-          hour = hour % 12 || 12; // Convierte 0 en 12 para la hora AM/PM
-          const formattedHour = `${hour}:${minutes} ${period}`;
-
-          const nombreUsuario = cita.nombreUsuario;
-  
-          console.log('Fecha formateada:', formattedFecha); // Verifica la fecha formateada
-          console.log('Hora formateada:', formattedHour); // Verifica la hora formateada
-          console.log('Nombre de usuario:', nombreUsuario);
-  
-          // Almacena en citasMap con el formato adecuado
-          if (!this.citasMap.has(formattedFecha)) {
-              this.citasMap.set(formattedFecha, new Map());
-          }
-          this.citasMap.get(formattedFecha)?.set(formattedHour, nombreUsuario);
+        if (!this.citasMap.has(formattedFecha)) {
+          this.citasMap.set(formattedFecha, new Map());
+        }
+        this.citasMap.get(formattedFecha)?.set(formattedHour, cita);
       } catch (error) {
-          console.error('Error al procesar la fecha:', error);
+        console.error('Error al procesar la fecha:', error);
       }
-  });
-}
+    });
+  }
 
-
-
-  
-  getCitaForDayAndHour(day: Date, hora: string): string | null {
-    // Formatear el día a formato "YYYY-MM-DD"
+  getCitaForDayAndHour(day: Date, hora: string): any | null {
     const year = day.getFullYear();
     const month = String(day.getMonth() + 1).padStart(2, '0');
     const dayOfMonth = String(day.getDate()).padStart(2, '0');
     const formattedFecha = `${year}-${month}-${dayOfMonth}`;
-    
-    //console.log('Buscando cita para:', formattedFecha, hora); // Verifica la búsqueda
+
     return this.citasMap.get(formattedFecha)?.get(hora) || null;
   }
-  
+
+  onUserNameClick(day: Date, hora: string): void {
+    const cita = this.getCitaForDayAndHour(day, hora);
+    if (cita) {
+      Swal.fire({
+        title: 'Acciones disponibles',
+        text: '¿Qué deseas hacer?',
+        showCancelButton: true,
+        confirmButtonText: 'Reagendar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.reagendarCita(cita);
+        } else if (result.isDismissed) {
+          this.cancelarCita(Number(cita.IdCita)); // Convertir a number
+        }
+      });
+    }
+  }
+
+  reagendarCita(cita: any): void {
+    this.citaAReagendar = cita;
+    this.mostrarCalendario = true; 
+  }
+
+  guardarCita(): void {
+    console.log('Fecha seleccionada:', this.fechaSeleccionada);
+    console.log('Hora seleccionada:', this.horaSeleccionada);
+    console.log('Cita a reagendar:', this.citaAReagendar);
+
+    if (this.fechaSeleccionada && this.horaSeleccionada && this.citaAReagendar) {
+      const nuevaCita = {
+        fecha: this.formatDate(this.fechaSeleccionada),
+        hora: this.horaSeleccionada,
+        estado: 'Agendada'
+      };
+
+      this.appointmentService.updateAppointment(this.citaAReagendar.IdCita.toString(), nuevaCita).subscribe({
+        next: (response) => {
+          console.log('Respuesta del servidor:', response);
+          Swal.fire('Cita reagendada', '', 'success');
+          this.loadAppointments(); 
+          this.cerrarModal(); 
+        },
+        error: (error) => {
+          console.error('Error al reagendar:', error);
+          Swal.fire('Error al reagendar', '', 'error');
+        }
+      });
+    } else {
+      Swal.fire('¡Hubo un problema!', 'Debes seleccionar la fecha y hora antes de guardar.', 'warning');
+    }
+  }
+
+  cerrarModal(): void {
+    this.mostrarCalendario = false; 
+    this.citaAReagendar = null; 
+    this.fechaSeleccionada = null; 
+    this.horaSeleccionada = null; 
+  }
+
+  formatDate(date: Date): string {
+    const offset = date.getTimezoneOffset();
+    const adjustedDate = new Date(date.getTime() - (offset * 60 * 1000));
+    return adjustedDate.toISOString().split('T')[0];
+  }
+
   nextMonth(): void {
     this.viewData = new Date(this.viewData.getFullYear(), this.viewData.getMonth() + 1, this.viewData.getDate());
     this.generateDaysOfWeek(this.viewData);
@@ -140,5 +192,20 @@ initializeCitasMap(): void {
     const today = new Date();
     const dayDifference = (day.getTime() - today.getTime()) / (1000 * 3600 * 24);
     return (dayDifference % 2 === 0) && !this.isCurrentDay(day);
+  }
+
+  cancelarCita(idCita: number): void {
+    console.log('id:', idCita);
+    
+    this.appointmentService.updateAppointmentStatus(idCita.toString(), 'Cancelada').subscribe({
+      
+      next: () => {
+        Swal.fire('Cita cancelada', '', 'success');
+        this.loadAppointments(); 
+      },
+      error: () => {
+        Swal.fire('Error al cancelar la cita', '', 'error');
+      }
+    });
   }
 }

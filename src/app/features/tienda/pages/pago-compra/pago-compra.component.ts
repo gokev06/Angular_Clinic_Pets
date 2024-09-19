@@ -37,17 +37,20 @@ export class PagoCompraComponent implements OnInit {
   }
 
   handlePayment(): void {
-    // Aquí podrías realizar una simulación del proceso de pago
+    // Simulación del proceso de pago
     Swal.fire({
       title: 'Pago Exitoso',
       text: `Tu pago de ${this.precioTotal} ha sido realizado con éxito.`,
-      icon: 'success',
-      confirmButtonColor: '#3085d6',
+      imageUrl: '../../../../../assets/images/imgcitas/confirmar.png', // Imagen de confirmación personalizada
+      imageWidth: 200,
+      imageHeight: 200,
+      confirmButtonColor: '#7DFF82', // Color de confirmación personalizado
       confirmButtonText: 'Aceptar'
     }).then(() => {
-      this.closePayment();
+      this.closePayment(); // Cierra el modal o finaliza el proceso de pago
       // Opcional: Redirigir o limpiar el carrito
-      this.router.navigate(['/home']); // Redirige a la página de inicio o a donde desees
+      this.router.navigate(['/tienda']); // Redirige a la página de inicio o a donde desees
     });
   }
+  
 }

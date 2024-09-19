@@ -1,0 +1,59 @@
+// unauthorized.component.scss
+.unauthorized-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+
+  .unauthorized-card {
+    max-width: 400px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .header {
+      background-color: #ef4444;
+      padding: 1rem;
+      text-align: center;
+
+      h1 {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+
+    .content {
+      padding: 1.5rem;
+      text-align: center;
+
+      p {
+        color: #4b5563;
+        margin-bottom: 1.5rem;
+      }
+
+      button {
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #2563eb;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+      }
+    }
+  }
+}

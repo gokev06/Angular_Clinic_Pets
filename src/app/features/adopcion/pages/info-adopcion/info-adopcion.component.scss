@@ -180,34 +180,64 @@ ul.botones li button:focus {
 
 
  
-
 @media screen and (max-width: 920px) {
-  .info-b{
+  .info-b {
     width: 100%;
-  }
-.imagenes {
-  width: 35%;
-  height: 70%;}
-  
-  .imagenes img{
-    width: 280px;
-    height: 280px;
+    flex-direction: column; /* Ajustamos la disposición para columnas en lugar de filas */
+    align-items: center; /* Centrar el contenido */
   }
 
-.btn-whatsapp{
-  width: 200px;
-  height: 60px;
-}
+  .imagenes {
+    width: 60%; /* Ajustamos el ancho para pantallas más pequeñas */
+    height: auto; /* Para que la altura se ajuste automáticamente */
+  }
+
+  .imagenes img {
+    width: 250px; /* Tamaño más pequeño para pantallas reducidas */
+    height: auto; /* Mantener proporción de imagen */
+    margin-bottom: 20px;
+  }
+
+  .btn-whatsapp {
+    width: 180px; /* Botón más pequeño para pantallas reducidas */
+    height: 50px;
+  }
 }
 
-
-@media screen and (max-width: 769px){
-  .info-c{
+@media screen and (max-width: 769px) {
+  .info-b {
     width: 100%;
+    padding: 10px; /* Reducimos el padding en pantallas pequeñas */
   }
-  
-}
 
+  .info-c {
+    width: 100%;
+    margin-top: 20px; /* Reducimos el margen superior */
+    padding: 10px;
+  }
+
+  .imagenes {
+    width: 70%; /* Aumentamos el ancho para que ocupe más espacio en pantallas muy pequeñas */
+    height: auto;
+  }
+
+  .imagenes img {
+    width: 200px; /* Ajustamos el tamaño de las imágenes */
+    height: auto;
+  }
+
+  .btn-whatsapp {
+    width: 160px; /* Botón más pequeño para adaptarse mejor a pantallas pequeñas */
+    height: 45px;
+    font-size: 12px; /* Reducimos el tamaño del texto del botón */
+  }
+
+  ul.botones li button {
+    width: 120px; /* Reducimos el tamaño de los botones */
+    height: 45px;
+    font-size: 14px; /* Reducimos el tamaño del texto de los botones */
+  }
+}
 
 
 @media  (max-width:480px) {
