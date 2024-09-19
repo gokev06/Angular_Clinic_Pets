@@ -140,10 +140,12 @@ app-header-home {
   
 }
 }
-    @media (max-width: 650px) {
-      .logo h1{
-        font-size: 15px
-      }
+ 
+@media (max-width: 650px) {
+      .logo {
+        width: 40px;
+        height: 40px;
+    }
     .car img {
       width: 35px;
       height: 35px;
