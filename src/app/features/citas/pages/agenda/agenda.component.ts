@@ -74,6 +74,7 @@ export class AgendaComponent implements OnInit{
 
         hour = hour % 12 || 12;
 
+
         if (hour == 1 && period == 'AM') {
           period = 'PM'
        }else if ( hour == 2 && period == 'AM'){
@@ -85,8 +86,6 @@ export class AgendaComponent implements OnInit{
        }else if ( hour == 5 && period == 'AM'){
          period = 'PM'
        }
-
-       
 
 
         const formattedHour = `${hour}:${minutes} ${period}`;
