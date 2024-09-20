@@ -36,14 +36,16 @@ export class AdmiCardsNuevaComponent implements OnInit {
 
   // Mostrar alerta de confirmación antes de proceder con la eliminación
    Swal.fire({
-    title: '¿Estás seguro?',
+    title: '¿Estás seguro de eliminar?',
     text: "No podrás revertir esta acción",
-    icon: 'warning',
+    imageUrl: '../../../../../assets/images/imgcitas/huellas.png',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#7DFF82',
+    cancelButtonColor: '#F57171',
     confirmButtonText: 'Sí, eliminar',
-    cancelButtonText: 'Cancelar'
+    cancelButtonText: 'Cancelar',
+    imageWidth: 200,
+    imageHeight: 200
    }).then((result) => {
     if (result.isConfirmed) {
        // Si el usuario confirma, proceder con la eliminación
@@ -53,7 +55,7 @@ export class AdmiCardsNuevaComponent implements OnInit {
           Swal.fire({
             title: 'Error',
             text: error.message || 'Ocurrió un error al intentar eliminar la mascota',
-            icon: 'error',
+        
             confirmButtonText: 'Aceptar'
           });
           console.error('Error al eliminar la mascota', error);
@@ -65,8 +67,10 @@ export class AdmiCardsNuevaComponent implements OnInit {
            Swal.fire({
             title: 'Eliminado',
             text: 'La adopción ha sido eliminada correctamente',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
+            imageUrl: '../../../../../assets/images/imgcitas/confirmar.png',
+            imageWidth: 200,
+            imageHeight: 200,
+            confirmButtonColor: '#7DFF82',
            });
            console.log('Mascota eliminada', response);
            // Emitir un evento para que el componente padre actualice la vista si es necesario

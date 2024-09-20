@@ -9,6 +9,7 @@
   background-color: #CCC4FF;
   padding: 0 30px;
   border-bottom: 3px solid white;
+
 }
 
 .logo h1 {
@@ -76,16 +77,40 @@ h2 {
 }
 
 .container-cards {
-  width: 85%;
+  width: 75%;
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  justify-content: flex-start; // Alinea las cartas al principio
+  flex-wrap: wrap; // Permite que las cartas ocupen varias filas
+  align-items: flex-start; // Alinea las cartas en la parte superior
+  gap: 30px; // Espaciado uniforme entre las cartas
 
-  &.una-carta {
-    justify-content: flex-start;
+  &.cartas {
+    justify-content: flex-start; // Asegura que la última fila esté alineada al inicio
+    margin-bottom: 50px;
   }
 }
+
+.cartas {
+  width: 22%; // Ajusta el ancho de las cartas para que haya espacio entre ellas
+  margin-left: 0;
+  border: 2px solid #E9E1FE;
+  border-radius: 15px;
+  height: 342px;
+  box-shadow: 10px 10px 20px #E9E1FE;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+
 
 h2 {
   margin: 0;
@@ -163,14 +188,6 @@ section {
   padding-right: 10px;
 }
 
-.cartas {
-  width: 20%;
-  margin-left: 1%;
-  border: 2px solid #E9E1FE;
-  border-radius: 15px;
-  height: 342px;
-  box-shadow: 10px 10px 20px #E9E1FE;
-}
 
 .filtro_nombre {
   display: flex;
