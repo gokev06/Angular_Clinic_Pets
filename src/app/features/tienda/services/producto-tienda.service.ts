@@ -52,7 +52,7 @@ export class ProductoService {
     throw new Error('Method not implemented.');
   }
 
-  private apiUrl_1 = 'http://localhost:10101';
+  private apiUrl_1 = 'https://back-end-clinic-pets-production-4373.up.railway.app';
   private carrito: DataProduct[] = []; // Añadir un array para almacenar el carrito
 
 

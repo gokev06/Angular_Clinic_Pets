@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ImageUploadService {
 
-  private apiUrl_2 = 'http://localhost:10101';
+  private apiUrl_2 = 'https://back-end-clinic-pets-production-4373.up.railway.app';
 
   constructor(private http: HttpClient){
 

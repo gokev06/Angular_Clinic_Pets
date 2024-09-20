@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TiendaService {
 
-  private apiUrl_1 = 'http://localhost:10101';
+  private apiUrl_1 = 'https://back-end-clinic-pets-production-4373.up.railway.app';
 
   constructor(private http: HttpClient) {}
 

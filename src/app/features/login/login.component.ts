@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  
+
   showSuccess(): void {
     this.toastr.success('Inicio de sesión exitoso', 'Bienvenido');
     toastClass: 'toast toast-success' // Aplica una clase personalizada
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   showError(): void {
     this.toastr.error('Error en el inicio de sesión', 'Error');
-  
+
   }
   async onSubmit() {
 
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
    // console.log('Datos enviados:', userData);
 
       try {
-        const response = await fetch('http://localhost:10101/auth', {
+        const response = await fetch('https://back-end-clinic-pets-production-4373.up.railway.app/auth', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(userData)
