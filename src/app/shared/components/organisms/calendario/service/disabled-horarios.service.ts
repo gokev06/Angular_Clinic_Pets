@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DisabledHorariosService {
-  private apiUrl = 'http://localhost:10101/desactive'; 
+  private apiUrl = 'https://back-end-clinic-pets-production-4373.up.railway.app/desactive';
   private disabledHorarios: Set<string> = new Set();
   private disabledDays: Set<string> = new Set();
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.loadDisabledHorarios();
     this.loadDisabledDays();
   }
@@ -19,32 +19,32 @@ export class DisabledHorariosService {
     const fechaFormateada = fechaSeleccionada.toISOString().split('T')[0]; // Asegurar formato yyyy-MM-dd
     return this.http.post(`${this.apiUrl}/desactivateDay`, { date: fechaFormateada }, this.getHttpOptions());
   }
-  
-  
+
+
   activateDay(date: string): Observable<any> {
     const fechaSeleccionada = new Date(date);
     const fechaFormateada = fechaSeleccionada.toISOString().split('T')[0]; // Asegurar formato yyyy-MM-dd
     return this.http.delete(`${this.apiUrl}/activateDay?date=${fechaFormateada}`, this.getHttpOptions());
   }
-  
-  
+
+
   desactivateTime(date: string, time: string): Observable<any> {
     console.log('Fecha y hora enviadas', date, time);
     return this.http.post(`${this.apiUrl}/desactivateTime`, { date, time }, this.getHttpOptions());
   }
-  
+
   activateTime(date: string, time: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/activateTime?date=${date}&time=${time}`, this.getHttpOptions());
   }
-  
+
   getDisabledDays(): Observable<any> {
     return this.http.get(`${this.apiUrl}/getDisabledDays`, this.getHttpOptions());
   }
-  
+
   getDisabledTimes(): Observable<any> {
     return this.http.get(`${this.apiUrl}/getDisabledTimes`, this.getHttpOptions());
   }
-  
+
 
   getHttpOptions() {
     const token = localStorage.getItem('userToken');
@@ -82,7 +82,7 @@ export class DisabledHorariosService {
     this.disabledDays.delete(date);  // Eliminamos el día de la lista de desactivados localmente
     this.activateDay(date).subscribe();  // Llamada al backend para activar el día
   }
-  
+
 
   loadDisabledHorarios(): void {
     this.getDisabledTimes().subscribe((times: string[]) => {
