@@ -13,6 +13,7 @@ export class AppointmentRegisterService {
   getRegistroType() {
     return this.registroType;
   }
+  
 
   getRegistroUrl() {
     return this.registroType === 'veterinarian' ? 'https://back-end-clinic-pets-production-4373.up.railway.app/registerVet' : 'https://back-end-clinic-pets-production-4373.up.railway.app/register';
