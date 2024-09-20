@@ -22,8 +22,7 @@
         <div *ngIf="showErrorMessage" class="error-message">
           <p class="message_error">{{ errorMessage }}</p>
         </div>
-        <a href="#" class="reset-link">¿Olvidaste tu contraseña?</a>
-        <p>¿Aún no tienes una cuenta? <a href="/register">Registrarte</a></p>
+        <p>¿Aún no tienes una cuenta? <app-titulo  [ruta]="'/register'" [title]="'Resgistrate'" class="a" [estilo]="'color:black ; font-size: 15px; margin-left: 8px'"></app-titulo></p>
 
         <div class="btn-form-submit">
           <button type="submit" [disabled]="loginForm.invalid" class="button">Iniciar Sesión</button>

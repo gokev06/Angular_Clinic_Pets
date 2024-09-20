@@ -1,12 +1,12 @@
+/* Estilos generales */
+
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+ES+Deco&display=swap');
 
 app-header-home {
   position: relative; /* Asegura que el encabezado esté en una capa superior */
   z-index: 2; /* Ajusta el índice z para que esté encima del carrusel */
   background-color: rgba(255, 255, 255, 0.7); /* Fondo translúcido */
-  /* Otros estilos para el encabezado según sea necesario */
-  
-}  
+}
 
 .header {
     width: 100%;
@@ -19,78 +19,71 @@ app-header-home {
     border-bottom: 3px solid white;
   }
 
+
+  .hola {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    
+}
 .logo h1 {
   font-size: 24px;
   margin: 0;
   font-family: "Playwrite ES Deco", cursive;
 }
+
 .logo {
   display: flex;
   align-items: center;
-} 
-
-
-  .search-input {
-    padding: 8px;
-    border: 1.5px solid black;
-    border-radius: 8px;
-    margin-left: 100px;
-    height: 40px;
-    width: 100%;
-
-  }
-
-
-
-  .hola {
-    padding: 0 12px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-  }
-
-
-
-.car{
-    width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
 }
 
-.car img{
-    width: 55px;
-    height: 55px;
-    margin-right: 20px;
-    cursor: pointer;
+.search-input {
+  padding: 8px;
+  border: 1.5px solid black;
+  border-radius: 8px;
+  margin-left: 100px;
+  height: 40px;
+  width: 100%;
 }
 
+.car {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
+.car img {
+  width: 55px;
+  height: 55px;
+  margin-right: 20px;
+  cursor: pointer;
+}
 
-.btn__add__Product{
+.btn__add__Product {
   border-radius: 8px;
   text-align: center;
   margin-right: 20px;
   background-color: #CCC4FF;
-  color:black;
-  border: 3px solid  white ;
+  color: black;
+  border: 3px solid white;
   cursor: pointer;
   width: 100px;
   height: 50px;
 }
 
 .btn__add__Product:hover {
-  background-color: white; /* Color más claro o diferente cuando el cursor está encima */
+  background-color: white;
   color: black;
   border: 2px #CCC4FF solid;
 }
 
 .btn__add__Product:active {
-  background-color: rgb(124, 148, 215); /* Color más oscuro para el estado presionado */
+  background-color: rgb(124, 148, 215);
   border: 2px rgb(124, 148, 215) solid;
-  transform: scale(0.98); /* Efecto de reducción al presionar */
+  transform: scale(0.98);
 }
+
 .title {
   width: 100%;
   height: 40px;
@@ -99,7 +92,6 @@ app-header-home {
   background-color: #ded8ff;
   padding: 0 50px;
   box-shadow: 10px 0 20px #CCC4FF ;
-  flex-wrap: wrap;
 }
 
 .title a {
@@ -120,28 +112,43 @@ app-header-home {
   font-weight: 500;
 }
 
-@media (max-width:1279px) {
-  .title{
-    height: auto;
-  }
+
+
+@media (max-width: 768px) {
+
+.car img {
+  width: 50px;
+  height: 50px;
+  margin-right: 0px;
 }
-
-
-@media (max-width: 920px) {
-
+.profil {
+  width: 120px;
+  height: 50px;
+  padding: 0px 5px;
+}
+.user h3 {
+  font-size: 10px;
+  height: 15px;
+}
 .search-input {
+  padding: 8px;
+  border: 1.5px solid black;
+  border-radius: 8px;
+  margin-left: 0;
+  height: 40px;
   width: 80%;
 }
-
-@media (max-width:810px) {
-  .search-input{
-    margin-left: 40px;
+    .header {
+       padding: 0 10px; 
   }
-  
+  .hola {
+    padding: 0px 0px;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 }
- 
-@media (max-width: 650px) {
+    @media (max-width: 650px) {
       .logo {
         width: 40px;
         height: 40px;
@@ -152,46 +159,10 @@ app-header-home {
       margin-right: 5px;
 
   }
+
   .btn__add__Product {
-    border-radius: 8px;
-    text-align: center;
-    margin-right: 15px;
-    background-color: #CCC4FF;
-    color: black;
-    border: 3px solid white;
-    cursor: pointer;
     width: 90px;
     height: 50px;
-}
-
-@media (max-width:600px) {
-  .search-input{
-    margin-left: 20px;
-  }
-}
-
-
-@media (max-width:550px) {
-  .header{
-    flex-direction: column;
-    height: auto;
-  }
-
-  .search-input{
-    width: 80%;
-  }
-
-  .titles , .car{
-    width: 80%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  .car{
-    display: flex;
-    justify-content: space-around;
-    height: 70px;
-  }
 }
     }
 /* Media queries para pantallas muy pequeñas */
@@ -200,21 +171,102 @@ app-header-home {
       width: 80%;
       height: 0px;
   }
+
   .search-input {
     height: 30px;
-    width: 90%;
+    width: 70%;
+    font-size: 12px;
+    margin-left: 45px;
+}
+
+  .search-input::placeholder {
+    font-size: 8px; /* Ajuste de tamaño de fuente del placeholder */
   }
-    .search-input::placeholder{
-      font-size: 8px;
-    }
-  
-  .btn__add__Product{
+
+  .btn__add__Product {
     height: 30px;
     font-size: 8px;
-    width: 80px;
-    margin-right:5px;
+    width: 100%;
+    margin-right: -8px;
+}
+  .car {
+    width: 30%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: right;
+}
+}
+/* Estilos generales para el menú desplegable */
+.menu-container {
+  display: none;
+}
+
+.menu {
+  position: relative;
+  background-color: #ded8ff;
+}
+
+.menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  
+}
+
+/* Estilos del menú desplegable */
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ded8ff;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.menu-content.active {
+  display: flex;
+  width: 220px;
+}
+
+.menu-item {
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  border-bottom: 1px solid #CCC4FF;
+}
+
+.menu-item:hover {
+  background-color: #CCC4FF;
+  color: black;
+}
+
+/* Media queries para hacer visible el menú desplegable en pantallas pequeñas */
+@media (max-width: 768px) {
+  .menu-container {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .title {
+    display: none; /* Oculta el menú original en pantallas pequeñas */
   }
   
 }
-  
 
+@media (max-width: 480px) {
+  .menu-item {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

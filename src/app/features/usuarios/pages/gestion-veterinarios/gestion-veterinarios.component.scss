@@ -111,11 +111,11 @@ section {
 }
 
 .btn{
-  width: 80%;
   height: 30px;
   border-radius: 5px;
   border: none;
   background-color: #CCC4FF;
+  font-size: 10px;
 }
 
 
@@ -263,5 +263,9 @@ h1:hover {
   .clients-table th, .clients-table td {
     padding: 5px;
     font-size: 10px;
+  }
+
+  .modal-content{
+    width: 80%;
   }
 }

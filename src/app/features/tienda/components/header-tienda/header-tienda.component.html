@@ -33,13 +33,28 @@
   <app-titulo  [ruta]="'/inventario'" [title]="'Inventario Tienda'" class="aa" [estilo]="'color:black;font-size: 15px'"></app-titulo>
 </div>
 </div>
+<div *ngIf="viewuser== false" class="menu-container">
+  <div class="menu">
+    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+    <div class="menu-content" [class.active]="isMenuOpen">
+      <app-home class="menu-item"></app-home>
+      <app-titulo [ruta]="'/gestion-horaios'" [title]="'Gestionar horarios'" class="menu-item" [estilo]="'color:black; font-size: 15px'"></app-titulo>
+      <app-titulo [ruta]="'/gestion-citas'" [title]="'Gestionar Citas'" class="menu-item" [estilo]="'color:black; font-size: 15px'"></app-titulo>
+      <app-titulo [ruta]="'/tienda-admin'" [title]="'Gestionar Productos'" class="menu-item" [estilo]="'color:black; font-size: 15px'"></app-titulo>
+      <app-titulo [ruta]="'/admin-adopciones'" [title]="'Gestionar Adopcion'" class="menu-item" [estilo]="'color:black; font-size: 15px'"></app-titulo>
+      <app-titulo [ruta]="'/gestion-veterinarios'" [title]="'Gestionar Veterinarios'" class="menu-item" [estilo]="'color:black; font-size: 15px'"></app-titulo>
+      <app-titulo [ruta]="'/inventario'" [title]="'Inventario Tienda'" class="menu-item" [estilo]="'color:black; font-size: 15px'"></app-titulo>
+    </div>
+  </div>
+</div>
+
+
 <div *ngIf="viewuser" >
   <div class="title">
     <app-titulo  [ruta]="'/home'" [title]="'Home'" class="a" [estilo]="'color:black ;'"></app-titulo>
     <app-titulo  [ruta]="'/citas'" [title]="'Citas'" class="a" [estilo]="'color:black ;'"></app-titulo>
     <app-titulo  [ruta]="'/adopcion'" [title]="'Adopciones'" class="a" [estilo]="'color:black ;'"></app-titulo>
     <app-titulo  [ruta]="'/tienda'" [title]="'Tienda'" class="aa" [estilo]="'color:black'"></app-titulo>
-    <app-titulo  [ruta]="'/lost-pets'" [title]="'Animales Perdidos'" class="aa" [estilo]="'color:black;'"></app-titulo>  
 </div>
 </div>
 <app-carrito-modal *ngIf="isModalOpen" (close)="closeModal()" ></app-carrito-modal>

@@ -16,12 +16,12 @@
           <td>{{ producto.nombreProducto }}</td>
           <td>{{ producto.precioUnitario }}</td>
           <td>{{ producto.cantidad }}</td>
-          <td>{{ producto.precioUnitario * producto.cantidad }}</td>
+          <td>{{ producto.precioUnitario * producto.cantidad | currency:'COP':'symbol':'1.0-0'}}</td>
         </tr>
       </tbody>
     </table>
     <div class="total">
-      <h3>Total: {{ precioTotal }}</h3>
+      <h3>Total: {{ precioTotal | currency:'COP':'symbol':'1.0-0'}}</h3>
     </div>
     <button (click)="openPayment()">Comprar</button>
 

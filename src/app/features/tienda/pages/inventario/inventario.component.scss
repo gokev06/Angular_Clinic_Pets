@@ -5,3 +5,24 @@
    margin-left: 80px;
   
   }
+
+  .emptyState {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .estado-vacio {
+    width: 900px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .estado-vacio img {
+    height: 200px;
+    width: auto;
+    margin-bottom: 20px;
+  }
+  

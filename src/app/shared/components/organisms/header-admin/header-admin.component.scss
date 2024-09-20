@@ -89,3 +89,79 @@
   }
   
 }
+
+
+/* Estilos generales para el menú desplegable */
+.menu-container {
+  display: none;
+}
+
+.menu {
+  position: relative;
+  background-color: #ded8ff;
+}
+
+.menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  
+}
+
+/* Estilos del menú desplegable */
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ded8ff;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.menu-content.active {
+  display: flex;
+  width: 220px;
+}
+
+.menu-item {
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  border-bottom: 1px solid #CCC4FF;
+}
+
+.menu-item:hover {
+  background-color: #CCC4FF;
+  color: black;
+}
+
+/* Media queries para hacer visible el menú desplegable en pantallas pequeñas */
+@media (max-width: 1279px) {
+  .menu-container {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .titles {
+    display: none; /* Oculta el menú original en pantallas pequeñas */
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .menu-item {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

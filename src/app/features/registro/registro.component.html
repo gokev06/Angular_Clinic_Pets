@@ -11,12 +11,12 @@
       <!-- Contenido que solo se mostrará en dispositivos móviles -->
       <p class="typing-effect">¡Regístrate en Clinic Pets!</p>
     </div>
-  
+
     <div class="contenedor-formulario">
       <div class="formulario">
         <form class="formulario_2" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <h1>REGISTRAR</h1>
-  
+
           <app-input
               [text]="'text'"
               [holder]="'Numero de Documento'"
@@ -24,12 +24,12 @@
               [id]="'documento'"
               [estilos]="estilos">
           </app-input>
-  
+
           <div *ngIf="registerForm.get('numeroDeDocumento')?.errors && (registerForm.get('numeroDeDocumento')?.dirty || hasAttemptedSubmit)">
             <p class="message_password" *ngIf="registerForm.get('numeroDeDocumento')?.hasError('pattern')">El documento debe contener solo números.</p>
             <p class="message_password" *ngIf="registerForm.get('numeroDeDocumento')?.hasError('minlength') || registerForm.get('numeroDeDocumento')?.hasError('maxlength')">El documento debe tener exactamente 10 caracteres.</p>
           </div>
-  
+
           <app-input
               [text]="'text'"
               [holder]="'Nombre'"
@@ -37,11 +37,11 @@
               [id]="'Nombre'"
               [estilos]="estilos">
           </app-input>
-  
+
           <div *ngIf="registerForm.get('nombre')?.errors && (registerForm.get('nombre')?.dirty || hasAttemptedSubmit)">
             <p class="message_password" *ngIf="registerForm.get('nombre')?.hasError('required')">Debe llenar el campo</p>
           </div>
-  
+
           <app-input
               [text]="'text'"
               [holder]="'Apellido'"
@@ -49,11 +49,11 @@
               [id]="'apellido'"
               [estilos]="estilos">
           </app-input>
-  
+
           <div *ngIf="registerForm.get('apellido')?.errors && (registerForm.get('apellido')?.dirty || hasAttemptedSubmit)">
             <p class="message_password" *ngIf="registerForm.get('apellido')?.hasError('required')">Debe llenar el campo</p>
           </div>
-  
+
           <app-input
               [text]="'text'"
               [holder]="'Telefono'"
@@ -61,12 +61,12 @@
               [id]="'telefono'"
               [estilos]="estilos">
           </app-input>
-  
+
           <div *ngIf="registerForm.get('numeroDeTelefono')?.errors && (registerForm.get('numeroDeTelefono')?.dirty || hasAttemptedSubmit)">
             <p class="message_password" *ngIf="registerForm.get('numeroDeTelefono')?.hasError('pattern')">El teléfono debe contener solo números.</p>
             <p class="message_password" *ngIf="registerForm.get('numeroDeTelefono')?.hasError('minlength') || registerForm.get('numeroDeTelefono')?.hasError('maxlength')">El teléfono debe tener entre 10 y 15 caracteres.</p>
           </div>
-  
+
           <app-input
               [text]="'text'"
               [holder]="'Email'"
@@ -74,11 +74,11 @@
               [id]="'email'"
               [estilos]="estilos">
           </app-input>
-  
+
           <div *ngIf="registerForm.get('email')?.errors && (registerForm.get('email')?.dirty || hasAttemptedSubmit)">
             <p class="message_password" *ngIf="registerForm.get('email')?.hasError('email')">Debe ingresar un correo valido</p>
           </div>
-  
+
           <app-input
               [text]="'password'"
               [holder]="'Contraseña'"
@@ -86,13 +86,13 @@
               [id]="'contraseña'"
               [estilos]="estilos">
           </app-input>
-  
+
           <div *ngIf="registerForm.get('contrasenia')?.errors && (registerForm.get('contrasenia')?.dirty || hasAttemptedSubmit)">
             <p class="message_password" *ngIf="registerForm.get('contrasenia')?.hasError('minlength') || registerForm.get('contrasenia')?.hasError('maxlength') || registerForm.get('contrasenia')?.hasError('pattern')">
               ¡Necesitas entre 8 y 15 caracteres, al menos una mayúscula, una minúscula y un número!
             </p>
           </div>
-  
+
           <app-input
               [text]="'password'"
               [holder]="'Confirmar Contraseña'"
@@ -100,18 +100,18 @@
               [id]="'confirmar'"
               [estilos]="estilos">
           </app-input>
-  
+
           <div *ngIf="registerForm.hasError('passwordMismatch') && (registerForm.get('contrasenia')?.dirty || registerForm.get('confirmarContrasenia')?.dirty || hasAttemptedSubmit)">
             <p class="message_password">Confirmar contraseña no es igual a contraseña</p>
           </div>
-  
+
           <!-- Mensaje de error si algún campo está vacío y el formulario ha sido enviado -->
           <div *ngIf="hasAttemptedSubmit && registerForm.invalid">
             <p class="message_password">Todos los campos son obligatorios y deben ser válidos.</p>
           </div>
-  
-          <p class="p">¿Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
-  
+
+          <p class="p">¿Ya tienes una cuenta?  <app-titulo  [ruta]="'/login'" [title]="'Inicia Sesion'" class="a" [estilo]="'color:black ; font-size: 15px; margin-left: 8px'"></app-titulo></p>
+
           <div class="btn-button-submit">
             <button type="submit" [disabled]="registerForm.invalid" class="button">Registrarse</button>
           </div>
@@ -120,10 +120,12 @@
           </div>
           <!-- Botón para iniciar sesión con Google (actualmente comentado) -->
           <!-- <button class="g-signin2" (click)="loginWithGoogle()">Iniciar sesión con Google</button>-->
-  
+
         </form>
       </div>
     </div>
-     <app-estado-carga *ngIf="isLoading"></app-estado-carga>
   </section>
-  
+  <!-- Overlay y spinner de carga -->
+  <div class="loading-overlay" *ngIf="isLoading">
+    <app-estado-carga></app-estado-carga>
+  </div>
