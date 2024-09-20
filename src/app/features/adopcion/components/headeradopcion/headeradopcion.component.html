@@ -10,7 +10,7 @@
       </span>
   </div>
 
-  <button routerLink= "/nueva-adopcion">Nueva Publicacion</button>
+  <button (click)="navigateToNuevaAdopcion()">Nueva Publicación</button>
 
 <div class="search-container-responsive">
   <input  [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" type="text" placeholder="Buscar..." class="search-input">

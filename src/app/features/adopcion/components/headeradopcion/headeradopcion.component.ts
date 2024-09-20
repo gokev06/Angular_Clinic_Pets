@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-headeradopcion',
@@ -13,7 +14,7 @@ export class HeaderadopcionComponent  implements OnInit{
   @Output() search = new EventEmitter <string>();
 
 
-  constructor(){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
 
@@ -24,5 +25,9 @@ export class HeaderadopcionComponent  implements OnInit{
     this.search.emit(this.searchTerm);
     console.log(this.searchTerm);
 
+  }
+
+  navigateToNuevaAdopcion() {
+    this.router.navigate(['/nueva-adopcion']);
   }
 }
