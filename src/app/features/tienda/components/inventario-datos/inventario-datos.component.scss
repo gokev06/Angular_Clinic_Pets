@@ -98,3 +98,43 @@
 .btn-eliminar:hover {
   background: rgba(250, 60, 60, 0.26);
 }
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .tabla {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .fila {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .celda {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #CCC4FF;
+    margin-bottom: 5px;
+  }
+
+  .celda.imagen img {
+    width: 40px;
+  }
+
+  .celda input {
+    width: 100%;
+  }
+
+  /* Ajustar tamaño de los botones */
+  .btn-editar,
+  .btn-guardar,
+  .btn-cancelar,
+  .btn-eliminar {
+    width: 100%;
+    margin: 2px 0;
+  }
+}

@@ -14,4 +14,10 @@ export class HeaderInventarioComponent {
   buscarProductos(): void {
     this.buscar.emit(this.busqueda.trim()); // Emitir el término de búsqueda
   }
+
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }

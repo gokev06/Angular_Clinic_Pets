@@ -34,12 +34,10 @@ section {
 
 p {
     margin-top: 20px;
+    display: flex;
+    font-size:15px ;
 }
 
-a {
-    text-decoration: none;
-    color: #000000; /* Color negro */
-}
 
 .logo h1 {
     font-size: 28px;

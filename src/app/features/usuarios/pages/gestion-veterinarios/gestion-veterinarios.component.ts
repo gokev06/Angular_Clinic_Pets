@@ -144,7 +144,6 @@ export class GestionVeterinariosComponent implements OnInit {
               imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de error
               imageWidth: 100,
               imageHeight: 100,
-              icon: 'error',
               confirmButtonColor: '#F57171'
             });
           }
@@ -156,7 +155,6 @@ export class GestionVeterinariosComponent implements OnInit {
           imageUrl: '../../../../../assets/images/imgcitas/huellas.png', // Imagen de cancelación
           imageWidth: 100,
           imageHeight: 100,
-          icon: 'info',
           confirmButtonColor: '#7DFF82'
         });
       }

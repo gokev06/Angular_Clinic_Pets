@@ -110,7 +110,7 @@
             <p class="message_password">Todos los campos son obligatorios y deben ser válidos.</p>
           </div>
 
-          <p class="p">¿Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
+          <p class="p">¿Ya tienes una cuenta?  <app-titulo  [ruta]="'/login'" [title]="'Inicia Sesion'" class="a" [estilo]="'color:black ; font-size: 15px; margin-left: 8px'"></app-titulo></p>
 
           <div class="btn-button-submit">
             <button type="submit" [disabled]="registerForm.invalid" class="button">Registrarse</button>

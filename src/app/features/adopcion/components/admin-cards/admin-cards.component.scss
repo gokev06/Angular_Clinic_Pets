@@ -150,12 +150,12 @@ section {
 
 
 .container-cards {
-    width: 85%;
+    width: 75%;
     display: flex;
     justify-content: flex-start;  // Alinea al inicio cuando haya una carta sola
     flex-wrap: wrap;
     align-items: center;
-    gap: 20px;  // Espacio entre las cartas
+    gap: 30px;  // Espacio entre las cartas
 }
 
 
@@ -189,7 +189,7 @@ section {
 }
 
 .cartas {
-    width: 20%;
+    width: 22%;
     margin-left: 1%;
 }
 
