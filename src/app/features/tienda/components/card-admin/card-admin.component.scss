@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 30px;
+  margin-bottom: 40px;
 }
 
 /* Estilos para cada card */
@@ -229,6 +230,7 @@ button:hover {
   .principal {
     grid-template-columns: repeat(3, 1fr); /* Dos columnas en pantallas más pequeñas */
     gap: 10px;
+    
   }
   .imagen-principal{
    height: auto;
