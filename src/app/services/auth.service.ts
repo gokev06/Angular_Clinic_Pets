@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   private readonly TOKEN_KEY = 'userToken';
-  private readonly API_URL = 'http://localhost:10101';
+  private readonly API_URL = 'https://back-end-clinic-pets-production-4373.up.railway.app';
 
   constructor(private http: HttpClient) { }
 

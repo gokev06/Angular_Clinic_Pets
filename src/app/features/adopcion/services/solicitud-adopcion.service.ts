@@ -76,9 +76,9 @@ export interface AdopcionesInfo{
 })
 export class SolicitudAdopcionService {
 
-  private apiurl = 'http://localhost:8000/adopciones';
-  private apiUrl_1 = 'http://localhost:10101';
-  private apiUrl_2 = 'http://localhost:10101';
+  private apiurl = 'https://back-end-clinic-pets-production-4373.up.railway.app/adopciones';
+  private apiUrl_1 = 'https://back-end-clinic-pets-production-4373.up.railway.app';
+  private apiUrl_2 = 'https://back-end-clinic-pets-production-4373.up.railway.app';
 
   constructor( private http: HttpClient) { }
 

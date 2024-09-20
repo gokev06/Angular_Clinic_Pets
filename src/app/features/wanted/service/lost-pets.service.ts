@@ -7,7 +7,7 @@ import { mergeMap } from 'rxjs';
   providedIn: 'root'
 })
 export class LostPetsService {
-  private apiUrl = 'http://localhost:10101'; // Cambia esto según tu configuración
+  private apiUrl = 'https://back-end-clinic-pets-production-4373.up.railway.app'; // Cambia esto según tu configuración
   private simulatedDelay = 2000; // Retraso simulado de 2 segundos
 
   constructor(private http: HttpClient) {}

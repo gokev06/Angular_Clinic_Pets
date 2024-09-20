@@ -30,7 +30,7 @@ export class UserServiceService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     this.loadingSubject.next(true);
-    return this.http.get<any>('http://localhost:10101/callData', { headers }).pipe(
+    return this.http.get<any>('https://back-end-clinic-pets-production-4373.up.railway.app/callData', { headers }).pipe(
       delay(3000),
       map(response => {
         if (response.status === 'success' && response.data) {
@@ -54,7 +54,7 @@ export class UserServiceService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     this.loadingSubject.next(true);
-    return this.http.put('http://localhost:10101/editar-perfil', updateData, { headers }).pipe(
+    return this.http.put('https://back-end-clinic-pets-production-4373.up.railway.app/editar-perfil', updateData, { headers }).pipe(
       delay(4000),
       map(response => {
         this.loadUserData().subscribe();

@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AppointmentService {
-  private apiUrl = 'http://localhost:10101/schedule';
-  private apiUrl_1 = 'http://localhost:10101';
+  private apiUrl = 'https://back-end-clinic-pets-production-4373.up.railway.app/schedule';
+  private apiUrl_1 = 'https://back-end-clinic-pets-production-4373.up.railway.app';
 
   constructor(private http: HttpClient) {}
 

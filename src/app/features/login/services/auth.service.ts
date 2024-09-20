@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:10101/auth';
+  private apiUrl = 'https://back-end-clinic-pets-production-4373.up.railway.app/auth';
 
   constructor(private http: HttpClient, private router: Router) {}
 

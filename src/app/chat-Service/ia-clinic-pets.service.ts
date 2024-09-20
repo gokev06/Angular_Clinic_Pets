@@ -19,14 +19,14 @@ export interface ChatResponse {
 export class IAClinicPetsService {
 
   private baseURL: string;
-  private apiUrl_1 = 'http://localhost:10101';
+  private apiUrl_1 = 'https://back-end-clinic-pets-production-4373.up.railway.app';
 
 
   constructor(
     private http: HttpClient,
     @Optional() @Inject('API_URL') apiUrl?: string
   ) {
-    this.baseURL = apiUrl || 'http://localhost:10101'; // URL por defecto si no se proporcion
+    this.baseURL = apiUrl || 'https://back-end-clinic-pets-production-4373.up.railway.app'; // URL por defecto si no se proporcion
   }
 
   sendMessage(question: string, history: ChatMessage[]): Observable<ChatResponse> {

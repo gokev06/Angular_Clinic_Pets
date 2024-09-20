@@ -15,6 +15,6 @@ export class AppointmentRegisterService {
   }
 
   getRegistroUrl() {
-    return this.registroType === 'veterinarian' ? 'http://localhost:10101/registerVet' : 'http://localhost:10101/register';
+    return this.registroType === 'veterinarian' ? 'https://back-end-clinic-pets-production-4373.up.railway.app/registerVet' : 'https://back-end-clinic-pets-production-4373.up.railway.app/register';
   }
 }

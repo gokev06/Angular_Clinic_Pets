@@ -1,4 +1,4 @@
 export const environment = {
    production: true,
-   apiUrl: 'http://localhost:10101/chat'
+   apiUrl: 'https://back-end-clinic-pets-production-4373.up.railway.app/chat'
 };
