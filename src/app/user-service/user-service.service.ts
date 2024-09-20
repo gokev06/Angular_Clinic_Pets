@@ -40,6 +40,7 @@ export class UserServiceService {
       }),
       finalize(() => {
         this.loadingSubject.next(false);
+        
       })
     );
   }
